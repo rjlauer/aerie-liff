@@ -1,0 +1,3404 @@
+<?xml version="1.0"?>
+
+<ps-catalog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="@HAWC_CONFIG@/PSCatalog.xsd">
+
+  <!-- ==================== 1FHL J0007.7+4709  =================== -->
+  <source>
+    <name>  1FHL J0007.7+4709 </name>
+    <assoc> MG4 J000800+4712 </assoc>
+    <raJ2000 unit="degree"> 1.94689995947 </raJ2000>
+    <decJ2000 unit="degree"> 47.1547005391 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 10.154558 </normF>
+      <normE unit="GeV"> 14.399485 </normE>
+      <index> -3.566917 </index>
+    </spectrum>
+    <redshift> 0.28 </redshift>
+  </source>
+
+  <!-- ==================== 1FHL J0008.7-2340  =================== -->
+  <source>
+    <name>  1FHL J0008.7-2340 </name>
+    <assoc> RBS 0016 </assoc>
+    <raJ2000 unit="degree"> 2.19419997841 </raJ2000>
+    <decJ2000 unit="degree"> -23.6744004275 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 2.534680 </normF>
+      <normE unit="GeV"> 18.809447 </normE>
+      <index> -2.573399 </index>
+    </spectrum>
+    <redshift> 0.147 </redshift>
+  </source>
+
+  <!-- ==================== 1FHL J0018.6+2946  =================== -->
+  <source>
+    <name>  1FHL J0018.6+2946 </name>
+    <assoc> RBS 0042 </assoc>
+    <raJ2000 unit="degree"> 4.67269975084 </raJ2000>
+    <decJ2000 unit="degree"> 29.7759979508 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 1.254158 </normF>
+      <normE unit="GeV"> 24.725988 </normE>
+      <index> -2.015557 </index>
+    </spectrum>
+    <redshift> 0.1 </redshift>
+  </source>
+
+  <!-- ==================== 1FHL J0033.6-1921  =================== -->
+  <source>
+    <name>  1FHL J0033.6-1921 </name>
+    <assoc> KUV 00311-1938 </assoc>
+    <raJ2000 unit="degree"> 8.40660024555 </raJ2000>
+    <decJ2000 unit="degree"> -19.3609003251 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 6.094472 </normF>
+      <normE unit="GeV"> 26.535959 </normE>
+      <index> -1.928507 </index>
+    </spectrum>
+    <redshift> 0.61 </redshift>
+  </source>
+
+  <!-- ==================== 1FHL J0035.2+1514  =================== -->
+  <source>
+    <name>  1FHL J0035.2+1514 </name>
+    <assoc> RX J0035.2+1515 </assoc>
+    <raJ2000 unit="degree"> 8.80589993461 </raJ2000>
+    <decJ2000 unit="degree"> 15.2339002455 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 5.345053 </normF>
+      <normE unit="GeV"> 17.658244 </normE>
+      <index> -2.731784 </index>
+    </spectrum>
+    <redshift> 1.09026 </redshift>
+  </source>
+
+  <!-- ==================== 1FHL J0035.9+5950  =================== -->
+  <source>
+    <name>  1FHL J0035.9+5950 </name>
+    <assoc> 1ES 0033+595 </assoc>
+    <raJ2000 unit="degree"> 8.9898002167 </raJ2000>
+    <decJ2000 unit="degree"> 59.8377983372 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 3.558479 </normF>
+      <normE unit="GeV"> 32.286336 </normE>
+      <index> -1.737687 </index>
+    </spectrum>
+    <redshift> 0.086 </redshift>
+  </source>
+
+  <!-- ==================== 1FHL J0050.6-0930  =================== -->
+  <source>
+    <name>  1FHL J0050.6-0930 </name>
+    <assoc> PKS 0048-09 </assoc>
+    <raJ2000 unit="degree"> 12.6716000284 </raJ2000>
+    <decJ2000 unit="degree"> -9.51039979655 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 4.059045 </normF>
+      <normE unit="GeV"> 21.425240 </normE>
+      <index> -2.175128 </index>
+    </spectrum>
+    <redshift> 0.634 </redshift>
+  </source>
+
+  <!-- ==================== 1FHL J0108.4+0134  =================== -->
+  <source>
+    <name>  1FHL J0108.4+0134 </name>
+    <assoc> 4C +01.02 </assoc>
+    <raJ2000 unit="degree"> 17.1047983422 </raJ2000>
+    <decJ2000 unit="degree"> 1.57669997119 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 5.045843 </normF>
+      <normE unit="GeV"> 15.396182 </normE>
+      <index> -3.157547 </index>
+    </spectrum>
+    <redshift> 2.099 </redshift>
+  </source>
+
+  <!-- ==================== 1FHL J0110.3+6805  =================== -->
+  <source>
+    <name>  1FHL J0110.3+6805 </name>
+    <assoc> 4C +67.04 </assoc>
+    <raJ2000 unit="degree"> 17.5984007456 </raJ2000>
+    <decJ2000 unit="degree"> 68.0943017607 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 1.978434 </normF>
+      <normE unit="GeV"> 29.989234 </normE>
+      <index> -1.889533 </index>
+    </spectrum>
+    <redshift> 0.29 </redshift>
+  </source>
+
+  <!-- ==================== 1FHL J0112.0+2244  =================== -->
+  <source>
+    <name>  1FHL J0112.0+2244 </name>
+    <assoc> S2 0109+22 </assoc>
+    <raJ2000 unit="degree"> 18.0098991525 </raJ2000>
+    <decJ2000 unit="degree"> 22.7483992383 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 17.776625 </normF>
+      <normE unit="GeV"> 15.368656 </normE>
+      <index> -3.196148 </index>
+    </spectrum>
+    <redshift> 0.265 </redshift>
+  </source>
+
+  <!-- ==================== 1FHL J0112.9+3207  =================== -->
+  <source>
+    <name>  1FHL J0112.9+3207 </name>
+    <assoc> 4C 31.03 </assoc>
+    <raJ2000 unit="degree"> 18.2404999993 </raJ2000>
+    <decJ2000 unit="degree"> 32.1325976296 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 2.600682 </normF>
+      <normE unit="GeV"> 17.443365 </normE>
+      <index> -2.720730 </index>
+    </spectrum>
+    <redshift> 0.603 </redshift>
+  </source>
+
+  <!-- ==================== 1FHL J0115.6+2520  =================== -->
+  <source>
+    <name>  1FHL J0115.6+2520 </name>
+    <assoc> RX J0115.7+2519 </assoc>
+    <raJ2000 unit="degree"> 18.9057006603 </raJ2000>
+    <decJ2000 unit="degree"> 25.3334004429 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 1.882333 </normF>
+      <normE unit="GeV"> 22.941512 </normE>
+      <index> -2.160354 </index>
+    </spectrum>
+    <redshift> 0.35 </redshift>
+  </source>
+
+  <!-- ==================== 1FHL J0120.4-2701  =================== -->
+  <source>
+    <name>  1FHL J0120.4-2701 </name>
+    <assoc> PKS 0118-272 </assoc>
+    <raJ2000 unit="degree"> 20.1149002755 </raJ2000>
+    <decJ2000 unit="degree"> -27.0240993663 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 14.896518 </normF>
+      <normE unit="GeV"> 16.777520 </normE>
+      <index> -2.859141 </index>
+    </spectrum>
+    <redshift> 0.559 </redshift>
+  </source>
+
+  <!-- ==================== 1FHL J0122.7+3425  =================== -->
+  <source>
+    <name>  1FHL J0122.7+3425 </name>
+    <assoc> 1ES 0120+340 </assoc>
+    <raJ2000 unit="degree"> 20.6824002031 </raJ2000>
+    <decJ2000 unit="degree"> 34.4178013409 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 5.399412 </normF>
+      <normE unit="GeV"> 17.283680 </normE>
+      <index> -2.746066 </index>
+    </spectrum>
+    <redshift> 0.272 </redshift>
+  </source>
+
+  <!-- ==================== 1FHL J0132.6-1651  =================== -->
+  <source>
+    <name>  1FHL J0132.6-1651 </name>
+    <assoc> PKS 0130-17 </assoc>
+    <raJ2000 unit="degree"> 23.1653003249 </raJ2000>
+    <decJ2000 unit="degree"> -16.8588005415 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 6.279279 </normF>
+      <normE unit="GeV"> 13.435326 </normE>
+      <index> -4.289452 </index>
+    </spectrum>
+    <redshift> 1.02 </redshift>
+  </source>
+
+  <!-- ==================== 1FHL J0136.8+4754  =================== -->
+  <source>
+    <name>  1FHL J0136.8+4754 </name>
+    <assoc> OC 457 </assoc>
+    <raJ2000 unit="degree"> 24.2078996734 </raJ2000>
+    <decJ2000 unit="degree"> 47.901298272 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 6.101853 </normF>
+      <normE unit="GeV"> 14.841145 </normE>
+      <index> -3.467893 </index>
+    </spectrum>
+    <redshift> 0.859 </redshift>
+  </source>
+
+  <!-- ==================== 1FHL J0141.5-0927  =================== -->
+  <source>
+    <name>  1FHL J0141.5-0927 </name>
+    <assoc> PKS 0139-09 </assoc>
+    <raJ2000 unit="degree"> 25.3758995875 </raJ2000>
+    <decJ2000 unit="degree"> -9.46280020823 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 2.108402 </normF>
+      <normE unit="GeV"> 20.873270 </normE>
+      <index> -2.280347 </index>
+    </spectrum>
+    <redshift> 0.5 </redshift>
+  </source>
+
+  <!-- ==================== 1FHL J0152.6+0148  =================== -->
+  <source>
+    <name>  1FHL J0152.6+0148 </name>
+    <assoc> PMN J0152+0146 </assoc>
+    <raJ2000 unit="degree"> 28.163400533 </raJ2000>
+    <decJ2000 unit="degree"> 1.80019987581 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 2.115378 </normF>
+      <normE unit="GeV"> 28.526891 </normE>
+      <index> -1.770859 </index>
+    </spectrum>
+    <redshift> 0.08 </redshift>
+  </source>
+
+  <!-- ==================== 1FHL J0205.7+6448  =================== -->
+  <source>
+    <name>  1FHL J0205.7+6448 </name>
+    <assoc> PSR J0205+6449 </assoc>
+    <raJ2000 unit="degree"> 31.4260008996 </raJ2000>
+    <decJ2000 unit="degree"> 64.8150049968 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 0.636116 </normF>
+      <normE unit="GeV"> 39.518289 </normE>
+      <index> -1.641466 </index>
+    </spectrum>
+  </source>
+
+  <!-- ==================== 1FHL J0208.7+3523  =================== -->
+  <source>
+    <name>  1FHL J0208.7+3523 </name>
+    <assoc> BZB J0208+3523 </assoc>
+    <raJ2000 unit="degree"> 32.1764986705 </raJ2000>
+    <decJ2000 unit="degree"> 35.3877974861 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 0.551212 </normF>
+      <normE unit="GeV"> 34.595660 </normE>
+      <index> -1.704688 </index>
+    </spectrum>
+    <redshift> 0.318 </redshift>
+  </source>
+
+  <!-- ==================== 1FHL J0213.1+2246  =================== -->
+  <source>
+    <name>  1FHL J0213.1+2246 </name>
+    <assoc> MG3 J021252+2246 </assoc>
+    <raJ2000 unit="degree"> 33.2916978072 </raJ2000>
+    <decJ2000 unit="degree"> 22.7802996368 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 1.027976 </normF>
+      <normE unit="GeV"> 28.695553 </normE>
+      <index> -1.915236 </index>
+    </spectrum>
+    <redshift> 0.459 </redshift>
+  </source>
+
+  <!-- ==================== 1FHL J0217.4+0836  =================== -->
+  <source>
+    <name>  1FHL J0217.4+0836 </name>
+    <assoc> BZB J0217+0837 </assoc>
+    <raJ2000 unit="degree"> 34.3501005059 </raJ2000>
+    <decJ2000 unit="degree"> 8.61200025559 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 1.825997 </normF>
+      <normE unit="GeV"> 26.307152 </normE>
+      <index> -1.975702 </index>
+    </spectrum>
+    <redshift> 1.4 </redshift>
+  </source>
+
+  <!-- ==================== 1FHL J0217.7+0142  =================== -->
+  <source>
+    <name>  1FHL J0217.7+0142 </name>
+    <assoc> PKS 0215+015 </assoc>
+    <raJ2000 unit="degree"> 34.4442000221 </raJ2000>
+    <decJ2000 unit="degree"> 1.70060002962 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 9.897894 </normF>
+      <normE unit="GeV"> 14.032439 </normE>
+      <index> -3.688704 </index>
+    </spectrum>
+    <redshift> 1.715 </redshift>
+  </source>
+
+  <!-- ==================== 1FHL J0221.1+3555  =================== -->
+  <source>
+    <name>  1FHL J0221.1+3555 </name>
+    <assoc> S4 0218+35 </assoc>
+    <raJ2000 unit="degree"> 35.2934998944 </raJ2000>
+    <decJ2000 unit="degree"> 35.9258012417 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 4.869733 </normF>
+      <normE unit="GeV"> 21.040637 </normE>
+      <index> -2.284988 </index>
+    </spectrum>
+    <redshift> 0.68466 </redshift>
+  </source>
+
+  <!-- ==================== 1FHL J0222.6+4302  =================== -->
+  <source>
+    <name>  1FHL J0222.6+4302 </name>
+    <assoc> 3C 66A </assoc>
+    <raJ2000 unit="degree"> 35.6688017138 </raJ2000>
+    <decJ2000 unit="degree"> 43.0351982997 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 41.705144 </normF>
+      <normE unit="GeV"> 22.025262 </normE>
+      <index> -2.196174 </index>
+    </spectrum>
+    <redshift> 0.444 </redshift>
+  </source>
+
+  <!-- ==================== 1FHL J0238.7+1639  =================== -->
+  <source>
+    <name>  1FHL J0238.7+1639 </name>
+    <assoc> AO 0235+164 </assoc>
+    <raJ2000 unit="degree"> 39.6833990778 </raJ2000>
+    <decJ2000 unit="degree"> 16.6613995368 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 17.942021 </normF>
+      <normE unit="GeV"> 17.460338 </normE>
+      <index> -2.732045 </index>
+    </spectrum>
+    <redshift> 0.94 </redshift>
+  </source>
+
+  <!-- ==================== 1FHL J0240.2+6113  =================== -->
+  <source>
+    <name>  1FHL J0240.2+6113 </name>
+    <assoc> LS I+61 303 </assoc>
+    <raJ2000 unit="degree"> 40.0654969354 </raJ2000>
+    <decJ2000 unit="degree"> 61.2333016073 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 16.604158 </normF>
+      <normE unit="GeV"> 18.248807 </normE>
+      <index> -2.632569 </index>
+    </spectrum>
+  </source>
+
+  <!-- ==================== 1FHL J0250.6+1712  =================== -->
+  <source>
+    <name>  1FHL J0250.6+1712 </name>
+    <assoc> NVSS J025037+171209 </assoc>
+    <raJ2000 unit="degree"> 42.656600914 </raJ2000>
+    <decJ2000 unit="degree"> 17.2055999816 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 1.079138 </normF>
+      <normE unit="GeV"> 35.936184 </normE>
+      <index> -1.556224 </index>
+    </spectrum>
+    <redshift> 1.1003 </redshift>
+  </source>
+
+  <!-- ==================== 1FHL J0252.7-2218  =================== -->
+  <source>
+    <name>  1FHL J0252.7-2218 </name>
+    <assoc> PKS 0250-225 </assoc>
+    <raJ2000 unit="degree"> 43.176600291 </raJ2000>
+    <decJ2000 unit="degree"> -22.3105994804 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 7.782672 </normF>
+      <normE unit="GeV"> 16.493248 </normE>
+      <index> -2.977703 </index>
+    </spectrum>
+    <redshift> 1.427 </redshift>
+  </source>
+
+  <!-- ==================== 1FHL J0303.4-2407  =================== -->
+  <source>
+    <name>  1FHL J0303.4-2407 </name>
+    <assoc> PKS 0301-243 </assoc>
+    <raJ2000 unit="degree"> 45.8676982391 </raJ2000>
+    <decJ2000 unit="degree"> -24.1280991582 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 10.961294 </normF>
+      <normE unit="GeV"> 24.287805 </normE>
+      <index> -2.015184 </index>
+    </spectrum>
+    <redshift> 0.26 </redshift>
+  </source>
+
+  <!-- ==================== 1FHL J0303.6+4715  =================== -->
+  <source>
+    <name>  1FHL J0303.6+4715 </name>
+    <assoc> 4C +47.08 </assoc>
+    <raJ2000 unit="degree"> 45.9225002619 </raJ2000>
+    <decJ2000 unit="degree"> 47.2663980377 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 3.704826 </normF>
+      <normE unit="GeV"> 19.412846 </normE>
+      <index> -2.549245 </index>
+    </spectrum>
+    <redshift> 0.475 </redshift>
+  </source>
+
+  <!-- ==================== 1FHL J0309.1+1027  =================== -->
+  <source>
+    <name>  1FHL J0309.1+1027 </name>
+    <assoc> PKS 0306+102 </assoc>
+    <raJ2000 unit="degree"> 47.2900987941 </raJ2000>
+    <decJ2000 unit="degree"> 10.4585000628 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 9.505112 </normF>
+      <normE unit="GeV"> 13.662738 </normE>
+      <index> -3.745068 </index>
+    </spectrum>
+    <redshift> 0.863 </redshift>
+  </source>
+
+  <!-- ==================== 1FHL J0316.3-2609  =================== -->
+  <source>
+    <name>  1FHL J0316.3-2609 </name>
+    <assoc> RBS 0405 </assoc>
+    <raJ2000 unit="degree"> 49.0769001867 </raJ2000>
+    <decJ2000 unit="degree"> -26.1520993602 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 0.797464 </normF>
+      <normE unit="GeV"> 33.591992 </normE>
+      <index> -1.611322 </index>
+    </spectrum>
+    <redshift> 0.443 </redshift>
+  </source>
+
+  <!-- ==================== 1FHL J0316.6+4119  =================== -->
+  <source>
+    <name>  1FHL J0316.6+4119 </name>
+    <assoc> IC 310 </assoc>
+    <raJ2000 unit="degree"> 49.1688994197 </raJ2000>
+    <decJ2000 unit="degree"> 41.3216028747 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 0.271556 </normF>
+      <normE unit="GeV"> 63.628074 </normE>
+      <index> -1.306756 </index>
+    </spectrum>
+    <redshift> 0.01894 </redshift>
+  </source>
+
+  <!-- ==================== 1FHL J0319.8+1847  =================== -->
+  <source>
+    <name>  1FHL J0319.8+1847 </name>
+    <assoc> RBS 0413 </assoc>
+    <raJ2000 unit="degree"> 49.9641998165 </raJ2000>
+    <decJ2000 unit="degree"> 18.7978997846 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 3.054880 </normF>
+      <normE unit="GeV"> 24.644418 </normE>
+      <index> -2.064308 </index>
+    </spectrum>
+    <redshift> 0.19 </redshift>
+  </source>
+
+  <!-- ==================== 1FHL J0319.9+4130  =================== -->
+  <source>
+    <name>  1FHL J0319.9+4130 </name>
+    <assoc> NGC 1275 </assoc>
+    <raJ2000 unit="degree"> 49.9774025721 </raJ2000>
+    <decJ2000 unit="degree"> 41.5082002278 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 35.602363 </normF>
+      <normE unit="GeV"> 17.956256 </normE>
+      <index> -2.671966 </index>
+    </spectrum>
+    <redshift> 0.017559 </redshift>
+  </source>
+
+  <!-- ==================== 1FHL J0323.5-0107  =================== -->
+  <source>
+    <name>  1FHL J0323.5-0107 </name>
+    <assoc> BZB J0323-0111 </assoc>
+    <raJ2000 unit="degree"> 50.8804013917 </raJ2000>
+    <decJ2000 unit="degree"> -1.12939995379 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 4.413286 </normF>
+      <normE unit="GeV"> 17.510439 </normE>
+      <index> -2.701947 </index>
+    </spectrum>
+    <redshift> 2.075 </redshift>
+  </source>
+
+  <!-- ==================== 1FHL J0325.7-1647  =================== -->
+  <source>
+    <name>  1FHL J0325.7-1647 </name>
+    <assoc> RBS 0421 </assoc>
+    <raJ2000 unit="degree"> 51.4370993751 </raJ2000>
+    <decJ2000 unit="degree"> -16.7924998953 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 1.363335 </normF>
+      <normE unit="GeV"> 30.542678 </normE>
+      <index> -1.803412 </index>
+    </spectrum>
+    <redshift> 0.291 </redshift>
+  </source>
+
+  <!-- ==================== 1FHL J0326.1+0224  =================== -->
+  <source>
+    <name>  1FHL J0326.1+0224 </name>
+    <assoc> 1H 0323+022 </assoc>
+    <raJ2000 unit="degree"> 51.5451017414 </raJ2000>
+    <decJ2000 unit="degree"> 2.41249986792 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 11.227055 </normF>
+      <normE unit="GeV"> 12.326655 </normE>
+      <index> -5.267559 </index>
+    </spectrum>
+    <redshift> 0.147 </redshift>
+  </source>
+
+  <!-- ==================== 1FHL J0338.1-2443  =================== -->
+  <source>
+    <name>  1FHL J0338.1-2443 </name>
+    <assoc> BZB J0338-2443 </assoc>
+    <raJ2000 unit="degree"> 54.5410002963 </raJ2000>
+    <decJ2000 unit="degree"> -24.7329994941 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 0.326074 </normF>
+      <normE unit="GeV"> 42.014773 </normE>
+      <index> -1.390045 </index>
+    </spectrum>
+    <redshift> 0.2509 </redshift>
+  </source>
+
+  <!-- ==================== 1FHL J0423.3-0121  =================== -->
+  <source>
+    <name>  1FHL J0423.3-0121 </name>
+    <assoc> PKS 0420-01 </assoc>
+    <raJ2000 unit="degree"> 65.8452980519 </raJ2000>
+    <decJ2000 unit="degree"> -1.36569995308 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 15.139626 </normF>
+      <normE unit="GeV"> 13.614347 </normE>
+      <index> -3.993560 </index>
+    </spectrum>
+    <redshift> 0.916087 </redshift>
+  </source>
+
+  <!-- ==================== 1FHL J0433.5+2905  =================== -->
+  <source>
+    <name>  1FHL J0433.5+2905 </name>
+    <assoc> MG2 J043337+2905 </assoc>
+    <raJ2000 unit="degree"> 68.3886009516 </raJ2000>
+    <decJ2000 unit="degree"> 29.0863981465 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 5.736656 </normF>
+      <normE unit="GeV"> 21.188729 </normE>
+      <index> -2.283971 </index>
+    </spectrum>
+    <redshift> 0.97 </redshift>
+  </source>
+
+  <!-- ==================== 1FHL J0442.9-0017  =================== -->
+  <source>
+    <name>  1FHL J0442.9-0017 </name>
+    <assoc> BZQ J0442-0017 </assoc>
+    <raJ2000 unit="degree"> 70.7480966306 </raJ2000>
+    <decJ2000 unit="degree"> -0.29309998583 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 1.478545 </normF>
+      <normE unit="GeV"> 24.997436 </normE>
+      <index> -1.992266 </index>
+    </spectrum>
+    <redshift> 0.844 </redshift>
+  </source>
+
+  <!-- ==================== 1FHL J0457.1-2326  =================== -->
+  <source>
+    <name>  1FHL J0457.1-2326 </name>
+    <assoc> PKS 0454-234 </assoc>
+    <raJ2000 unit="degree"> 74.2759029973 </raJ2000>
+    <decJ2000 unit="degree"> -23.4474998357 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 17.050578 </normF>
+      <normE unit="GeV"> 15.258779 </normE>
+      <index> -3.303409 </index>
+    </spectrum>
+    <redshift> 1.003 </redshift>
+  </source>
+
+  <!-- ==================== 1FHL J0505.4+0418  =================== -->
+  <source>
+    <name>  1FHL J0505.4+0418 </name>
+    <assoc> MG1 J050533+0415 </assoc>
+    <raJ2000 unit="degree"> 76.3580998262 </raJ2000>
+    <decJ2000 unit="degree"> 4.30410005454 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 1.877326 </normF>
+      <normE unit="GeV"> 21.741873 </normE>
+      <index> -2.359893 </index>
+    </spectrum>
+    <redshift> 0.0272 </redshift>
+  </source>
+
+  <!-- ==================== 1FHL J0508.1+6737  =================== -->
+  <source>
+    <name>  1FHL J0508.1+6737 </name>
+    <assoc> 1ES 0502+675 </assoc>
+    <raJ2000 unit="degree"> 77.0384959505 </raJ2000>
+    <decJ2000 unit="degree"> 67.6242003307 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 6.032102 </normF>
+      <normE unit="GeV"> 34.035520 </normE>
+      <index> -1.633981 </index>
+    </spectrum>
+    <redshift> 0.314 </redshift>
+  </source>
+
+  <!-- ==================== 1FHL J0534.5+2201  =================== -->
+  <source>
+    <name>  1FHL J0534.5+2201 </name>
+    <assoc> PSR J0534+2200 </assoc>
+    <raJ2000 unit="degree"> 83.6280985372 </raJ2000>
+    <decJ2000 unit="degree"> 22.019100667 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 190.871936 </normF>
+      <normE unit="GeV"> 20.461531 </normE>
+      <index> -2.325138 </index>
+    </spectrum>
+  </source>
+
+  <!-- ==================== 1FHL J0617.2+2234e =================== -->
+  <source>
+    <name>  1FHL J0617.2+2234e </name>
+    <assoc> SNR G189.1-03.0 </assoc>
+    <raJ2000 unit="degree"> 94.3099953047 </raJ2000>
+    <decJ2000 unit="degree"> 22.5799992168 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 101.906527 </normF>
+      <normE unit="GeV"> 18.473930 </normE>
+      <index> -2.558700 </index>
+    </spectrum>
+  </source>
+
+  <!-- ==================== 1FHL J0622.4-2604  =================== -->
+  <source>
+    <name>  1FHL J0622.4-2604 </name>
+    <assoc> CRATES J0622-2606 </assoc>
+    <raJ2000 unit="degree"> 95.6037970581 </raJ2000>
+    <decJ2000 unit="degree"> -26.0716004582 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 1.113639 </normF>
+      <normE unit="GeV"> 29.065697 </normE>
+      <index> -1.864504 </index>
+    </spectrum>
+    <redshift> 0.414487 </redshift>
+  </source>
+
+  <!-- ==================== 1FHL J0630.9-2406  =================== -->
+  <source>
+    <name>  1FHL J0630.9-2406 </name>
+    <assoc> TXS 0628-240 </assoc>
+    <raJ2000 unit="degree"> 97.7479027216 </raJ2000>
+    <decJ2000 unit="degree"> -24.1125997514 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 15.411531 </normF>
+      <normE unit="GeV"> 19.414262 </normE>
+      <index> -2.456300 </index>
+    </spectrum>
+    <redshift> 1.238 </redshift>
+  </source>
+
+  <!-- ==================== 1FHL J0633.9+1746  =================== -->
+  <source>
+    <name>  1FHL J0633.9+1746 </name>
+    <assoc> PSR J0633+1746 </assoc>
+    <raJ2000 unit="degree"> 98.4813011139 </raJ2000>
+    <decJ2000 unit="degree"> 17.7717987581 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 378.363980 </normF>
+      <normE unit="GeV"> 12.387823 </normE>
+      <index> -4.996688 </index>
+    </spectrum>
+  </source>
+
+  <!-- ==================== 1FHL J0650.8+2504  =================== -->
+  <source>
+    <name>  1FHL J0650.8+2504 </name>
+    <assoc> 1ES 0647+250 </assoc>
+    <raJ2000 unit="degree"> 102.711995418 </raJ2000>
+    <decJ2000 unit="degree"> 25.0813989059 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 3.621075 </normF>
+      <normE unit="GeV"> 35.641699 </normE>
+      <index> -1.557031 </index>
+    </spectrum>
+    <redshift> 0.203 </redshift>
+  </source>
+
+  <!-- ==================== 1FHL J0654.2+4514  =================== -->
+  <source>
+    <name>  1FHL J0654.2+4514 </name>
+    <assoc> B3 0650+453 </assoc>
+    <raJ2000 unit="degree"> 103.567592725 </raJ2000>
+    <decJ2000 unit="degree"> 45.243599949 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 1.983251 </normF>
+      <normE unit="GeV"> 18.520295 </normE>
+      <index> -2.747215 </index>
+    </spectrum>
+    <redshift> 0.933 </redshift>
+  </source>
+
+  <!-- ==================== 1FHL J0710.5+5908  =================== -->
+  <source>
+    <name>  1FHL J0710.5+5908 </name>
+    <assoc> 1H 0658+595 </assoc>
+    <raJ2000 unit="degree"> 107.62899396 </raJ2000>
+    <decJ2000 unit="degree"> 59.1393978342 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 2.225023 </normF>
+      <normE unit="GeV"> 28.592254 </normE>
+      <index> -1.833757 </index>
+    </spectrum>
+    <redshift> 0.125 </redshift>
+  </source>
+
+  <!-- ==================== 1FHL J0719.2+3308  =================== -->
+  <source>
+    <name>  1FHL J0719.2+3308 </name>
+    <assoc> B2 0716+33 </assoc>
+    <raJ2000 unit="degree"> 109.818800419 </raJ2000>
+    <decJ2000 unit="degree"> 33.1409008907 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 13.351878 </normF>
+      <normE unit="GeV"> 15.469878 </normE>
+      <index> -3.097261 </index>
+    </spectrum>
+    <redshift> 0.779 </redshift>
+  </source>
+
+  <!-- ==================== 1FHL J0725.2+1423  =================== -->
+  <source>
+    <name>  1FHL J0725.2+1423 </name>
+    <assoc> 4C +14.23 </assoc>
+    <raJ2000 unit="degree"> 111.316196451 </raJ2000>
+    <decJ2000 unit="degree"> 14.3930988361 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 9.611141 </normF>
+      <normE unit="GeV"> 16.464670 </normE>
+      <index> -2.930969 </index>
+    </spectrum>
+    <redshift> 1.038 </redshift>
+  </source>
+
+  <!-- ==================== 1FHL J0730.2+3307  =================== -->
+  <source>
+    <name>  1FHL J0730.2+3307 </name>
+    <assoc> 1RXS J073026.0+330727 </assoc>
+    <raJ2000 unit="degree"> 112.568197447 </raJ2000>
+    <decJ2000 unit="degree"> 33.1267009274 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 1.383152 </normF>
+      <normE unit="GeV"> 23.137104 </normE>
+      <index> -2.258606 </index>
+    </spectrum>
+    <redshift> 0.1124 </redshift>
+  </source>
+
+  <!-- ==================== 1FHL J0730.3-1140  =================== -->
+  <source>
+    <name>  1FHL J0730.3-1140 </name>
+    <assoc> PKS 0727-11 </assoc>
+    <raJ2000 unit="degree"> 112.577302089 </raJ2000>
+    <decJ2000 unit="degree"> -11.6731996878 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 32.067129 </normF>
+      <normE unit="GeV"> 14.785614 </normE>
+      <index> -3.435127 </index>
+    </spectrum>
+    <redshift> 1.591 </redshift>
+  </source>
+
+  <!-- ==================== 1FHL J0738.0+1742  =================== -->
+  <source>
+    <name>  1FHL J0738.0+1742 </name>
+    <assoc> PKS 0735+17 </assoc>
+    <raJ2000 unit="degree"> 114.506796379 </raJ2000>
+    <decJ2000 unit="degree"> 17.7005001209 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 17.955548 </normF>
+      <normE unit="GeV"> 16.410293 </normE>
+      <index> -2.996217 </index>
+    </spectrum>
+    <redshift> 0.424 </redshift>
+  </source>
+
+  <!-- ==================== 1FHL J0743.0+5446  =================== -->
+  <source>
+    <name>  1FHL J0743.0+5446 </name>
+    <assoc> GB6 J0742+5444 </assoc>
+    <raJ2000 unit="degree"> 115.773195413 </raJ2000>
+    <decJ2000 unit="degree"> 54.7769013698 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 11.074632 </normF>
+      <normE unit="GeV"> 13.170113 </normE>
+      <index> -4.356639 </index>
+    </spectrum>
+    <redshift> 0.72 </redshift>
+  </source>
+
+  <!-- ==================== 1FHL J0753.0+5351  =================== -->
+  <source>
+    <name>  1FHL J0753.0+5351 </name>
+    <assoc> 4C +54.15 </assoc>
+    <raJ2000 unit="degree"> 118.269397328 </raJ2000>
+    <decJ2000 unit="degree"> 53.8522986619 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 3.887088 </normF>
+      <normE unit="GeV"> 17.748807 </normE>
+      <index> -2.780125 </index>
+    </spectrum>
+    <redshift> 0.2 </redshift>
+  </source>
+
+  <!-- ==================== 1FHL J0757.2+0955  =================== -->
+  <source>
+    <name>  1FHL J0757.2+0955 </name>
+    <assoc> PKS 0754+100 </assoc>
+    <raJ2000 unit="degree"> 119.322407592 </raJ2000>
+    <decJ2000 unit="degree"> 9.91850018437 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 2.799882 </normF>
+      <normE unit="GeV"> 20.148049 </normE>
+      <index> -2.459287 </index>
+    </spectrum>
+    <redshift> 0.266 </redshift>
+  </source>
+
+  <!-- ==================== 1FHL J0808.2-0749  =================== -->
+  <source>
+    <name>  1FHL J0808.2-0749 </name>
+    <assoc> PKS 0805-07 </assoc>
+    <raJ2000 unit="degree"> 122.07000145 </raJ2000>
+    <decJ2000 unit="degree"> -7.82320049136 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 27.962045 </normF>
+      <normE unit="GeV"> 15.103230 </normE>
+      <index> -3.299206 </index>
+    </spectrum>
+    <redshift> 1.837 </redshift>
+  </source>
+
+  <!-- ==================== 1FHL J0809.8+5217  =================== -->
+  <source>
+    <name>  1FHL J0809.8+5217 </name>
+    <assoc> 1ES 0806+524 </assoc>
+    <raJ2000 unit="degree"> 122.460893176 </raJ2000>
+    <decJ2000 unit="degree"> 52.2938987952 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 8.600169 </normF>
+      <normE unit="GeV"> 23.238027 </normE>
+      <index> -2.140160 </index>
+    </spectrum>
+    <redshift> 0.138 </redshift>
+  </source>
+
+  <!-- ==================== 1FHL J0811.4+0149  =================== -->
+  <source>
+    <name>  1FHL J0811.4+0149 </name>
+    <assoc> OJ 014 </assoc>
+    <raJ2000 unit="degree"> 122.860595847 </raJ2000>
+    <decJ2000 unit="degree"> 1.82480008277 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 3.315790 </normF>
+      <normE unit="GeV"> 18.413369 </normE>
+      <index> -2.452450 </index>
+    </spectrum>
+    <redshift> 1.148 </redshift>
+  </source>
+
+  <!-- ==================== 1FHL J0816.3-1310  =================== -->
+  <source>
+    <name>  1FHL J0816.3-1310 </name>
+    <assoc> PMN J0816-1311 </assoc>
+    <raJ2000 unit="degree"> 124.090999784 </raJ2000>
+    <decJ2000 unit="degree"> -13.1770997676 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 5.258956 </normF>
+      <normE unit="GeV"> 24.165799 </normE>
+      <index> -2.057264 </index>
+    </spectrum>
+    <redshift> 0.045978 </redshift>
+  </source>
+
+  <!-- ==================== 1FHL J0817.9+4224  =================== -->
+  <source>
+    <name>  1FHL J0817.9+4224 </name>
+    <assoc> S4 0814+42 </assoc>
+    <raJ2000 unit="degree"> 124.497600945 </raJ2000>
+    <decJ2000 unit="degree"> 42.4160006703 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 15.780947 </normF>
+      <normE unit="GeV"> 14.650570 </normE>
+      <index> -3.541321 </index>
+    </spectrum>
+    <redshift> 0.53 </redshift>
+  </source>
+
+  <!-- ==================== 1FHL J0825.9+0308  =================== -->
+  <source>
+    <name>  1FHL J0825.9+0308 </name>
+    <assoc> PKS 0823+033 </assoc>
+    <raJ2000 unit="degree"> 126.477891352 </raJ2000>
+    <decJ2000 unit="degree"> 3.14420010446 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 0.860521 </normF>
+      <normE unit="GeV"> 29.551879 </normE>
+      <index> -1.628564 </index>
+    </spectrum>
+    <redshift> 0.506 </redshift>
+  </source>
+
+  <!-- ==================== 1FHL J0826.0-2230  =================== -->
+  <source>
+    <name>  1FHL J0826.0-2230 </name>
+    <assoc> PKS 0823-223 </assoc>
+    <raJ2000 unit="degree"> 126.502097542 </raJ2000>
+    <decJ2000 unit="degree"> -22.5165996933 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 11.385613 </normF>
+      <normE unit="GeV"> 18.305266 </normE>
+      <index> -2.610337 </index>
+    </spectrum>
+    <redshift> 0.91 </redshift>
+  </source>
+
+  <!-- ==================== 1FHL J0832.0+0429  =================== -->
+  <source>
+    <name>  1FHL J0832.0+0429 </name>
+    <assoc> PKS 0829+046 </assoc>
+    <raJ2000 unit="degree"> 128.000299537 </raJ2000>
+    <decJ2000 unit="degree"> 4.48439997316 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 4.310882 </normF>
+      <normE unit="GeV"> 17.695438 </normE>
+      <index> -2.608314 </index>
+    </spectrum>
+    <redshift> 0.173683 </redshift>
+  </source>
+
+  <!-- ==================== 1FHL J0846.8-2338  =================== -->
+  <source>
+    <name>  1FHL J0846.8-2338 </name>
+    <assoc> PMN J0847-2337 </assoc>
+    <raJ2000 unit="degree"> 131.705499577 </raJ2000>
+    <decJ2000 unit="degree"> -23.6403997458 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 7.013639 </normF>
+      <normE unit="GeV"> 13.621917 </normE>
+      <index> -3.811748 </index>
+    </spectrum>
+    <redshift> 0.060702 </redshift>
+  </source>
+
+  <!-- ==================== 1FHL J0847.0+1132  =================== -->
+  <source>
+    <name>  1FHL J0847.0+1132 </name>
+    <assoc> RX J0847.1+1133 </assoc>
+    <raJ2000 unit="degree"> 131.772899883 </raJ2000>
+    <decJ2000 unit="degree"> 11.5441996125 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 0.755230 </normF>
+      <normE unit="GeV"> 38.025566 </normE>
+      <index> -1.450590 </index>
+    </spectrum>
+    <redshift> 0.198199 </redshift>
+  </source>
+
+  <!-- ==================== 1FHL J0850.2-1211  =================== -->
+  <source>
+    <name>  1FHL J0850.2-1211 </name>
+    <assoc> BZQ J0850-1213 </assoc>
+    <raJ2000 unit="degree"> 132.553604166 </raJ2000>
+    <decJ2000 unit="degree"> -12.1892998806 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 6.169454 </normF>
+      <normE unit="GeV"> 15.146597 </normE>
+      <index> -3.281137 </index>
+    </spectrum>
+    <redshift> 0.566 </redshift>
+  </source>
+
+  <!-- ==================== 1FHL J0854.8+2004  =================== -->
+  <source>
+    <name>  1FHL J0854.8+2004 </name>
+    <assoc> OJ 287 </assoc>
+    <raJ2000 unit="degree"> 133.711594438 </raJ2000>
+    <decJ2000 unit="degree"> 20.0789000559 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 4.174428 </normF>
+      <normE unit="GeV"> 17.513861 </normE>
+      <index> -2.675171 </index>
+    </spectrum>
+    <redshift> 0.3056 </redshift>
+  </source>
+
+  <!-- ==================== 1FHL J0910.6+3333  =================== -->
+  <source>
+    <name>  1FHL J0910.6+3333 </name>
+    <assoc> Ton 1015 </assoc>
+    <raJ2000 unit="degree"> 137.668391326 </raJ2000>
+    <decJ2000 unit="degree"> 33.5551996752 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 3.483701 </normF>
+      <normE unit="GeV"> 18.802914 </normE>
+      <index> -2.433825 </index>
+    </spectrum>
+    <redshift> 0.354 </redshift>
+  </source>
+
+  <!-- ==================== 1FHL J0913.1-2104  =================== -->
+  <source>
+    <name>  1FHL J0913.1-2104 </name>
+    <assoc> MRC 0910-208 </assoc>
+    <raJ2000 unit="degree"> 138.288804729 </raJ2000>
+    <decJ2000 unit="degree"> -21.0777998541 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 1.147909 </normF>
+      <normE unit="GeV"> 32.806031 </normE>
+      <index> -1.600716 </index>
+    </spectrum>
+    <redshift> 0.198017 </redshift>
+  </source>
+
+  <!-- ==================== 1FHL J0920.9+4443  =================== -->
+  <source>
+    <name>  1FHL J0920.9+4443 </name>
+    <assoc> S4 0917+44 </assoc>
+    <raJ2000 unit="degree"> 140.229507359 </raJ2000>
+    <decJ2000 unit="degree"> 44.7310967046 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 12.303714 </normF>
+      <normE unit="GeV"> 12.963402 </normE>
+      <index> -4.514357 </index>
+    </spectrum>
+    <redshift> 2.18645 </redshift>
+  </source>
+
+  <!-- ==================== 1FHL J0929.5+5014  =================== -->
+  <source>
+    <name>  1FHL J0929.5+5014 </name>
+    <assoc> GB6 J0929+5013 </assoc>
+    <raJ2000 unit="degree"> 142.394294835 </raJ2000>
+    <decJ2000 unit="degree"> 50.2402999684 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 6.923154 </normF>
+      <normE unit="GeV"> 16.503563 </normE>
+      <index> -3.024659 </index>
+    </spectrum>
+    <redshift> 0.370387 </redshift>
+  </source>
+
+  <!-- ==================== 1FHL J0946.2+0106  =================== -->
+  <source>
+    <name>  1FHL J0946.2+0106 </name>
+    <assoc> RXS J094620.5+010459 </assoc>
+    <raJ2000 unit="degree"> 146.573892494 </raJ2000>
+    <decJ2000 unit="degree"> 1.10520005995 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 3.743783 </normF>
+      <normE unit="GeV"> 15.830524 </normE>
+      <index> -3.092187 </index>
+    </spectrum>
+    <redshift> 0.577023 </redshift>
+  </source>
+
+  <!-- ==================== 1FHL J0957.6+5522  =================== -->
+  <source>
+    <name>  1FHL J0957.6+5522 </name>
+    <assoc> 4C +55.17 </assoc>
+    <raJ2000 unit="degree"> 149.421097831 </raJ2000>
+    <decJ2000 unit="degree"> 55.3772989035 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 19.767626 </normF>
+      <normE unit="GeV"> 19.656820 </normE>
+      <index> -2.432101 </index>
+    </spectrum>
+    <redshift> 0.89961 </redshift>
+  </source>
+
+  <!-- ==================== 1FHL J0959.5+6535  =================== -->
+  <source>
+    <name>  1FHL J0959.5+6535 </name>
+    <assoc> S4 0954+65 </assoc>
+    <raJ2000 unit="degree"> 149.884403222 </raJ2000>
+    <decJ2000 unit="degree"> 65.5846033917 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 0.850748 </normF>
+      <normE unit="GeV"> 25.237967 </normE>
+      <index> -2.086209 </index>
+    </spectrum>
+    <redshift> 0.368 </redshift>
+  </source>
+
+  <!-- ==================== 1FHL J1015.0+4925  =================== -->
+  <source>
+    <name>  1FHL J1015.0+4925 </name>
+    <assoc> 1H 1013+498 </assoc>
+    <raJ2000 unit="degree"> 153.773403653 </raJ2000>
+    <decJ2000 unit="degree"> 49.4269986081 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 18.270889 </normF>
+      <normE unit="GeV"> 21.199139 </normE>
+      <index> -2.279996 </index>
+    </spectrum>
+    <redshift> 0.212 </redshift>
+  </source>
+
+  <!-- ==================== 1FHL J1016.0+0512  =================== -->
+  <source>
+    <name>  1FHL J1016.0+0512 </name>
+    <assoc> TXS 1013+054 </assoc>
+    <raJ2000 unit="degree"> 154.009905783 </raJ2000>
+    <decJ2000 unit="degree"> 5.20510019004 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 8.102947 </normF>
+      <normE unit="GeV"> 17.008002 </normE>
+      <index> -2.865464 </index>
+    </spectrum>
+    <redshift> 1.71272 </redshift>
+  </source>
+
+  <!-- ==================== 1FHL J1023.6+2959  =================== -->
+  <source>
+    <name>  1FHL J1023.6+2959 </name>
+    <assoc> RX J1023.6+3001 </assoc>
+    <raJ2000 unit="degree"> 155.908903278 </raJ2000>
+    <decJ2000 unit="degree"> 29.9954007024 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 0.707584 </normF>
+      <normE unit="GeV"> 29.588555 </normE>
+      <index> -1.827792 </index>
+    </spectrum>
+    <redshift> 0.433452 </redshift>
+  </source>
+
+  <!-- ==================== 1FHL J1031.0+5052  =================== -->
+  <source>
+    <name>  1FHL J1031.0+5052 </name>
+    <assoc> 1ES 1028+511 </assoc>
+    <raJ2000 unit="degree"> 157.759201524 </raJ2000>
+    <decJ2000 unit="degree"> 50.8787997124 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 1.195976 </normF>
+      <normE unit="GeV"> 32.801371 </normE>
+      <index> -1.646985 </index>
+    </spectrum>
+    <redshift> 0.360403 </redshift>
+  </source>
+
+  <!-- ==================== 1FHL J1033.7+6051  =================== -->
+  <source>
+    <name>  1FHL J1033.7+6051 </name>
+    <assoc> S4 1030+61 </assoc>
+    <raJ2000 unit="degree"> 158.434693573 </raJ2000>
+    <decJ2000 unit="degree"> 60.8585018068 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 14.073690 </normF>
+      <normE unit="GeV"> 13.569197 </normE>
+      <index> -4.207278 </index>
+    </spectrum>
+    <redshift> 1.40928 </redshift>
+  </source>
+
+  <!-- ==================== 1FHL J1037.4+5712  =================== -->
+  <source>
+    <name>  1FHL J1037.4+5712 </name>
+    <assoc> GB6 J1037+5711 </assoc>
+    <raJ2000 unit="degree"> 159.373503074 </raJ2000>
+    <decJ2000 unit="degree"> 57.2010003931 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 8.812015 </normF>
+      <normE unit="GeV"> 17.656352 </normE>
+      <index> -2.654069 </index>
+    </spectrum>
+    <redshift> 0.83037 </redshift>
+  </source>
+
+  <!-- ==================== 1FHL J1043.2+2407  =================== -->
+  <source>
+    <name>  1FHL J1043.2+2407 </name>
+    <assoc> B2 1040+24A </assoc>
+    <raJ2000 unit="degree"> 160.822090574 </raJ2000>
+    <decJ2000 unit="degree"> 24.1193992047 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 1.497458 </normF>
+      <normE unit="GeV"> 21.173766 </normE>
+      <index> -2.315682 </index>
+    </spectrum>
+    <redshift> 0.563446 </redshift>
+  </source>
+
+  <!-- ==================== 1FHL J1053.6+4931  =================== -->
+  <source>
+    <name>  1FHL J1053.6+4931 </name>
+    <assoc> GB6 J1053+4930 </assoc>
+    <raJ2000 unit="degree"> 163.40279559 </raJ2000>
+    <decJ2000 unit="degree"> 49.521197162 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 0.561157 </normF>
+      <normE unit="GeV"> 39.857664 </normE>
+      <index> -1.486641 </index>
+    </spectrum>
+    <redshift> 0.140421 </redshift>
+  </source>
+
+  <!-- ==================== 1FHL J1058.5+0133  =================== -->
+  <source>
+    <name>  1FHL J1058.5+0133 </name>
+    <assoc> 4C +01.28 </assoc>
+    <raJ2000 unit="degree"> 164.62750315 </raJ2000>
+    <decJ2000 unit="degree"> 1.56349999029 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 8.490386 </normF>
+      <normE unit="GeV"> 19.793863 </normE>
+      <index> -2.423642 </index>
+    </spectrum>
+    <redshift> 0.89 </redshift>
+  </source>
+
+  <!-- ==================== 1FHL J1058.6+5627  =================== -->
+  <source>
+    <name>  1FHL J1058.6+5627 </name>
+    <assoc> TXS 1055+567 </assoc>
+    <raJ2000 unit="degree"> 164.665888813 </raJ2000>
+    <decJ2000 unit="degree"> 56.4592999058 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 7.954654 </normF>
+      <normE unit="GeV"> 23.866199 </normE>
+      <index> -2.015295 </index>
+    </spectrum>
+    <redshift> 0.143304 </redshift>
+  </source>
+
+  <!-- ==================== 1FHL J1100.6+4018  =================== -->
+  <source>
+    <name>  1FHL J1100.6+4018 </name>
+    <assoc> RX J1100.3+4019 </assoc>
+    <raJ2000 unit="degree"> 165.164506283 </raJ2000>
+    <decJ2000 unit="degree"> 40.3151027835 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 2.235391 </normF>
+      <normE unit="GeV"> 22.709824 </normE>
+      <index> -2.225908 </index>
+    </spectrum>
+    <redshift> 0.225 </redshift>
+  </source>
+
+  <!-- ==================== 1FHL J1103.3-2329  =================== -->
+  <source>
+    <name>  1FHL J1103.3-2329 </name>
+    <assoc> 1ES 1101-232 </assoc>
+    <raJ2000 unit="degree"> 165.846500671 </raJ2000>
+    <decJ2000 unit="degree"> -23.4916006596 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 0.853270 </normF>
+      <normE unit="GeV"> 29.643387 </normE>
+      <index> -1.843898 </index>
+    </spectrum>
+    <redshift> 0.186 </redshift>
+  </source>
+
+  <!-- ==================== 1FHL J1104.4+3812  =================== -->
+  <source>
+    <name>  1FHL J1104.4+3812 </name>
+    <assoc> Mkn 421 </assoc>
+    <raJ2000 unit="degree"> 166.121005974 </raJ2000>
+    <decJ2000 unit="degree"> 38.2066985188 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 67.387454 </normF>
+      <normE unit="GeV"> 26.266912 </normE>
+      <index> -1.911220 </index>
+    </spectrum>
+    <redshift> 0.030021 </redshift>
+  </source>
+
+  <!-- ==================== 1FHL J1107.5+0223  =================== -->
+  <source>
+    <name>  1FHL J1107.5+0223 </name>
+    <assoc> BZB J1107+0222 </assoc>
+    <raJ2000 unit="degree"> 166.8780095 </raJ2000>
+    <decJ2000 unit="degree"> 2.38620001108 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 4.409679 </normF>
+      <normE unit="GeV"> 15.556688 </normE>
+      <index> -3.141077 </index>
+    </spectrum>
+    <redshift> 1.08213 </redshift>
+  </source>
+
+  <!-- ==================== 1FHL J1117.2+2013  =================== -->
+  <source>
+    <name>  1FHL J1117.2+2013 </name>
+    <assoc> RBS 0958 </assoc>
+    <raJ2000 unit="degree"> 169.304994278 </raJ2000>
+    <decJ2000 unit="degree"> 20.22690001 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 3.646288 </normF>
+      <normE unit="GeV"> 25.610486 </normE>
+      <index> -1.938992 </index>
+    </spectrum>
+    <redshift> 0.1392 </redshift>
+  </source>
+
+  <!-- ==================== 1FHL J1117.7+5355  =================== -->
+  <source>
+    <name>  1FHL J1117.7+5355 </name>
+    <assoc> BZB J1117+5355 </assoc>
+    <raJ2000 unit="degree"> 169.444903873 </raJ2000>
+    <decJ2000 unit="degree"> 53.9329973469 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 2.959536 </normF>
+      <normE unit="GeV"> 18.958143 </normE>
+      <index> -2.597208 </index>
+    </spectrum>
+    <redshift> 0.72 </redshift>
+  </source>
+
+  <!-- ==================== 1FHL J1120.9+4211  =================== -->
+  <source>
+    <name>  1FHL J1120.9+4211 </name>
+    <assoc> RBS 0970 </assoc>
+    <raJ2000 unit="degree"> 170.244705365 </raJ2000>
+    <decJ2000 unit="degree"> 42.189999956 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 8.297830 </normF>
+      <normE unit="GeV"> 18.985484 </normE>
+      <index> -2.517001 </index>
+    </spectrum>
+    <redshift> 0.124 </redshift>
+  </source>
+
+  <!-- ==================== 1FHL J1127.1-1855  =================== -->
+  <source>
+    <name>  1FHL J1127.1-1855 </name>
+    <assoc> PKS 1124-186 </assoc>
+    <raJ2000 unit="degree"> 171.792999966 </raJ2000>
+    <decJ2000 unit="degree"> -18.9330009264 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 5.617101 </normF>
+      <normE unit="GeV"> 17.782264 </normE>
+      <index> -2.713814 </index>
+    </spectrum>
+    <redshift> 1.05 </redshift>
+  </source>
+
+  <!-- ==================== 1FHL J1130.4+5814  =================== -->
+  <source>
+    <name>  1FHL J1130.4+5814 </name>
+    <assoc> BZB J1131+5809 </assoc>
+    <raJ2000 unit="degree"> 172.602595949 </raJ2000>
+    <decJ2000 unit="degree"> 58.2344045994 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 2.453211 </normF>
+      <normE unit="GeV"> 15.882481 </normE>
+      <index> -3.024352 </index>
+    </spectrum>
+    <redshift> 0.359646 </redshift>
+  </source>
+
+  <!-- ==================== 1FHL J1132.6+0036  =================== -->
+  <source>
+    <name>  1FHL J1132.6+0036 </name>
+    <assoc> PKS B1130+008 </assoc>
+    <raJ2000 unit="degree"> 173.165212291 </raJ2000>
+    <decJ2000 unit="degree"> 0.602599949548 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 4.540523 </normF>
+      <normE unit="GeV"> 19.937205 </normE>
+      <index> -2.441911 </index>
+    </spectrum>
+    <redshift> 1.22303 </redshift>
+  </source>
+
+  <!-- ==================== 1FHL J1135.7+6736  =================== -->
+  <source>
+    <name>  1FHL J1135.7+6736 </name>
+    <assoc> RX J1136.5+6737 </assoc>
+    <raJ2000 unit="degree"> 173.939496196 </raJ2000>
+    <decJ2000 unit="degree"> 67.6123977638 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 1.983306 </normF>
+      <normE unit="GeV"> 24.528135 </normE>
+      <index> -1.978284 </index>
+    </spectrum>
+    <redshift> 0.134232 </redshift>
+  </source>
+
+  <!-- ==================== 1FHL J1137.0+2553  =================== -->
+  <source>
+    <name>  1FHL J1137.0+2553 </name>
+    <assoc> RX J1136.8+2551 </assoc>
+    <raJ2000 unit="degree"> 174.266593955 </raJ2000>
+    <decJ2000 unit="degree"> 25.8931993322 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 0.699680 </normF>
+      <normE unit="GeV"> 33.634609 </normE>
+      <index> -1.624782 </index>
+    </spectrum>
+    <redshift> 0.155972 </redshift>
+  </source>
+
+  <!-- ==================== 1FHL J1146.9+3958  =================== -->
+  <source>
+    <name>  1FHL J1146.9+3958 </name>
+    <assoc> S4 1144+40 </assoc>
+    <raJ2000 unit="degree"> 176.746799568 </raJ2000>
+    <decJ2000 unit="degree"> 39.9776982687 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 5.967165 </normF>
+      <normE unit="GeV"> 14.682378 </normE>
+      <index> -3.433681 </index>
+    </spectrum>
+    <redshift> 1.09007 </redshift>
+  </source>
+
+  <!-- ==================== 1FHL J1150.5+4155  =================== -->
+  <source>
+    <name>  1FHL J1150.5+4155 </name>
+    <assoc> RBS 1040 </assoc>
+    <raJ2000 unit="degree"> 177.648698727 </raJ2000>
+    <decJ2000 unit="degree"> 41.917400276 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 10.618236 </normF>
+      <normE unit="GeV"> 18.476279 </normE>
+      <index> -2.592160 </index>
+    </spectrum>
+    <redshift> 1.018 </redshift>
+  </source>
+
+  <!-- ==================== 1FHL J1150.8+2419  =================== -->
+  <source>
+    <name>  1FHL J1150.8+2419 </name>
+    <assoc> B2 1147+24 </assoc>
+    <raJ2000 unit="degree"> 177.71090809 </raJ2000>
+    <decJ2000 unit="degree"> 24.3196996248 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 6.923864 </normF>
+      <normE unit="GeV"> 13.300526 </normE>
+      <index> -4.138810 </index>
+    </spectrum>
+    <redshift> 0.2 </redshift>
+  </source>
+
+  <!-- ==================== 1FHL J1154.0-0010  =================== -->
+  <source>
+    <name>  1FHL J1154.0-0010 </name>
+    <assoc> 1RXS J115404.9-001008 </assoc>
+    <raJ2000 unit="degree"> 178.524793431 </raJ2000>
+    <decJ2000 unit="degree"> -0.169300005679 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 2.650026 </normF>
+      <normE unit="GeV"> 21.355943 </normE>
+      <index> -2.210891 </index>
+    </spectrum>
+    <redshift> 0.253431 </redshift>
+  </source>
+
+  <!-- ==================== 1FHL J1159.6+2913  =================== -->
+  <source>
+    <name>  1FHL J1159.6+2913 </name>
+    <assoc> Ton 599 </assoc>
+    <raJ2000 unit="degree"> 179.919203871 </raJ2000>
+    <decJ2000 unit="degree"> 29.2268985529 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 12.939330 </normF>
+      <normE unit="GeV"> 15.526066 </normE>
+      <index> -3.212827 </index>
+    </spectrum>
+    <redshift> 0.724688 </redshift>
+  </source>
+
+  <!-- ==================== 1FHL J1203.2+6028  =================== -->
+  <source>
+    <name>  1FHL J1203.2+6028 </name>
+    <assoc> SBS 1200+608 </assoc>
+    <raJ2000 unit="degree"> 180.806786954 </raJ2000>
+    <decJ2000 unit="degree"> 60.4706017035 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 0.506732 </normF>
+      <normE unit="GeV"> 33.604332 </normE>
+      <index> -1.629003 </index>
+    </spectrum>
+    <redshift> 0.0656 </redshift>
+  </source>
+
+  <!-- ==================== 1FHL J1204.4-0708  =================== -->
+  <source>
+    <name>  1FHL J1204.4-0708 </name>
+    <assoc> 1RXS J120417.0-070959 </assoc>
+    <raJ2000 unit="degree"> 181.102602447 </raJ2000>
+    <decJ2000 unit="degree"> -7.14210000374 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 2.480039 </normF>
+      <normE unit="GeV"> 21.378129 </normE>
+      <index> -2.240625 </index>
+    </spectrum>
+    <redshift> 0.18375 </redshift>
+  </source>
+
+  <!-- ==================== 1FHL J1217.8+3006  =================== -->
+  <source>
+    <name>  1FHL J1217.8+3006 </name>
+    <assoc> 1ES 1215+303 </assoc>
+    <raJ2000 unit="degree"> 184.459899971 </raJ2000>
+    <decJ2000 unit="degree"> 30.104499314 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 9.230722 </normF>
+      <normE unit="GeV"> 23.899625 </normE>
+      <index> -2.111626 </index>
+    </spectrum>
+    <redshift> 0.13 </redshift>
+  </source>
+
+  <!-- ==================== 1FHL J1221.3+3011  =================== -->
+  <source>
+    <name>  1FHL J1221.3+3011 </name>
+    <assoc> PG 1218+304 </assoc>
+    <raJ2000 unit="degree"> 185.337101166 </raJ2000>
+    <decJ2000 unit="degree"> 30.1939986978 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 7.333549 </normF>
+      <normE unit="GeV"> 28.320338 </normE>
+      <index> -1.902603 </index>
+    </spectrum>
+    <redshift> 0.183648 </redshift>
+  </source>
+
+  <!-- ==================== 1FHL J1221.6+2814  =================== -->
+  <source>
+    <name>  1FHL J1221.6+2814 </name>
+    <assoc> W Comae </assoc>
+    <raJ2000 unit="degree"> 185.402097246 </raJ2000>
+    <decJ2000 unit="degree"> 28.2472991617 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 6.963978 </normF>
+      <normE unit="GeV"> 22.450730 </normE>
+      <index> -2.181432 </index>
+    </spectrum>
+    <redshift> 0.102 </redshift>
+  </source>
+
+  <!-- ==================== 1FHL J1224.5+2437  =================== -->
+  <source>
+    <name>  1FHL J1224.5+2437 </name>
+    <assoc> MS 1221.8+2452 </assoc>
+    <raJ2000 unit="degree"> 186.146492243 </raJ2000>
+    <decJ2000 unit="degree"> 24.6280007035 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 0.412327 </normF>
+      <normE unit="GeV"> 49.865121 </normE>
+      <index> -1.261284 </index>
+    </spectrum>
+    <redshift> 0.218 </redshift>
+  </source>
+
+  <!-- ==================== 1FHL J1224.8+2122  =================== -->
+  <source>
+    <name>  1FHL J1224.8+2122 </name>
+    <assoc> 4C +21.35 </assoc>
+    <raJ2000 unit="degree"> 186.220203645 </raJ2000>
+    <decJ2000 unit="degree"> 21.3767999228 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 19.891169 </normF>
+      <normE unit="GeV"> 19.957705 </normE>
+      <index> -2.386318 </index>
+    </spectrum>
+    <redshift> 0.432 </redshift>
+  </source>
+
+  <!-- ==================== 1FHL J1228.5+4857  =================== -->
+  <source>
+    <name>  1FHL J1228.5+4857 </name>
+    <assoc> TXS 1226+492 </assoc>
+    <raJ2000 unit="degree"> 187.146295334 </raJ2000>
+    <decJ2000 unit="degree"> 48.9598000085 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 1.884456 </normF>
+      <normE unit="GeV"> 16.437627 </normE>
+      <index> -2.979000 </index>
+    </spectrum>
+    <redshift> 1.71606 </redshift>
+  </source>
+
+  <!-- ==================== 1FHL J1230.3+2522  =================== -->
+  <source>
+    <name>  1FHL J1230.3+2522 </name>
+    <assoc> ON 246 </assoc>
+    <raJ2000 unit="degree"> 187.585899969 </raJ2000>
+    <decJ2000 unit="degree"> 25.3769002102 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 4.122705 </normF>
+      <normE unit="GeV"> 15.281276 </normE>
+      <index> -3.291636 </index>
+    </spectrum>
+    <redshift> 0.135 </redshift>
+  </source>
+
+  <!-- ==================== 1FHL J1230.8+1224  =================== -->
+  <source>
+    <name>  1FHL J1230.8+1224 </name>
+    <assoc> M 87 </assoc>
+    <raJ2000 unit="degree"> 187.700701789 </raJ2000>
+    <decJ2000 unit="degree"> 12.4060004386 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 0.256690 </normF>
+      <normE unit="GeV"> 51.255699 </normE>
+      <index> -1.255433 </index>
+    </spectrum>
+    <redshift> 0.00436 </redshift>
+  </source>
+
+  <!-- ==================== 1FHL J1231.2-1414  =================== -->
+  <source>
+    <name>  1FHL J1231.2-1414 </name>
+    <assoc> PSR J1231-1411 </assoc>
+    <raJ2000 unit="degree"> 187.808891985 </raJ2000>
+    <decJ2000 unit="degree"> -14.2364996739 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 10.325707 </normF>
+      <normE unit="GeV"> 13.617388 </normE>
+      <index> -3.875188 </index>
+    </spectrum>
+  </source>
+
+  <!-- ==================== 1FHL J1231.8+2849  =================== -->
+  <source>
+    <name>  1FHL J1231.8+2849 </name>
+    <assoc> B2 1229+29 </assoc>
+    <raJ2000 unit="degree"> 187.97009811 </raJ2000>
+    <decJ2000 unit="degree"> 28.8244979579 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 7.826253 </normF>
+      <normE unit="GeV"> 19.683129 </normE>
+      <index> -2.467594 </index>
+    </spectrum>
+    <redshift> 0.236 </redshift>
+  </source>
+
+  <!-- ==================== 1FHL J1239.6+0443  =================== -->
+  <source>
+    <name>  1FHL J1239.6+0443 </name>
+    <assoc> MG1 J123931+0443 </assoc>
+    <raJ2000 unit="degree"> 189.900896966 </raJ2000>
+    <decJ2000 unit="degree"> 4.73220009002 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 8.017504 </normF>
+      <normE unit="GeV"> 14.121365 </normE>
+      <index> -3.739375 </index>
+    </spectrum>
+    <redshift> 1.75857 </redshift>
+  </source>
+
+  <!-- ==================== 1FHL J1243.2+3628  =================== -->
+  <source>
+    <name>  1FHL J1243.2+3628 </name>
+    <assoc> Ton 116 </assoc>
+    <raJ2000 unit="degree"> 190.807099144 </raJ2000>
+    <decJ2000 unit="degree"> 36.4683982996 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 9.646060 </normF>
+      <normE unit="GeV"> 19.797025 </normE>
+      <index> -2.426682 </index>
+    </spectrum>
+    <redshift> 1.0654 </redshift>
+  </source>
+
+  <!-- ==================== 1FHL J1244.9+5708  =================== -->
+  <source>
+    <name>  1FHL J1244.9+5708 </name>
+    <assoc> 1RXS J124510.5+571020 </assoc>
+    <raJ2000 unit="degree"> 191.244094647 </raJ2000>
+    <decJ2000 unit="degree"> 57.1403995396 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 2.291944 </normF>
+      <normE unit="GeV"> 15.470347 </normE>
+      <index> -3.321543 </index>
+    </spectrum>
+    <redshift> 1.54487 </redshift>
+  </source>
+
+  <!-- ==================== 1FHL J1246.6-2548  =================== -->
+  <source>
+    <name>  1FHL J1246.6-2548 </name>
+    <assoc> PKS 1244-255 </assoc>
+    <raJ2000 unit="degree"> 191.65870079 </raJ2000>
+    <decJ2000 unit="degree"> -25.8093997413 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 7.053814 </normF>
+      <normE unit="GeV"> 15.030784 </normE>
+      <index> -3.355793 </index>
+    </spectrum>
+    <redshift> 0.633 </redshift>
+  </source>
+
+  <!-- ==================== 1FHL J1248.1+5821  =================== -->
+  <source>
+    <name>  1FHL J1248.1+5821 </name>
+    <assoc> PG 1246+586 </assoc>
+    <raJ2000 unit="degree"> 192.041109421 </raJ2000>
+    <decJ2000 unit="degree"> 58.3612002311 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 9.937291 </normF>
+      <normE unit="GeV"> 20.493820 </normE>
+      <index> -2.358094 </index>
+    </spectrum>
+    <redshift> 0.847394 </redshift>
+  </source>
+
+  <!-- ==================== 1FHL J1253.6+0329  =================== -->
+  <source>
+    <name>  1FHL J1253.6+0329 </name>
+    <assoc> CRATES J1253+0326 </assoc>
+    <raJ2000 unit="degree"> 193.423088917 </raJ2000>
+    <decJ2000 unit="degree"> 3.49119996783 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 1.440365 </normF>
+      <normE unit="GeV"> 24.080051 </normE>
+      <index> -1.912410 </index>
+    </spectrum>
+    <redshift> 0.065686 </redshift>
+  </source>
+
+  <!-- ==================== 1FHL J1256.1-0547  =================== -->
+  <source>
+    <name>  1FHL J1256.1-0547 </name>
+    <assoc> 3C 279 </assoc>
+    <raJ2000 unit="degree"> 194.048597641 </raJ2000>
+    <decJ2000 unit="degree"> -5.79759989063 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 31.943198 </normF>
+      <normE unit="GeV"> 15.065986 </normE>
+      <index> -3.360421 </index>
+    </spectrum>
+    <redshift> 0.5362 </redshift>
+  </source>
+
+  <!-- ==================== 1FHL J1256.4-1146  =================== -->
+  <source>
+    <name>  1FHL J1256.4-1146 </name>
+    <assoc> PMN J1256-1146 </assoc>
+    <raJ2000 unit="degree"> 194.112200363 </raJ2000>
+    <decJ2000 unit="degree"> -11.769799907 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 2.038862 </normF>
+      <normE unit="GeV"> 24.377939 </normE>
+      <index> -2.066756 </index>
+    </spectrum>
+    <redshift> 0.05791 </redshift>
+  </source>
+
+  <!-- ==================== 1FHL J1302.9+2433  =================== -->
+  <source>
+    <name>  1FHL J1302.9+2433 </name>
+    <assoc> MG2 J130304+2434 </assoc>
+    <raJ2000 unit="degree"> 195.748003348 </raJ2000>
+    <decJ2000 unit="degree"> 24.562900463 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 4.913881 </normF>
+      <normE unit="GeV"> 15.641159 </normE>
+      <index> -3.025543 </index>
+    </spectrum>
+    <redshift> 0.993 </redshift>
+  </source>
+
+  <!-- ==================== 1FHL J1304.1-2413  =================== -->
+  <source>
+    <name>  1FHL J1304.1-2413 </name>
+    <assoc> 1RXS J130343.6-241506 </assoc>
+    <raJ2000 unit="degree"> 196.048203822 </raJ2000>
+    <decJ2000 unit="degree"> -24.2298997127 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 2.961668 </normF>
+      <normE unit="GeV"> 17.536410 </normE>
+      <index> -2.895309 </index>
+    </spectrum>
+    <redshift> 0.1288 </redshift>
+  </source>
+
+  <!-- ==================== 1FHL J1309.3+4304  =================== -->
+  <source>
+    <name>  1FHL J1309.3+4304 </name>
+    <assoc> B3 1307+433 </assoc>
+    <raJ2000 unit="degree"> 197.344805953 </raJ2000>
+    <decJ2000 unit="degree"> 43.0694995098 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 2.942179 </normF>
+      <normE unit="GeV"> 24.682453 </normE>
+      <index> -2.017695 </index>
+    </spectrum>
+    <redshift> 0.69 </redshift>
+  </source>
+
+  <!-- ==================== 1FHL J1310.6+3222  =================== -->
+  <source>
+    <name>  1FHL J1310.6+3222 </name>
+    <assoc> OP 313 </assoc>
+    <raJ2000 unit="degree"> 197.6735976 </raJ2000>
+    <decJ2000 unit="degree"> 32.3810013644 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 1.793970 </normF>
+      <normE unit="GeV"> 23.724176 </normE>
+      <index> -2.124719 </index>
+    </spectrum>
+    <redshift> 0.998007 </redshift>
+  </source>
+
+  <!-- ==================== 1FHL J1310.9+0036  =================== -->
+  <source>
+    <name>  1FHL J1310.9+0036 </name>
+    <assoc> RX J1311.1+0035 </assoc>
+    <raJ2000 unit="degree"> 197.740205604 </raJ2000>
+    <decJ2000 unit="degree"> 0.607399971709 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 4.143180 </normF>
+      <normE unit="GeV"> 17.158186 </normE>
+      <index> -2.676432 </index>
+    </spectrum>
+    <redshift> 0.002307 </redshift>
+  </source>
+
+  <!-- ==================== 1FHL J1312.2-2158  =================== -->
+  <source>
+    <name>  1FHL J1312.2-2158 </name>
+    <assoc> PKS 1309-216 </assoc>
+    <raJ2000 unit="degree"> 198.060691741 </raJ2000>
+    <decJ2000 unit="degree"> -21.9698003616 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 5.689778 </normF>
+      <normE unit="GeV"> 15.254769 </normE>
+      <index> -3.290787 </index>
+    </spectrum>
+    <redshift> 1.491 </redshift>
+  </source>
+
+  <!-- ==================== 1FHL J1312.8+4827  =================== -->
+  <source>
+    <name>  1FHL J1312.8+4827 </name>
+    <assoc> GB 1310+487 </assoc>
+    <raJ2000 unit="degree"> 198.201093109 </raJ2000>
+    <decJ2000 unit="degree"> 48.4586963498 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 6.670503 </normF>
+      <normE unit="GeV"> 18.943939 </normE>
+      <index> -2.543893 </index>
+    </spectrum>
+    <redshift> 0.501 </redshift>
+  </source>
+
+  <!-- ==================== 1FHL J1332.0-0508  =================== -->
+  <source>
+    <name>  1FHL J1332.0-0508 </name>
+    <assoc> PKS 1329-049 </assoc>
+    <raJ2000 unit="degree"> 203.014805531 </raJ2000>
+    <decJ2000 unit="degree"> -5.13600001998 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 3.498316 </normF>
+      <normE unit="GeV"> 16.864967 </normE>
+      <index> -2.947210 </index>
+    </spectrum>
+    <redshift> 2.15 </redshift>
+  </source>
+
+  <!-- ==================== 1FHL J1418.6+2539  =================== -->
+  <source>
+    <name>  1FHL J1418.6+2539 </name>
+    <assoc> BZB J1417+2543 </assoc>
+    <raJ2000 unit="degree"> 214.659294518 </raJ2000>
+    <decJ2000 unit="degree"> 25.6580990983 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 3.075516 </normF>
+      <normE unit="GeV"> 17.679328 </normE>
+      <index> -2.620488 </index>
+    </spectrum>
+    <redshift> 0.237 </redshift>
+  </source>
+
+  <!-- ==================== 1FHL J1427.0+2347  =================== -->
+  <source>
+    <name>  1FHL J1427.0+2347 </name>
+    <assoc> PKS 1424+240 </assoc>
+    <raJ2000 unit="degree"> 216.765998066 </raJ2000>
+    <decJ2000 unit="degree"> 23.7901994547 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 39.250805 </normF>
+      <normE unit="GeV"> 21.217396 </normE>
+      <index> -2.268889 </index>
+    </spectrum>
+    <redshift> 0.16 </redshift>
+  </source>
+
+  <!-- ==================== 1FHL J1428.6+4239  =================== -->
+  <source>
+    <name>  1FHL J1428.6+4239 </name>
+    <assoc> H 1426+428 </assoc>
+    <raJ2000 unit="degree"> 217.158296811 </raJ2000>
+    <decJ2000 unit="degree"> 42.6594012916 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 3.675377 </normF>
+      <normE unit="GeV"> 24.236650 </normE>
+      <index> -2.013825 </index>
+    </spectrum>
+    <redshift> 0.129139 </redshift>
+  </source>
+
+  <!-- ==================== 1FHL J1436.9+5642  =================== -->
+  <source>
+    <name>  1FHL J1436.9+5642 </name>
+    <assoc> BZB J1436+5639 </assoc>
+    <raJ2000 unit="degree"> 219.242802244 </raJ2000>
+    <decJ2000 unit="degree"> 56.7016964893 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 0.803079 </normF>
+      <normE unit="GeV"> 34.551871 </normE>
+      <index> -1.664791 </index>
+    </spectrum>
+    <redshift> 0.15 </redshift>
+  </source>
+
+  <!-- ==================== 1FHL J1439.3+3933  =================== -->
+  <source>
+    <name>  1FHL J1439.3+3933 </name>
+    <assoc> PG 1437+398 </assoc>
+    <raJ2000 unit="degree"> 219.834501532 </raJ2000>
+    <decJ2000 unit="degree"> 39.555302295 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 0.694308 </normF>
+      <normE unit="GeV"> 29.870117 </normE>
+      <index> -1.790487 </index>
+    </spectrum>
+    <redshift> 0.343663 </redshift>
+  </source>
+
+  <!-- ==================== 1FHL J1442.9+1158  =================== -->
+  <source>
+    <name>  1FHL J1442.9+1158 </name>
+    <assoc> 1ES 1440+122 </assoc>
+    <raJ2000 unit="degree"> 220.736605596 </raJ2000>
+    <decJ2000 unit="degree"> 11.9820002241 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 0.878002 </normF>
+      <normE unit="GeV"> 30.446518 </normE>
+      <index> -1.770219 </index>
+    </spectrum>
+    <redshift> 0.163058 </redshift>
+  </source>
+
+  <!-- ==================== 1FHL J1454.4+5120  =================== -->
+  <source>
+    <name>  1FHL J1454.4+5120 </name>
+    <assoc> TXS 1452+516 </assoc>
+    <raJ2000 unit="degree"> 223.619286936 </raJ2000>
+    <decJ2000 unit="degree"> 51.3358998773 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 3.037507 </normF>
+      <normE unit="GeV"> 22.784680 </normE>
+      <index> -2.226681 </index>
+    </spectrum>
+    <redshift> 1.0831 </redshift>
+  </source>
+
+  <!-- ==================== 1FHL J1501.0+2238  =================== -->
+  <source>
+    <name>  1FHL J1501.0+2238 </name>
+    <assoc> MS 1458.8+2249 </assoc>
+    <raJ2000 unit="degree"> 225.27489747 </raJ2000>
+    <decJ2000 unit="degree"> 22.6388003153 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 2.403011 </normF>
+      <normE unit="GeV"> 27.054000 </normE>
+      <index> -1.889755 </index>
+    </spectrum>
+    <redshift> 0.235 </redshift>
+  </source>
+
+  <!-- ==================== 1FHL J1504.3+1029  =================== -->
+  <source>
+    <name>  1FHL J1504.3+1029 </name>
+    <assoc> PKS 1502+106 </assoc>
+    <raJ2000 unit="degree"> 226.095093906 </raJ2000>
+    <decJ2000 unit="degree"> 10.4883001781 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 69.182392 </normF>
+      <normE unit="GeV"> 12.765396 </normE>
+      <index> -4.568173 </index>
+    </spectrum>
+    <redshift> 1.83831 </redshift>
+  </source>
+
+  <!-- ==================== 1FHL J1512.2+0204  =================== -->
+  <source>
+    <name>  1FHL J1512.2+0204 </name>
+    <assoc> PKS 1509+022 </assoc>
+    <raJ2000 unit="degree"> 228.064401368 </raJ2000>
+    <decJ2000 unit="degree"> 2.07399996152 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 4.831031 </normF>
+      <normE unit="GeV"> 16.612533 </normE>
+      <index> -2.976670 </index>
+    </spectrum>
+    <redshift> 0.219915 </redshift>
+  </source>
+
+  <!-- ==================== 1FHL J1512.8-0906  =================== -->
+  <source>
+    <name>  1FHL J1512.8-0906 </name>
+    <assoc> PKS 1510-08 </assoc>
+    <raJ2000 unit="degree"> 228.200800246 </raJ2000>
+    <decJ2000 unit="degree"> -9.11049990461 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 27.227842 </normF>
+      <normE unit="GeV"> 17.586654 </normE>
+      <index> -2.710696 </index>
+    </spectrum>
+    <redshift> 0.36 </redshift>
+  </source>
+
+  <!-- ==================== 1FHL J1517.8-2421  =================== -->
+  <source>
+    <name>  1FHL J1517.8-2421 </name>
+    <assoc> AP Librae </assoc>
+    <raJ2000 unit="degree"> 229.453293015 </raJ2000>
+    <decJ2000 unit="degree"> -24.3572998162 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 9.311117 </normF>
+      <normE unit="GeV"> 18.395428 </normE>
+      <index> -2.607222 </index>
+    </spectrum>
+    <redshift> 0.049031 </redshift>
+  </source>
+
+  <!-- ==================== 1FHL J1517.9+6526  =================== -->
+  <source>
+    <name>  1FHL J1517.9+6526 </name>
+    <assoc> 1H 1515+660 </assoc>
+    <raJ2000 unit="degree"> 229.480285923 </raJ2000>
+    <decJ2000 unit="degree"> 65.4481976838 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 5.707194 </normF>
+      <normE unit="GeV"> 18.136520 </normE>
+      <index> -2.620076 </index>
+    </spectrum>
+    <redshift> 0.702 </redshift>
+  </source>
+
+  <!-- ==================== 1FHL J1522.2+3145  =================== -->
+  <source>
+    <name>  1FHL J1522.2+3145 </name>
+    <assoc> B2 1520+31 </assoc>
+    <raJ2000 unit="degree"> 230.553882377 </raJ2000>
+    <decJ2000 unit="degree"> 31.7540992816 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 32.069694 </normF>
+      <normE unit="GeV"> 14.127739 </normE>
+      <index> -3.743219 </index>
+    </spectrum>
+    <redshift> 1.487 </redshift>
+  </source>
+
+  <!-- ==================== 1FHL J1555.7+1111  =================== -->
+  <source>
+    <name>  1FHL J1555.7+1111 </name>
+    <assoc> PG 1553+113 </assoc>
+    <raJ2000 unit="degree"> 238.94179181 </raJ2000>
+    <decJ2000 unit="degree"> 11.1901994456 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 37.748826 </normF>
+      <normE unit="GeV"> 24.755762 </normE>
+      <index> -1.988984 </index>
+    </spectrum>
+    <redshift> 0.36 </redshift>
+  </source>
+
+  <!-- ==================== 1FHL J1625.7-2531  =================== -->
+  <source>
+    <name>  1FHL J1625.7-2531 </name>
+    <assoc> PKS 1622-253 </assoc>
+    <raJ2000 unit="degree"> 246.432788122 </raJ2000>
+    <decJ2000 unit="degree"> -25.5172998712 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 6.585862 </normF>
+      <normE unit="GeV"> 16.828174 </normE>
+      <index> -3.037981 </index>
+    </spectrum>
+    <redshift> 0.786 </redshift>
+  </source>
+
+  <!-- ==================== 1FHL J1635.0+3808  =================== -->
+  <source>
+    <name>  1FHL J1635.0+3808 </name>
+    <assoc> 4C +38.41 </assoc>
+    <raJ2000 unit="degree"> 248.76660912 </raJ2000>
+    <decJ2000 unit="degree"> 38.1432972879 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 20.884653 </normF>
+      <normE unit="GeV"> 11.583854 </normE>
+      <index> -6.263149 </index>
+    </spectrum>
+    <redshift> 1.81309 </redshift>
+  </source>
+
+  <!-- ==================== 1FHL J1640.7+3943  =================== -->
+  <source>
+    <name>  1FHL J1640.7+3943 </name>
+    <assoc> NRAO 512 </assoc>
+    <raJ2000 unit="degree"> 250.197205902 </raJ2000>
+    <decJ2000 unit="degree"> 39.7299980434 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 10.520180 </normF>
+      <normE unit="GeV"> 14.421819 </normE>
+      <index> -3.264333 </index>
+    </spectrum>
+    <redshift> 1.66 </redshift>
+  </source>
+
+  <!-- ==================== 1FHL J1653.9+3945  =================== -->
+  <source>
+    <name>  1FHL J1653.9+3945 </name>
+    <assoc> Mkn 501 </assoc>
+    <raJ2000 unit="degree"> 253.488701384 </raJ2000>
+    <decJ2000 unit="degree"> 39.7543988942 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 18.211776 </normF>
+      <normE unit="GeV"> 27.577939 </normE>
+      <index> -1.863951 </index>
+    </spectrum>
+    <redshift> 0.033663 </redshift>
+  </source>
+
+  <!-- ==================== 1FHL J1709.5+4320  =================== -->
+  <source>
+    <name>  1FHL J1709.5+4320 </name>
+    <assoc> B3 1708+433 </assoc>
+    <raJ2000 unit="degree"> 257.392919475 </raJ2000>
+    <decJ2000 unit="degree"> 43.348898643 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 4.271437 </normF>
+      <normE unit="GeV"> 18.022748 </normE>
+      <index> -2.604694 </index>
+    </spectrum>
+    <redshift> 1.027 </redshift>
+  </source>
+
+  <!-- ==================== 1FHL J1719.1+1745  =================== -->
+  <source>
+    <name>  1FHL J1719.1+1745 </name>
+    <assoc> PKS 1717+177 </assoc>
+    <raJ2000 unit="degree"> 259.798184252 </raJ2000>
+    <decJ2000 unit="degree"> 17.7501999924 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 7.596064 </normF>
+      <normE unit="GeV"> 17.165686 </normE>
+      <index> -2.849388 </index>
+    </spectrum>
+    <redshift> 0.137 </redshift>
+  </source>
+
+  <!-- ==================== 1FHL J1722.6+1011  =================== -->
+  <source>
+    <name>  1FHL J1722.6+1011 </name>
+    <assoc> TXS 1720+102 </assoc>
+    <raJ2000 unit="degree"> 260.654389446 </raJ2000>
+    <decJ2000 unit="degree"> 10.1978993177 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 2.235724 </normF>
+      <normE unit="GeV"> 22.382092 </normE>
+      <index> -2.239818 </index>
+    </spectrum>
+    <redshift> 0.732 </redshift>
+  </source>
+
+  <!-- ==================== 1FHL J1725.1+1151  =================== -->
+  <source>
+    <name>  1FHL J1725.1+1151 </name>
+    <assoc> 1H 1720+117 </assoc>
+    <raJ2000 unit="degree"> 261.292793567 </raJ2000>
+    <decJ2000 unit="degree"> 11.8663992724 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 16.521821 </normF>
+      <normE unit="GeV"> 16.599988 </normE>
+      <index> -2.841536 </index>
+    </spectrum>
+    <redshift> 0.018 </redshift>
+  </source>
+
+  <!-- ==================== 1FHL J1728.3+5014  =================== -->
+  <source>
+    <name>  1FHL J1728.3+5014 </name>
+    <assoc> I Zw 187 </assoc>
+    <raJ2000 unit="degree"> 262.08938487 </raJ2000>
+    <decJ2000 unit="degree"> 50.2363008926 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 1.040665 </normF>
+      <normE unit="GeV"> 31.778654 </normE>
+      <index> -1.673476 </index>
+    </spectrum>
+    <redshift> 0.055405 </redshift>
+  </source>
+
+  <!-- ==================== 1FHL J1730.7+0017  =================== -->
+  <source>
+    <name>  1FHL J1730.7+0017 </name>
+    <assoc> PKS 1728+004 </assoc>
+    <raJ2000 unit="degree"> 262.700003781 </raJ2000>
+    <decJ2000 unit="degree"> 0.297399990119 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 6.426689 </normF>
+      <normE unit="GeV"> 15.509540 </normE>
+      <index> -3.241654 </index>
+    </spectrum>
+    <redshift> 1.335 </redshift>
+  </source>
+
+  <!-- ==================== 1FHL J1739.3+4953  =================== -->
+  <source>
+    <name>  1FHL J1739.3+4953 </name>
+    <assoc> S4 1738+49 </assoc>
+    <raJ2000 unit="degree"> 264.846486351 </raJ2000>
+    <decJ2000 unit="degree"> 49.8838016598 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 1.458566 </normF>
+      <normE unit="GeV"> 22.163943 </normE>
+      <index> -2.260978 </index>
+    </spectrum>
+    <redshift> 1.545 </redshift>
+  </source>
+
+  <!-- ==================== 1FHL J1740.2+5211  =================== -->
+  <source>
+    <name>  1FHL J1740.2+5211 </name>
+    <assoc> 4C +51.37 </assoc>
+    <raJ2000 unit="degree"> 265.070598518 </raJ2000>
+    <decJ2000 unit="degree"> 52.1842981647 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 4.499959 </normF>
+      <normE unit="GeV"> 13.649609 </normE>
+      <index> -3.854375 </index>
+    </spectrum>
+    <redshift> 1.375 </redshift>
+  </source>
+
+  <!-- ==================== 1FHL J1744.2+1938  =================== -->
+  <source>
+    <name>  1FHL J1744.2+1938 </name>
+    <assoc> S3 1741+19 </assoc>
+    <raJ2000 unit="degree"> 266.057697457 </raJ2000>
+    <decJ2000 unit="degree"> 19.6407997697 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 1.611630 </normF>
+      <normE unit="GeV"> 23.886137 </normE>
+      <index> -2.135641 </index>
+    </spectrum>
+    <redshift> 0.084 </redshift>
+  </source>
+
+  <!-- ==================== 1FHL J1746.3-2851  =================== -->
+  <source>
+    <name>  1FHL J1746.3-2851 </name>
+    <assoc> PWN G0.13-0.11 </assoc>
+    <raJ2000 unit="degree"> 266.593293571 </raJ2000>
+    <decJ2000 unit="degree"> -28.863098772 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 28.887374 </normF>
+      <normE unit="GeV"> 15.579179 </normE>
+      <index> -3.252967 </index>
+    </spectrum>
+  </source>
+
+  <!-- ==================== 1FHL J1751.5+0938  =================== -->
+  <source>
+    <name>  1FHL J1751.5+0938 </name>
+    <assoc> OT 081 </assoc>
+    <raJ2000 unit="degree"> 267.876194342 </raJ2000>
+    <decJ2000 unit="degree"> 9.64000007473 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 18.037233 </normF>
+      <normE unit="GeV"> 12.197757 </normE>
+      <index> -5.322043 </index>
+    </spectrum>
+    <redshift> 0.322 </redshift>
+  </source>
+
+  <!-- ==================== 1FHL J1801.3-2326e =================== -->
+  <source>
+    <name>  1FHL J1801.3-2326e </name>
+    <assoc> SNR G006.4-00.1 </assoc>
+    <raJ2000 unit="degree"> 270.3400075 </raJ2000>
+    <decJ2000 unit="degree"> -23.440000288 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 53.095454 </normF>
+      <normE unit="GeV"> 17.078008 </normE>
+      <index> -2.765889 </index>
+    </spectrum>
+  </source>
+
+  <!-- ==================== 1FHL J1805.6-2136e =================== -->
+  <source>
+    <name>  1FHL J1805.6-2136e </name>
+    <assoc> SNR G008.7-00.1 </assoc>
+    <raJ2000 unit="degree"> 271.407975879 </raJ2000>
+    <decJ2000 unit="degree"> -21.6117003736 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 22.874955 </normF>
+      <normE unit="GeV"> 22.471658 </normE>
+      <index> -2.236637 </index>
+    </spectrum>
+  </source>
+
+  <!-- ==================== 1FHL J1809.8-2329  =================== -->
+  <source>
+    <name>  1FHL J1809.8-2329 </name>
+    <assoc> LAT PSR J1809-2332 </assoc>
+    <raJ2000 unit="degree"> 272.462393162 </raJ2000>
+    <decJ2000 unit="degree"> -23.4957995184 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 60.570872 </normF>
+      <normE unit="GeV"> 12.457782 </normE>
+      <index> -4.697722 </index>
+    </spectrum>
+  </source>
+
+  <!-- ==================== 1FHL J1813.4+3145  =================== -->
+  <source>
+    <name>  1FHL J1813.4+3145 </name>
+    <assoc> B2 1811+31 </assoc>
+    <raJ2000 unit="degree"> 273.371491341 </raJ2000>
+    <decJ2000 unit="degree"> 31.7516984701 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 3.480899 </normF>
+      <normE unit="GeV"> 18.166986 </normE>
+      <index> -2.607119 </index>
+    </spectrum>
+    <redshift> 0.117 </redshift>
+  </source>
+
+  <!-- ==================== 1FHL J1824.5-1351e =================== -->
+  <source>
+    <name>  1FHL J1824.5-1351e </name>
+    <assoc> HESS J1825-137 </assoc>
+    <raJ2000 unit="degree"> 276.130013501 </raJ2000>
+    <decJ2000 unit="degree"> -13.8521000425 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 15.472714 </normF>
+      <normE unit="GeV"> 40.444355 </normE>
+      <index> -1.808228 </index>
+    </spectrum>
+  </source>
+
+  <!-- ==================== 1FHL J1826.2-1450  =================== -->
+  <source>
+    <name>  1FHL J1826.2-1450 </name>
+    <assoc> LS 5039 </assoc>
+    <raJ2000 unit="degree"> 276.573593307 </raJ2000>
+    <decJ2000 unit="degree"> -14.8481004254 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 3.202462 </normF>
+      <normE unit="GeV"> 35.033770 </normE>
+      <index> -1.722537 </index>
+    </spectrum>
+  </source>
+
+  <!-- ==================== 1FHL J1833.7-2105  =================== -->
+  <source>
+    <name>  1FHL J1833.7-2105 </name>
+    <assoc> PKS 1830-211 </assoc>
+    <raJ2000 unit="degree"> 278.428098949 </raJ2000>
+    <decJ2000 unit="degree"> -21.0864998076 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 24.083640 </normF>
+      <normE unit="GeV"> 13.463764 </normE>
+      <index> -3.898590 </index>
+    </spectrum>
+    <redshift> 2.507 </redshift>
+  </source>
+
+  <!-- ==================== 1FHL J1836.4+5925  =================== -->
+  <source>
+    <name>  1FHL J1836.4+5925 </name>
+    <assoc> LAT PSR J1836+5925 </assoc>
+    <raJ2000 unit="degree"> 279.116909867 </raJ2000>
+    <decJ2000 unit="degree"> 59.4194014393 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 27.707122 </normF>
+      <normE unit="GeV"> 12.982030 </normE>
+      <index> -4.409009 </index>
+    </spectrum>
+  </source>
+
+  <!-- ==================== 1FHL J1838.8+4800  =================== -->
+  <source>
+    <name>  1FHL J1838.8+4800 </name>
+    <assoc> GB6 J1838+4802 </assoc>
+    <raJ2000 unit="degree"> 279.712584324 </raJ2000>
+    <decJ2000 unit="degree"> 48.0116980347 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 8.627833 </normF>
+      <normE unit="GeV"> 14.930455 </normE>
+      <index> -3.173630 </index>
+    </spectrum>
+    <redshift> 0.3 </redshift>
+  </source>
+
+  <!-- ==================== 1FHL J1848.5+3219  =================== -->
+  <source>
+    <name>  1FHL J1848.5+3219 </name>
+    <assoc> B2 1846+32A </assoc>
+    <raJ2000 unit="degree"> 282.125498913 </raJ2000>
+    <decJ2000 unit="degree"> 32.3223983413 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 4.403287 </normF>
+      <normE unit="GeV"> 17.661959 </normE>
+      <index> -2.790607 </index>
+    </spectrum>
+    <redshift> 0.798 </redshift>
+  </source>
+
+  <!-- ==================== 1FHL J1849.3+6705  =================== -->
+  <source>
+    <name>  1FHL J1849.3+6705 </name>
+    <assoc> S4 1849+67 </assoc>
+    <raJ2000 unit="degree"> 282.348108438 </raJ2000>
+    <decJ2000 unit="degree"> 67.0913021414 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 10.360504 </normF>
+      <normE unit="GeV"> 15.323543 </normE>
+      <index> -3.299230 </index>
+    </spectrum>
+    <redshift> 0.657 </redshift>
+  </source>
+
+  <!-- ==================== 1FHL J1852.3+4853  =================== -->
+  <source>
+    <name>  1FHL J1852.3+4853 </name>
+    <assoc> S4 1851+48 </assoc>
+    <raJ2000 unit="degree"> 283.081998604 </raJ2000>
+    <decJ2000 unit="degree"> 48.8876971165 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 2.977256 </normF>
+      <normE unit="GeV"> 18.540094 </normE>
+      <index> -2.602537 </index>
+    </spectrum>
+    <redshift> 1.25 </redshift>
+  </source>
+
+  <!-- ==================== 1FHL J1855.9+0121e =================== -->
+  <source>
+    <name>  1FHL J1855.9+0121e </name>
+    <assoc> SNR G034.7-00.4 </assoc>
+    <raJ2000 unit="degree"> 283.989976632 </raJ2000>
+    <decJ2000 unit="degree"> 1.35500003486 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 64.767676 </normF>
+      <normE unit="GeV"> 14.560905 </normE>
+      <index> -3.314696 </index>
+    </spectrum>
+  </source>
+
+  <!-- ==================== 1FHL J1907.7+0600  =================== -->
+  <source>
+    <name>  1FHL J1907.7+0600 </name>
+    <assoc> LAT PSR J1907+0602 </assoc>
+    <raJ2000 unit="degree"> 286.94048175 </raJ2000>
+    <decJ2000 unit="degree"> 6.00120014582 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 72.314062 </normF>
+      <normE unit="GeV"> 11.187132 </normE>
+      <index> -7.000493 </index>
+    </spectrum>
+  </source>
+
+  <!-- ==================== 1FHL J1911.0+0905  =================== -->
+  <source>
+    <name>  1FHL J1911.0+0905 </name>
+    <assoc> SNR G043.3-00.2 </assoc>
+    <raJ2000 unit="degree"> 287.758082714 </raJ2000>
+    <decJ2000 unit="degree"> 9.0879005162 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 13.789901 </normF>
+      <normE unit="GeV"> 21.160191 </normE>
+      <index> -2.337592 </index>
+    </spectrum>
+  </source>
+
+  <!-- ==================== 1FHL J1917.7-1921  =================== -->
+  <source>
+    <name>  1FHL J1917.7-1921 </name>
+    <assoc> 1H 1914-194 </assoc>
+    <raJ2000 unit="degree"> 289.440877401 </raJ2000>
+    <decJ2000 unit="degree"> -19.3646996178 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 5.263479 </normF>
+      <normE unit="GeV"> 24.226574 </normE>
+      <index> -2.007983 </index>
+    </spectrum>
+    <redshift> 0.137 </redshift>
+  </source>
+
+  <!-- ==================== 1FHL J1923.2+1408e =================== -->
+  <source>
+    <name>  1FHL J1923.2+1408e </name>
+    <assoc> SNR G049.2-00.7 </assoc>
+    <raJ2000 unit="degree"> 290.817980141 </raJ2000>
+    <decJ2000 unit="degree"> 14.1450007522 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 68.454384 </normF>
+      <normE unit="GeV"> 16.825326 </normE>
+      <index> -2.837016 </index>
+    </spectrum>
+  </source>
+
+  <!-- ==================== 1FHL J1953.3+3251  =================== -->
+  <source>
+    <name>  1FHL J1953.3+3251 </name>
+    <assoc> PSR J1952+3252 </assoc>
+    <raJ2000 unit="degree"> 298.348291022 </raJ2000>
+    <decJ2000 unit="degree"> 32.8504983227 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 16.112418 </normF>
+      <normE unit="GeV"> 12.612679 </normE>
+      <index> -4.897639 </index>
+    </spectrum>
+  </source>
+
+  <!-- ==================== 1FHL J1958.4-3015  =================== -->
+  <source>
+    <name>  1FHL J1958.4-3015 </name>
+    <assoc> 1RXS J195815.6-301119 </assoc>
+    <raJ2000 unit="degree"> 299.600783791 </raJ2000>
+    <decJ2000 unit="degree"> -30.2553986834 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 0.734148 </normF>
+      <normE unit="GeV"> 40.078246 </normE>
+      <index> -1.543767 </index>
+    </spectrum>
+    <redshift> 0.119329 </redshift>
+  </source>
+
+  <!-- ==================== 1FHL J1958.6+2845  =================== -->
+  <source>
+    <name>  1FHL J1958.6+2845 </name>
+    <assoc> LAT PSR J1958+2846 </assoc>
+    <raJ2000 unit="degree"> 299.664495796 </raJ2000>
+    <decJ2000 unit="degree"> 28.7622988402 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 15.009046 </normF>
+      <normE unit="GeV"> 13.550054 </normE>
+      <index> -4.014672 </index>
+    </spectrum>
+  </source>
+
+  <!-- ==================== 1FHL J2000.0+6509  =================== -->
+  <source>
+    <name>  1FHL J2000.0+6509 </name>
+    <assoc> 1ES 1959+650 </assoc>
+    <raJ2000 unit="degree"> 300.007207368 </raJ2000>
+    <decJ2000 unit="degree"> 65.1576004553 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 13.582830 </normF>
+      <normE unit="GeV"> 22.165756 </normE>
+      <index> -2.184146 </index>
+    </spectrum>
+    <redshift> 0.047 </redshift>
+  </source>
+
+  <!-- ==================== 1FHL J2001.1-1752  =================== -->
+  <source>
+    <name>  1FHL J2001.1-1752 </name>
+    <assoc> PKS 1958-179 </assoc>
+    <raJ2000 unit="degree"> 300.277901425 </raJ2000>
+    <decJ2000 unit="degree"> -17.8675989914 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 0.906622 </normF>
+      <normE unit="GeV"> 37.512969 </normE>
+      <index> -1.626446 </index>
+    </spectrum>
+    <redshift> 0.65 </redshift>
+  </source>
+
+  <!-- ==================== 1FHL J2021.0+3651  =================== -->
+  <source>
+    <name>  1FHL J2021.0+3651 </name>
+    <assoc> PSR J2021+3651 </assoc>
+    <raJ2000 unit="degree"> 305.269977406 </raJ2000>
+    <decJ2000 unit="degree"> 36.8629988185 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 32.806633 </normF>
+      <normE unit="GeV"> 13.711650 </normE>
+      <index> -3.829513 </index>
+    </spectrum>
+  </source>
+
+  <!-- ==================== 1FHL J2021.0+4031e =================== -->
+  <source>
+    <name>  1FHL J2021.0+4031e </name>
+    <assoc> SNR G078.2+02.1 </assoc>
+    <raJ2000 unit="degree"> 305.269977406 </raJ2000>
+    <decJ2000 unit="degree"> 40.5200016284 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 48.596828 </normF>
+      <normE unit="GeV"> 20.503937 </normE>
+      <index> -2.388108 </index>
+    </spectrum>
+  </source>
+
+  <!-- ==================== 1FHL J2025.8-0734  =================== -->
+  <source>
+    <name>  1FHL J2025.8-0734 </name>
+    <assoc> PKS 2023-07 </assoc>
+    <raJ2000 unit="degree"> 306.466189417 </raJ2000>
+    <decJ2000 unit="degree"> -7.57730002086 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 2.227081 </normF>
+      <normE unit="GeV"> 21.931883 </normE>
+      <index> -2.244242 </index>
+    </spectrum>
+    <redshift> 1.388 </redshift>
+  </source>
+
+  <!-- ==================== 1FHL J2028.6+4110e =================== -->
+  <source>
+    <name>  1FHL J2028.6+4110e </name>
+    <assoc> Cygnus Cocoon </assoc>
+    <raJ2000 unit="degree"> 307.169999429 </raJ2000>
+    <decJ2000 unit="degree"> 41.1699965808 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 44.549718 </normF>
+      <normE unit="GeV"> 34.360121 </normE>
+      <index> -2.196884 </index>
+    </spectrum>
+  </source>
+
+  <!-- ==================== 1FHL J2032.1+4125  =================== -->
+  <source>
+    <name>  1FHL J2032.1+4125 </name>
+    <assoc> LAT PSR J2032+4127 </assoc>
+    <raJ2000 unit="degree"> 308.047077681 </raJ2000>
+    <decJ2000 unit="degree"> 41.4241001085 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 36.702117 </normF>
+      <normE unit="GeV"> 12.791429 </normE>
+      <index> -4.034775 </index>
+    </spectrum>
+  </source>
+
+  <!-- ==================== 1FHL J2115.6+2935  =================== -->
+  <source>
+    <name>  1FHL J2115.6+2935 </name>
+    <assoc> B2 2113+29 </assoc>
+    <raJ2000 unit="degree"> 318.907898084 </raJ2000>
+    <decJ2000 unit="degree"> 29.5973987493 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 3.105790 </normF>
+      <normE unit="GeV"> 17.194434 </normE>
+      <index> -2.871798 </index>
+    </spectrum>
+    <redshift> 1.514 </redshift>
+  </source>
+
+  <!-- ==================== 1FHL J2131.6-0913  =================== -->
+  <source>
+    <name>  1FHL J2131.6-0913 </name>
+    <assoc> RBS 1752 </assoc>
+    <raJ2000 unit="degree"> 322.900772031 </raJ2000>
+    <decJ2000 unit="degree"> -9.22840006875 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 0.392757 </normF>
+      <normE unit="GeV"> 45.855746 </normE>
+      <index> -1.471419 </index>
+    </spectrum>
+    <redshift> 0.449 </redshift>
+  </source>
+
+  <!-- ==================== 1FHL J2150.2-1413  =================== -->
+  <source>
+    <name>  1FHL J2150.2-1413 </name>
+    <assoc> TXS 2147-144 </assoc>
+    <raJ2000 unit="degree"> 327.572211612 </raJ2000>
+    <decJ2000 unit="degree"> -14.2230996965 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 0.836669 </normF>
+      <normE unit="GeV"> 31.806273 </normE>
+      <index> -1.746956 </index>
+    </spectrum>
+    <redshift> 0.229 </redshift>
+  </source>
+
+  <!-- ==================== 1FHL J2158.8-3013  =================== -->
+  <source>
+    <name>  1FHL J2158.8-3013 </name>
+    <assoc> PKS 2155-304 </assoc>
+    <raJ2000 unit="degree"> 329.721480899 </raJ2000>
+    <decJ2000 unit="degree"> -30.2185976241 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 55.436226 </normF>
+      <normE unit="GeV"> 22.842086 </normE>
+      <index> -2.123613 </index>
+    </spectrum>
+    <redshift> 0.116 </redshift>
+  </source>
+
+  <!-- ==================== 1FHL J2202.7+4216  =================== -->
+  <source>
+    <name>  1FHL J2202.7+4216 </name>
+    <assoc> BL Lacertae </assoc>
+    <raJ2000 unit="degree"> 330.680521421 </raJ2000>
+    <decJ2000 unit="degree"> 42.2812000569 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 7.177792 </normF>
+      <normE unit="GeV"> 21.999098 </normE>
+      <index> -2.217364 </index>
+    </spectrum>
+    <redshift> 0.0686 </redshift>
+  </source>
+
+  <!-- ==================== 1FHL J2203.4+1724  =================== -->
+  <source>
+    <name>  1FHL J2203.4+1724 </name>
+    <assoc> PKS 2201+171 </assoc>
+    <raJ2000 unit="degree"> 330.855893358 </raJ2000>
+    <decJ2000 unit="degree"> 17.4106012793 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 8.260307 </normF>
+      <normE unit="GeV"> 17.167197 </normE>
+      <index> -2.834917 </index>
+    </spectrum>
+    <redshift> 1.075 </redshift>
+  </source>
+
+  <!-- ==================== 1FHL J2229.0+6114  =================== -->
+  <source>
+    <name>  1FHL J2229.0+6114 </name>
+    <assoc> PSR J2229+6114 </assoc>
+    <raJ2000 unit="degree"> 337.266818196 </raJ2000>
+    <decJ2000 unit="degree"> 61.2461013818 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 16.415924 </normF>
+      <normE unit="GeV"> 15.230275 </normE>
+      <index> -3.234469 </index>
+    </spectrum>
+  </source>
+
+  <!-- ==================== 1FHL J2236.2+2827  =================== -->
+  <source>
+    <name>  1FHL J2236.2+2827 </name>
+    <assoc> B2 2234+28A </assoc>
+    <raJ2000 unit="degree"> 339.069796891 </raJ2000>
+    <decJ2000 unit="degree"> 28.4601995732 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 1.855740 </normF>
+      <normE unit="GeV"> 25.184492 </normE>
+      <index> -1.923609 </index>
+    </spectrum>
+    <redshift> 0.795 </redshift>
+  </source>
+
+  <!-- ==================== 1FHL J2236.3-1432  =================== -->
+  <source>
+    <name>  1FHL J2236.3-1432 </name>
+    <assoc> PKS 2233-148 </assoc>
+    <raJ2000 unit="degree"> 339.096598554 </raJ2000>
+    <decJ2000 unit="degree"> -14.5355987803 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 3.256069 </normF>
+      <normE unit="GeV"> 17.190137 </normE>
+      <index> -2.845009 </index>
+    </spectrum>
+    <redshift> 0.325 </redshift>
+  </source>
+
+  <!-- ==================== 1FHL J2250.1+3823  =================== -->
+  <source>
+    <name>  1FHL J2250.1+3823 </name>
+    <assoc> B3 2247+381 </assoc>
+    <raJ2000 unit="degree"> 342.538904612 </raJ2000>
+    <decJ2000 unit="degree"> 38.3992005704 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 2.238931 </normF>
+      <normE unit="GeV"> 28.622908 </normE>
+      <index> -1.872807 </index>
+    </spectrum>
+    <redshift> 0.1187 </redshift>
+  </source>
+
+  <!-- ==================== 1FHL J2253.9+1608  =================== -->
+  <source>
+    <name>  1FHL J2253.9+1608 </name>
+    <assoc> 3C 454.3 </assoc>
+    <raJ2000 unit="degree"> 343.477372604 </raJ2000>
+    <decJ2000 unit="degree"> 16.14609933 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 89.248175 </normF>
+      <normE unit="GeV"> 14.612318 </normE>
+      <index> -3.477481 </index>
+    </spectrum>
+    <redshift> 0.859 </redshift>
+  </source>
+
+  <!-- ==================== 1FHL J2308.1+1459  =================== -->
+  <source>
+    <name>  1FHL J2308.1+1459 </name>
+    <assoc> MG1 J230734+1449 </assoc>
+    <raJ2000 unit="degree"> 347.033797464 </raJ2000>
+    <decJ2000 unit="degree"> 14.9890003978 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 8.568788 </normF>
+      <normE unit="GeV"> 13.898327 </normE>
+      <index> -3.878342 </index>
+    </spectrum>
+    <redshift> 0.503 </redshift>
+  </source>
+
+  <!-- ==================== 1FHL J2311.0+3425  =================== -->
+  <source>
+    <name>  1FHL J2311.0+3425 </name>
+    <assoc> B2 2308+34 </assoc>
+    <raJ2000 unit="degree"> 347.771075403 </raJ2000>
+    <decJ2000 unit="degree"> 34.4297985682 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 36.609824 </normF>
+      <normE unit="GeV"> 10.438817 </normE>
+      <index> -10.909176 </index>
+    </spectrum>
+    <redshift> 1.817 </redshift>
+  </source>
+
+  <!-- ==================== 1FHL J2314.0+1446  =================== -->
+  <source>
+    <name>  1FHL J2314.0+1446 </name>
+    <assoc> RGB J2313+147 </assoc>
+    <raJ2000 unit="degree"> 348.514199985 </raJ2000>
+    <decJ2000 unit="degree"> 14.7688002216 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 1.163596 </normF>
+      <normE unit="GeV"> 30.981590 </normE>
+      <index> -1.770112 </index>
+    </spectrum>
+    <redshift> 0.1625 </redshift>
+  </source>
+
+  <!-- ==================== 1FHL J2322.5+3436  =================== -->
+  <source>
+    <name>  1FHL J2322.5+3436 </name>
+    <assoc> TXS 2320+343 </assoc>
+    <raJ2000 unit="degree"> 350.647186101 </raJ2000>
+    <decJ2000 unit="degree"> 34.6024008636 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 0.950662 </normF>
+      <normE unit="GeV"> 38.544230 </normE>
+      <index> -1.507992 </index>
+    </spectrum>
+    <redshift> 0.098 </redshift>
+  </source>
+
+  <!-- ==================== 1FHL J2323.3+5849  =================== -->
+  <source>
+    <name>  1FHL J2323.3+5849 </name>
+    <assoc> SNR G111.7-02.1 </assoc>
+    <raJ2000 unit="degree"> 350.849687549 </raJ2000>
+    <decJ2000 unit="degree"> 58.8171973205 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 9.339999 </normF>
+      <normE unit="GeV"> 22.578166 </normE>
+      <index> -2.210672 </index>
+    </spectrum>
+  </source>
+
+  <!-- ==================== 1FHL J2323.8+4210  =================== -->
+  <source>
+    <name>  1FHL J2323.8+4210 </name>
+    <assoc> 1ES 2321+419 </assoc>
+    <raJ2000 unit="degree"> 350.961702651 </raJ2000>
+    <decJ2000 unit="degree"> 42.171298898 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 6.849050 </normF>
+      <normE unit="GeV"> 21.536551 </normE>
+      <index> -2.272856 </index>
+    </spectrum>
+    <redshift> 0.059 </redshift>
+  </source>
+
+  <!-- ==================== 1FHL J2339.8-0530  =================== -->
+  <source>
+    <name>  1FHL J2339.8-0530 </name>
+    <assoc> PSR J2339-0533 </assoc>
+    <raJ2000 unit="degree"> 354.963018713 </raJ2000>
+    <decJ2000 unit="degree"> -5.51189990784 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 3.160243 </normF>
+      <normE unit="GeV"> 15.902082 </normE>
+      <index> -3.038771 </index>
+    </spectrum>
+  </source>
+
+  <!-- ==================== 1FHL J2345.0-1556  =================== -->
+  <source>
+    <name>  1FHL J2345.0-1556 </name>
+    <assoc> PMN J2345-1555 </assoc>
+    <raJ2000 unit="degree"> 356.260700013 </raJ2000>
+    <decJ2000 unit="degree"> -15.9371997017 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 11.588143 </normF>
+      <normE unit="GeV"> 18.617998 </normE>
+      <index> -2.530911 </index>
+    </spectrum>
+    <redshift> 0.621 </redshift>
+  </source>
+
+  <!-- ==================== 1FHL J2347.0+5142  =================== -->
+  <source>
+    <name>  1FHL J2347.0+5142 </name>
+    <assoc> 1ES 2344+514 </assoc>
+    <raJ2000 unit="degree"> 356.759385785 </raJ2000>
+    <decJ2000 unit="degree"> 51.7050989227 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 2.255108 </normF>
+      <normE unit="GeV"> 39.308344 </normE>
+      <index> -1.481786 </index>
+    </spectrum>
+    <redshift> 0.044 </redshift>
+  </source>
+
+  <!-- ==================== 1FHL J2359.2-3037  =================== -->
+  <source>
+    <name>  1FHL J2359.2-3037 </name>
+    <assoc> H 2356-309 </assoc>
+    <raJ2000 unit="degree"> 359.81160608 </raJ2000>
+    <decJ2000 unit="degree"> -30.617999766 </decJ2000>
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 10 500 </energyRange>
+      <normF unit="1e-12/cm2/second/GeV"> 0.811819 </normF>
+      <normE unit="GeV"> 29.760109 </normE>
+      <index> -1.779586 </index>
+    </spectrum>
+    <redshift> 0.165388 </redshift>
+  </source>
+
+</ps-catalog>

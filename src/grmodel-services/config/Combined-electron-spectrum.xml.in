@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+
+<!-- Total e+e- spectrum at TeV measured by HESS: see details of the fit in
+     F. Aharonian et al., PRL 101:2008, 261104
+     -->
+
+<cosmicRayModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                xsi:noNamespaceSchemaLocation="@HAWC_CONFIG@/CRSpectrum.xsd">
+
+  <!-- ====== Combined e+e- spectrum from HESS, ATIC, AMS, HEAT, etc. ====== -->
+  <source>
+    <name> CombinedElectronFit </name>
+    <particleType> Electron </particleType>
+    <spectrum type="PLExpCutoff">
+      <energyRange unit="GeV"> 10. 7e3 </energyRange>
+      <normF unit="1e-4/(TeV*meter2*s*sr)"> 1.04 </normF>
+      <normE unit="TeV"> 1. </normE>
+      <index> -3.05 </index>
+      <cutoffE unit="TeV"> 2.1 </cutoffE>
+    </spectrum>
+  </source>
+
+</cosmicRayModel>
+

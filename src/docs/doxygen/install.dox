@@ -1,0 +1,72 @@
+
+/*!
+
+  \page install Installation
+
+  \addindex installation
+
+  \tableofcontents
+
+  There are several ways to install the AERIE software framework, and the best
+  choice for you depends on your own needs (e.g., basic use or code
+  development).  For your convenience, we summarize the installation modes
+  below.
+
+  \section default_installs Default Installations
+
+    If you don't wish to install AERIE on your own computer, you don't have to,
+    because default installations of the trunk and tagged releases are
+    maintained on the HAWC cluster at UMd and UNAM.  You simply need to ask for
+    a site account at one of these locations.  Instructions can be found at the
+    <a href="http://hawc.umd.edu/wiki/index.php/Offline_Software">HAWC Software Wiki</a>.
+
+
+  \section install_with_ape Installation Using ape
+
+    The <a href="https://devel.auger.unam.mx/trac/projects/ape/">Auger Package
+    Environment (\c ape)</a> is a python program that has been developed for
+    the <a href="http://www.auger.org">Pierre Auger Collaboration</a>.  It is a
+    command-line tool that will download and build AERIE and many of the
+    third-party libraries on which AERIE depends.  These include:
+
+    <ul>
+      <li><a href="http://root.cern.ch">ROOT</a></li>
+      <li><a href="http://www.boost.org">Boost</a></li>
+      <li><a href="http://www.cmake.org">CMake</a></li>
+      <li><a href="http://www.fftw.org">FFTW3</a></li>
+      <li>...</li>
+    </ul>
+
+    Once the libraries are built, \c ape can easily configure the user
+    environment to ensure they are used.
+
+    If you use \c ape to build AERIE, you will not need to manually download
+    any source code besides the \c ape distribution itself.  Details on
+    building the software with \c ape can be found on the <a
+    href="http://hawc.umd.edu/wiki/index.php/Installing_With_Ape">HAWC
+    Wiki</a>.
+
+
+  \section install_from_repo Installation from the Code Repository
+
+    If you would like access to the AERIE source code to develop software, it
+    is possible to download it directly from the <a
+    href="http://hawc.umd.edu/wiki/index.php/HAWC_Software_Version_Control">subversion
+    repository</a> at UMd.  The AERIE trunk and past tagged releases can all be
+    accessed in this way.
+
+    Note that in order to build AERIE, the correct versions of the external
+    libraries (ROOT, Boost, etc.) must also be installed on your system and
+    properly configured.  We highly recommend that you use \c ape to install
+    these packages and configure your user environment (see \ref
+    install_with_ape).  You are free to try to build AERIE against the system
+    versions of the external libraries, but be warned that we cannot guarantee
+    that the libraries on your particular system will be compatible with AERIE.
+
+    Instructions for accessing the software repository and downloading the
+    AERIE code can be found on the <a
+    href="http://hawc.umd.edu/wiki/index.php/HAWC_Software_Version_Control">HAWC
+    Wiki</a>.
+
+*/
+

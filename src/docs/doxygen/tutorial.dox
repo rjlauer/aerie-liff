@@ -1,0 +1,81 @@
+
+/*!
+
+\page tutorial AERIE Tutorial
+
+\tableofcontents
+
+\addindex tutorial 
+
+This is a tutorial to the AERIE project.  It is intended to take a person from
+knowing nothing about AERIE or HAWC software to familiarity with the software
+and capability to do commonly useful tasks like process simulation, data or
+produce skymaps. To get the most out of the tutorial, follow along the items in
+order as later steps assume an understanding of previous steps.
+
+The code for these tutorials is in svn under
+http://private.hawc-observatory.org/svn/hawc/projects/aerie-tutorial.  Choose
+the tag that matches the release of Aerie that you are using.
+
+The tutorials adopt the philosophy that what people will be most interested in
+is functional examples that can be modified to suit. Therefore, the entire
+examples are included in the aerie-tutorial project and can serve as the
+starting point for further analysis. 
+
+These tutorials follow an approach that people like to have something simple
+working.  They are not exhaustive documentation of the various pieces of the
+code. These are to get your feet wet after you've successfully installed AERIE.
+
+\section the_basics The Basics
+
+<ul>
+<li> \subpage tutorial_simple_hawcnest_services <br/>This tutorial just
+exhibits the basic service mechanism that makes hawcnest work.</li> 
+<li> \subpage tutorial_the_bag <br/>This is an introduction to the bag, 
+the mechanism for storing event information.</li>
+<li> \subpage tutorial_modules_sources <br/>This is a complete toy example
+of event processing. It doesn't really process HAWC data or simulation but
+it exercises the mechanism in a illustrative way.</li>
+<li> \subpage tutorial_service_lister <br/>An application that lists service
+classes registered with the framework.</li>
+<li> \subpage tutorial_logging <br/>This describes the simple logging system
+used in AERIE.</li>
+<li> \subpage tutorial_python <br/>This tutorial explains how to call AERIE
+services in python.</li>
+
+</ul>
+
+\section simulation Simulation
+<ul> 
+<li>\subpage tutorial_reconstructing_simulation <br/>This describes the
+location of simulated events and the reconstruction sequence.</li>
+<li>\subpage tutorial_user_written_modules <br/>Here you will learn how to
+write your own C++ and python modules to plug into the processing loop.</li>
+<li>\subpage tutorial_root_output <br/>A description of the trees written to
+disk when ROOT output is enabled in the reconstruction.</li>
+<li>\subpage tutorial_weighting <br/>A description of why, how, and where event
+weighting is used in simulation and analysis.</li>
+<li>\subpage tutorial_effective_area <br/>How to calculate the detector
+effective area.</li>
+<li>\subpage tutorial_sensitivity <br/>How to calculate the detector
+sensitivity.</li>
+</ul>
+
+\section data_reduction Experimental Data Reduction
+<ul> 
+<li>\subpage tutorial_triggering_reconstructing_data <br/>A quick tutorial on
+reconstructing real data from the HAWC-30 array.</li>
+<li>\subpage tutorial_working_with_xcdf <br/>How XCDF works, with a description
+of handy file inspection utilities.</li>
+<li>\subpage tutorial_changing_the_processing </li>
+<li>\subpage tutorial_map_making <br/>A guide to producing event maps.</li>
+<li>\subpage tutorial_working_with_maps <br/>A guide to using event maps to
+finding significant features in the arrival direction distribution.</li>
+</ul>
+
+\section astrophysical_tools Astrophysical Tools
+
+\section event_display Event Display
+
+*/
+

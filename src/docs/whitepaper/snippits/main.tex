@@ -1,0 +1,41 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{c}{# importing the needed classes and functions}
+\PY{k+kn}{from} \PY{n+nn}{HAWCNest} \PY{k+kn}{import} \PY{n}{HAWCNest}
+\PY{k+kn}{from} \PY{n+nn}{HAWCNest} \PY{k+kn}{import} \PY{n}{load}
+\PY{k+kn}{from} \PY{n+nn}{HAWCNest} \PY{k+kn}{import} \PY{n}{GetService\PYZus{}MainLoop}
+
+\PY{c}{# loading shared libraries that might be needed for processing}
+\PY{n}{load}\PY{p}{(}\PY{l+s}{"}\PY{l+s}{libhawcnest}\PY{l+s}{"}\PY{p}{)}
+\PY{n}{load}\PY{p}{(}\PY{l+s}{"}\PY{l+s}{libexample-hawcnest}\PY{l+s}{"}\PY{p}{)}
+
+\PY{c}{# This is nearly identical to the C++ interface, except it uses python}
+\PY{c}{# syntax}
+\PY{n}{nest} \PY{o}{=} \PY{n}{HAWCNest}\PY{p}{(}\PY{p}{)}
+
+\PY{c}{# adding and configuring services}
+\PY{n}{nest}\PY{o}{.}\PY{n}{Service}\PY{p}{(}\PY{l+s}{"}\PY{l+s}{STDRandomNumberService}\PY{l+s}{"}\PY{p}{,}\PY{l+s}{"}\PY{l+s}{rand}\PY{l+s}{"}\PY{p}{)}\PY{p}{(}
+    \PY{p}{(}\PY{l+s}{"}\PY{l+s}{Seed}\PY{l+s}{"}\PY{p}{,}\PY{l+m+mi}{12345}\PY{p}{)}
+    \PY{p}{)}
+\PY{n}{nest}\PY{o}{.}\PY{n}{Service}\PY{p}{(}\PY{l+s}{"}\PY{l+s}{DBCalibrationService}\PY{l+s}{"}\PY{p}{,}\PY{l+s}{"}\PY{l+s}{calib}\PY{l+s}{"}\PY{p}{)}\PY{p}{(}
+    \PY{p}{(}\PY{l+s}{"}\PY{l+s}{server}\PY{l+s}{"}\PY{p}{,}\PY{l+s}{"}\PY{l+s}{mildb.umd.edu}\PY{l+s}{"}\PY{p}{)}
+    \PY{p}{(}\PY{l+s}{"}\PY{l+s}{uname}\PY{l+s}{"}\PY{p}{,}\PY{l+s}{"}\PY{l+s}{milagro}\PY{l+s}{"}\PY{p}{)}
+    \PY{p}{(}\PY{l+s}{"}\PY{l+s}{password}\PY{l+s}{"}\PY{p}{,}\PY{l+s}{"}\PY{l+s}{topsecret}\PY{l+s}{"}\PY{p}{)}
+    \PY{p}{)}
+\PY{n}{nest}\PY{o}{.}\PY{n}{Service}\PY{p}{(}\PY{l+s}{"}\PY{l+s}{ExampleSource}\PY{l+s}{"}\PY{p}{,}\PY{l+s}{"}\PY{l+s}{source}\PY{l+s}{"}\PY{p}{)}\PY{p}{(}
+    \PY{p}{(}\PY{l+s}{"}\PY{l+s}{input}\PY{l+s}{"}\PY{p}{,}\PY{l+s}{"}\PY{l+s}{myinputfile.dat}\PY{l+s}{"}\PY{p}{)}
+    \PY{p}{(}\PY{l+s}{"}\PY{l+s}{maxevents}\PY{l+s}{"}\PY{p}{,}\PY{l+m+mi}{20}\PY{p}{)}
+    \PY{p}{)}
+\PY{n}{nest}\PY{o}{.}\PY{n}{Service}\PY{p}{(}\PY{l+s}{"}\PY{l+s}{CalibrationModule}\PY{l+s}{"}\PY{p}{,}\PY{l+s}{"}\PY{l+s}{calibmodule}\PY{l+s}{"}\PY{p}{)}
+\PY{n}{nest}\PY{o}{.}\PY{n}{Service}\PY{p}{(}\PY{l+s}{"}\PY{l+s}{ReconstructionModule\PYZus{}COM}\PY{l+s}{"}\PY{p}{,}\PY{l+s}{"}\PY{l+s}{reco\PYZus{}com}\PY{l+s}{"}\PY{p}{)}
+\PY{n}{nest}\PY{o}{.}\PY{n}{Service}\PY{p}{(}\PY{l+s}{"}\PY{l+s}{ReconstructionModule\PYZus{}Gauss}\PY{l+s}{"}\PY{p}{,}\PY{l+s}{"}\PY{l+s}{reco\PYZus{}gauss}\PY{l+s}{"}\PY{p}{)}
+\PY{n}{nest}\PY{o}{.}\PY{n}{Service}\PY{p}{(}\PY{l+s}{"}\PY{l+s}{PrintingModule}\PY{l+s}{"}\PY{p}{,}\PY{l+s}{"}\PY{l+s}{print}\PY{l+s}{"}\PY{p}{)}
+\PY{n}{nest}\PY{o}{.}\PY{n}{Service}\PY{p}{(}\PY{l+s}{"}\PY{l+s}{SequentialMainLoop}\PY{l+s}{"}\PY{p}{,}\PY{l+s}{"}\PY{l+s}{mainloop}\PY{l+s}{"}\PY{p}{)}\PY{p}{(}
+    \PY{p}{(}\PY{l+s}{"}\PY{l+s}{source}\PY{l+s}{"}\PY{p}{,}\PY{l+s}{"}\PY{l+s}{source}\PY{l+s}{"}\PY{p}{)}
+    \PY{p}{(}\PY{l+s}{"}\PY{l+s}{modulechain}\PY{l+s}{"}\PY{p}{,}\PY{p}{[}\PY{l+s}{"}\PY{l+s}{print}\PY{l+s}{"}\PY{p}{,}\PY{l+s}{"}\PY{l+s}{calibmodule}\PY{l+s}{"}\PY{p}{,}\PY{l+s}{"}\PY{l+s}{reco\PYZus{}com}\PY{l+s}{"}\PY{p}{,}
+                    \PY{l+s}{"}\PY{l+s}{reco\PYZus{}gauss}\PY{l+s}{"}\PY{p}{,}\PY{l+s}{"}\PY{l+s}{print}\PY{l+s}{"}\PY{p}{,}\PY{l+s}{"}\PY{l+s}{mymodule}\PY{l+s}{"}\PY{p}{]}\PY{p}{)}\PY{p}{,}
+    \PY{p}{)}
+\PY{n}{nest}\PY{o}{.}\PY{n}{Configure}\PY{p}{(}\PY{p}{)}
+\PY{n}{main} \PY{o}{=} \PY{n}{GetService\PYZus{}MainLoop}\PY{p}{(}\PY{l+s}{"}\PY{l+s}{mainloop}\PY{l+s}{"}\PY{p}{)}
+\PY{n}{loop}\PY{o}{.}\PY{n}{Execute}\PY{p}{(}\PY{p}{)}
+\PY{n}{nest}\PY{o}{.}\PY{n}{Finish}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}

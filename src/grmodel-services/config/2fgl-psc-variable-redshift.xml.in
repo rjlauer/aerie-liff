@@ -1,0 +1,1715 @@
+<?xml version="1.0"?>
+
+<!--
+  2FGL point source list created from gll_psc_v07.fit
+  with AERIE script listXML.py
+
+  Cuts:
+   - 2FGL analysis flags == 0
+   - Source declination within +-50 deg of dec=19 deg
+   - Minimum significance = 10 sigma
+   - Power laws softer than E^-2
+   - Steady sources = no
+   - Light curve: measurements in at least 20/24 bins
+-->
+
+<ps-catalog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:noNamespaceSchemaLocation="@HAWC_CONFIG@/PSCatalog.xsd">
+
+  <!-- ==================== 2FGL J0108.6+0135  =================== -->
+  <source>
+    <name>  2FGL J0108.6+0135 </name>
+    <assoc> 4C +01.02 </assoc>
+    <raJ2000  unit="degree"> 17.173542 </raJ2000>
+    <decJ2000 unit="degree"> 1.590710 </decJ2000>
+    <redshift> 2.099 </redshift>
+    
+    <spectrum type="LogParabola">
+      <energyRange unit="GeV"> 0.1 100 </energyRange>
+      <normF unit="1e-12/cm2/second/MeV"> 165.370287 </normF>
+      <normE unit="GeV"> 0.311049 </normE>
+      <alpha> -2.262381 </alpha>
+      <beta>  -0.101497 </beta>
+    </spectrum>
+    <!-- Integral photon counts vs. MJD (bin center) -->
+    <lightCurve type="TabulatedLightCurve">
+      <mjd unit="day">
+         54697.8   54728.2   54758.6     54789   54819.3   54849.7
+         54880.1   54910.4   54940.8   54971.2   55001.5   55031.9
+         55062.3   55092.7     55123   55153.4   55183.8   55214.1
+         55244.5   55274.9   55305.2   55335.6     55366   55395.1
+       </mjd>
+      <flux unit="1e-8/cm2/second">
+         1.85866    7.4619   10.1695   14.3549    21.728   24.4067
+         16.6202   14.9347   25.3656   17.9707   15.7043   11.8126
+         20.2962   19.6061   15.5234   26.7689   19.8763   15.8035
+          16.039   12.1869    8.8895   4.98498   13.1692   18.5554
+       </flux>
+    </lightCurve>
+  </source>
+  <!-- ==================== 2FGL J0112.1+2245  =================== -->
+  <source>
+    <name>  2FGL J0112.1+2245 </name>
+    <assoc> S2 0109+22 </assoc>
+    <raJ2000  unit="degree"> 18.032659 </raJ2000>
+    <decJ2000 unit="degree"> 22.763668 </decJ2000>
+    <redshift> 0.265 </redshift>
+    
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 0.1 100 </energyRange>
+      <normF unit="1e-12/cm2/second/MeV"> 10.424546 </normF>
+      <normE unit="GeV"> 0.860779 </normE>
+      <index> -2.065897 </index>
+    </spectrum>
+    <!-- Integral photon counts vs. MJD (bin center) -->
+    <lightCurve type="TabulatedLightCurve">
+      <mjd unit="day">
+         54697.8   54728.2   54758.6     54789   54819.3   54849.7
+         54880.1   54910.4   54940.8   54971.2   55001.5   55031.9
+         55062.3   55092.7     55123   55153.4   55183.8   55214.1
+         55244.5   55274.9   55305.2   55335.6     55366   55395.1
+       </mjd>
+      <flux unit="1e-8/cm2/second">
+         6.15505   7.76963   11.2911    5.6891   4.82331   6.24908
+         2.88075   4.64647   5.62241   4.59675   5.86159   7.97507
+         11.3607     12.56   9.77109   7.25593   13.6111   6.65239
+         6.01052    9.6532   21.8864   9.44054   8.32582    7.8006
+       </flux>
+    </lightCurve>
+  </source>
+  <!-- ==================== 2FGL J0118.8-2142  =================== -->
+  <source>
+    <name>  2FGL J0118.8-2142 </name>
+    <assoc> PKS 0116-219 </assoc>
+    <raJ2000  unit="degree"> 19.724342 </raJ2000>
+    <decJ2000 unit="degree"> -21.706228 </decJ2000>
+    <redshift> 1.165 </redshift>
+    
+    <spectrum type="LogParabola">
+      <energyRange unit="GeV"> 0.1 100 </energyRange>
+      <normF unit="1e-12/cm2/second/MeV"> 40.830790 </normF>
+      <normE unit="GeV"> 0.439865 </normE>
+      <alpha> -2.121529 </alpha>
+      <beta>  -0.135279 </beta>
+    </spectrum>
+    <!-- Integral photon counts vs. MJD (bin center) -->
+    <lightCurve type="TabulatedLightCurve">
+      <mjd unit="day">
+         54697.8   54728.2   54758.6     54789   54819.3   54849.7
+         54880.1   54910.4   54940.8   54971.2   55001.5   55031.9
+         55062.3   55092.7     55123   55153.4   55183.8   55214.1
+         55244.5   55274.9   55305.2   55335.6     55366   55395.1
+       </mjd>
+      <flux unit="1e-8/cm2/second">
+         12.1861   9.04463   2.92098   2.98145   1.75013   6.29671
+         10.4771   6.99276   7.80093   4.83311   3.57293   2.68326
+         6.58963   12.0585   20.1741   13.8002   12.3449   4.51961
+         6.22619   1.25009   4.68856   5.13976   4.21497   13.8183
+       </flux>
+    </lightCurve>
+  </source>
+  <!-- ==================== 2FGL J0136.9+4751  =================== -->
+  <source>
+    <name>  2FGL J0136.9+4751 </name>
+    <assoc> OC 457 </assoc>
+    <raJ2000  unit="degree"> 24.239643 </raJ2000>
+    <decJ2000 unit="degree"> 47.861007 </decJ2000>
+    <redshift> 0.859 </redshift>
+    
+    <spectrum type="LogParabola">
+      <energyRange unit="GeV"> 0.1 100 </energyRange>
+      <normF unit="1e-12/cm2/second/MeV"> 90.297360 </normF>
+      <normE unit="GeV"> 0.380737 </normE>
+      <alpha> -2.147605 </alpha>
+      <beta>  -0.093299 </beta>
+    </spectrum>
+    <!-- Integral photon counts vs. MJD (bin center) -->
+    <lightCurve type="TabulatedLightCurve">
+      <mjd unit="day">
+         54697.8   54728.2   54758.6     54789   54819.3   54849.7
+         54880.1   54910.4   54940.8   54971.2   55001.5   55031.9
+         55062.3   55092.7     55123   55153.4   55183.8   55214.1
+         55244.5   55274.9   55305.2   55335.6     55366   55395.1
+       </mjd>
+      <flux unit="1e-8/cm2/second">
+         15.8886   10.5489   10.0047    21.068   19.5011   12.8051
+         21.5429   32.7962   20.5278   19.9596   15.0286   20.1175
+          17.027   10.7217   9.79504    8.6115   6.91406   6.88314
+           8.468   4.11876   6.14515   6.94146   4.18563   1.79568
+       </flux>
+    </lightCurve>
+  </source>
+  <!-- ==================== 2FGL J0144.6+2704  =================== -->
+  <source>
+    <name>  2FGL J0144.6+2704 </name>
+    <assoc> TXS 0141+268 </assoc>
+    <raJ2000  unit="degree"> 26.156081 </raJ2000>
+    <decJ2000 unit="degree"> 27.079306 </decJ2000>
+    
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 0.1 100 </energyRange>
+      <normF unit="1e-12/cm2/second/MeV"> 6.051487 </normF>
+      <normE unit="GeV"> 0.825583 </normE>
+      <index> -2.169330 </index>
+    </spectrum>
+    <!-- Integral photon counts vs. MJD (bin center) -->
+    <lightCurve type="TabulatedLightCurve">
+      <mjd unit="day">
+         54697.8   54728.2   54758.6     54789   54819.3   54849.7
+         54880.1   54910.4   54940.8   54971.2   55001.5   55031.9
+         55062.3   55092.7     55123   55153.4   55183.8   55214.1
+         55244.5   55274.9   55305.2   55335.6     55366   55395.1
+       </mjd>
+      <flux unit="1e-8/cm2/second">
+         8.19049   5.43607   3.71295   5.55574   4.03963    3.1225
+         2.76444   3.82305   4.63014   5.96755   4.64839   4.52089
+         4.38319   3.52248   2.38935   4.51534   5.02095   5.34175
+         3.84334   4.40869   8.78239   3.50372    5.2405   11.6846
+       </flux>
+    </lightCurve>
+  </source>
+  <!-- ==================== 2FGL J0217.9+0143  =================== -->
+  <source>
+    <name>  2FGL J0217.9+0143 </name>
+    <assoc> PKS 0215+015 </assoc>
+    <raJ2000  unit="degree"> 34.483296 </raJ2000>
+    <decJ2000 unit="degree"> 1.730257 </decJ2000>
+    <redshift> 1.715 </redshift>
+    
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 0.1 100 </energyRange>
+      <normF unit="1e-12/cm2/second/MeV"> 13.077264 </normF>
+      <normE unit="GeV"> 0.724696 </normE>
+      <index> -2.151593 </index>
+    </spectrum>
+    <!-- Integral photon counts vs. MJD (bin center) -->
+    <lightCurve type="TabulatedLightCurve">
+      <mjd unit="day">
+         54697.8   54728.2   54758.6     54789   54819.3   54849.7
+         54880.1   54910.4   54940.8   54971.2   55001.5   55031.9
+         55062.3   55092.7     55123   55153.4   55183.8   55214.1
+         55244.5   55274.9   55305.2   55335.6     55366   55395.1
+       </mjd>
+      <flux unit="1e-8/cm2/second">
+         11.9735   8.65183   15.0774   13.7119   9.06877   4.62284
+         1.36888   4.91606   5.15344   5.72709   5.55719   5.10515
+         11.9086   16.7003   11.8992   9.72548    3.5214   15.0931
+         7.62426   3.13066    3.9044   6.29175    1.6025   2.36126
+       </flux>
+    </lightCurve>
+  </source>
+  <!-- ==================== 2FGL J0221.0+3555  =================== -->
+  <source>
+    <name>  2FGL J0221.0+3555 </name>
+    <assoc> S4 0218+35 </assoc>
+    <raJ2000  unit="degree"> 35.267129 </raJ2000>
+    <decJ2000 unit="degree"> 35.930316 </decJ2000>
+    <redshift> 0.936 </redshift>
+    
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 0.1 100 </energyRange>
+      <normF unit="1e-12/cm2/second/MeV"> 7.589456 </normF>
+      <normE unit="GeV"> 0.950898 </normE>
+      <index> -2.275452 </index>
+    </spectrum>
+    <!-- Integral photon counts vs. MJD (bin center) -->
+    <lightCurve type="TabulatedLightCurve">
+      <mjd unit="day">
+         54697.8   54728.2   54758.6     54789   54819.3   54849.7
+         54880.1   54910.4   54940.8   54971.2   55001.5   55031.9
+         55062.3   55092.7     55123   55153.4   55183.8   55214.1
+         55244.5   55274.9   55305.2   55335.6     55366   55395.1
+       </mjd>
+      <flux unit="1e-8/cm2/second">
+         6.60681   7.93963     5.873   6.31259   14.9284   18.4002
+         25.9668   14.4616   17.4642   9.05654   4.46782   7.16685
+              11   5.65092   7.99448   11.1096   8.94882   10.3407
+         10.4362   11.9977    6.8895    3.0069   6.61851   1.74936
+       </flux>
+    </lightCurve>
+  </source>
+  <!-- ==================== 2FGL J0222.6+4302  =================== -->
+  <source>
+    <name>  2FGL J0222.6+4302 </name>
+    <assoc> 3C 66A </assoc>
+    <raJ2000  unit="degree"> 35.661732 </raJ2000>
+    <decJ2000 unit="degree"> 43.035847 </decJ2000>
+    <redshift> 0.444 </redshift>
+    
+    <spectrum type="LogParabola">
+      <energyRange unit="GeV"> 0.1 100 </energyRange>
+      <normF unit="1e-12/cm2/second/MeV"> 30.769359 </normF>
+      <normE unit="GeV"> 0.877559 </normE>
+      <alpha> -1.847372 </alpha>
+      <beta>  -0.040758 </beta>
+    </spectrum>
+    <!-- Integral photon counts vs. MJD (bin center) -->
+    <lightCurve type="TabulatedLightCurve">
+      <mjd unit="day">
+         54697.8   54728.2   54758.6     54789   54819.3   54849.7
+         54880.1   54910.4   54940.8   54971.2   55001.5   55031.9
+         55062.3   55092.7     55123   55153.4   55183.8   55214.1
+         55244.5   55274.9   55305.2   55335.6     55366   55395.1
+       </mjd>
+      <flux unit="1e-8/cm2/second">
+         16.0376   23.6633   25.1509   10.2667   11.1965    12.731
+          12.726   16.4328   27.3882   43.9493   12.9224   11.5439
+         14.1323   17.8741   14.5702   14.7864   20.1458   22.3529
+          13.753   13.4026   11.3049   19.4354   23.6076   28.5332
+       </flux>
+    </lightCurve>
+  </source>
+  <!-- ==================== 2FGL J0237.8+2846  =================== -->
+  <source>
+    <name>  2FGL J0237.8+2846 </name>
+    <assoc> 4C +28.07 </assoc>
+    <raJ2000  unit="degree"> 39.471561 </raJ2000>
+    <decJ2000 unit="degree"> 28.777595 </decJ2000>
+    <redshift> 1.206 </redshift>
+    
+    <spectrum type="LogParabola">
+      <energyRange unit="GeV"> 0.1 100 </energyRange>
+      <normF unit="1e-12/cm2/second/MeV"> 93.159896 </normF>
+      <normE unit="GeV"> 0.338261 </normE>
+      <alpha> -2.158218 </alpha>
+      <beta>  -0.218680 </beta>
+    </spectrum>
+    <!-- Integral photon counts vs. MJD (bin center) -->
+    <lightCurve type="TabulatedLightCurve">
+      <mjd unit="day">
+         54697.8   54728.2   54758.6     54789   54819.3   54849.7
+         54880.1   54910.4   54940.8   54971.2   55001.5   55031.9
+         55062.3   55092.7     55123   55153.4   55183.8   55214.1
+         55244.5   55274.9   55305.2   55335.6     55366   55395.1
+       </mjd>
+      <flux unit="1e-8/cm2/second">
+         3.51297   6.79473   12.2062   15.2998    10.706   10.8676
+         12.8098   18.0532   9.88817   7.34572   6.75496   4.71048
+         3.85277   4.61006   4.85316   5.94186   6.16814    14.476
+         12.2554    8.3737   7.22619   6.46988   11.9855   17.4386
+       </flux>
+    </lightCurve>
+  </source>
+  <!-- ==================== 2FGL J0240.5+6113  =================== -->
+  <!--
+  <source>
+    <name>  2FGL J0240.5+6113 </name>
+    <assoc> LS I+61 303 </assoc>
+    <raJ2000  unit="degree"> 40.129755 </raJ2000>
+    <decJ2000 unit="degree"> 61.224914 </decJ2000>
+    
+    <spectrum type="LogParabola">
+      <energyRange unit="GeV"> 0.1 100 </energyRange>
+      <normF unit="1e-12/cm2/second/MeV"> 357.366942 </normF>
+      <normE unit="GeV"> 0.505083 </normE>
+      <alpha> -2.183209 </alpha>
+      <beta>  -0.152743 </beta>
+    </spectrum>
+    -->
+    <!-- Integral photon counts vs. MJD (bin center) -->
+    <!--
+    <lightCurve type="TabulatedLightCurve">
+      <mjd unit="day">
+         54697.8   54728.2   54758.6     54789   54819.3   54849.7
+         54880.1   54910.4   54940.8   54971.2   55001.5   55031.9
+         55062.3   55092.7     55123   55153.4   55183.8   55214.1
+         55244.5   55274.9   55305.2   55335.6     55366   55395.1
+       </mjd>
+      <flux unit="1e-8/cm2/second">
+         75.6283   65.1366   78.8201    65.848   53.3818   70.4874
+         52.8214   85.4535    92.939   92.3698   109.806   96.1445
+         100.946   83.4779   101.899   83.0035   86.5284   102.371
+         95.4276   85.1177    95.701   101.211    83.076   83.3591
+       </flux>
+    </lightCurve>
+  </source>
+  -->
+  <!-- ==================== 2FGL J0319.8+4130  =================== -->
+  <!--
+  <source>
+    <name>  2FGL J0319.8+4130 </name>
+    <assoc> NGC 1275 </assoc>
+    <raJ2000  unit="degree"> 49.965221 </raJ2000>
+    <decJ2000 unit="degree"> 41.512568 </decJ2000>
+    <redshift> 0.017559 </redshift>
+    
+    <spectrum type="LogParabola">
+      <energyRange unit="GeV"> 0.1 100 </energyRange>
+      <normF unit="1e-12/cm2/second/MeV"> 20.795447 </normF>
+      <normE unit="GeV"> 1.000917 </normE>
+      <alpha> -1.996220 </alpha>
+      <beta>  -0.065916 </beta>
+    </spectrum>
+    -->
+    <!-- Integral photon counts vs. MJD (bin center) -->
+    <!--
+    <lightCurve type="TabulatedLightCurve">
+      <mjd unit="day">
+         54697.8   54728.2   54758.6     54789   54819.3   54849.7
+         54880.1   54910.4   54940.8   54971.2   55001.5   55031.9
+         55062.3   55092.7     55123   55153.4   55183.8   55214.1
+         55244.5   55274.9   55305.2   55335.6     55366   55395.1
+       </mjd>
+      <flux unit="1e-8/cm2/second">
+         24.5498   17.1042   14.3502   13.5302    9.2303   8.47267
+         16.6838   18.2707   22.6989   21.2537   21.4459    20.075
+         10.8581   11.7651   15.8324   13.9388        12   13.7526
+         11.6552    9.7954   16.9677   23.3671     23.82   40.9381
+       </flux>
+    </lightCurve>
+  </source>
+  -->
+  <!-- ==================== 2FGL J0423.2-0120  =================== -->
+  <source>
+    <name>  2FGL J0423.2-0120 </name>
+    <assoc> PKS 0420-01 </assoc>
+    <raJ2000  unit="degree"> 65.807022 </raJ2000>
+    <decJ2000 unit="degree"> -1.342321 </decJ2000>
+    <redshift> 0.9161 </redshift>
+    
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 0.1 100 </energyRange>
+      <normF unit="1e-12/cm2/second/MeV"> 26.112574 </normF>
+      <normE unit="GeV"> 0.618122 </normE>
+      <index> -2.298286 </index>
+    </spectrum>
+    <!-- Integral photon counts vs. MJD (bin center) -->
+    <lightCurve type="TabulatedLightCurve">
+      <mjd unit="day">
+         54697.8   54728.2   54758.6     54789   54819.3   54849.7
+         54880.1   54910.4   54940.8   54971.2   55001.5   55031.9
+         55062.3   55092.7     55123   55153.4   55183.8   55214.1
+         55244.5   55274.9   55305.2   55335.6     55366   55395.1
+       </mjd>
+      <flux unit="1e-8/cm2/second">
+         11.0771   9.28852   10.1858   8.21941   7.17266   9.11418
+         21.7974   11.6281   10.9503   17.4354   17.6941   9.54434
+         12.1089   13.4387   9.78812   13.4607   27.0285   37.6132
+         21.7697   13.4035   6.08696   4.05107   4.35149   4.92075
+       </flux>
+    </lightCurve>
+  </source>
+  <!-- ==================== 2FGL J0442.7-0017  =================== -->
+  <source>
+    <name>  2FGL J0442.7-0017 </name>
+    <assoc> PKS 0440-00 </assoc>
+    <raJ2000  unit="degree"> 70.685935 </raJ2000>
+    <decJ2000 unit="degree"> -0.293492 </decJ2000>
+    <redshift> 0.844 </redshift>
+    
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 0.1 100 </energyRange>
+      <normF unit="1e-12/cm2/second/MeV"> 59.797819 </normF>
+      <normE unit="GeV"> 0.450325 </normE>
+      <index> -2.440922 </index>
+    </spectrum>
+    <!-- Integral photon counts vs. MJD (bin center) -->
+    <lightCurve type="TabulatedLightCurve">
+      <mjd unit="day">
+         54697.8   54728.2   54758.6     54789   54819.3   54849.7
+         54880.1   54910.4   54940.8   54971.2   55001.5   55031.9
+         55062.3   55092.7     55123   55153.4   55183.8   55214.1
+         55244.5   55274.9   55305.2   55335.6     55366   55395.1
+       </mjd>
+      <flux unit="1e-8/cm2/second">
+         9.71888   7.29066   8.20503   13.7006   30.6108   14.1601
+         9.09496   9.52718   13.5985   53.4703   27.3628   13.1782
+         8.48478   16.2636   21.9483   17.6317   29.9909   8.31001
+         15.5399    16.804   21.0357   15.1543   9.73401   5.58807
+       </flux>
+    </lightCurve>
+  </source>
+  <!-- ==================== 2FGL J0448.9+1121  =================== -->
+  <source>
+    <name>  2FGL J0448.9+1121 </name>
+    <assoc> PKS 0446+11 </assoc>
+    <raJ2000  unit="degree"> 72.242679 </raJ2000>
+    <decJ2000 unit="degree"> 11.362651 </decJ2000>
+    
+    <spectrum type="LogParabola">
+      <energyRange unit="GeV"> 0.1 100 </energyRange>
+      <normF unit="1e-12/cm2/second/MeV"> 78.375251 </normF>
+      <normE unit="GeV"> 0.352897 </normE>
+      <alpha> -2.119992 </alpha>
+      <beta>  -0.265485 </beta>
+    </spectrum>
+    <!-- Integral photon counts vs. MJD (bin center) -->
+    <lightCurve type="TabulatedLightCurve">
+      <mjd unit="day">
+         54697.8   54728.2   54758.6     54789   54819.3   54849.7
+         54880.1   54910.4   54940.8   54971.2   55001.5   55031.9
+         55062.3   55092.7     55123   55153.4   55183.8   55214.1
+         55244.5   55274.9   55305.2   55335.6     55366   55395.1
+       </mjd>
+      <flux unit="1e-8/cm2/second">
+         4.06282   5.03465   5.93384   2.30334   3.31113   5.12002
+         5.67059   7.61631   6.39993   5.69908   3.06335   7.00552
+         6.70926   7.19331   6.35032   8.98559   9.94428   5.80535
+         11.3237   34.6031   25.2337    14.532   9.41173   6.65406
+       </flux>
+    </lightCurve>
+  </source>
+  <!-- ==================== 2FGL J0457.0-2325  =================== -->
+  <source>
+    <name>  2FGL J0457.0-2325 </name>
+    <assoc> PKS 0454-234 </assoc>
+    <raJ2000  unit="degree"> 74.267953 </raJ2000>
+    <decJ2000 unit="degree"> -23.427149 </decJ2000>
+    <redshift> 1.003 </redshift>
+    
+    <spectrum type="LogParabola">
+      <energyRange unit="GeV"> 0.1 100 </energyRange>
+      <normF unit="1e-12/cm2/second/MeV"> 287.243201 </normF>
+      <normE unit="GeV"> 0.358508 </normE>
+      <alpha> -2.033384 </alpha>
+      <beta>  -0.110246 </beta>
+    </spectrum>
+    <!-- Integral photon counts vs. MJD (bin center) -->
+    <lightCurve type="TabulatedLightCurve">
+      <mjd unit="day">
+         54697.8   54728.2   54758.6     54789   54819.3   54849.7
+         54880.1   54910.4   54940.8   54971.2   55001.5   55031.9
+         55062.3   55092.7     55123   55153.4   55183.8   55214.1
+         55244.5   55274.9   55305.2   55335.6     55366   55395.1
+       </mjd>
+      <flux unit="1e-8/cm2/second">
+         39.5371   41.0554   47.2424    73.713   62.7573   79.8509
+          39.394   30.6368   34.6165   29.5391   28.1576   15.6194
+         18.2591    26.737     29.98     42.99   29.4931   24.8163
+         19.6822   13.8899   6.31551    18.636   6.54278   7.05088
+       </flux>
+    </lightCurve>
+  </source>
+  <!-- ==================== 2FGL J0509.4+0542  =================== -->
+  <source>
+    <name>  2FGL J0509.4+0542 </name>
+    <assoc> TXS 0506+056 </assoc>
+    <raJ2000  unit="degree"> 77.368326 </raJ2000>
+    <decJ2000 unit="degree"> 5.700271 </decJ2000>
+    
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 0.1 100 </energyRange>
+      <normF unit="1e-12/cm2/second/MeV"> 3.022245 </normF>
+      <normE unit="GeV"> 1.309725 </normE>
+      <index> -2.058548 </index>
+    </spectrum>
+    <!-- Integral photon counts vs. MJD (bin center) -->
+    <lightCurve type="TabulatedLightCurve">
+      <mjd unit="day">
+         54697.8   54728.2   54758.6     54789   54819.3   54849.7
+         54880.1   54910.4   54940.8   54971.2   55001.5   55031.9
+         55062.3   55092.7     55123   55153.4   55183.8   55214.1
+         55244.5   55274.9   55305.2   55335.6     55366   55395.1
+       </mjd>
+      <flux unit="1e-8/cm2/second">
+         4.93509   6.17138    4.8556   7.17406   2.35358   1.84496
+         4.04121   1.40906   3.91376   8.03612    7.1243   7.47233
+         4.01972   9.71527   7.90047   5.96911   6.42974   5.41473
+          3.7509     8.657   3.40403   7.64016     4.505   9.41805
+       </flux>
+    </lightCurve>
+  </source>
+  <!-- ==================== 2FGL J0534.5+2201  =================== -->
+  <!--
+  <source>
+    <name>  2FGL J0534.5+2201 </name>
+    <assoc> PSR J0534+2200 </assoc>
+    <raJ2000  unit="degree"> 83.631520 </raJ2000>
+    <decJ2000 unit="degree"> 22.019599 </decJ2000>
+    
+    <spectrum type="PLExpCutoff_LAT">
+      <energyRange unit="GeV"> 0.1 100 </energyRange>
+      <normF unit="1e-12/cm2/second/MeV"> 1060.998400 </normF>
+      <normE unit="GeV"> 0.485021 </normE>
+      <index> -2.144535 </index>
+      <cutoffE unit="GeV"> 42.658824 </cutoffE>
+    </spectrum>
+    -->
+    <!-- Integral photon counts vs. MJD (bin center) -->
+    <!--
+    <lightCurve type="TabulatedLightCurve">
+      <mjd unit="day">
+         54697.8   54728.2   54758.6     54789   54819.3   54849.7
+         54880.1   54910.4   54940.8   54971.2   55001.5   55031.9
+         55062.3   55092.7     55123   55153.4   55183.8   55214.1
+         55244.5   55274.9   55305.2   55335.6     55366   55395.1
+       </mjd>
+      <flux unit="1e-8/cm2/second">
+         275.497   274.127   287.443   259.808   270.484   272.009
+         303.807   288.378   261.827   303.407   306.917   268.426
+         255.686   256.235    258.41   245.043   285.061   256.098
+         280.447   274.955   260.701   272.828   279.655   289.005
+       </flux>
+    </lightCurve>
+  </source>
+  -->
+  <!-- ==================== 2FGL J0719.3+3306  =================== -->
+  <source>
+    <name>  2FGL J0719.3+3306 </name>
+    <assoc> B2 0716+33 </assoc>
+    <raJ2000  unit="degree"> 109.827359 </raJ2000>
+    <decJ2000 unit="degree"> 33.107887 </decJ2000>
+    <redshift> 0.779 </redshift>
+    
+    <spectrum type="LogParabola">
+      <energyRange unit="GeV"> 0.1 100 </energyRange>
+      <normF unit="1e-12/cm2/second/MeV"> 27.946173 </normF>
+      <normE unit="GeV"> 0.587705 </normE>
+      <alpha> -1.896520 </alpha>
+      <beta>  -0.115361 </beta>
+    </spectrum>
+    <!-- Integral photon counts vs. MJD (bin center) -->
+    <lightCurve type="TabulatedLightCurve">
+      <mjd unit="day">
+         54697.8   54728.2   54758.6     54789   54819.3   54849.7
+         54880.1   54910.4   54940.8   54971.2   55001.5   55031.9
+         55062.3   55092.7     55123   55153.4   55183.8   55214.1
+         55244.5   55274.9   55305.2   55335.6     55366   55395.1
+       </mjd>
+      <flux unit="1e-8/cm2/second">
+         6.99685   3.17066   5.71087   2.23616   3.74069   6.71965
+         8.48782   5.89376   12.8581   3.99985   8.07867   6.90364
+         7.06229   7.55688   4.86582   3.65325   5.01801   9.37534
+         13.2941   24.3407   4.50463   7.22555   4.46226   11.0051
+       </flux>
+    </lightCurve>
+  </source>
+  <!-- ==================== 2FGL J0725.3+1426  =================== -->
+  <source>
+    <name>  2FGL J0725.3+1426 </name>
+    <assoc> 4C +14.23 </assoc>
+    <raJ2000  unit="degree"> 111.331114 </raJ2000>
+    <decJ2000 unit="degree"> 14.442917 </decJ2000>
+    <redshift> 1.038 </redshift>
+    
+    <spectrum type="LogParabola">
+      <energyRange unit="GeV"> 0.1 100 </energyRange>
+      <normF unit="1e-12/cm2/second/MeV"> 63.986837 </normF>
+      <normE unit="GeV"> 0.462047 </normE>
+      <alpha> -2.036340 </alpha>
+      <beta>  -0.091756 </beta>
+    </spectrum>
+    <!-- Integral photon counts vs. MJD (bin center) -->
+    <lightCurve type="TabulatedLightCurve">
+      <mjd unit="day">
+         54697.8   54728.2   54758.6     54789   54819.3   54849.7
+         54880.1   54910.4   54940.8   54971.2   55001.5   55031.9
+         55062.3   55092.7     55123   55153.4   55183.8   55214.1
+         55244.5   55274.9   55305.2   55335.6     55366   55395.1
+       </mjd>
+      <flux unit="1e-8/cm2/second">
+        0.684663   1.30534         0   2.25108   3.78598   3.35589
+          10.864   14.4167   4.22246   2.00521   2.15997   4.51729
+         8.77867   6.10311   44.6215   90.5005   14.3881   11.3824
+         10.3855   6.88893   27.0264   9.10106    17.565   36.5192
+       </flux>
+    </lightCurve>
+  </source>
+  <!-- ==================== 2FGL J0730.2-1141  =================== -->
+  <source>
+    <name>  2FGL J0730.2-1141 </name>
+    <assoc> PKS 0727-11 </assoc>
+    <raJ2000  unit="degree"> 112.572241 </raJ2000>
+    <decJ2000 unit="degree"> -11.695528 </decJ2000>
+    <redshift> 1.591 </redshift>
+    
+    <spectrum type="LogParabola">
+      <energyRange unit="GeV"> 0.1 100 </energyRange>
+      <normF unit="1e-12/cm2/second/MeV"> 317.779247 </normF>
+      <normE unit="GeV"> 0.355630 </normE>
+      <alpha> -2.108065 </alpha>
+      <beta>  -0.106078 </beta>
+    </spectrum>
+    <!-- Integral photon counts vs. MJD (bin center) -->
+    <lightCurve type="TabulatedLightCurve">
+      <mjd unit="day">
+         54697.8   54728.2   54758.6     54789   54819.3   54849.7
+         54880.1   54910.4   54940.8   54971.2   55001.5   55031.9
+         55062.3   55092.7     55123   55153.4   55183.8   55214.1
+         55244.5   55274.9   55305.2   55335.6     55366   55395.1
+       </mjd>
+      <flux unit="1e-8/cm2/second">
+          19.768   36.1965   46.5248   37.0847   35.8797   36.8908
+         37.3763    45.258   62.8118    32.288   23.5343   27.7765
+         22.6558   42.3377   56.2726   51.8226   23.7127   35.5173
+          35.128   62.5417   36.9562   26.3698   38.8613   35.3385
+       </flux>
+    </lightCurve>
+  </source>
+  <!-- ==================== 2FGL J0808.2-0750  =================== -->
+  <source>
+    <name>  2FGL J0808.2-0750 </name>
+    <assoc> PKS 0805-07 </assoc>
+    <raJ2000  unit="degree"> 122.059387 </raJ2000>
+    <decJ2000 unit="degree"> -7.849668 </decJ2000>
+    <redshift> 1.837 </redshift>
+    
+    <spectrum type="LogParabola">
+      <energyRange unit="GeV"> 0.1 100 </energyRange>
+      <normF unit="1e-12/cm2/second/MeV"> 53.541921 </normF>
+      <normE unit="GeV"> 0.559818 </normE>
+      <alpha> -1.927910 </alpha>
+      <beta>  -0.074970 </beta>
+    </spectrum>
+    <!-- Integral photon counts vs. MJD (bin center) -->
+    <lightCurve type="TabulatedLightCurve">
+      <mjd unit="day">
+         54697.8   54728.2   54758.6     54789   54819.3   54849.7
+         54880.1   54910.4   54940.8   54971.2   55001.5   55031.9
+         55062.3   55092.7     55123   55153.4   55183.8   55214.1
+         55244.5   55274.9   55305.2   55335.6     55366   55395.1
+       </mjd>
+      <flux unit="1e-8/cm2/second">
+         1.20276   2.53961   3.66759   2.85818   1.28494     1.929
+         3.47719   4.04387   27.4497   30.4876   20.8248   44.3831
+         39.5088     24.21    14.954   14.0877   24.4598   18.0073
+         18.3651   9.83749   9.69065   14.3589    3.9535   1.56978
+       </flux>
+    </lightCurve>
+  </source>
+  <!-- ==================== 2FGL J0825.9-2229  =================== -->
+  <source>
+    <name>  2FGL J0825.9-2229 </name>
+    <assoc> PKS 0823-223 </assoc>
+    <raJ2000  unit="degree"> 126.481061 </raJ2000>
+    <decJ2000 unit="degree"> -22.499423 </decJ2000>
+    <redshift> 0.91 </redshift>
+    
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 0.1 100 </energyRange>
+      <normF unit="1e-12/cm2/second/MeV"> 4.660944 </normF>
+      <normE unit="GeV"> 1.026277 </normE>
+      <index> -2.076445 </index>
+    </spectrum>
+    <!-- Integral photon counts vs. MJD (bin center) -->
+    <lightCurve type="TabulatedLightCurve">
+      <mjd unit="day">
+         54697.8   54728.2   54758.6     54789   54819.3   54849.7
+         54880.1   54910.4   54940.8   54971.2   55001.5   55031.9
+         55062.3   55092.7     55123   55153.4   55183.8   55214.1
+         55244.5   55274.9   55305.2   55335.6     55366   55395.1
+       </mjd>
+      <flux unit="1e-8/cm2/second">
+         3.69559    7.2105   7.31927   6.26695   10.7138   7.93649
+         6.63347   6.12376   4.70716   9.19187   6.62613   3.70944
+         3.22073   4.57257   4.54581   4.34721   3.89153   1.33941
+         3.68034   4.12088   4.02368   5.14558   3.45154   4.05221
+       </flux>
+    </lightCurve>
+  </source>
+  <!-- ==================== 2FGL J0831.9+0429  =================== -->
+  <source>
+    <name>  2FGL J0831.9+0429 </name>
+    <assoc> PKS 0829+046 </assoc>
+    <raJ2000  unit="degree"> 127.986585 </raJ2000>
+    <decJ2000 unit="degree"> 4.486088 </decJ2000>
+    <redshift> 0.021 </redshift>
+    
+    <spectrum type="LogParabola">
+      <energyRange unit="GeV"> 0.1 100 </energyRange>
+      <normF unit="1e-12/cm2/second/MeV"> 25.282007 </normF>
+      <normE unit="GeV"> 0.527964 </normE>
+      <alpha> -2.046954 </alpha>
+      <beta>  -0.100180 </beta>
+    </spectrum>
+    <!-- Integral photon counts vs. MJD (bin center) -->
+    <lightCurve type="TabulatedLightCurve">
+      <mjd unit="day">
+         54697.8   54728.2   54758.6     54789   54819.3   54849.7
+         54880.1   54910.4   54940.8   54971.2   55001.5   55031.9
+         55062.3   55092.7     55123   55153.4   55183.8   55214.1
+         55244.5   55274.9   55305.2   55335.6     55366   55395.1
+       </mjd>
+      <flux unit="1e-8/cm2/second">
+         5.02459   4.21889   6.33503   5.00777   6.87375   4.19139
+         4.89131    1.8144   1.83207   3.56101   4.88306   5.81658
+         5.17991    8.4107   13.2135   6.34725   11.1916   14.5119
+         11.4876   7.24872   8.19552    2.5087   6.53958   10.4223
+       </flux>
+    </lightCurve>
+  </source>
+  <!-- ==================== 2FGL J0920.9+4441  =================== -->
+  <source>
+    <name>  2FGL J0920.9+4441 </name>
+    <assoc> S4 0917+44 </assoc>
+    <raJ2000  unit="degree"> 140.236010 </raJ2000>
+    <decJ2000 unit="degree"> 44.696850 </decJ2000>
+    <redshift> 2.189 </redshift>
+    
+    <spectrum type="LogParabola">
+      <energyRange unit="GeV"> 0.1 100 </energyRange>
+      <normF unit="1e-12/cm2/second/MeV"> 136.120462 </normF>
+      <normE unit="GeV"> 0.349903 </normE>
+      <alpha> -2.109063 </alpha>
+      <beta>  -0.103658 </beta>
+    </spectrum>
+    <!-- Integral photon counts vs. MJD (bin center) -->
+    <lightCurve type="TabulatedLightCurve">
+      <mjd unit="day">
+         54697.8   54728.2   54758.6     54789   54819.3   54849.7
+         54880.1   54910.4   54940.8   54971.2   55001.5   55031.9
+         55062.3   55092.7     55123   55153.4   55183.8   55214.1
+         55244.5   55274.9   55305.2   55335.6     55366   55395.1
+       </mjd>
+      <flux unit="1e-8/cm2/second">
+         4.32647   10.6759   8.21535   19.0559   51.7007   30.2351
+         16.5929   13.7478   21.7568   36.3305   32.3963   14.8322
+          20.778   13.2816   11.3647    11.339   11.2773   1.99044
+         3.49801   7.45551   1.60402   3.64663   8.75734   12.0644
+       </flux>
+    </lightCurve>
+  </source>
+  <!-- ==================== 2FGL J1012.6+2440  =================== -->
+  <source>
+    <name>  2FGL J1012.6+2440 </name>
+    <assoc> MG2 J101241+2439 </assoc>
+    <raJ2000  unit="degree"> 153.171883 </raJ2000>
+    <decJ2000 unit="degree"> 24.678397 </decJ2000>
+    <redshift> 1.805 </redshift>
+    
+    <spectrum type="LogParabola">
+      <energyRange unit="GeV"> 0.1 100 </energyRange>
+      <normF unit="1e-12/cm2/second/MeV"> 21.172949 </normF>
+      <normE unit="GeV"> 0.573007 </normE>
+      <alpha> -2.048387 </alpha>
+      <beta>  -0.183150 </beta>
+    </spectrum>
+    <!-- Integral photon counts vs. MJD (bin center) -->
+    <lightCurve type="TabulatedLightCurve">
+      <mjd unit="day">
+         54697.8   54728.2   54758.6     54789   54819.3   54849.7
+         54880.1   54910.4   54940.8   54971.2   55001.5   55031.9
+         55062.3   55092.7     55123   55153.4   55183.8   55214.1
+         55244.5   55274.9   55305.2   55335.6     55366   55395.1
+       </mjd>
+      <flux unit="1e-8/cm2/second">
+         7.60398   7.06698   2.38508  0.765699  0.828957   1.57787
+         2.02615   5.18123   7.43636   5.42678   4.19109   5.25061
+         17.2093   7.07478   2.29127   4.10762   1.78529   3.20614
+         4.52694   5.83959   7.68753   15.2516   6.96093   8.94787
+       </flux>
+    </lightCurve>
+  </source>
+  <!-- ==================== 2FGL J1015.1+4925  =================== -->
+  <source>
+    <name>  2FGL J1015.1+4925 </name>
+    <assoc> 1H 1013+498 </assoc>
+    <raJ2000  unit="degree"> 153.788471 </raJ2000>
+    <decJ2000 unit="degree"> 49.432446 </decJ2000>
+    <redshift> 0.212 </redshift>
+    
+    <spectrum type="LogParabola">
+      <energyRange unit="GeV"> 0.1 100 </energyRange>
+      <normF unit="1e-12/cm2/second/MeV"> 10.100426 </normF>
+      <normE unit="GeV"> 0.812601 </normE>
+      <alpha> -1.722506 </alpha>
+      <beta>  -0.074874 </beta>
+    </spectrum>
+    <!-- Integral photon counts vs. MJD (bin center) -->
+    <lightCurve type="TabulatedLightCurve">
+      <mjd unit="day">
+         54697.8   54728.2   54758.6     54789   54819.3   54849.7
+         54880.1   54910.4   54940.8   54971.2   55001.5   55031.9
+         55062.3   55092.7     55123   55153.4   55183.8   55214.1
+         55244.5   55274.9   55305.2   55335.6     55366   55395.1
+       </mjd>
+      <flux unit="1e-8/cm2/second">
+         6.00885   5.09127   5.49687   6.57092   4.09315   4.13436
+         4.84325   3.87971    5.0992   3.48703    2.9134   4.43073
+         2.96586    3.7081   4.56851   4.09805   3.11998   3.45553
+         4.43131   3.35311   3.02989   3.47983   6.28067   6.17665
+       </flux>
+    </lightCurve>
+  </source>
+  <!-- ==================== 2FGL J1058.4+0133  =================== -->
+  <source>
+    <name>  2FGL J1058.4+0133 </name>
+    <assoc> 4C +01.28 </assoc>
+    <raJ2000  unit="degree"> 164.614526 </raJ2000>
+    <decJ2000 unit="degree"> 1.566464 </decJ2000>
+    <redshift> 0.888 </redshift>
+    
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 0.1 100 </energyRange>
+      <normF unit="1e-12/cm2/second/MeV"> 6.363975 </normF>
+      <normE unit="GeV"> 0.991442 </normE>
+      <index> -2.217439 </index>
+    </spectrum>
+    <!-- Integral photon counts vs. MJD (bin center) -->
+    <lightCurve type="TabulatedLightCurve">
+      <mjd unit="day">
+         54697.8   54728.2   54758.6     54789   54819.3   54849.7
+         54880.1   54910.4   54940.8   54971.2   55001.5   55031.9
+         55062.3   55092.7     55123   55153.4   55183.8   55214.1
+         55244.5   55274.9   55305.2   55335.6     55366   55395.1
+       </mjd>
+      <flux unit="1e-8/cm2/second">
+         3.10352   3.32414   6.40366   7.86179   16.8756   10.2836
+         13.9678   12.7166   9.73328   15.6893   16.3695   5.57512
+         4.92078   8.33813   2.23282   1.14648   6.48265   10.4219
+         5.98155   10.3451   5.26641   4.57839   3.67993   3.23435
+       </flux>
+    </lightCurve>
+  </source>
+  <!-- ==================== 2FGL J1104.4+3812 =================== -->
+  <source>
+    <name>  2FGL J1104.4+3812 </name>
+    <assoc> Mkn 421 </assoc>
+    <raJ2000  unit="degree"> 166.119886 </raJ2000>
+    <decJ2000 unit="degree"> 38.213382 </decJ2000>
+    <redshift> 0.031 </redshift>
+
+    <!-- Best fit to average energy spectrum -->
+    <spectrum type="PowerLaw">
+      <normF unit="1e-12/cm2/second/MeV"> 18.016701 </normF>
+      <normE unit="GeV"> 1.162356 </normE>
+      <index> -1.770583 </index>
+    </spectrum>
+    <!-- Integral photon counts vs. MJD (bin center) -->
+    <lightCurve type="TabulatedLightCurve">
+      <mjd unit="day">
+         54697.8   54728.2   54758.6     54789   54819.3   54849.7
+         54880.1   54910.4   54940.8   54971.2   55001.5   55031.9
+         55062.3   55092.7     55123   55153.4   55183.8   55214.1
+         55244.5   55274.9   55305.2   55335.6     55366   55395.1
+       </mjd>
+      <flux unit="1e-8/cm2/second">
+         21.3564    17.612   14.9432   16.8474   14.8169   16.3566
+         13.8217   10.4015   14.5907   18.8602   18.0962   15.8103
+         15.8786     19.99   21.0446   20.1522    24.699   20.5455
+         21.8113   16.7116    19.803    19.226   20.1572   12.8653
+       </flux>
+    </lightCurve>
+  </source>
+  <!-- ==================== 2FGL J1126.6-1856  =================== -->
+  <source>
+    <name>  2FGL J1126.6-1856 </name>
+    <assoc> PKS 1124-186 </assoc>
+    <raJ2000  unit="degree"> 171.660522 </raJ2000>
+    <decJ2000 unit="degree"> -18.946439 </decJ2000>
+    <redshift> 1.048 </redshift>
+    
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 0.1 100 </energyRange>
+      <normF unit="1e-12/cm2/second/MeV"> 19.627558 </normF>
+      <normE unit="GeV"> 0.541187 </normE>
+      <index> -2.356283 </index>
+    </spectrum>
+    <!-- Integral photon counts vs. MJD (bin center) -->
+    <lightCurve type="TabulatedLightCurve">
+      <mjd unit="day">
+         54697.8   54728.2   54758.6     54789   54819.3   54849.7
+         54880.1   54910.4   54940.8   54971.2   55001.5   55031.9
+         55062.3   55092.7     55123   55153.4   55183.8   55214.1
+         55244.5   55274.9   55305.2   55335.6     55366   55395.1
+       </mjd>
+      <flux unit="1e-8/cm2/second">
+         6.77654   6.41013   8.02027   4.79597    3.6339     4.961
+         6.58247   7.23263   5.47751   8.29048   7.52227   8.34481
+         7.53758   5.09041   5.96427   4.92948   5.02084   4.60733
+          8.3375   6.33846   17.3702   15.3652   14.9476    15.319
+       </flux>
+    </lightCurve>
+  </source>
+  <!-- ==================== 2FGL J1159.5+2914  =================== -->
+  <source>
+    <name>  2FGL J1159.5+2914 </name>
+    <assoc> Ton 599 </assoc>
+    <raJ2000  unit="degree"> 179.877690 </raJ2000>
+    <decJ2000 unit="degree"> 29.246675 </decJ2000>
+    <redshift> 0.729 </redshift>
+    
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 0.1 100 </energyRange>
+      <normF unit="1e-12/cm2/second/MeV"> 31.449145 </normF>
+      <normE unit="GeV"> 0.545631 </normE>
+      <index> -2.294597 </index>
+    </spectrum>
+    <!-- Integral photon counts vs. MJD (bin center) -->
+    <lightCurve type="TabulatedLightCurve">
+      <mjd unit="day">
+         54697.8   54728.2   54758.6     54789   54819.3   54849.7
+         54880.1   54910.4   54940.8   54971.2   55001.5   55031.9
+         55062.3   55092.7     55123   55153.4   55183.8   55214.1
+         55244.5   55274.9   55305.2   55335.6     55366   55395.1
+       </mjd>
+      <flux unit="1e-8/cm2/second">
+          8.4753   10.6228   11.1537   10.1227   14.5618   12.1429
+          7.2376   14.5034   13.9833   4.97602   8.64287   5.41745
+        0.447746   8.93726   7.90303    12.217   9.21415   4.28829
+         8.45243   20.6317   12.6689   15.8517   44.1258   14.6998
+       </flux>
+    </lightCurve>
+  </source>
+  <!-- ==================== 2FGL J1217.8+3006  =================== -->
+  <source>
+    <name>  2FGL J1217.8+3006 </name>
+    <assoc> 1ES 1215+303 </assoc>
+    <raJ2000  unit="degree"> 184.467222 </raJ2000>
+    <decJ2000 unit="degree"> 30.109274 </decJ2000>
+    <redshift> 0.13 </redshift>
+    
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 0.1 100 </energyRange>
+      <normF unit="1e-12/cm2/second/MeV"> 3.775860 </normF>
+      <normE unit="GeV"> 1.220208 </normE>
+      <index> -2.019388 </index>
+    </spectrum>
+    <!-- Integral photon counts vs. MJD (bin center) -->
+    <lightCurve type="TabulatedLightCurve">
+      <mjd unit="day">
+         54697.8   54728.2   54758.6     54789   54819.3   54849.7
+         54880.1   54910.4   54940.8   54971.2   55001.5   55031.9
+         55062.3   55092.7     55123   55153.4   55183.8   55214.1
+         55244.5   55274.9   55305.2   55335.6     55366   55395.1
+       </mjd>
+      <flux unit="1e-8/cm2/second">
+         4.78705   11.9401   15.2862    6.1811   6.03393   6.03657
+         3.67677   4.16815   3.93942   4.34246   3.53562   3.47685
+         5.47735   5.03677   5.59399   4.01187   5.80149   6.29423
+         4.65271   4.76458   5.31742   4.09785   3.59125   5.46255
+       </flux>
+    </lightCurve>
+  </source>
+  <!-- ==================== 2FGL J1221.4+2814  =================== -->
+  <source>
+    <name>  2FGL J1221.4+2814 </name>
+    <assoc> W Comae </assoc>
+    <raJ2000  unit="degree"> 185.373998 </raJ2000>
+    <decJ2000 unit="degree"> 28.239113 </decJ2000>
+    <redshift> 0.102 </redshift>
+    
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 0.1 100 </energyRange>
+      <normF unit="1e-12/cm2/second/MeV"> 4.639884 </normF>
+      <normE unit="GeV"> 1.106201 </normE>
+      <index> -2.018575 </index>
+    </spectrum>
+    <!-- Integral photon counts vs. MJD (bin center) -->
+    <lightCurve type="TabulatedLightCurve">
+      <mjd unit="day">
+         54697.8   54728.2   54758.6     54789   54819.3   54849.7
+         54880.1   54910.4   54940.8   54971.2   55001.5   55031.9
+         55062.3   55092.7     55123   55153.4   55183.8   55214.1
+         55244.5   55274.9   55305.2   55335.6     55366   55395.1
+       </mjd>
+      <flux unit="1e-8/cm2/second">
+          13.735   8.24826   6.06986   6.46334   4.98471   6.20849
+         11.2555   4.12556   5.13255   6.90331   6.09013   6.84348
+         6.03614   2.12397   2.93051   3.93659   1.74219   2.86974
+         3.13609   5.56831     3.025   5.40295   5.60832   5.69477
+       </flux>
+    </lightCurve>
+  </source>
+  <!-- ==================== 2FGL J1224.9+2122  =================== -->
+  <source>
+    <name>  2FGL J1224.9+2122 </name>
+    <assoc> 4C +21.35 </assoc>
+    <raJ2000  unit="degree"> 186.226173 </raJ2000>
+    <decJ2000 unit="degree"> 21.380031 </decJ2000>
+    <redshift> 0.432 </redshift>
+    
+    <spectrum type="LogParabola">
+      <energyRange unit="GeV"> 0.1 100 </energyRange>
+      <normF unit="1e-12/cm2/second/MeV"> 601.962424 </normF>
+      <normE unit="GeV"> 0.317119 </normE>
+      <alpha> -2.121551 </alpha>
+      <beta>  -0.065872 </beta>
+    </spectrum>
+    <!-- Integral photon counts vs. MJD (bin center) -->
+    <lightCurve type="TabulatedLightCurve">
+      <mjd unit="day">
+         54697.8   54728.2   54758.6     54789   54819.3   54849.7
+         54880.1   54910.4   54940.8   54971.2   55001.5   55031.9
+         55062.3   55092.7     55123   55153.4   55183.8   55214.1
+         55244.5   55274.9   55305.2   55335.6     55366   55395.1
+       </mjd>
+      <flux unit="1e-8/cm2/second">
+         4.99025   4.33676   0.39354   2.27227  0.266248   1.42913
+         3.81614   3.79792   12.6025   11.2467   12.6485   16.7939
+         14.0405     80.27   42.8658   52.0163   81.7334   45.7599
+         121.376   54.7222   266.729   218.866   335.281   156.697
+       </flux>
+    </lightCurve>
+  </source>
+  <!-- ==================== 2FGL J1229.1+0202  =================== -->
+  <source>
+    <name>  2FGL J1229.1+0202 </name>
+    <assoc> 3C 273 </assoc>
+    <raJ2000  unit="degree"> 187.276643 </raJ2000>
+    <decJ2000 unit="degree"> 2.041669 </decJ2000>
+    <redshift> 0.158339 </redshift>
+    
+    <spectrum type="LogParabola">
+      <energyRange unit="GeV"> 0.1 100 </energyRange>
+      <normF unit="1e-12/cm2/second/MeV"> 1316.228682 </normF>
+      <normE unit="GeV"> 0.231151 </normE>
+      <alpha> -2.452401 </alpha>
+      <beta>  -0.111229 </beta>
+    </spectrum>
+    <!-- Integral photon counts vs. MJD (bin center) -->
+    <lightCurve type="TabulatedLightCurve">
+      <mjd unit="day">
+         54697.8   54728.2   54758.6     54789   54819.3   54849.7
+         54880.1   54910.4   54940.8   54971.2   55001.5   55031.9
+         55062.3   55092.7     55123   55153.4   55183.8   55214.1
+         55244.5   55274.9   55305.2   55335.6     55366   55395.1
+       </mjd>
+      <flux unit="1e-8/cm2/second">
+         20.5194   104.511   86.6983   53.4181   37.0337   19.7023
+         25.4349   31.7756   60.0833   50.5597   17.8115   28.6102
+         135.657   293.069   114.769    143.45   58.9071   70.6462
+         63.0722   160.723    20.364   28.5997   40.8094   19.3532
+       </flux>
+    </lightCurve>
+  </source>
+  <!-- ==================== 2FGL J1246.7-2546  =================== -->
+  <source>
+    <name>  2FGL J1246.7-2546 </name>
+    <assoc> PKS 1244-255 </assoc>
+    <raJ2000  unit="degree"> 191.680967 </raJ2000>
+    <decJ2000 unit="degree"> -25.782808 </decJ2000>
+    <redshift> 0.638 </redshift>
+    
+    <spectrum type="LogParabola">
+      <energyRange unit="GeV"> 0.1 100 </energyRange>
+      <normF unit="1e-12/cm2/second/MeV"> 99.281625 </normF>
+      <normE unit="GeV"> 0.389100 </normE>
+      <alpha> -2.102082 </alpha>
+      <beta>  -0.102102 </beta>
+    </spectrum>
+    <!-- Integral photon counts vs. MJD (bin center) -->
+    <lightCurve type="TabulatedLightCurve">
+      <mjd unit="day">
+         54697.8   54728.2   54758.6     54789   54819.3   54849.7
+         54880.1   54910.4   54940.8   54971.2   55001.5   55031.9
+         55062.3   55092.7     55123   55153.4   55183.8   55214.1
+         55244.5   55274.9   55305.2   55335.6     55366   55395.1
+       </mjd>
+      <flux unit="1e-8/cm2/second">
+         5.77166   6.25474   10.1538   13.2013   37.6299   34.6597
+         12.8054   9.42685   4.91202   5.41272   7.19369   26.2651
+         13.6404   5.38032   11.7969   10.2919   7.04096   6.30368
+         15.1456   23.9129   8.30054   17.5427   22.4941   17.2032
+       </flux>
+    </lightCurve>
+  </source>
+  <!-- ==================== 2FGL J1256.1-0547  =================== -->
+  <source>
+    <name>  2FGL J1256.1-0547 </name>
+    <assoc> 3C 279 </assoc>
+    <raJ2000  unit="degree"> 194.042382 </raJ2000>
+    <decJ2000 unit="degree"> -5.793693 </decJ2000>
+    <redshift> 0.538 </redshift>
+    
+    <spectrum type="LogParabola">
+      <energyRange unit="GeV"> 0.1 100 </energyRange>
+      <normF unit="1e-12/cm2/second/MeV"> 636.375286 </normF>
+      <normE unit="GeV"> 0.294806 </normE>
+      <alpha> -2.221244 </alpha>
+      <beta>  -0.071368 </beta>
+    </spectrum>
+    <!-- Integral photon counts vs. MJD (bin center) -->
+    <lightCurve type="TabulatedLightCurve">
+      <mjd unit="day">
+         54697.8   54728.2   54758.6     54789   54819.3   54849.7
+         54880.1   54910.4   54940.8   54971.2   55001.5   55031.9
+         55062.3   55092.7     55123   55153.4   55183.8   55214.1
+         55244.5   55274.9   55305.2   55335.6     55366   55395.1
+       </mjd>
+      <flux unit="1e-8/cm2/second">
+         37.9646    29.025   38.5001   113.819   117.829   91.8231
+         138.775   33.4191   25.6525   30.4216   42.5888   91.6599
+         80.6661   70.5756   63.3622   39.5531   41.0457   26.7357
+         29.2712   34.8842   16.5564   8.96397   10.3291   12.1138
+       </flux>
+    </lightCurve>
+  </source>
+  <!-- ==================== 2FGL J1310.6+3222  =================== -->
+  <source>
+    <name>  2FGL J1310.6+3222 </name>
+    <assoc> OP 313 </assoc>
+    <raJ2000  unit="degree"> 197.673584 </raJ2000>
+    <decJ2000 unit="degree"> 32.380988 </decJ2000>
+    <redshift> 0.996 </redshift>
+    
+    <spectrum type="LogParabola">
+      <energyRange unit="GeV"> 0.1 100 </energyRange>
+      <normF unit="1e-12/cm2/second/MeV"> 35.553692 </normF>
+      <normE unit="GeV"> 0.478500 </normE>
+      <alpha> -2.104853 </alpha>
+      <beta>  -0.088155 </beta>
+    </spectrum>
+    <!-- Integral photon counts vs. MJD (bin center) -->
+    <lightCurve type="TabulatedLightCurve">
+      <mjd unit="day">
+         54697.8   54728.2   54758.6     54789   54819.3   54849.7
+         54880.1   54910.4   54940.8   54971.2   55001.5   55031.9
+         55062.3   55092.7     55123   55153.4   55183.8   55214.1
+         55244.5   55274.9   55305.2   55335.6     55366   55395.1
+       </mjd>
+      <flux unit="1e-8/cm2/second">
+         19.2011   15.1778   14.0471   8.62644   8.41724   7.69841
+         11.3698   8.30193   8.97284   6.89156   4.09216    1.7832
+          4.5128   4.92711   4.02301   9.28179   4.08805   2.00857
+         3.86864   1.65695   5.39968    10.994   4.76379   11.0745
+       </flux>
+    </lightCurve>
+  </source>
+  <!-- ==================== 2FGL J1332.0-0508  =================== -->
+  <source>
+    <name>  2FGL J1332.0-0508 </name>
+    <assoc> PKS 1329-049 </assoc>
+    <raJ2000  unit="degree"> 203.014751 </raJ2000>
+    <decJ2000 unit="degree"> -5.136000 </decJ2000>
+    <redshift> 2.15 </redshift>
+    
+    <spectrum type="LogParabola">
+      <energyRange unit="GeV"> 0.1 100 </energyRange>
+      <normF unit="1e-12/cm2/second/MeV"> 38.302316 </normF>
+      <normE unit="GeV"> 0.587608 </normE>
+      <alpha> -2.537128 </alpha>
+      <beta>  -0.173457 </beta>
+    </spectrum>
+    <!-- Integral photon counts vs. MJD (bin center) -->
+    <lightCurve type="TabulatedLightCurve">
+      <mjd unit="day">
+         54697.8   54728.2   54758.6     54789   54819.3   54849.7
+         54880.1   54910.4   54940.8   54971.2   55001.5   55031.9
+         55062.3   55092.7     55123   55153.4   55183.8   55214.1
+         55244.5   55274.9   55305.2   55335.6     55366   55395.1
+       </mjd>
+      <flux unit="1e-8/cm2/second">
+          2.1151   7.85212   22.8445   5.20933   9.92644   16.5062
+         27.1948   24.2748   18.9034   6.48161   8.13505   3.71775
+         12.4101   30.6739   20.3014   18.2176   11.3912   24.9297
+         27.1204   20.0588   13.6329   31.5392   25.4285   23.7557
+       </flux>
+    </lightCurve>
+  </source>
+  <!-- ==================== 2FGL J1344.2-1723  =================== -->
+  <source>
+    <name>  2FGL J1344.2-1723 </name>
+    <assoc> PMN J1344-1723 </assoc>
+    <raJ2000  unit="degree"> 206.068378 </raJ2000>
+    <decJ2000 unit="degree"> -17.395590 </decJ2000>
+    <redshift> 2.506 </redshift>
+    
+    <spectrum type="LogParabola">
+      <energyRange unit="GeV"> 0.1 100 </energyRange>
+      <normF unit="1e-12/cm2/second/MeV"> 15.737762 </normF>
+      <normE unit="GeV"> 0.641316 </normE>
+      <alpha> -1.954053 </alpha>
+      <beta>  -0.144601 </beta>
+    </spectrum>
+    <!-- Integral photon counts vs. MJD (bin center) -->
+    <lightCurve type="TabulatedLightCurve">
+      <mjd unit="day">
+         54697.8   54728.2   54758.6     54789   54819.3   54849.7
+         54880.1   54910.4   54940.8   54971.2   55001.5   55031.9
+         55062.3   55092.7     55123   55153.4   55183.8   55214.1
+         55244.5   55274.9   55305.2   55335.6     55366   55395.1
+       </mjd>
+      <flux unit="1e-8/cm2/second">
+         3.70702   2.54265   8.09214   5.52092   7.87691   5.65318
+          7.3244   4.49058   3.43362    6.8198   7.34342   3.99337
+         10.7641   6.20297   5.60451   5.88621   2.15693   3.38531
+         3.24532   6.43891   3.58713   1.32735   2.35941   1.03984
+       </flux>
+    </lightCurve>
+  </source>
+  <!-- ==================== 2FGL J1504.3+1029  =================== -->
+  <source>
+    <name>  2FGL J1504.3+1029 </name>
+    <assoc> PKS 1502+106 </assoc>
+    <raJ2000  unit="degree"> 226.095094 </raJ2000>
+    <decJ2000 unit="degree"> 10.488327 </decJ2000>
+    <redshift> 1.839 </redshift>
+    
+    <spectrum type="LogParabola">
+      <energyRange unit="GeV"> 0.1 100 </energyRange>
+      <normF unit="1e-12/cm2/second/MeV"> 141.769138 </normF>
+      <normE unit="GeV"> 0.658288 </normE>
+      <alpha> -2.147137 </alpha>
+      <beta>  -0.123698 </beta>
+    </spectrum>
+    <!-- Integral photon counts vs. MJD (bin center) -->
+    <lightCurve type="TabulatedLightCurve">
+      <mjd unit="day">
+         54697.8   54728.2   54758.6     54789   54819.3   54849.7
+         54880.1   54910.4   54940.8   54971.2   55001.5   55031.9
+         55062.3   55092.7     55123   55153.4   55183.8   55214.1
+         55244.5   55274.9   55305.2   55335.6     55366   55395.1
+       </mjd>
+      <flux unit="1e-8/cm2/second">
+         110.553   65.7589   73.5607   75.0115   100.831   102.325
+         132.269   103.153   122.905   95.3024   54.8944    36.213
+         42.8742   29.4752   18.4349    15.442    8.7253   16.7881
+          8.2088   1.96184         0   3.42878   6.52822   9.58516
+       </flux>
+    </lightCurve>
+  </source>
+  <!-- ==================== 2FGL J1512.8-0906  =================== -->
+  <source>
+    <name>  2FGL J1512.8-0906 </name>
+    <assoc> PKS 1510-08 </assoc>
+    <raJ2000  unit="degree"> 228.207057 </raJ2000>
+    <decJ2000 unit="degree"> -9.103359 </decJ2000>
+    <redshift> 0.361 </redshift>
+    
+    <spectrum type="LogParabola">
+      <energyRange unit="GeV"> 0.1 100 </energyRange>
+      <normF unit="1e-12/cm2/second/MeV"> 1501.758273 </normF>
+      <normE unit="GeV"> 0.259642 </normE>
+      <alpha> -2.288387 </alpha>
+      <beta>  -0.058550 </beta>
+    </spectrum>
+    <!-- Integral photon counts vs. MJD (bin center) -->
+    <lightCurve type="TabulatedLightCurve">
+      <mjd unit="day">
+         54697.8   54728.2   54758.6     54789   54819.3   54849.7
+         54880.1   54910.4   54940.8   54971.2   55001.5   55031.9
+         55062.3   55092.7     55123   55153.4   55183.8   55214.1
+         55244.5   55274.9   55305.2   55335.6     55366   55395.1
+       </mjd>
+      <flux unit="1e-8/cm2/second">
+         44.8415   121.823   31.6422   22.5598   28.1863    173.53
+         60.9584   348.035   239.737   192.557   160.178   118.549
+         48.4174   33.8146   39.4887   47.0472   160.279   136.921
+         51.2571   64.7883   70.7293   50.7344    35.729   67.0274
+       </flux>
+    </lightCurve>
+  </source>
+  <!-- ==================== 2FGL J1522.1+3144  =================== -->
+  <source>
+    <name>  2FGL J1522.1+3144 </name>
+    <assoc> B2 1520+31 </assoc>
+    <raJ2000  unit="degree"> 230.541779 </raJ2000>
+    <decJ2000 unit="degree"> 31.743615 </decJ2000>
+    <redshift> 1.487 </redshift>
+    
+    <spectrum type="LogParabola">
+      <energyRange unit="GeV"> 0.1 100 </energyRange>
+      <normF unit="1e-12/cm2/second/MeV"> 523.900701 </normF>
+      <normE unit="GeV"> 0.281368 </normE>
+      <alpha> -2.248166 </alpha>
+      <beta>  -0.074141 </beta>
+    </spectrum>
+    <!-- Integral photon counts vs. MJD (bin center) -->
+    <lightCurve type="TabulatedLightCurve">
+      <mjd unit="day">
+         54697.8   54728.2   54758.6     54789   54819.3   54849.7
+         54880.1   54910.4   54940.8   54971.2   55001.5   55031.9
+         55062.3   55092.7     55123   55153.4   55183.8   55214.1
+         55244.5   55274.9   55305.2   55335.6     55366   55395.1
+       </mjd>
+      <flux unit="1e-8/cm2/second">
+         31.7375    29.698   29.7683   27.1912   33.9369   40.2737
+         42.8764   40.0847   55.8025   47.7693   59.4522   78.0004
+         34.0157   41.7541   38.9894   74.3221   40.1085   31.1658
+         38.7792   26.7454   20.5561   31.7904   34.0014   36.3475
+       </flux>
+    </lightCurve>
+  </source>
+  <!-- ==================== 2FGL J1625.7-2526  =================== -->
+  <source>
+    <name>  2FGL J1625.7-2526 </name>
+    <assoc> PKS 1622-253 </assoc>
+    <raJ2000  unit="degree"> 246.427515 </raJ2000>
+    <decJ2000 unit="degree"> -25.441015 </decJ2000>
+    <redshift> 0.786 </redshift>
+    
+    <spectrum type="LogParabola">
+      <energyRange unit="GeV"> 0.1 100 </energyRange>
+      <normF unit="1e-12/cm2/second/MeV"> 20.057919 </normF>
+      <normE unit="GeV"> 0.834667 </normE>
+      <alpha> -2.327972 </alpha>
+      <beta>  -0.188713 </beta>
+    </spectrum>
+    <!-- Integral photon counts vs. MJD (bin center) -->
+    <lightCurve type="TabulatedLightCurve">
+      <mjd unit="day">
+         54697.8   54728.2   54758.6     54789   54819.3   54849.7
+         54880.1   54910.4   54940.8   54971.2   55001.5   55031.9
+         55062.3   55092.7     55123   55153.4   55183.8   55214.1
+         55244.5   55274.9   55305.2   55335.6     55366   55395.1
+       </mjd>
+      <flux unit="1e-8/cm2/second">
+         9.08935   7.98472   7.15408   6.31974   5.04456   9.69649
+         11.6928   8.62145   8.43137     3.815   6.66745   9.93265
+         5.82864   21.4317   17.8398   15.0318   38.9051    26.755
+         17.6871   20.1244   36.8256   13.8622   15.3561   9.47907
+       </flux>
+    </lightCurve>
+  </source>
+  <!-- ==================== 2FGL J1635.2+3810  =================== -->
+  <source>
+    <name>  2FGL J1635.2+3810 </name>
+    <assoc> 4C +38.41 </assoc>
+    <raJ2000  unit="degree"> 248.809148 </raJ2000>
+    <decJ2000 unit="degree"> 38.171233 </decJ2000>
+    <redshift> 1.813 </redshift>
+    
+    <spectrum type="LogParabola">
+      <energyRange unit="GeV"> 0.1 100 </energyRange>
+      <normF unit="1e-12/cm2/second/MeV"> 253.328220 </normF>
+      <normE unit="GeV"> 0.338527 </normE>
+      <alpha> -2.247942 </alpha>
+      <beta>  -0.123026 </beta>
+    </spectrum>
+    <!-- Integral photon counts vs. MJD (bin center) -->
+    <lightCurve type="TabulatedLightCurve">
+      <mjd unit="day">
+         54697.8   54728.2   54758.6     54789   54819.3   54849.7
+         54880.1   54910.4   54940.8   54971.2   55001.5   55031.9
+         55062.3   55092.7     55123   55153.4   55183.8   55214.1
+         55244.5   55274.9   55305.2   55335.6     55366   55395.1
+       </mjd>
+      <flux unit="1e-8/cm2/second">
+         39.6162   17.3887   11.1813   14.3686    18.172   9.61464
+         11.5529   17.5099   19.5513   19.7744   17.1617   45.0893
+         65.7119   35.5662   14.1645   43.8336   60.0526   55.1042
+         37.9558   48.3502    28.917   15.8962   15.1774   18.4085
+       </flux>
+    </lightCurve>
+  </source>
+  <!-- ==================== 2FGL J1741.9-2054  =================== -->
+  <source>
+    <name>  2FGL J1741.9-2054 </name>
+    <assoc> LAT PSR J1741-2054 </assoc>
+    <raJ2000  unit="degree"> 265.476066 </raJ2000>
+    <decJ2000 unit="degree"> -20.907617 </decJ2000>
+    
+    <spectrum type="PLExpCutoff_LAT">
+      <energyRange unit="GeV"> 0.1 100 </energyRange>
+      <normF unit="1e-12/cm2/second/MeV"> 68.616800 </normF>
+      <normE unit="GeV"> 0.659622 </normE>
+      <index> -1.102434 </index>
+      <cutoffE unit="GeV"> 0.917773 </cutoffE>
+    </spectrum>
+    <!-- Integral photon counts vs. MJD (bin center) -->
+    <lightCurve type="TabulatedLightCurve">
+      <mjd unit="day">
+         54697.8   54728.2   54758.6     54789   54819.3   54849.7
+         54880.1   54910.4   54940.8   54971.2   55001.5   55031.9
+         55062.3   55092.7     55123   55153.4   55183.8   55214.1
+         55244.5   55274.9   55305.2   55335.6     55366   55395.1
+       </mjd>
+      <flux unit="1e-8/cm2/second">
+         22.0249   16.4634   21.3626   21.7673   17.1239   19.9276
+         13.8035   22.3978   11.5409   21.4606   18.1281   14.2297
+         10.7244   20.2375   15.1499   15.2814   18.1962    18.509
+         16.1664   20.2334    17.384   17.4249    21.487   16.6748
+       </flux>
+    </lightCurve>
+  </source>
+  <!-- ==================== 2FGL J1833.6-2104  =================== -->
+  <source>
+    <name>  2FGL J1833.6-2104 </name>
+    <assoc> PKS 1830-211 </assoc>
+    <raJ2000  unit="degree"> 278.413400 </raJ2000>
+    <decJ2000 unit="degree"> -21.074923 </decJ2000>
+    <redshift> 2.507 </redshift>
+    
+    <spectrum type="LogParabola">
+      <energyRange unit="GeV"> 0.1 100 </energyRange>
+      <normF unit="1e-12/cm2/second/MeV"> 727.001515 </normF>
+      <normE unit="GeV"> 0.260855 </normE>
+      <alpha> -2.461766 </alpha>
+      <beta>  -0.104989 </beta>
+    </spectrum>
+    <!-- Integral photon counts vs. MJD (bin center) -->
+    <lightCurve type="TabulatedLightCurve">
+      <mjd unit="day">
+         54697.8   54728.2   54758.6     54789   54819.3   54849.7
+         54880.1   54910.4   54940.8   54971.2   55001.5   55031.9
+         55062.3   55092.7     55123   55153.4   55183.8   55214.1
+         55244.5   55274.9   55305.2   55335.6     55366   55395.1
+       </mjd>
+      <flux unit="1e-8/cm2/second">
+         55.1162   35.9958   48.5973   34.9078   28.5471    34.037
+         44.3633   50.9279   43.9655   44.6814   51.2717   42.6127
+         34.3718   48.1932   58.6385   89.8672   96.0575    48.977
+         76.9471   50.8837   38.2141   52.7869   40.3879   48.6957
+       </flux>
+    </lightCurve>
+  </source>
+  <!-- ==================== 2FGL J1849.4+6706  =================== -->
+  <source>
+    <name>  2FGL J1849.4+6706 </name>
+    <assoc> S4 1849+67 </assoc>
+    <raJ2000  unit="degree"> 282.350239 </raJ2000>
+    <decJ2000 unit="degree"> 67.103501 </decJ2000>
+    <redshift> 0.657 </redshift>
+    
+    <spectrum type="LogParabola">
+      <energyRange unit="GeV"> 0.1 100 </energyRange>
+      <normF unit="1e-12/cm2/second/MeV"> 61.887710 </normF>
+      <normE unit="GeV"> 0.430110 </normE>
+      <alpha> -2.092057 </alpha>
+      <beta>  -0.086117 </beta>
+    </spectrum>
+    <!-- Integral photon counts vs. MJD (bin center) -->
+    <lightCurve type="TabulatedLightCurve">
+      <mjd unit="day">
+         54697.8   54728.2   54758.6     54789   54819.3   54849.7
+         54880.1   54910.4   54940.8   54971.2   55001.5   55031.9
+         55062.3   55092.7     55123   55153.4   55183.8   55214.1
+         55244.5   55274.9   55305.2   55335.6     55366   55395.1
+       </mjd>
+      <flux unit="1e-8/cm2/second">
+         26.3899    14.231    10.677   31.4162   50.9422   41.2766
+         17.7486   11.0812   5.44675   5.92815   10.4859   8.89199
+         6.26188   6.30955   3.77355   2.83148    2.5788   1.79203
+         1.98575   3.34718   3.17506    2.3393   2.75473   4.99592
+       </flux>
+    </lightCurve>
+  </source>
+  <!-- ==================== 2FGL J1923.5-2105  =================== -->
+  <source>
+    <name>  2FGL J1923.5-2105 </name>
+    <assoc> TXS 1920-211 </assoc>
+    <raJ2000  unit="degree"> 290.884069 </raJ2000>
+    <decJ2000 unit="degree"> -21.086884 </decJ2000>
+    <redshift> 0.874 </redshift>
+    
+    <spectrum type="LogParabola">
+      <energyRange unit="GeV"> 0.1 100 </energyRange>
+      <normF unit="1e-12/cm2/second/MeV"> 53.519675 </normF>
+      <normE unit="GeV"> 0.493134 </normE>
+      <alpha> -2.102374 </alpha>
+      <beta>  -0.102008 </beta>
+    </spectrum>
+    <!-- Integral photon counts vs. MJD (bin center) -->
+    <lightCurve type="TabulatedLightCurve">
+      <mjd unit="day">
+         54697.8   54728.2   54758.6     54789   54819.3   54849.7
+         54880.1   54910.4   54940.8   54971.2   55001.5   55031.9
+         55062.3   55092.7     55123   55153.4   55183.8   55214.1
+         55244.5   55274.9   55305.2   55335.6     55366   55395.1
+       </mjd>
+      <flux unit="1e-8/cm2/second">
+         9.30597   9.44561   21.8069   40.6909   5.42794   18.8757
+          21.233   20.0334    19.893   12.7948   19.0733   12.6261
+         5.13937    8.7434    12.267   8.96848    5.1774   2.92722
+         2.96398   4.25359   1.97149    5.5015   3.01892   6.71568
+       </flux>
+    </lightCurve>
+  </source>
+  <!-- ==================== 2FGL J2143.5+1743  =================== -->
+  <source>
+    <name>  2FGL J2143.5+1743 </name>
+    <assoc> OX 169 </assoc>
+    <raJ2000  unit="degree"> 325.879199 </raJ2000>
+    <decJ2000 unit="degree"> 17.719807 </decJ2000>
+    <redshift> 0.211 </redshift>
+    
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 0.1 100 </energyRange>
+      <normF unit="1e-12/cm2/second/MeV"> 82.013986 </normF>
+      <normE unit="GeV"> 0.386019 </normE>
+      <index> -2.579596 </index>
+    </spectrum>
+    <!-- Integral photon counts vs. MJD (bin center) -->
+    <lightCurve type="TabulatedLightCurve">
+      <mjd unit="day">
+         54697.8   54728.2   54758.6     54789   54819.3   54849.7
+         54880.1   54910.4   54940.8   54971.2   55001.5   55031.9
+         55062.3   55092.7     55123   55153.4   55183.8   55214.1
+         55244.5   55274.9   55305.2   55335.6     55366   55395.1
+       </mjd>
+      <flux unit="1e-8/cm2/second">
+         15.4895   23.7673   10.3385   8.18669   5.92568    18.499
+         25.6205   26.2207   36.2856   21.3658   7.92692   8.34819
+         9.34181   11.8353   24.4326   19.4087   13.2638   28.9454
+         23.7264   22.3026   12.9662   15.6386   8.45897   10.9437
+       </flux>
+    </lightCurve>
+  </source>
+  <!-- ==================== 2FGL J2202.8+4216  =================== -->
+  <source>
+    <name>  2FGL J2202.8+4216 </name>
+    <assoc> BL Lacertae </assoc>
+    <raJ2000  unit="degree"> 330.707186 </raJ2000>
+    <decJ2000 unit="degree"> 42.267529 </decJ2000>
+    <redshift> 0.0686 </redshift>
+    
+    <spectrum type="LogParabola">
+      <energyRange unit="GeV"> 0.1 100 </energyRange>
+      <normF unit="1e-12/cm2/second/MeV"> 117.630433 </normF>
+      <normE unit="GeV"> 0.388494 </normE>
+      <alpha> -2.106915 </alpha>
+      <beta>  -0.095031 </beta>
+    </spectrum>
+    <!-- Integral photon counts vs. MJD (bin center) -->
+    <lightCurve type="TabulatedLightCurve">
+      <mjd unit="day">
+         54697.8   54728.2   54758.6     54789   54819.3   54849.7
+         54880.1   54910.4   54940.8   54971.2   55001.5   55031.9
+         55062.3   55092.7     55123   55153.4   55183.8   55214.1
+         55244.5   55274.9   55305.2   55335.6     55366   55395.1
+       </mjd>
+      <flux unit="1e-8/cm2/second">
+         9.55064   10.5082   9.12556   9.07712   9.49047   14.6487
+         15.2653   11.7348   18.1124   8.21336   19.7947   11.4008
+         9.17344   14.8916   19.2416   22.2478   21.1587   27.9136
+         19.7884    23.416   22.3081   35.7031   26.3211   14.1997
+       </flux>
+    </lightCurve>
+  </source>
+  <!-- ==================== 2FGL J2203.4+1726  =================== -->
+  <source>
+    <name>  2FGL J2203.4+1726 </name>
+    <assoc> PKS 2201+171 </assoc>
+    <raJ2000  unit="degree"> 330.868707 </raJ2000>
+    <decJ2000 unit="degree"> 17.436300 </decJ2000>
+    <redshift> 1.076 </redshift>
+    
+    <spectrum type="LogParabola">
+      <energyRange unit="GeV"> 0.1 100 </energyRange>
+      <normF unit="1e-12/cm2/second/MeV"> 47.333578 </normF>
+      <normE unit="GeV"> 0.459712 </normE>
+      <alpha> -2.092033 </alpha>
+      <beta>  -0.089373 </beta>
+    </spectrum>
+    <!-- Integral photon counts vs. MJD (bin center) -->
+    <lightCurve type="TabulatedLightCurve">
+      <mjd unit="day">
+         54697.8   54728.2   54758.6     54789   54819.3   54849.7
+         54880.1   54910.4   54940.8   54971.2   55001.5   55031.9
+         55062.3   55092.7     55123   55153.4   55183.8   55214.1
+         55244.5   55274.9   55305.2   55335.6     55366   55395.1
+       </mjd>
+      <flux unit="1e-8/cm2/second">
+         11.2826   5.25117   2.44886   2.75292   5.26161   5.34829
+         6.68706   3.79351   15.7064    9.5764   5.67183   15.1095
+         14.0571   11.2038   11.2269   13.1864   13.9514   20.5014
+         10.3623   8.21781   12.2724   9.96933   6.69092   6.66021
+       </flux>
+    </lightCurve>
+  </source>
+  <!-- ==================== 2FGL J2229.7-0832  =================== -->
+  <source>
+    <name>  2FGL J2229.7-0832 </name>
+    <assoc> PKS 2227-08 </assoc>
+    <raJ2000  unit="degree"> 337.441179 </raJ2000>
+    <decJ2000 unit="degree"> -8.545854 </decJ2000>
+    <redshift> 1.562 </redshift>
+    
+    <spectrum type="LogParabola">
+      <energyRange unit="GeV"> 0.1 100 </energyRange>
+      <normF unit="1e-12/cm2/second/MeV"> 219.304047 </normF>
+      <normE unit="GeV"> 0.269114 </normE>
+      <alpha> -2.406179 </alpha>
+      <beta>  -0.110179 </beta>
+    </spectrum>
+    <!-- Integral photon counts vs. MJD (bin center) -->
+    <lightCurve type="TabulatedLightCurve">
+      <mjd unit="day">
+         54697.8   54728.2   54758.6     54789   54819.3   54849.7
+         54880.1   54910.4   54940.8   54971.2   55001.5   55031.9
+         55062.3   55092.7     55123   55153.4   55183.8   55214.1
+         55244.5   55274.9   55305.2   55335.6     55366   55395.1
+       </mjd>
+      <flux unit="1e-8/cm2/second">
+         12.2896   15.8169   19.5024   15.0984   27.9617   18.2707
+         15.0784   8.93032   13.5204   16.6666   30.5393   16.9073
+          9.9837   5.33353   5.87996   8.24419   11.8139   1.40795
+         10.7846   15.8467   24.2709   29.5361   14.2621   13.8958
+       </flux>
+    </lightCurve>
+  </source>
+  <!-- ==================== 2FGL J2236.4+2828  =================== -->
+  <source>
+    <name>  2FGL J2236.4+2828 </name>
+    <assoc> B2 2234+28A </assoc>
+    <raJ2000  unit="degree"> 339.102445 </raJ2000>
+    <decJ2000 unit="degree"> 28.475537 </decJ2000>
+    <redshift> 0.795 </redshift>
+    
+    <spectrum type="LogParabola">
+      <energyRange unit="GeV"> 0.1 100 </energyRange>
+      <normF unit="1e-12/cm2/second/MeV"> 36.358722 </normF>
+      <normE unit="GeV"> 0.460793 </normE>
+      <alpha> -2.054225 </alpha>
+      <beta>  -0.108428 </beta>
+    </spectrum>
+    <!-- Integral photon counts vs. MJD (bin center) -->
+    <lightCurve type="TabulatedLightCurve">
+      <mjd unit="day">
+         54697.8   54728.2   54758.6     54789   54819.3   54849.7
+         54880.1   54910.4   54940.8   54971.2   55001.5   55031.9
+         55062.3   55092.7     55123   55153.4   55183.8   55214.1
+         55244.5   55274.9   55305.2   55335.6     55366   55395.1
+       </mjd>
+      <flux unit="1e-8/cm2/second">
+         2.64533   5.11078   3.80357   5.00095   3.07926   5.83572
+         7.62201   16.0466   10.2664   17.4048   2.65077   5.54979
+           2.562   3.94416    3.7854   4.69997   5.32201   3.61647
+         3.46706         0   3.49346    12.713   18.5041    22.723
+       </flux>
+    </lightCurve>
+  </source>
+  <!-- ==================== 2FGL J2253.9+1609  =================== -->
+  <source>
+    <name>  2FGL J2253.9+1609 </name>
+    <assoc> 3C 454.3 </assoc>
+    <raJ2000  unit="degree"> 343.497399 </raJ2000>
+    <decJ2000 unit="degree"> 16.152600 </decJ2000>
+    <redshift> 0.859 </redshift>
+    
+    <spectrum type="LogParabola">
+      <energyRange unit="GeV"> 0.1 100 </energyRange>
+      <normF unit="1e-12/cm2/second/MeV"> 2800.873533 </normF>
+      <normE unit="GeV"> 0.297596 </normE>
+      <alpha> -2.226393 </alpha>
+      <beta>  -0.117872 </beta>
+    </spectrum>
+    <!-- Integral photon counts vs. MJD (bin center) -->
+    <lightCurve type="TabulatedLightCurve">
+      <mjd unit="day">
+         54697.8   54728.2   54758.6     54789   54819.3   54849.7
+         54880.1   54910.4   54940.8   54971.2   55001.5   55031.9
+         55062.3   55092.7     55123   55153.4   55183.8   55214.1
+         55244.5   55274.9   55305.2   55335.6     55366   55395.1
+       </mjd>
+      <flux unit="1e-8/cm2/second">
+         309.686    322.98   156.587   136.642   87.8015   59.6472
+         17.0897   8.47416   53.0024   82.4143   46.5124   46.5196
+         173.082   329.616    280.44   475.088   791.074   367.922
+         293.853   356.966   835.824   411.885   193.515   134.301
+       </flux>
+    </lightCurve>
+  </source>
+  <!-- ==================== 2FGL J2258.0-2759  =================== -->
+  <source>
+    <name>  2FGL J2258.0-2759 </name>
+    <assoc> PKS 2255-282 </assoc>
+    <raJ2000  unit="degree"> 344.506218 </raJ2000>
+    <decJ2000 unit="degree"> -27.995108 </decJ2000>
+    <redshift> 0.926 </redshift>
+    
+    <spectrum type="LogParabola">
+      <energyRange unit="GeV"> 0.1 100 </energyRange>
+      <normF unit="1e-12/cm2/second/MeV"> 43.604481 </normF>
+      <normE unit="GeV"> 0.409816 </normE>
+      <alpha> -2.257020 </alpha>
+      <beta>  -0.179198 </beta>
+    </spectrum>
+    <!-- Integral photon counts vs. MJD (bin center) -->
+    <lightCurve type="TabulatedLightCurve">
+      <mjd unit="day">
+         54697.8   54728.2   54758.6     54789   54819.3   54849.7
+         54880.1   54910.4   54940.8   54971.2   55001.5   55031.9
+         55062.3   55092.7     55123   55153.4   55183.8   55214.1
+         55244.5   55274.9   55305.2   55335.6     55366   55395.1
+       </mjd>
+      <flux unit="1e-8/cm2/second">
+          4.0449    4.0886   3.39716   6.03332   3.04294   4.59577
+         3.00587   5.56606   4.12095    3.2346   5.39385   7.29932
+         15.4836   11.8922   18.7628   13.3671   13.6565   5.40748
+            6.23   4.16971   7.71536    4.7623   5.03452   3.93273
+       </flux>
+    </lightCurve>
+  </source>
+</ps-catalog>

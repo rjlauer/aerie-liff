@@ -1,0 +1,57 @@
+
+/*!
+
+  \page about_aerie About AERIE
+
+  \addindex about_aerie
+
+  \tableofcontents
+
+  The HAWC software, called the Analysis and Event Reconstruction Integrated
+  Environment (AERIE) provides a framework intended for processing of HAWC
+  events and for subsequent analysis.
+  
+  The software is structured as a set of interdependent C++ projects glued
+  together by a central "core" or "framework."  The core provides: a run loop
+  for analyzing batches of data; hooks for physicists to plug in their own
+  algorithms; data classes to store simulated and reconstructed data; and
+  libraries to handle common tasks such as geometric object or time data
+  storage.  Other projects are available to handle more specialized tasks, like
+  disk I/O, track reconstruction, mapmaking, and so on.
+
+  The AERIE run loop can be driven with C++ "main" programs or python
+  scripts.  Templates for running popular applications can be found in the
+  examples folders inside various projects.
+  
+  \section software_core Software Core
+
+  The software core contains two primary projects:
+  <ol>
+    <li> \ref hawcnest "hawcnest": 
+
+      This project contains the run loop and hooks for user-defined modules and
+      services.  Look, but don't touch!
+    </li>
+    <li> \ref data_structures "data-structures": 
+
+      This project contains event classes and other convenient structures for
+      storing times, geometries, basic particle data, etc.  Again, look, but
+      don't touch!
+    </li>
+  </ol>
+
+  \section other_projects Other Projects
+
+  The other projects distributed as HAWC software are designed for specific
+  simulation, reconstruction, or service tasks.  Note that not all projects
+  need to be part of event-driven loops.  Some are services that provide access
+  to the detector geometry, or to astronomical conversions.
+
+  Users are encouraged to explore the projects and services distributed with
+  the AERIE, and to write and contribute their own work.  Well-written and
+  useful services and projects will be incorporated into the official
+  distribution after brief reviews.  Please dive in: this software will be as
+  good as its contributors!
+
+*/
+

@@ -1,0 +1,21 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{c+c1}{// A fake Reconstruction module... COM technique}
+\PY{k}{class} \PY{n+nc}{ReconstructionModule\PYZus{}COM} \PY{o}{:} \PY{k}{public} \PY{n}{Module}
+\PY{p}{\PYZob{}}
+ \PY{k}{public}\PY{o}{:}
+  \PY{k}{typedef} \PY{n}{Module} \PY{n}{Interface}\PY{p}{;}
+
+  \PY{n}{Result} \PY{n}{Process}\PY{p}{(}\PY{n}{BagPtr} \PY{n}{e}\PY{p}{)}\PY{p}{\PYZob{}}
+    \PY{n}{RandomNumberService}\PY{o}{&} \PY{n}{random} \PY{o}{=} \PY{n}{GetService}\PY{o}{<}\PY{n}{RandomNumberService}\PY{o}{>}\PY{p}{(}\PY{l+s}{"}\PY{l+s}{rand}\PY{l+s}{"}\PY{p}{)}\PY{p}{;} 
+    \PY{n}{printf}\PY{p}{(}\PY{l+s}{"}\PY{l+s}{reconstructing the event with COM technique}\PY{l+s+se}{\PYZbs{}n}\PY{l+s}{"}\PY{p}{)}\PY{p}{;} 
+
+    \PY{n}{CoreReconstructionPtr} \PY{n}{core}\PY{p}{(}\PY{k}{new} \PY{n}{CoreReconstruction}\PY{p}{(}\PY{p}{)}\PY{p}{)}\PY{p}{;}
+    \PY{n}{core}\PY{o}{-}\PY{o}{>}\PY{n}{corex} \PY{o}{=}\PY{n}{random}\PY{p}{.}\PY{n}{Uniform}\PY{p}{(}\PY{o}{-}\PY{l+m+mi}{2000}\PY{p}{,}\PY{l+m+mi}{2000}\PY{p}{)}\PY{p}{;} 
+    \PY{n}{core}\PY{o}{-}\PY{o}{>}\PY{n}{corey} \PY{o}{=}\PY{n}{random}\PY{p}{.}\PY{n}{Uniform}\PY{p}{(}\PY{o}{-}\PY{l+m+mi}{2000}\PY{p}{,}\PY{l+m+mi}{2000}\PY{p}{)}\PY{p}{;} 
+
+    \PY{n}{e}\PY{o}{-}\PY{o}{>}\PY{n}{Put}\PY{p}{(}\PY{l+s}{"}\PY{l+s}{Core\PYZus{}COM}\PY{l+s}{"}\PY{p}{,}\PY{n}{core}\PY{p}{)}\PY{p}{;}
+    
+    \PY{k}{return} \PY{n}{Continue}\PY{p}{;}
+  \PY{p}{\PYZcb{}}
+\PY{p}{\PYZcb{}}\PY{p}{;}
+\end{Verbatim}

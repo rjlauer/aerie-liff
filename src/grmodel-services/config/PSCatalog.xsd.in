@@ -1,0 +1,92 @@
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            xmlns:hawc="http://www.hawc-observatory.org/schema/types">
+
+  <xsd:import namespace="http://www.hawc-observatory.org/schema/types"
+              schemaLocation="@HAWC_CONFIG@/HAWCSchemaTypes.xsd"/>
+
+  <xsd:element name="ps-catalog">
+    <xsd:complexType>
+      <xsd:sequence minOccurs="1" maxOccurs="unbounded">
+        <xsd:element name="source" type="SourceType"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+
+  <xsd:complexType name="SourceType">
+    <xsd:all>
+      <xsd:element name="name" type="xsd:string"/>
+      <xsd:element name="assoc" type="xsd:string"/>
+      <xsd:element name="raJ2000" type="hawc:doubleWithUnit"/>
+      <xsd:element name="decJ2000" type="hawc:doubleWithUnit"/>
+      <xsd:element name="redshift" type="xsd:double" minOccurs="0"/>
+      <xsd:element name="spectrum" type="SpectrumType"/>
+      <xsd:element name="lightCurve" type="LightCurveType" minOccurs="0"/>
+      <xsd:element name="extent" type="ExtentType" minOccurs="0"/>
+    </xsd:all>
+  </xsd:complexType>
+
+  <xsd:complexType name="SpectrumType">
+    <xsd:all>
+      <xsd:element name="energyRange" type="hawc:listOfDoublesWithUnits"/>
+      <xsd:element name="normF" type="hawc:doubleWithUnit"/>
+      <xsd:element name="normE" type="hawc:doubleWithUnit"/>
+      <xsd:element name="index" type="xsd:double" minOccurs="0"/>
+      <xsd:element name="index1" type="xsd:double" minOccurs="0"/>
+      <xsd:element name="Ebreak" type="hawc:doubleWithUnit" minOccurs="0"/>
+      <xsd:element name="index2" type="xsd:double" minOccurs="0"/>
+      <xsd:element name="alpha" type="xsd:double" minOccurs="0"/>
+      <xsd:element name="beta" type="xsd:double" minOccurs="0"/>
+      <xsd:element name="cutoffE" type="hawc:doubleWithUnit" minOccurs="0"/>
+    </xsd:all>
+    <xsd:attribute name="type" type="ModelType" use="required"/>
+  </xsd:complexType>
+
+  <xsd:simpleType name="ModelType">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="PowerLaw"/>
+      <xsd:enumeration value="BrokenPowerLaw"/>
+      <xsd:enumeration value="LogParabola"/>
+      <xsd:enumeration value="PLExpCutoff"/>
+      <xsd:enumeration value="PLExpCutoff_LAT"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+
+  <xsd:complexType name="LightCurveType">
+    <xsd:all>
+      <!-- Either define a tabulated light curve -->
+      <xsd:element name="mjd" type="hawc:listOfDoublesWithUnits" minOccurs="0"/>
+      <xsd:element name="flux" type="hawc:listOfDoublesWithUnits" minOccurs="0"/>
+      <xsd:element name="ulFlag" type="hawc:listOfInts" minOccurs="0"/>
+      <!-- or define a periodic light curve -->
+      <xsd:element name="mjd0" type="hawc:doubleWithUnit" minOccurs="0"/>
+      <xsd:element name="period" type="hawc:doubleWithUnit" minOccurs="0"/>
+      <xsd:element name="phase" type="hawc:listOfDoubles" minOccurs="0"/>
+      <xsd:element name="value" type="hawc:listOfDoubles" minOccurs="0"/>
+    </xsd:all>
+    <xsd:attribute name="type" type="LightCurveFuncType" use="required"/>
+  </xsd:complexType>
+
+  <xsd:simpleType name="LightCurveFuncType">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="TabulatedLightCurve"/>
+      <xsd:enumeration value="PeriodicLightCurve"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+
+  <xsd:complexType name="ExtentType">
+    <xsd:all>
+      <xsd:element name="raAxis"  type="hawc:doubleWithUnit"/>
+      <xsd:element name="decAxis" type="hawc:doubleWithUnit"/>
+      <xsd:element name="angle" type="hawc:doubleWithUnit"/>
+    </xsd:all>
+    <xsd:attribute name="type" type="ShapeType" use="required"/>
+  </xsd:complexType>
+
+  <xsd:simpleType name="ShapeType">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="box"/>
+      <xsd:enumeration value="ellipse"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+
+</xsd:schema>

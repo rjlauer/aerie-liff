@@ -1,0 +1,37 @@
+/*!
+ * @file config.h
+ * @brief Build-time constants.
+ * @author Segev BenZvi
+ * @date 2 Aug 2010
+ * @version $Id: config.h.in 25544 2015-05-31 05:46:53Z sybenzvi $
+ */
+
+#ifndef HAWCNEST_CONFIG_H_INCLUDED
+#define HAWCNEST_CONFIG_H_INCLUDED
+
+#ifndef AERIE_MAJOR_VERSION
+#define AERIE_MAJOR_VERSION @SOFTWARE_MAJOR_VERSION@
+#endif
+
+#ifndef AERIE_MINOR_VERSION
+#define AERIE_MINOR_VERSION @SOFTWARE_MINOR_VERSION@
+#endif
+
+#ifndef AERIE_PATCH_VERSION
+#define AERIE_PATCH_VERSION @SOFTWARE_PATCH_VERSION@
+#endif 
+
+#ifndef AERIE_REPOSITORY_REVISION
+#define AERIE_REPOSITORY_REVISION "@SOFTWARE_REPOSITORY_REVISION@"
+#endif 
+
+#ifndef AERIE_CODENAME
+#define AERIE_CODENAME "@SOFTWARE_CODENAME@"
+#endif 
+
+#ifndef AERIE_BUILD_TYPENAME
+#define AERIE_BUILD_TYPENAME "@CMAKE_BUILD_TYPE@"
+#endif
+
+#endif // HAWCNEST_CONFIG_H_INCLUDED
+

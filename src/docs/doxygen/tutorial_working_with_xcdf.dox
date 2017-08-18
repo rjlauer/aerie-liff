@@ -1,0 +1,99 @@
+/*!
+
+\page tutorial_working_with_xcdf Working With XCDF
+
+\tableofcontents
+
+\section compression Data Compression with XCDF
+
+The eXplicitly Compacted Data Format, or 
+<a href="http://private.hawc-observatory.org/wiki/index.php/XCDF">XCDF</a>, has
+been developed by <a href="mailto:jbraun@umdgrb.umd.edu">Jim Braun</a> to store 
+most HAWC event data.  It is a general-purpose, lightweight data format much
+like PAW n-tuples or <a href="http://root.cern.ch/">ROOT</a> trees.
+
+XCDF provides data compression, but in contrast to programs like gzip or bzip2
+the compression is not achieved by indexing common bits.  Instead, the library
+is designed to take advantage of the fact that much of the data in an event
+have a relatively low precision and finite extent.  If the precision and extent
+are well-defined it is possible to achieve major savings in disk space.
+
+For example, the azimuth angle of a shower track runs between 0 and 360
+degrees, and is typically reconstructed to an accuracy of 0.1 degrees.  For
+safety, we may choose to store the angle with an accuracy of 0.01 degrees.
+Internally XCDF will convert the angle as follows:
+
+\code{.cpp}
+  double phi = 35.7 * degree;
+
+  // Store phi to an accuracy of 0.01 degrees as an integer.
+  // This means that it can take on values in [0, 35999]
+  uint16_t phiStorage = (phi/degree) * 100;
+\endcode
+
+Thanks to this conversion, the azimuth angle can be stored as a 2-byte unsigned
+integer rather than an 8-byte floating-point value, a significant space
+savings.  In addition, this kind of compression requires only elementary data
+operations, making it much faster than gzip or bzip2.  Given the extent and
+precision of a variable, the XCDF library provides automatic coding/decoding
+and bit-packing functionality.
+
+\section xcdf_analysis_programs XCDF Analysis Programs
+
+Normally in AERIE one uses the 
+<code><a href="http://private.hawc-observatory.org/trac/svn/browser/projects/aerie-io">aerie-io</a></code>
+project to handle XCDF I/O.  However, the XCDF library also ships with a nice
+utility to help peek at an XCDF file outside of the AERIE framework.  This
+tutorial presumes the reader has run the
+\ref tutorial_triggering_reconstructing_data tutorial and has the XCDF output
+from that exercise. 
+
+\subsection xcdf_utility XCDF Utility
+
+Let's begin with the reconstructed data, 
+(HAWC30-RUN000034-subrun00001.reduced.reco.xcd from the last tutorial)
+
+The first utility is a data-dumping utility that just parses the file and
+dumps all the contents to the screen in ASCII text.
+
+The help is very useful:
+\code
+% xcdf-utility -h
+\endcode
+
+Start by seeing what columns are saved for this file
+\code
+% xcdf-utility info HAWC30-RUN000034-subrun00001.reduced.reco.xcd
+\endcode
+
+You should see the usual suspects, the event number, the run number (which 
+isn't set for this data), the GPS time (the second and separately the
+nanosecond parts), the number of hit channels, number of hit tanks,
+reconstructed direction and so forth.
+
+The second command should give a list of the parameters saved for the
+events in this file. You wouldn't want to do this with a huge file but
+it's fine for these tiny test files:
+\code
+% xcdf-utility dump HAWC30-RUN000034-subrun00001.reduced.reco.xcd
+\endcode
+
+There are a lot of options including options to apply cuts or only dump
+specific fields. The help is very useful in exploring.
+
+\subsection xcdf_root XCDF-to-ROOT Conversion
+
+Finally, there is a handy utility to convert the XCDF output into a ROOT
+TTree
+
+\code
+% xcdf-root -o HAWC30-RUN000034-subrun00001.reduced.reco.xcd.root \ 
+  HAWC30-RUN000034-subrun00001.reduced.reco.xcd
+\endcode
+
+Note that the ROOT file formatted this way is not the same as generating the 
+ROOT file using the reconstruction application. It is a "dumb" conversion
+that doesn't know how we typically like to format data or label our columns.
+Nevertheless it is useful when starting to play with a new XCDF file.
+
+*/

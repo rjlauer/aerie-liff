@@ -1,0 +1,73 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{c+cm}{/**}
+\PY{c+cm}{ * FILE main.cxx}
+\PY{c+cm}{ */}
+
+\PY{c+cp}{#}\PY{c+cp}{include <iostream>}
+\PY{c+cp}{#}\PY{c+cp}{include <hawcnest}\PY{c+cp}{/}\PY{c+cp}{HAWCNest.h>}
+\PY{c+cp}{#}\PY{c+cp}{include <hawcnest}\PY{c+cp}{/}\PY{c+cp}{processing}\PY{c+cp}{/}\PY{c+cp}{SequentialMainLoop.h>}
+\PY{c+cp}{#}\PY{c+cp}{include <vector>}
+\PY{c+cp}{#}\PY{c+cp}{include <cmath>}
+\PY{c+cp}{#}\PY{c+cp}{include "ExampleComponents.h"}
+
+\PY{k}{using} \PY{k}{namespace} \PY{n}{std}\PY{p}{;}
+
+
+\PY{c+c1}{// showing off how to dig my favorite information out of the event}
+\PY{c+c1}{// stream}
+\PY{k}{class} \PY{n+nc}{MyModule} \PY{o}{:} \PY{k}{public} \PY{n}{Module}\PY{p}{\PYZob{}}
+\PY{k}{public}\PY{o}{:}
+  \PY{k}{typedef} \PY{n}{Module} \PY{n}{Interface}\PY{p}{;}
+
+  \PY{n}{Result} \PY{n}{Process}\PY{p}{(}\PY{n}{BagPtr} \PY{n}{e}\PY{p}{)}\PY{p}{\PYZob{}}
+
+    \PY{k}{return} \PY{n}{Continue}\PY{p}{;}
+  \PY{p}{\PYZcb{}}
+\PY{p}{\PYZcb{}}\PY{p}{;}
+
+
+\PY{k+kt}{int} \PY{n}{main}\PY{p}{(}\PY{k+kt}{int} \PY{n}{argc}\PY{p}{,}\PY{k+kt}{char}\PY{o}{*}\PY{o}{*} \PY{n}{argv}\PY{p}{)}\PY{p}{\PYZob{}}
+  \PY{n}{HAWCNest} \PY{n}{nest}\PY{p}{;}
+
+  \PY{n}{nest}\PY{p}{.}\PY{n}{Service}\PY{o}{<}\PY{n}{STDRandomNumberService}\PY{o}{>}\PY{p}{(}\PY{l+s}{"}\PY{l+s}{rand}\PY{l+s}{"}\PY{p}{)}
+    \PY{p}{(}\PY{l+s}{"}\PY{l+s}{Seed}\PY{l+s}{"}\PY{p}{,}\PY{l+m+mi}{12345}\PY{p}{)}\PY{p}{;}
+
+  \PY{n}{nest}\PY{p}{.}\PY{n}{Service}\PY{o}{<}\PY{n}{DBCalibrationService}\PY{o}{>}\PY{p}{(}\PY{l+s}{"}\PY{l+s}{calib}\PY{l+s}{"}\PY{p}{)}
+    \PY{p}{(}\PY{l+s}{"}\PY{l+s}{server}\PY{l+s}{"}\PY{p}{,}\PY{l+s}{"}\PY{l+s}{mildb.umd.edu}\PY{l+s}{"}\PY{p}{)}
+    \PY{p}{(}\PY{l+s}{"}\PY{l+s}{uname}\PY{l+s}{"}\PY{p}{,}\PY{l+s}{"}\PY{l+s}{milagro}\PY{l+s}{"}\PY{p}{)}
+    \PY{p}{(}\PY{l+s}{"}\PY{l+s}{password}\PY{l+s}{"}\PY{p}{,}\PY{l+s}{"}\PY{l+s}{topsecret}\PY{l+s}{"}\PY{p}{)}\PY{p}{;}
+
+  \PY{n}{nest}\PY{p}{.}\PY{n}{Service}\PY{o}{<}\PY{n}{ExampleSource}\PY{o}{>}\PY{p}{(}\PY{l+s}{"}\PY{l+s}{source}\PY{l+s}{"}\PY{p}{)}
+    \PY{p}{(}\PY{l+s}{"}\PY{l+s}{input}\PY{l+s}{"}\PY{p}{,}\PY{l+s}{"}\PY{l+s}{myinputfile.dat}\PY{l+s}{"}\PY{p}{)}
+    \PY{p}{(}\PY{l+s}{"}\PY{l+s}{maxevents}\PY{l+s}{"}\PY{p}{,}\PY{l+m+mi}{20}\PY{p}{)}\PY{p}{;}
+
+  \PY{n}{nest}\PY{p}{.}\PY{n}{Service}\PY{o}{<}\PY{n}{CalibrationModule}\PY{o}{>}\PY{p}{(}\PY{l+s}{"}\PY{l+s}{calibmodule}\PY{l+s}{"}\PY{p}{)}\PY{p}{;}
+
+  \PY{n}{nest}\PY{p}{.}\PY{n}{Service}\PY{o}{<}\PY{n}{ReconstructionModule\PYZus{}COM}\PY{o}{>}\PY{p}{(}\PY{l+s}{"}\PY{l+s}{reco\PYZus{}com}\PY{l+s}{"}\PY{p}{)}\PY{p}{;}
+
+  \PY{n}{nest}\PY{p}{.}\PY{n}{Service}\PY{o}{<}\PY{n}{ReconstructionModule\PYZus{}Gauss}\PY{o}{>}\PY{p}{(}\PY{l+s}{"}\PY{l+s}{reco\PYZus{}gauss}\PY{l+s}{"}\PY{p}{)}\PY{p}{;}
+
+  \PY{n}{nest}\PY{p}{.}\PY{n}{Service}\PY{o}{<}\PY{n}{PrintingModule}\PY{o}{>}\PY{p}{(}\PY{l+s}{"}\PY{l+s}{print}\PY{l+s}{"}\PY{p}{)}\PY{p}{;}
+
+  \PY{n}{nest}\PY{p}{.}\PY{n}{Service}\PY{o}{<}\PY{n}{MyModule}\PY{o}{>}\PY{p}{(}\PY{l+s}{"}\PY{l+s}{mymodule}\PY{l+s}{"}\PY{p}{)}\PY{p}{;}
+
+  \PY{n}{vector}\PY{o}{<}\PY{n}{string}\PY{o}{>} \PY{n}{modulechain}\PY{p}{;}
+  \PY{n}{modulechain}\PY{p}{.}\PY{n}{push\PYZus{}back}\PY{p}{(}\PY{l+s}{"}\PY{l+s}{print}\PY{l+s}{"}\PY{p}{)}\PY{p}{;}       \PY{c+c1}{// <---}
+  \PY{n}{modulechain}\PY{p}{.}\PY{n}{push\PYZus{}back}\PY{p}{(}\PY{l+s}{"}\PY{l+s}{calibmodule}\PY{l+s}{"}\PY{p}{)}\PY{p}{;} \PY{c+c1}{//    |}
+  \PY{n}{modulechain}\PY{p}{.}\PY{n}{push\PYZus{}back}\PY{p}{(}\PY{l+s}{"}\PY{l+s}{reco\PYZus{}com}\PY{l+s}{"}\PY{p}{)}\PY{p}{;}    \PY{c+c1}{//    |-- one module in two places  }
+  \PY{n}{modulechain}\PY{p}{.}\PY{n}{push\PYZus{}back}\PY{p}{(}\PY{l+s}{"}\PY{l+s}{reco\PYZus{}gauss}\PY{l+s}{"}\PY{p}{)}\PY{p}{;}  \PY{c+c1}{//    |}
+  \PY{n}{modulechain}\PY{p}{.}\PY{n}{push\PYZus{}back}\PY{p}{(}\PY{l+s}{"}\PY{l+s}{print}\PY{l+s}{"}\PY{p}{)}\PY{p}{;}       \PY{c+c1}{// <---}
+  \PY{n}{modulechain}\PY{p}{.}\PY{n}{push\PYZus{}back}\PY{p}{(}\PY{l+s}{"}\PY{l+s}{mymodule}\PY{l+s}{"}\PY{p}{)}\PY{p}{;}
+  \PY{n}{nest}\PY{p}{.}\PY{n}{Service}\PY{o}{<}\PY{n}{SequentialMainLoop}\PY{o}{>}\PY{p}{(}\PY{l+s}{"}\PY{l+s}{mainloop}\PY{l+s}{"}\PY{p}{)}
+    \PY{p}{(}\PY{l+s}{"}\PY{l+s}{source}\PY{l+s}{"}\PY{p}{,}\PY{l+s}{"}\PY{l+s}{source}\PY{l+s}{"}\PY{p}{)}
+    \PY{p}{(}\PY{l+s}{"}\PY{l+s}{modulechain}\PY{l+s}{"}\PY{p}{,}\PY{n}{modulechain}\PY{p}{)}\PY{p}{;}
+
+  \PY{n}{nest}\PY{p}{.}\PY{n}{Configure}\PY{p}{(}\PY{p}{)}\PY{p}{;}
+
+  \PY{n}{MainLoop}\PY{o}{&} \PY{n}{loop} \PY{o}{=} \PY{n}{GetService}\PY{o}{<}\PY{n}{MainLoop}\PY{o}{>}\PY{p}{(}\PY{l+s}{"}\PY{l+s}{mainloop}\PY{l+s}{"}\PY{p}{)}\PY{p}{;}
+
+  \PY{n}{loop}\PY{p}{.}\PY{n}{Execute}\PY{p}{(}\PY{p}{)}\PY{p}{;}
+  
+  \PY{n}{nest}\PY{p}{.}\PY{n}{Finish}\PY{p}{(}\PY{p}{)}\PY{p}{;}
+\PY{p}{\PYZcb{}}
+\end{Verbatim}

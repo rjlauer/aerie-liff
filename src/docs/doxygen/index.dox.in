@@ -1,0 +1,44 @@
+
+/*!
+
+  \mainpage
+
+  <center>
+
+  <table border="0" cellpadding="10">
+    <tr>
+      <td colspan="2" align="center">
+        <h1> AERIE Release: "@SOFTWARE_CODENAME@" </h1>
+      </td>
+    </tr>
+    <tr>
+    <td>
+      \image html angry_giraffe.png
+      <p>An angry giraffe?<br/> (From <a href="http://www.flickr.com/people/thelastminute/">Duncan Rawlinson</a>,<br/> Creative Commons <a href="https://creativecommons.org/licenses/by/2.0/deed.en">Attribution 2.0 Generic</a> licence.)</p>
+    </td>
+    <td>
+    <h2>Contents</h2>
+      <h3>User Guide</h3>
+        <ul>
+          <li> \subpage about_aerie </li>
+          <li> \subpage install </li>
+          <li> \subpage run_aerie </li>
+          <li> <a class="el" href="modules.html">Available Services</a> </li>
+          <li> <a class="el" href="group__example__apps.html">Example
+               Applications</a> </li>
+          <li> \subpage tutorial </li>
+        </ul>
+      <h3>Developer Guide</h3>
+        <ul>
+          <li> \subpage standards </li>
+          <li> \subpage project </li>
+          <li> \subpage build_system </li>
+        </ul>
+    </td>
+    </tr>
+  </table>
+
+  </center>
+
+*/
+

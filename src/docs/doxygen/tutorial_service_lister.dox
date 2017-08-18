@@ -1,0 +1,43 @@
+/*!
+
+\page tutorial_service_lister Service Lister
+
+\section listing_available_services Listing Available Services
+
+An application is distributed with AERIE that is very useful for discovering
+what Module, Source, and other Service classes are available.
+
+Run the program
+
+\code{.txt}
+% aerie-apps-service-lister -h
+INFO [CommandLineConfigurator.cc, ParseCommandLine:62]: 
+Allowed options:
+
+Generic options:
+  -h [ --help ]               Write this message
+  -v [ --version ]            Print Aerie version info
+  -V [ --verbosity ] arg (=2) Set the verbosity of the logging system: 0=trace,
+                              1=debug, 2=info, 3=warn, 4=error, 5=fatal
+  -x [ --fpexcept ] arg (=0)  Enable floating-point exceptions for debugging: 
+                              1=invalid-arg, 4=div-by-zero, 8=overflow, 13=all
+
+Configuration:
+  -l [ --long-listing ]  List services AND default parameters in long format
+  --service-type arg     Only list these service types. Can be interface types.
+\endcode
+
+You can try running the program in the following ways to see what kinds of
+services are available. Running without the -l option just lists the service
+names. Running with the -l option will give the parameters each service 
+takes. 
+
+\code{.txt}
+% aerie-apps-service-lister               # shows every service distributed with AERIE
+% aerie-apps-service-lister Module        # shows every Module type service
+% aerie-apps-service-lister MainLoop      # shows every MainLoop implementation
+% aerie-apps-service-lister -l MainLoop   # shows every MainLoop implementation and their parameters
+% aerie-apps-service-lister -l LHAngleFit # shows the parameters for the LHAngleFit Module
+\endcode
+
+*/

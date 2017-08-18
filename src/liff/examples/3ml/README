@@ -1,0 +1,8 @@
+CR: I moved all the 3ML "examples" to 3ml/untested on 2017-05-22.
+
+I'll test some and move them to 3ml/tested, and add a description in the README
+there.
+
+It would be great if we could differentiate the examples from the other things
+there, a lot of scripts look very specific to a particular analysis and probably
+belong here.

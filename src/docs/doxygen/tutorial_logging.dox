@@ -1,0 +1,70 @@
+/*!
+
+\page tutorial_logging Logging
+
+\tableofcontents
+
+\section introduction Introduction
+
+We have a rudimentary logging system deployed with AERIE. There are two sides
+to the logging interface. First, there is the side that people writing code
+that generates logging messages and there is the side of a final user trying to
+decide what logging messages to see. The generation of log messages is pretty
+well established. 
+
+The other side, how you configure what log messages you see, is less
+sophisticated. Messages are generated with a priority, TRACE, DEBUG, INFO,
+WARN, ERROR or FATAL. From the top level you can filter all messages at some
+severity or less but you do not have the fine-grained control to, say, see
+TRACE level error messages from the reconstruction and only WARN for everything
+else. Such functionality is antiicpated but not implemented yet.
+
+\section generating_messages Generating Messages
+
+Look in <b>basics/logging</b> at the <code>logging.cc</code> file. That gives
+the basic usage. Users call log_trace, log_debug, up to log_fatal.  The
+function takes a ostream-streamable object so a straight string works, or the
+output of a stream concatination works. So you can call
+
+\code
+log_debug("message goes here");
+\endcode
+
+or
+
+\code
+log_debug("message goes here"<<6<<" "<<3.14159<<" foobar");
+\endcode
+
+much like you would use std::cout or std::cerr. Note that the logging always
+appends a newline after a message.
+
+The log_fatal macro is special because in addition to generating a message, it
+throws an exception (a std::runtime_error instance with the logging message
+included). It is generally presumed that if a piece of code encounters a fatal
+error that it won't know what to do and must abort the processing.
+
+In narrow cases where the processing generates a fatal error and the code must
+do something other than just end, log_fatal_nothrow is provided which generates
+a fatal message but throws no exception.
+
+\section filtering_messages Filtering Messages
+
+The verbosity level of the code is set with a call like this:
+\code
+Logger::GetInstance().SetDefaultLogLevel(Logger::TRACE);
+\endcode
+
+This is a stand-in for a more complete interface where messages may be filtered
+and re-directed. 
+
+\subsection compile_time_filtering Compile Time Filtering
+
+The logging functions are actually implemented as C++ macros. When the code is
+compiled at high optimization levels the log_trace, log_debug and log_info
+macros are replaced with nothing. This means that no log_info or lower messages
+are generated. This is intended so that people can freely use log_trace and
+log_debug commands without fear of runtime cost. Ultimately, when performance
+matters in batch processing, these commands are not even compiled in.
+
+*/

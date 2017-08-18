@@ -1,0 +1,280 @@
+/*!
+
+\page tutorial_python Python Bindings
+
+\tableofcontents
+
+\section introduction Introduction
+
+AERIE includes bindings between C++ and
+<a href="http://www.python.org">python</a>, making it possible to call services
+and access data structures from within a python script.  In fact, it is
+possible to perform a complete analysis using only python, because AERIE
+modules can be written in python and inserted into the module sequence.
+
+The benefits of python over C++ include a short development cycle (no
+compilation needed), no <a
+href="http://en.wikipedia.org/wiki/Manifest_typing">manifest typing</a>, and
+the ability to combine powerful analysis and graphical libraries within a
+single script.  As an added benefit the python classes are automatically
+documented and class structures and names can be viewed using interactive
+python sessions.  For interactive sessions,
+<a href="http://ipython.org">IPython</a> (though not necessary) is strongly
+recommended.
+
+For AERIE users the python bindings allow for quick inspection and
+plotting of data in the Bag, which is much more difficult with the C++ drivers.
+These features make python useful for prototyping AERIE code, though python
+does have a runtime execution cost compared to C++.  Therefore, once
+prototyping is complete it is advisable to convert the algorithms to C++ so
+that the programs can run at high efficiency.
+
+\section python_intro Accessing AERIE Services and Classes from Python
+
+Accessing data structures and AERIE services from python scripts is simple and
+transparent, so long as the environment is properly configured.  Proper setup
+of the user environment is described below, followed by instructions on
+importing and running AERIE modules in python scripts.
+
+\subsection environment_setup Setting up Your Environment
+
+You will need to set up your environment such that the PYTHONPATH and
+(DY)LD_LIBRARY_PATH variables point to the directory where the AERIE libraries
+have been installed.  You can do this manually but it's simpler to use the
+hawc-config script which is installed with AERIE.
+<a href="http://en.wikipedia.org/wiki/Bash_(Unix_shell)">Bash</a> users should
+type
+
+\verbatim
+  $> /path/to/aerie/bin/hawc-config --spawn-sh
+\endverbatim
+
+whereas users of the <a href="http://en.wikipedia.org/wiki/C_shell">C shell</a>
+should type
+
+\verbatim
+  $> /path/to/aerie/bin/hawc-config --spawn-csh
+\endverbatim
+
+These commands will add the necessary paths to your user environment.  When the
+command executes you should see the message
+
+\verbatim
+                   _________________________________________
+                   ___    |__  ____/__  __ \___  _/__  ____/
+                   __  /| |_  __/  __  /_/ /__  / __  __/   
+                   _  ___ |  /___  _  _, _/__/ /  _  /___   
+                   /_/  |_/_____/  /_/ |_| /___/  /_____/
+
+  Loading the Analysis and Event Reconstruction Integrated Environment (AERIE)
+                     Type "exit" to return to a clean shell
+\endverbatim
+
+indicating that your environment is set up to use AERIE.
+
+\subsection python_importing Importing AERIE Modules into Python
+
+Once the AERIE environment is configured using the python bindings is as
+easy as using any other python module.  Simply import the necessary modules and
+you are ready to go.  Below is a set of import statements that you will
+probably want to include in all scripts which access AERIE:
+
+\code{.py}
+from hawc import hawcnest
+from hawc.hawcnest import HAWCUnits as HAWCUnits
+
+from hawc import data_structures
+from hawc.data_structures import *
+
+from HAWCNest import HAWCNest
+\endcode
+
+The main AERIE python module is called <code>hawc</code>, and all of the
+projects in AERIE are submodules of <code>hawc</code>.  For example, in this
+import block we import the <code>hawcnest</code> submodule (line 1) and the
+<code>HAWCUnits</code> class (line 2).  In lines 3 and 4 we import the
+<code>data_structures</code> submodule and provide global access to all data
+classes in the AERIE <code>data-structures</code> project.  Finally, in line 5
+we import <code>HAWCNest</code>, a python wrapper that provides direct access
+to the central framework.  Using the <code>HAWCNest</code> class you can
+initialize a Service and access its functions.
+
+Note that the AERIE \c hawc module has full python
+<a href="http://epydoc.sourceforge.net/docstrings.html">docstrings</a> which
+can be viewed by running the help function in an interactive python session.
+For example, if you run the command
+
+\code{.py}
+>>> import hawc
+>>> help(hawc)
+\endcode
+
+in an interactive python session you will see the following description and
+list of submodules in your console:
+
+\code
+Help on package hawc:
+
+NAME
+    hawc
+
+FILE
+    /Users/sybenzvi/Documents/HAWC/aerie/trunk/install/lib/hawc/__init__.py
+
+DESCRIPTION
+    # Empty file to mark the install/lib/hawc directory as a python package
+    # directory.
+    #
+
+PACKAGE CONTENTS
+    aerie_io
+    astro_service
+    data_structures
+    detector_service
+    event_generator
+    g4sim_reader
+    grmodel_services
+    hawcnest
+    rng_service
+\endcode
+
+To view the documentation for one of the submodules, e.g.
+<code>hawcnest</code>, one types
+
+\code{.py}
+>>> import hawc.hawcnest
+>>> help(hawc.hawcnest)
+\endcode
+
+\subsection python_init_services Initializing a Service in Python
+
+Initializing a service and accessing its instance is easy to do in python.  It
+requires two steps:
+<ol>
+  <li>Initialize the Service using the Service function in the HAWCNest
+  class.</li>
+  <li>Access the instance of the Service using the GetService function provided
+  by every python submodule.</li>
+</ol>
+
+This procedure is illustrated below, where we initialize an instance of the
+StdRNGService and then access the instance to produce a list of random numbers.
+
+\code{.py}
+#!/usr/bin/env python
+
+from hawc import hawcnest
+from hawc import rng_service as rng_service
+from HAWCNest import HAWCNest
+
+# Set up the framework and RNG service
+nest = HAWCNest()
+
+nest.Service("StdRNGService", "rng",
+    seed=1234)
+
+nest.Configure()
+
+# Get an instance of the service and generate some numbers
+rng = rng_service.GetService("rng")
+
+print rng.Uniform(5, 10)    # Generate a uniform random number in [5,10]
+print rng.Gaussian(0., 1.)  # Generate a normal random number
+print rng.Rician(0., 1.)    # Generate a Rician random number
+print rng.Exponential()     # Generate an exponential random number
+
+# Perform cleanup
+nest.Finish()
+\endcode
+
+Setting up a service is quite similar to what one would do in C++, with two
+minor differences:
+<ol>
+  <li>Service parameters are initialized using python 
+  <a href="http://docs.python.org/tutorial/controlflow.html#keyword-arguments">
+  keyword arguments</a> (or "kwargs");</li>
+  <li>Access to the service instance comes through the GetService function in
+  each submodule, rather than through a central GetService function in the
+  HAWCNest object.</li>
+</ol>
+
+This scheme provides an easy way to write and execute a fully functional AERIE
+module sequence in a python script.  By itself this would simply make python
+equivalent to C++.  The python scripts are more useful when we begin to take
+data out of the Bag and plot them on the fly.  This is discussed in the next
+section, \ref python_bag_access.
+
+\subsection python_bag_access Subclassing Modules and Accessing the Bag
+
+It is possible to create a python class that is subclassed from the Module base
+class.  Using the Process function in the Module interface, the python subclass
+can access the contents of the Bag as each event (simulated or real) is
+processed.  For example, the script below will read in CORSIKA events and print
+simple event information using the <code>aerie-io</code> project.
+
+\code{.py}
+#!/usr/bin/env python
+
+from hawc import hawcnest
+from hawc.hawcnest import HAWCUnits as HAWCUnits
+
+from hawc import data_structures
+from hawc.data_structures import *
+
+from hawc import aerie_io
+
+from HAWCNest import HAWCNest
+
+class DataPrinter(hawcnest.Module):
+    """Class that inherits from the Module base class and can access the Bag.
+    """
+    def __init__(self):
+        hawcnest.Module.__init__(self)
+
+    def Process(self, bag):
+        if bag.Exists("CORSIKAEvent"):
+            event = bag["CORSIKAEvent"]
+            Etot = event.Etot / HAWCUnits.GeV
+            print "E = %f GeV" % Etot
+            return hawcnest.Module.CONTINUE
+        return hawcnest.Module.FILTER
+
+# Set up the framework
+nest = HAWCNest()
+
+# Set up the CORSIKA reader
+nest.Service("CORSIKAReader", "reader",
+    runHeaderName="CORSIKARunHeader",
+    eventName="CORSIKAEvent",
+    inputFiles=["DAT00001.dat", "DAT00002.dat", ...])
+
+# Set up the event printer
+printer = DataPrinter()
+nest.Service(printer, "printer")
+
+# Set up the module sequence
+nest.Service("SequentialMainLoop", "mainloop",
+    source="reader",
+    modulechain=["printer"])
+
+nest.Configure()
+
+# Loop through the data
+main = hawcnest.GetService_MainLoop("mainloop")
+main.Execute()
+
+# Clean up
+nest.Finish()
+\endcode
+
+This script is fairly trivial; the <code>DataPrinter</code> simply grabs the
+CORSIKA event data from the Bag and prints the total energy of the event in GeV
+(in correct base HAWCUnits).
+
+Really interesting things start to happen when the Bag accessed is used to
+produce graphical output using <a href="http://matplotlib.org">matplotlib</a>.
+Marrying the AERIE module sequence with the graphical and plotting services in
+python is relatively easy, and several examples are provided in the
+<code>aerie-apps</code> project.
+
+*/

@@ -1,0 +1,325 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{c+cm}{/**}
+\PY{c+cm}{ * FILE ExampleComponents.h}
+\PY{c+cm}{ */}
+
+\PY{c+cp}{#}\PY{c+cp}{ifndef EXAMPLE\PYZus{}MODULES\PYZus{}H}
+\PY{c+cp}{#}\PY{c+cp}{define EXAMPLE\PYZus{}MODULES\PYZus{}H}
+
+\PY{c+cp}{#}\PY{c+cp}{include <cstdio>}
+\PY{c+cp}{#}\PY{c+cp}{include <hawcnest}\PY{c+cp}{/}\PY{c+cp}{processing}\PY{c+cp}{/}\PY{c+cp}{Module.h>}
+\PY{c+cp}{#}\PY{c+cp}{include <hawcnest}\PY{c+cp}{/}\PY{c+cp}{Service.h>}
+\PY{c+cp}{#}\PY{c+cp}{include <hawcnest}\PY{c+cp}{/}\PY{c+cp}{processing}\PY{c+cp}{/}\PY{c+cp}{Source.h>}
+
+\PY{c+c1}{// some structures for the bag}
+\PY{k}{struct} \PY{n}{EventHeader} \PY{o}{:} \PY{n}{public} \PY{n}{Baggable}\PY{p}{\PYZob{}}
+  \PY{k+kt}{int} \PY{n}{event\PYZus{}number}\PY{p}{;}
+  \PY{k+kt}{int} \PY{n}{run\PYZus{}number}\PY{p}{;}
+  \PY{k+kt}{int} \PY{n}{hit\PYZus{}channels}\PY{p}{;}
+\PY{p}{\PYZcb{}}\PY{p}{;}
+
+\PY{k}{typedef} \PY{n}{boost}\PY{o}{:}\PY{o}{:}\PY{n}{shared\PYZus{}ptr}\PY{o}{<}\PY{n}{EventHeader}\PY{o}{>} \PY{n}{EventHeaderPtr}\PY{p}{;}
+\PY{k}{typedef} \PY{n}{boost}\PY{o}{:}\PY{o}{:}\PY{n}{shared\PYZus{}ptr}\PY{o}{<}\PY{k}{const} \PY{n}{EventHeader}\PY{o}{>} \PY{n}{EventHeaderConstPtr}\PY{p}{;}
+
+\PY{k}{struct} \PY{n}{HitData} \PY{o}{:} \PY{n}{public} \PY{n}{Baggable}\PY{p}{\PYZob{}}
+  \PY{n}{std}\PY{o}{:}\PY{o}{:}\PY{n}{vector}\PY{o}{<}\PY{k+kt}{int}\PY{o}{>} \PY{n}{hit\PYZus{}channels}\PY{p}{;}
+  \PY{n}{std}\PY{o}{:}\PY{o}{:}\PY{n}{vector}\PY{o}{<}\PY{k+kt}{float}\PY{o}{>} \PY{n}{hit\PYZus{}times}\PY{p}{;}
+\PY{p}{\PYZcb{}}\PY{p}{;}
+
+\PY{k}{typedef} \PY{n}{boost}\PY{o}{:}\PY{o}{:}\PY{n}{shared\PYZus{}ptr}\PY{o}{<}\PY{n}{HitData}\PY{o}{>} \PY{n}{HitDataPtr}\PY{p}{;}
+\PY{k}{typedef} \PY{n}{boost}\PY{o}{:}\PY{o}{:}\PY{n}{shared\PYZus{}ptr}\PY{o}{<}\PY{k}{const} \PY{n}{HitData}\PY{o}{>} \PY{n}{HitDataConstPtr}\PY{p}{;}
+
+\PY{k}{struct} \PY{n}{CoreReconstruction} \PY{o}{:} \PY{n}{public} \PY{n}{Baggable}\PY{p}{\PYZob{}}
+  \PY{k+kt}{float} \PY{n}{corex}\PY{p}{;}
+  \PY{k+kt}{float} \PY{n}{corey}\PY{p}{;}
+\PY{p}{\PYZcb{}}\PY{p}{;}
+
+\PY{k}{typedef} \PY{n}{boost}\PY{o}{:}\PY{o}{:}\PY{n}{shared\PYZus{}ptr}\PY{o}{<}\PY{n}{CoreReconstruction}\PY{o}{>} \PY{n}{CoreReconstructionPtr}\PY{p}{;}
+\PY{k}{typedef} \PY{n}{boost}\PY{o}{:}\PY{o}{:}\PY{n}{shared\PYZus{}ptr}\PY{o}{<}\PY{k}{const} \PY{n}{CoreReconstruction}\PY{o}{>} \PY{n}{CoreReconstructionConstPtr}\PY{p}{;}
+
+\PY{c+c1}{// In this simple example, I have implemented all of the components (services}
+\PY{c+c1}{// and modules) used in this example.  For each service, I have two }
+\PY{c+c1}{// implementations}
+
+\PY{c+c1}{// First are the services.  The services come in at least two parts.  The first}
+\PY{c+c1}{// is the interface.  This is a pure virtual base class which just defines}
+\PY{c+c1}{// what it is that the service provides.  The pure virtual base class}
+\PY{c+c1}{// is akin to the Java 'Interface' construct.  The second part is the}
+\PY{c+c1}{// actual implementation which inherits from the interface and implements}
+\PY{c+c1}{// the methods defined in the interface as well as the methods required}
+\PY{c+c1}{// of the framework.}
+
+\PY{c+c1}{// The interface for the RandomNumberService.  Note that the client code}
+\PY{c+c1}{// calls RandomNumberService& random = GetService<RandomNumberService()}
+\PY{c+c1}{// So this is the only thing that they know about. }
+\PY{n}{class} \PY{n}{RandomNumberService}
+\PY{p}{\PYZob{}}
+ \PY{n+nl}{public:}
+  \PY{c+c1}{// give a number drawn from a uniform distribution}
+  \PY{k}{virtual} \PY{k+kt}{double} \PY{n}{Uniform}\PY{p}{(}\PY{k+kt}{double} \PY{n}{low}\PY{p}{,}\PY{k+kt}{double} \PY{n}{high}\PY{p}{)} \PY{o}{=} \PY{l+m+mi}{0}\PY{p}{;}
+  
+  \PY{k}{virtual} \PY{o}{~}\PY{n}{RandomNumberService}\PY{p}{(}\PY{p}{)}\PY{p}{\PYZob{}}\PY{p}{\PYZcb{}}
+\PY{p}{\PYZcb{}}\PY{p}{;}
+
+\PY{c+c1}{// The first implementation of this service uses std::rand }
+\PY{n}{class} \PY{n}{STDRandomNumberService} \PY{o}{:} \PY{n}{public} \PY{n}{RandomNumberService}
+\PY{p}{\PYZob{}}
+ \PY{n+nl}{public:}
+  \PY{c+c1}{// This typedef tells the framework that this class will be used}
+  \PY{c+c1}{// to satisfy the RandomNumberService interface}
+  \PY{k}{typedef} \PY{n}{RandomNumberService} \PY{n}{Interface}\PY{p}{;}
+
+  \PY{c+c1}{// This method is where you declare your default configuration}
+  \PY{c+c1}{// and all the configuration parameters that this component will take.}
+  \PY{c+c1}{// This random number generator takes one parameter, a 'seed'.}
+  \PY{n}{Configuration} \PY{n}{DefaultConfiguration}\PY{p}{(}\PY{p}{)}\PY{p}{\PYZob{}}
+    \PY{n}{Configuration} \PY{n}{config}\PY{p}{;}
+    \PY{n}{config}\PY{p}{.}\PY{n}{Parameter}\PY{o}{<}\PY{k+kt}{int}\PY{o}{>}\PY{p}{(}\PY{l+s}{"}\PY{l+s}{Seed}\PY{l+s}{"}\PY{p}{,}\PY{l+m+mi}{0}\PY{p}{)}\PY{p}{;}
+    \PY{k}{return} \PY{n}{config}\PY{p}{;}
+  \PY{p}{\PYZcb{}}
+
+  \PY{c+c1}{// This method is what is used to actually configure the module.  }
+  \PY{c+c1}{// The user has presumably set all the parameters and now we take}
+  \PY{c+c1}{// them and do something useful with them.}
+  \PY{k+kt}{void} \PY{n}{Initialize}\PY{p}{(}\PY{k}{const} \PY{n}{Configuration}\PY{o}{&} \PY{n}{config}\PY{p}{)}\PY{p}{\PYZob{}}
+    \PY{n}{config}\PY{p}{.}\PY{n}{GetParameter}\PY{p}{(}\PY{l+s}{"}\PY{l+s}{Seed}\PY{l+s}{"}\PY{p}{,}\PY{n}{seed\PYZus{}}\PY{p}{)}\PY{p}{;}
+    \PY{n}{log\PYZus{}info}\PY{p}{(}\PY{l+s}{"}\PY{l+s}{seeding random number generator with seed }\PY{l+s}{"} \PY{o}{<}\PY{o}{<} \PY{n}{seed\PYZus{}}\PY{p}{)}\PY{p}{;}
+    \PY{n}{srand}\PY{p}{(}\PY{n}{seed\PYZus{}}\PY{p}{)}\PY{p}{;}
+  \PY{p}{\PYZcb{}}
+
+  \PY{c+c1}{// and here is implementing the methods promised by the interface}
+  \PY{k+kt}{double} \PY{n}{Uniform}\PY{p}{(}\PY{k+kt}{double} \PY{n}{low}\PY{p}{,}\PY{k+kt}{double} \PY{n}{high}\PY{p}{)}\PY{p}{\PYZob{}}
+    \PY{k+kt}{double} \PY{n}{rnd} \PY{o}{=} \PY{p}{(}\PY{k+kt}{double}\PY{p}{)}\PY{n}{rand}\PY{p}{(}\PY{p}{)} \PY{o}{/}\PY{p}{(}\PY{k+kt}{double}\PY{p}{)}\PY{n}{RAND\PYZus{}MAX}\PY{p}{;}
+    \PY{k+kt}{double} \PY{n}{toReturn} \PY{o}{=} \PY{n}{rnd} \PY{o}{*}\PY{p}{(}\PY{n}{high} \PY{o}{-} \PY{n}{low}\PY{p}{)} \PY{o}{+} \PY{n}{low}\PY{p}{;}
+    \PY{k}{return} \PY{n}{toReturn}\PY{p}{;}
+  \PY{p}{\PYZcb{}}
+
+ \PY{n+nl}{private:}
+  \PY{k+kt}{int} \PY{n}{seed\PYZus{}}\PY{p}{;}
+\PY{p}{\PYZcb{}}\PY{p}{;}
+
+\PY{c+c1}{// This is a data structure which I fancy holds the calibration constants}
+\PY{n}{class} \PY{n}{Calibration}
+\PY{p}{\PYZob{}}
+ \PY{n+nl}{public:}
+  \PY{n}{std}\PY{o}{:}\PY{o}{:}\PY{n}{vector}\PY{o}{<}\PY{k+kt}{float}\PY{o}{>} \PY{n}{fakeCalibrationConstants\PYZus{}}\PY{p}{;}
+\PY{p}{\PYZcb{}}\PY{p}{;}
+
+\PY{c+c1}{// Here is a service which retrieves the calibration keyed off the}
+\PY{c+c1}{// event run number}
+\PY{n}{class} \PY{n}{CalibrationService}
+\PY{p}{\PYZob{}}
+ \PY{n+nl}{public:}
+  \PY{k}{virtual} \PY{n}{Calibration}\PY{o}{&} \PY{n}{GetCalibration}\PY{p}{(}\PY{k+kt}{unsigned} \PY{n}{run}\PY{p}{)} \PY{o}{=} \PY{l+m+mi}{0}\PY{p}{;}
+
+  \PY{k}{virtual} \PY{o}{~}\PY{n}{CalibrationService}\PY{p}{(}\PY{p}{)}\PY{p}{\PYZob{}}\PY{p}{\PYZcb{}}
+\PY{p}{\PYZcb{}}\PY{p}{;}
+
+\PY{c+c1}{// This is a dummy implementation, except I fancy that it goes off}
+\PY{c+c1}{// and fetches the calibration constants from a DB}
+\PY{n}{class} \PY{n}{DBCalibrationService} \PY{o}{:} \PY{n}{public} \PY{n}{CalibrationService}
+\PY{p}{\PYZob{}}
+ \PY{n+nl}{public:}
+  \PY{k}{typedef} \PY{n}{CalibrationService} \PY{n}{Interface}\PY{p}{;}
+  \PY{n}{Configuration} \PY{n}{DefaultConfiguration}\PY{p}{(}\PY{p}{)}\PY{p}{\PYZob{}}
+    \PY{n}{Configuration} \PY{n}{config}\PY{p}{;}
+    \PY{n}{config}\PY{p}{.}\PY{n}{Parameter}\PY{o}{<}\PY{n}{std}\PY{o}{:}\PY{o}{:}\PY{n}{string}\PY{o}{>}\PY{p}{(}\PY{l+s}{"}\PY{l+s}{server}\PY{l+s}{"}\PY{p}{,}\PY{l+s}{"}\PY{l+s}{mildb.umd.edu}\PY{l+s}{"}\PY{p}{)}\PY{p}{;}
+    \PY{n}{config}\PY{p}{.}\PY{n}{Parameter}\PY{o}{<}\PY{n}{std}\PY{o}{:}\PY{o}{:}\PY{n}{string}\PY{o}{>}\PY{p}{(}\PY{l+s}{"}\PY{l+s}{uname}\PY{l+s}{"}\PY{p}{,}\PY{l+s}{"}\PY{l+s}{milagro}\PY{l+s}{"}\PY{p}{)}\PY{p}{;}
+    \PY{n}{config}\PY{p}{.}\PY{n}{Parameter}\PY{o}{<}\PY{n}{std}\PY{o}{:}\PY{o}{:}\PY{n}{string}\PY{o}{>}\PY{p}{(}\PY{l+s}{"}\PY{l+s}{password}\PY{l+s}{"}\PY{p}{,}\PY{l+s}{"}\PY{l+s}{milagro}\PY{l+s}{"}\PY{p}{)}\PY{p}{;}
+    \PY{k}{return} \PY{n}{config}\PY{p}{;}
+  \PY{p}{\PYZcb{}}
+  \PY{k+kt}{void} \PY{n}{Initialize}\PY{p}{(}\PY{k}{const} \PY{n}{Configuration}\PY{o}{&} \PY{n}{config}\PY{p}{)}\PY{p}{\PYZob{}}
+    \PY{n}{config}\PY{p}{.}\PY{n}{GetParameter}\PY{p}{(}\PY{l+s}{"}\PY{l+s}{server}\PY{l+s}{"}\PY{p}{,}\PY{n}{server\PYZus{}}\PY{p}{)}\PY{p}{;}
+    \PY{n}{config}\PY{p}{.}\PY{n}{GetParameter}\PY{p}{(}\PY{l+s}{"}\PY{l+s}{uname}\PY{l+s}{"}\PY{p}{,}\PY{n}{uname\PYZus{}}\PY{p}{)}\PY{p}{;}
+    \PY{n}{config}\PY{p}{.}\PY{n}{GetParameter}\PY{p}{(}\PY{l+s}{"}\PY{l+s}{password}\PY{l+s}{"}\PY{p}{,}\PY{n}{password\PYZus{}}\PY{p}{)}\PY{p}{;}
+  \PY{p}{\PYZcb{}}
+  \PY{k+kt}{void} \PY{n}{Finish}\PY{p}{(}\PY{p}{)}\PY{p}{\PYZob{}}
+    \PY{n}{log\PYZus{}info}\PY{p}{(}\PY{l+s}{"}\PY{l+s}{closing DB connection}\PY{l+s}{"}\PY{p}{)}\PY{p}{;}
+  \PY{p}{\PYZcb{}}
+
+  \PY{n}{Calibration}\PY{o}{&} \PY{n}{GetCalibration}\PY{p}{(}\PY{k+kt}{unsigned} \PY{n}{run}\PY{p}{)}\PY{p}{\PYZob{}}
+    \PY{n}{log\PYZus{}info}\PY{p}{(}\PY{l+s}{"}\PY{l+s}{Pretend I'm reading calibration from a DB here}\PY{l+s}{"}\PY{p}{)}\PY{p}{;}
+    \PY{n}{log\PYZus{}info}\PY{p}{(}\PY{l+s}{"}\PY{l+s}{Connecting to server:}\PY{l+s}{"} \PY{o}{<}\PY{o}{<} \PY{n}{server\PYZus{}}
+             \PY{o}{<}\PY{o}{<} \PY{l+s}{"}\PY{l+s}{ with uname:}\PY{l+s}{"} \PY{o}{<}\PY{o}{<} \PY{n}{uname\PYZus{}}
+             \PY{o}{<}\PY{o}{<} \PY{l+s}{"}\PY{l+s}{ and password:}\PY{l+s}{"} \PY{o}{<}\PY{o}{<} \PY{n}{password\PYZus{}}\PY{p}{)}\PY{p}{;}
+    \PY{k}{return} \PY{n}{calibration\PYZus{}}\PY{p}{;} \PY{c+c1}{// pretend we fetch it from a DB here}
+  \PY{p}{\PYZcb{}}
+ \PY{n+nl}{private:}
+  \PY{n}{Calibration} \PY{n}{calibration\PYZus{}}\PY{p}{;}
+  \PY{n}{std}\PY{o}{:}\PY{o}{:}\PY{n}{string} \PY{n}{server\PYZus{}}\PY{p}{;}
+  \PY{n}{std}\PY{o}{:}\PY{o}{:}\PY{n}{string} \PY{n}{uname\PYZus{}}\PY{p}{;}
+  \PY{n}{std}\PY{o}{:}\PY{o}{:}\PY{n}{string} \PY{n}{password\PYZus{}}\PY{p}{;}
+\PY{p}{\PYZcb{}}\PY{p}{;}
+
+\PY{c+c1}{// Here, I fancy that we are getting the calibration constants from }
+\PY{c+c1}{// a flat file}
+\PY{n}{class} \PY{n}{FlatFileCalibrationService} \PY{o}{:} \PY{n}{public} \PY{n}{CalibrationService}
+\PY{p}{\PYZob{}}
+ \PY{n+nl}{public:}
+  \PY{k}{typedef} \PY{n}{CalibrationService} \PY{n}{Interface}\PY{p}{;}
+
+  \PY{n}{Configuration} \PY{n}{DefaultConfiguration}\PY{p}{(}\PY{p}{)}\PY{p}{\PYZob{}}
+    \PY{n}{Configuration} \PY{n}{config}\PY{p}{;}
+    \PY{n}{config}\PY{p}{.}\PY{n}{Parameter}\PY{o}{<}\PY{n}{std}\PY{o}{:}\PY{o}{:}\PY{n}{string}\PY{o}{>}\PY{p}{(}\PY{l+s}{"}\PY{l+s}{filename}\PY{l+s}{"}\PY{p}{,}\PY{l+s}{"}\PY{l+s}{calibration.dat}\PY{l+s}{"}\PY{p}{)}\PY{p}{;}
+    \PY{k}{return} \PY{n}{config}\PY{p}{;}
+  \PY{p}{\PYZcb{}}
+
+  \PY{n}{Calibration}\PY{o}{&} \PY{n}{GetCalibration}\PY{p}{(}\PY{k+kt}{unsigned} \PY{n}{run}\PY{p}{)}\PY{p}{\PYZob{}}
+    \PY{n}{log\PYZus{}info}\PY{p}{(}\PY{l+s}{"}\PY{l+s}{pretend I'm reading calibration from a flat file here}\PY{l+s}{"}\PY{p}{)}\PY{p}{;}
+    \PY{k}{return} \PY{n}{calibration\PYZus{}}\PY{p}{;} \PY{c+c1}{// pretend we fetch it from a DB here}
+  \PY{p}{\PYZcb{}}
+ \PY{n+nl}{private:}
+  \PY{n}{Calibration} \PY{n}{calibration\PYZus{}}\PY{p}{;}
+\PY{p}{\PYZcb{}}\PY{p}{;}
+
+
+\PY{c+c1}{// This is an example 'Source' which is the first Module added to the }
+\PY{c+c1}{// framework.  This source fills the data structure.  Typically the source}
+\PY{c+c1}{// would get data from a file or a socket, but this one makes it up}
+\PY{c+c1}{// from scratch.  The difference between a source and a Module is just}
+\PY{c+c1}{// function 'Next'.  The framework processes until Next returns a null}
+\PY{c+c1}{// pointer}
+\PY{n}{class} \PY{n}{ExampleSource} \PY{o}{:} \PY{n}{public} \PY{n}{Source}
+\PY{p}{\PYZob{}}
+\PY{n+nl}{public:}
+  \PY{k}{typedef} \PY{n}{Source} \PY{n}{Interface}\PY{p}{;}
+
+  \PY{n}{ExampleSource}\PY{p}{(}\PY{p}{)}\PY{p}{\PYZob{}}\PY{n}{events\PYZus{}} \PY{o}{=} \PY{l+m+mi}{0}\PY{p}{;}\PY{p}{\PYZcb{}}
+
+  \PY{n}{Configuration} \PY{n}{DefaultConfiguration}\PY{p}{(}\PY{p}{)}\PY{p}{\PYZob{}}
+    \PY{n}{Configuration} \PY{n}{config}\PY{p}{;}
+
+    \PY{c+c1}{// not supplying a default value means the framework will complain}
+    \PY{c+c1}{// if the user doesn't set a value for 'input'}
+    \PY{n}{config}\PY{p}{.}\PY{n}{Parameter}\PY{o}{<}\PY{n}{std}\PY{o}{:}\PY{o}{:}\PY{n}{string}\PY{o}{>}\PY{p}{(}\PY{l+s}{"}\PY{l+s}{input}\PY{l+s}{"}\PY{p}{)}\PY{p}{;}
+    \PY{n}{config}\PY{p}{.}\PY{n}{Parameter}\PY{o}{<}\PY{k+kt}{int}\PY{o}{>}\PY{p}{(}\PY{l+s}{"}\PY{l+s}{maxevents}\PY{l+s}{"}\PY{p}{,}\PY{l+m+mi}{10}\PY{p}{)}\PY{p}{;}
+    \PY{k}{return} \PY{n}{config}\PY{p}{;}
+  \PY{p}{\PYZcb{}}
+
+  \PY{c+c1}{// This function is called before 'Process' is called.  This eventually}
+  \PY{c+c1}{// will be where the module gets configured}
+  \PY{k+kt}{void} \PY{n}{Initialize}\PY{p}{(}\PY{k}{const} \PY{n}{Configuration}\PY{o}{&} \PY{n}{config}\PY{p}{)}
+  \PY{p}{\PYZob{}}
+    \PY{n}{config}\PY{p}{.}\PY{n}{GetParameter}\PY{p}{(}\PY{l+s}{"}\PY{l+s}{input}\PY{l+s}{"}\PY{p}{,}\PY{n}{infile\PYZus{}}\PY{p}{)}\PY{p}{;}
+    \PY{n}{config}\PY{p}{.}\PY{n}{GetParameter}\PY{p}{(}\PY{l+s}{"}\PY{l+s}{maxevents}\PY{l+s}{"}\PY{p}{,}\PY{n}{maxEvents\PYZus{}}\PY{p}{)}\PY{p}{;}
+    \PY{n}{log\PYZus{}info}\PY{p}{(}\PY{l+s}{"}\PY{l+s}{opening the imaginary file '}\PY{l+s}{"} \PY{o}{<}\PY{o}{<} \PY{n}{infile\PYZus{}} \PY{o}{<}\PY{o}{<} \PY{l+s}{"}\PY{l+s}{'}\PY{l+s}{"}\PY{p}{)}\PY{p}{;}
+    \PY{n}{log\PYZus{}info}\PY{p}{(}\PY{l+s}{"}\PY{l+s}{processing }\PY{l+s}{"} \PY{o}{<}\PY{o}{<} \PY{n}{maxEvents\PYZus{}} \PY{o}{<}\PY{o}{<} \PY{l+s}{"}\PY{l+s}{ events}\PY{l+s}{"}\PY{p}{)}\PY{p}{;}
+  \PY{p}{\PYZcb{}}
+
+  \PY{c+c1}{// This method gets called for each event.  The EventPtr structure }
+  \PY{c+c1}{// already points somewhere valid and we just fill it.}
+  \PY{n}{BagPtr} \PY{n}{Next}\PY{p}{(}\PY{p}{)}\PY{p}{\PYZob{}}
+    \PY{k}{if}\PY{p}{(}\PY{n}{events\PYZus{}} \PY{o}{>}\PY{o}{=} \PY{n}{maxEvents\PYZus{}}\PY{p}{)}
+      \PY{k}{return} \PY{n}{BagPtr}\PY{p}{(}\PY{p}{)}\PY{p}{;}
+    \PY{n}{BagPtr} \PY{n}{b}\PY{p}{(}\PY{n}{new} \PY{n}{Bag}\PY{p}{(}\PY{p}{)}\PY{p}{)}\PY{p}{;}
+    \PY{n}{log\PYZus{}info}\PY{p}{(}\PY{l+s}{"}\PY{l+s}{========================================}\PY{l+s+se}{\PYZbs{}n}\PY{l+s}{"}
+             \PY{o}{<}\PY{o}{<} \PY{l+s}{"}\PY{l+s}{'reading' event }\PY{l+s}{"} \PY{o}{<}\PY{o}{<} \PY{n}{events\PYZus{}} 
+             \PY{o}{<}\PY{o}{<} \PY{l+s}{"}\PY{l+s}{ from file }\PY{l+s}{"} \PY{o}{<}\PY{o}{<} \PY{n}{infile\PYZus{}}\PY{p}{)}\PY{p}{;} 
+    \PY{n}{EventHeaderPtr} \PY{n}{header}\PY{p}{(}\PY{n}{new} \PY{n}{EventHeader}\PY{p}{(}\PY{p}{)}\PY{p}{)}\PY{p}{;}
+    \PY{n}{header}\PY{o}{-}\PY{o}{>}\PY{n}{event\PYZus{}number} \PY{o}{=} \PY{n}{events\PYZus{}}\PY{p}{;}
+    \PY{n}{header}\PY{o}{-}\PY{o}{>}\PY{n}{run\PYZus{}number} \PY{o}{=} \PY{l+m+mi}{12345}\PY{p}{;} 
+
+    \PY{n}{b}\PY{o}{-}\PY{o}{>}\PY{n}{Put}\PY{p}{(}\PY{l+s}{"}\PY{l+s}{Header}\PY{l+s}{"}\PY{p}{,}\PY{n}{header}\PY{p}{)}\PY{p}{;}
+
+    \PY{n}{HitDataPtr} \PY{n}{hitData}\PY{p}{(}\PY{n}{new} \PY{n}{HitData}\PY{p}{(}\PY{p}{)}\PY{p}{)}\PY{p}{;}
+    \PY{k+kt}{int} \PY{n}{hitChannels} \PY{o}{=} \PY{n}{rand}\PY{p}{(}\PY{p}{)} \PY{o}{%} \PY{l+m+mi}{50}\PY{p}{;}
+    \PY{n}{hitData}\PY{o}{-}\PY{o}{>}\PY{n}{hit\PYZus{}channels}\PY{p}{.}\PY{n}{resize}\PY{p}{(}\PY{n}{hitChannels}\PY{p}{)}\PY{p}{;}
+    \PY{n}{hitData}\PY{o}{-}\PY{o}{>}\PY{n}{hit\PYZus{}times}\PY{p}{.}\PY{n}{resize}\PY{p}{(}\PY{n}{hitChannels}\PY{p}{)}\PY{p}{;}
+    \PY{k}{for}\PY{p}{(}\PY{k+kt}{int} \PY{n}{i} \PY{o}{=} \PY{l+m+mi}{0} \PY{p}{;} \PY{n}{i} \PY{o}{<} \PY{n}{hitChannels} \PY{p}{;} \PY{n}{i}\PY{o}{+}\PY{o}{+}\PY{p}{)}\PY{p}{\PYZob{}}
+      \PY{n}{hitData}\PY{o}{-}\PY{o}{>}\PY{n}{hit\PYZus{}channels}\PY{p}{[}\PY{n}{i}\PY{p}{]} \PY{o}{=} \PY{n}{rand}\PY{p}{(}\PY{p}{)} \PY{o}{%} \PY{l+m+mi}{900}\PY{p}{;}
+      \PY{n}{hitData}\PY{o}{-}\PY{o}{>}\PY{n}{hit\PYZus{}times}\PY{p}{[}\PY{n}{i}\PY{p}{]} \PY{o}{=} \PY{p}{(}\PY{k+kt}{float}\PY{p}{)}\PY{n}{rand}\PY{p}{(}\PY{p}{)}\PY{o}{/}\PY{p}{(}\PY{k+kt}{float}\PY{p}{)}\PY{n}{RAND\PYZus{}MAX}\PY{p}{;}
+    \PY{p}{\PYZcb{}}
+    
+    \PY{n}{b}\PY{o}{-}\PY{o}{>}\PY{n}{Put}\PY{p}{(}\PY{l+s}{"}\PY{l+s}{RawHitData}\PY{l+s}{"}\PY{p}{,}\PY{n}{hitData}\PY{p}{)}\PY{p}{;}
+
+    \PY{n}{events\PYZus{}} \PY{o}{+}\PY{o}{=} \PY{l+m+mi}{1}\PY{p}{;} 
+
+    \PY{k}{return} \PY{n}{b}\PY{p}{;}
+  \PY{p}{\PYZcb{}}
+
+  \PY{c+c1}{// This method is called when all is done}
+  \PY{k+kt}{void} \PY{n}{Finish}\PY{p}{(}\PY{p}{)}\PY{p}{\PYZob{}}
+    \PY{n}{log\PYZus{}info}\PY{p}{(}\PY{l+s}{"}\PY{l+s}{closing the imaginary file}\PY{l+s}{"}\PY{p}{)}\PY{p}{;}
+  \PY{p}{\PYZcb{}}
+\PY{n+nl}{private:}
+  \PY{k+kt}{int} \PY{n}{events\PYZus{}}\PY{p}{;}
+  \PY{k+kt}{int} \PY{n}{maxEvents\PYZus{}}\PY{p}{;}
+  \PY{n}{std}\PY{o}{:}\PY{o}{:}\PY{n}{string} \PY{n}{infile\PYZus{}}\PY{p}{;}
+\PY{p}{\PYZcb{}}\PY{p}{;}
+
+\PY{c+c1}{// Another dummy example.  This one does a fake calibration}
+\PY{n}{class} \PY{n}{CalibrationModule} \PY{o}{:} \PY{n}{public} \PY{n}{Module}
+\PY{p}{\PYZob{}}
+ \PY{n+nl}{public:}
+  \PY{k}{typedef} \PY{n}{Module} \PY{n}{Interface}\PY{p}{;}
+
+  \PY{n}{Result} \PY{n}{Process}\PY{p}{(}\PY{n}{BagPtr} \PY{n}{b}\PY{p}{)}\PY{p}{\PYZob{}}
+    \PY{c+c1}{// This shows how to fetch the calibration serice and use it.  }
+    \PY{c+c1}{// N.B. The complete ignorance of whether this comes from a DB}
+    \PY{c+c1}{// or a file.}
+    \PY{k}{const} \PY{n}{EventHeader}\PY{o}{&} \PY{n}{head} \PY{o}{=} \PY{n}{b}\PY{o}{-}\PY{o}{>}\PY{n}{Get}\PY{o}{<}\PY{n}{EventHeader}\PY{o}{>}\PY{p}{(}\PY{l+s}{"}\PY{l+s}{Header}\PY{l+s}{"}\PY{p}{)}\PY{p}{;}
+    \PY{n}{Calibration}\PY{o}{&} \PY{n}{calib} \PY{o}{=}  
+      \PY{n}{GetService}\PY{o}{<}\PY{n}{CalibrationService}\PY{o}{>}\PY{p}{(}\PY{l+s}{"}\PY{l+s}{calib}\PY{l+s}{"}\PY{p}{)}\PY{p}{.}\PY{n}{GetCalibration}\PY{p}{(}\PY{n}{head}\PY{p}{.}\PY{n}{run\PYZus{}number}\PY{p}{)}\PY{p}{;}
+    
+    \PY{n}{log\PYZus{}info}\PY{p}{(}\PY{l+s}{"}\PY{l+s}{calibrating the event with }\PY{l+s}{"}
+             \PY{o}{<}\PY{o}{<} \PY{n}{calib}\PY{p}{.}\PY{n}{fakeCalibrationConstants\PYZus{}}\PY{p}{.}\PY{n}{size}\PY{p}{(}\PY{p}{)} \PY{o}{<}\PY{o}{<} \PY{l+s}{"}\PY{l+s}{ constants}\PY{l+s}{"} \PY{p}{)}
+    \PY{k}{return} \PY{n}{Continue}\PY{p}{;}
+  \PY{p}{\PYZcb{}}
+\PY{p}{\PYZcb{}}\PY{p}{;}
+
+\PY{c+c1}{// A fake Reconstruction module... COM technique}
+\PY{n}{class} \PY{n}{ReconstructionModule\PYZus{}COM} \PY{o}{:} \PY{n}{public} \PY{n}{Module}
+\PY{p}{\PYZob{}}
+ \PY{n+nl}{public:}
+  \PY{k}{typedef} \PY{n}{Module} \PY{n}{Interface}\PY{p}{;}
+
+  \PY{n}{Result} \PY{n}{Process}\PY{p}{(}\PY{n}{BagPtr} \PY{n}{e}\PY{p}{)}\PY{p}{\PYZob{}}
+    \PY{n}{RandomNumberService}\PY{o}{&} \PY{n}{random} \PY{o}{=} \PY{n}{GetService}\PY{o}{<}\PY{n}{RandomNumberService}\PY{o}{>}\PY{p}{(}\PY{l+s}{"}\PY{l+s}{rand}\PY{l+s}{"}\PY{p}{)}\PY{p}{;} 
+    \PY{n}{log\PYZus{}info}\PY{p}{(}\PY{l+s}{"}\PY{l+s}{reconstructing the event with COM technique}\PY{l+s}{"}\PY{p}{)}\PY{p}{;} 
+
+    \PY{n}{CoreReconstructionPtr} \PY{n}{core}\PY{p}{(}\PY{n}{new} \PY{n}{CoreReconstruction}\PY{p}{(}\PY{p}{)}\PY{p}{)}\PY{p}{;}
+    \PY{n}{core}\PY{o}{-}\PY{o}{>}\PY{n}{corex} \PY{o}{=}\PY{n}{random}\PY{p}{.}\PY{n}{Uniform}\PY{p}{(}\PY{o}{-}\PY{l+m+mi}{2000}\PY{p}{,}\PY{l+m+mi}{2000}\PY{p}{)}\PY{p}{;} 
+    \PY{n}{core}\PY{o}{-}\PY{o}{>}\PY{n}{corey} \PY{o}{=}\PY{n}{random}\PY{p}{.}\PY{n}{Uniform}\PY{p}{(}\PY{o}{-}\PY{l+m+mi}{2000}\PY{p}{,}\PY{l+m+mi}{2000}\PY{p}{)}\PY{p}{;} 
+
+    \PY{n}{e}\PY{o}{-}\PY{o}{>}\PY{n}{Put}\PY{p}{(}\PY{l+s}{"}\PY{l+s}{Core\PYZus{}COM}\PY{l+s}{"}\PY{p}{,}\PY{n}{core}\PY{p}{)}\PY{p}{;}
+    
+    \PY{k}{return} \PY{n}{Continue}\PY{p}{;}
+  \PY{p}{\PYZcb{}}
+\PY{p}{\PYZcb{}}\PY{p}{;}
+
+\PY{c+c1}{// A fake Reconstruction module... Gauss technique}
+\PY{n}{class} \PY{n}{ReconstructionModule\PYZus{}Gauss} \PY{o}{:} \PY{n}{public} \PY{n}{Module}
+\PY{p}{\PYZob{}}
+ \PY{n+nl}{public:}
+  \PY{k}{typedef} \PY{n}{Module} \PY{n}{Interface}\PY{p}{;}
+
+  \PY{n}{Result} \PY{n}{Process}\PY{p}{(}\PY{n}{BagPtr} \PY{n}{e}\PY{p}{)}\PY{p}{\PYZob{}}
+    \PY{n}{RandomNumberService}\PY{o}{&} \PY{n}{random} \PY{o}{=} \PY{n}{GetService}\PY{o}{<}\PY{n}{RandomNumberService}\PY{o}{>}\PY{p}{(}\PY{l+s}{"}\PY{l+s}{rand}\PY{l+s}{"}\PY{p}{)}\PY{p}{;} 
+    \PY{n}{log\PYZus{}info}\PY{p}{(}\PY{l+s}{"}\PY{l+s}{reconstructing the event with Gauss technique}\PY{l+s}{"}\PY{p}{)}\PY{p}{;} 
+
+    \PY{n}{CoreReconstructionPtr} \PY{n}{core}\PY{p}{(}\PY{n}{new} \PY{n}{CoreReconstruction}\PY{p}{(}\PY{p}{)}\PY{p}{)}\PY{p}{;}
+    \PY{n}{core}\PY{o}{-}\PY{o}{>}\PY{n}{corex} \PY{o}{=}\PY{n}{random}\PY{p}{.}\PY{n}{Uniform}\PY{p}{(}\PY{o}{-}\PY{l+m+mi}{2000}\PY{p}{,}\PY{l+m+mi}{2000}\PY{p}{)}\PY{p}{;} 
+    \PY{n}{core}\PY{o}{-}\PY{o}{>}\PY{n}{corey} \PY{o}{=}\PY{n}{random}\PY{p}{.}\PY{n}{Uniform}\PY{p}{(}\PY{o}{-}\PY{l+m+mi}{2000}\PY{p}{,}\PY{l+m+mi}{2000}\PY{p}{)}\PY{p}{;} 
+
+    \PY{n}{e}\PY{o}{-}\PY{o}{>}\PY{n}{Put}\PY{p}{(}\PY{l+s}{"}\PY{l+s}{Core\PYZus{}Gauss}\PY{l+s}{"}\PY{p}{,}\PY{n}{core}\PY{p}{)}\PY{p}{;}
+
+    \PY{k}{return} \PY{n}{Continue}\PY{p}{;}
+  \PY{p}{\PYZcb{}}
+\PY{p}{\PYZcb{}}\PY{p}{;}
+
+\PY{c+c1}{// A module which prints the values in the event structure}
+\PY{n}{class} \PY{n}{PrintingModule} \PY{o}{:} \PY{n}{public} \PY{n}{Module}
+\PY{p}{\PYZob{}}
+ \PY{n+nl}{public:}
+  \PY{k}{typedef} \PY{n}{Module} \PY{n}{Interface}\PY{p}{;}
+
+  \PY{n}{Result} \PY{n}{Process}\PY{p}{(}\PY{n}{BagPtr} \PY{n}{b}\PY{p}{)}\PY{p}{\PYZob{}}
+    \PY{n}{log\PYZus{}info}\PY{p}{(}\PY{l+s}{"}\PY{l+s}{--------------------------------}\PY{l+s+se}{\PYZbs{}n}\PY{l+s}{"} \PY{o}{<}\PY{o}{<} \PY{o}{*}\PY{n}{b}
+             \PY{o}{<}\PY{o}{<} \PY{l+s}{"}\PY{l+s}{--------------------------------}\PY{l+s+se}{\PYZbs{}n}\PY{l+s}{"}\PY{p}{)}\PY{p}{;}
+
+    \PY{k}{return} \PY{n}{Continue}\PY{p}{;}
+  \PY{p}{\PYZcb{}}
+\PY{p}{\PYZcb{}}\PY{p}{;}
+
+\PY{c+cp}{#}\PY{c+cp}{endif}
+\end{Verbatim}

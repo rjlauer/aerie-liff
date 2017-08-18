@@ -1,0 +1,9 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{c+cp}{#}\PY{c+cp}{include <hawcnest}\PY{c+cp}{/}\PY{c+cp}{Service.h>}
+
+\PY{n}{RandomNumberService}\PY{o}{&} \PY{n}{random} \PY{o}{=} \PY{n}{GetService}\PY{o}{<}\PY{n}{RandomNumberService}\PY{o}{>}\PY{p}{(}\PY{l+s}{"}\PY{l+s}{rand}\PY{l+s}{"}\PY{p}{)}\PY{p}{;}
+
+\PY{n}{CoreReconstructionPtr} \PY{n}{core}\PY{p}{(}\PY{k}{new} \PY{n}{CoreReconstruction}\PY{p}{(}\PY{p}{)}\PY{p}{)}\PY{p}{;}
+\PY{n}{core}\PY{o}{-}\PY{o}{>}\PY{n}{corex} \PY{o}{=} \PY{n}{random}\PY{p}{.}\PY{n}{Uniform}\PY{p}{(}\PY{o}{-}\PY{l+m+mi}{2000}\PY{p}{,}\PY{l+m+mi}{2000}\PY{p}{)}\PY{p}{;}
+\PY{n}{core}\PY{o}{-}\PY{o}{>}\PY{n}{corex} \PY{o}{=} \PY{n}{random}\PY{p}{.}\PY{n}{Uniform}\PY{p}{(}\PY{o}{-}\PY{l+m+mi}{2000}\PY{p}{,}\PY{l+m+mi}{2000}\PY{p}{)}\PY{p}{;}
+\end{Verbatim}

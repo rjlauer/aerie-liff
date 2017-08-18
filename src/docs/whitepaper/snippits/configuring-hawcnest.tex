@@ -1,0 +1,17 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{c+cp}{#}\PY{c+cp}{include <hawcnest}\PY{c+cp}{/}\PY{c+cp}{HAWCNest.h>}
+\PY{c+cp}{#}\PY{c+cp}{include "STDRandomNumberSerice.h"}
+\PY{c+cp}{#}\PY{c+cp}{include "DBCalibrationService.h"}
+
+\PY{n}{HAWCNest} \PY{n}{nest}\PY{p}{;}
+
+\PY{n}{nest}\PY{p}{.}\PY{n}{Service}\PY{o}{<}\PY{n}{STDRandomNumberService}\PY{o}{>}\PY{p}{(}\PY{l+s}{"}\PY{l+s}{rand}\PY{l+s}{"}\PY{p}{)}
+  \PY{p}{(}\PY{l+s}{"}\PY{l+s}{Seed}\PY{l+s}{"}\PY{p}{,}\PY{l+m+mi}{12345}\PY{p}{)}\PY{p}{;}
+
+\PY{n}{nest}\PY{p}{.}\PY{n}{Service}\PY{o}{<}\PY{n}{DBCalibrationService}\PY{o}{>}\PY{p}{(}\PY{l+s}{"}\PY{l+s}{calib}\PY{l+s}{"}\PY{p}{)}
+  \PY{p}{(}\PY{l+s}{"}\PY{l+s}{server}\PY{l+s}{"}\PY{p}{,}\PY{l+s}{"}\PY{l+s}{mildb.umd.edu}\PY{l+s}{"}\PY{p}{)}
+  \PY{p}{(}\PY{l+s}{"}\PY{l+s}{uname}\PY{l+s}{"}\PY{p}{,}\PY{l+s}{"}\PY{l+s}{milagro}\PY{l+s}{"}\PY{p}{)}
+  \PY{p}{(}\PY{l+s}{"}\PY{l+s}{password}\PY{l+s}{"}\PY{p}{,}\PY{l+s}{"}\PY{l+s}{secret}\PY{l+s}{"}\PY{p}{)}\PY{p}{;}
+
+\PY{n}{nest}\PY{p}{.}\PY{n}{Configure}\PY{p}{(}\PY{p}{)}\PY{p}{;}
+\end{Verbatim}

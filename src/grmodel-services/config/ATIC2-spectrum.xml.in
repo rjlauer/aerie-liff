@@ -1,0 +1,115 @@
+<?xml version="1.0"?>
+
+<!-- Energy spectra of various primary species: power law fits using data from
+     the ATIC-2 balloon flights.
+     -->
+
+<cosmicRayModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                xsi:noNamespaceSchemaLocation="@HAWC_CONFIG@/CRSpectrum.xsd">
+
+  <!-- ========================== Proton spectrum ========================== -->
+  <!-- A.D. Panov et al., Bull. Russ. Acad. Sci. 73 (2009) 564-567 -->
+  <source>
+    <name> ATIC2ProtonFit </name>
+    <particleType> Proton </particleType>
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 1e2 1e5 </energyRange>
+      <normF unit="1e-5/(GeV*meter2*s*sr)"> 8.8641 </normF>
+      <normE unit="GeV"> 1e3 </normE>
+      <index> -2.65 </index>
+    </spectrum>
+  </source>
+
+  <!-- ========================== Helium spectrum ========================== -->
+  <!-- A.D. Panov et al., Bull. Russ. Acad. Sci. 73 (2009) 564-567 -->
+  <source>
+    <name> ATIC2HeliumFit </name>
+    <particleType> He4 </particleType>
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 1e2 1e5 </energyRange>
+      <normF unit="1e-5/(GeV*meter2*s*sr)"> 6.448 </normF>
+      <normE unit="GeV"> 1e3 </normE>
+      <index> -2.60 </index>
+    </spectrum>
+  </source>
+
+  <!-- ========================== Carbon spectrum ========================== -->
+  <!-- A.D. Panov et al., Bull. Russ. Acad. Sci. 73 (2009) 564-567 -->
+  <source>
+    <name> ATIC2CarbonFit </name>
+    <particleType> C12 </particleType>
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 1e2 1e5 </energyRange>
+      <normF unit="1e-5/(GeV*meter2*s*sr)"> 1.348956 </normF>
+      <normE unit="GeV"> 1e3 </normE>
+      <index> -2.75 </index>
+    </spectrum>
+  </source>
+
+  <!-- ========================== Oxygen spectrum ========================== -->
+  <!-- A.D. Panov et al., Bull. Russ. Acad. Sci. 73 (2009) 564-567 -->
+  <source>
+    <name> ATIC2OxygenFit </name>
+    <particleType> O16 </particleType>
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 1e2 1e5 </energyRange>
+      <normF unit="1e-5/(GeV*meter2*s*sr)"> 2.3604 </normF>
+      <normE unit="GeV"> 1e3 </normE>
+      <index> -2.75 </index>
+    </spectrum>
+  </source>
+
+  <!-- =========================== Neon spectrum =========================== -->
+  <!-- A.D. Panov et al., Bull. Russ. Acad. Sci. 73 (2009) 564-567 -->
+  <source>
+    <name> ATIC2NeonFit </name>
+    <particleType> Ne20 </particleType>
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 1e2 1e5 </energyRange>
+      <normF unit="1e-5/(GeV*meter2*s*sr)"> 0.532 </normF>
+      <normE unit="GeV"> 1e3 </normE>
+      <index> -2.75 </index>
+    </spectrum>
+  </source>
+
+  <!-- ========================= Magnesium spectrum ======================== -->
+  <!-- A.D. Panov et al., Bull. Russ. Acad. Sci. 73 (2009) 564-567 -->
+  <source>
+    <name> ATIC2MagnesiumFit </name>
+    <particleType> Mg24 </particleType>
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 1e2 1e5 </energyRange>
+      <normF unit="1e-5/(GeV*meter2*s*sr)"> 0.915 </normF>
+      <normE unit="GeV"> 1e3 </normE>
+      <index> -2.75 </index>
+    </spectrum>
+  </source>
+
+  <!-- ========================== Silicon spectrum ========================= -->
+  <!-- A.D. Panov et al., Bull. Russ. Acad. Sci. 73 (2009) 564-567 -->
+  <source>
+    <name> ATIC2SiliconFit </name>
+    <particleType> Si28 </particleType>
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 1e2 1e5 </energyRange>
+      <normF unit="1e-5/(GeV*meter2*s*sr)"> 1.0014426 </normF>
+      <normE unit="GeV"> 1e3 </normE>
+      <index> -2.75 </index>
+    </spectrum>
+  </source>
+
+  <!-- ============================ Iron spectrum ========================== -->
+  <!-- A.D. Panov et al., Bull. Russ. Acad. Sci. 73 (2009) 564-567 -->
+  <source>
+    <name> ATIC2IronFit </name>
+    <particleType> Fe56 </particleType>
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 1e2 1e5 </energyRange>
+      <normF unit="1e-5/(GeV*meter2*s*sr)"> 5.073 </normF>
+      <normE unit="GeV"> 1e3 </normE>
+      <index> -2.75 </index>
+    </spectrum>
+  </source>
+
+</cosmicRayModel>
+

@@ -1,0 +1,33 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{c+cp}{#}\PY{c+cp}{include <iostream>}
+
+\PY{k}{using} \PY{k}{namespace} \PY{n}{std}\PY{p}{;}
+
+\PY{k}{class} \PY{n+nc}{Interface}\PY{p}{\PYZob{}}
+\PY{k}{public}\PY{o}{:}
+  \PY{k}{virtual} \PY{k+kt}{void} \PY{n}{DoSomething}\PY{p}{(}\PY{p}{)} \PY{o}{=} \PY{l+m+mi}{0}\PY{p}{;}
+\PY{p}{\PYZcb{}}\PY{p}{;}
+
+\PY{k+kt}{void} \PY{n}{something\PYZus{}to\PYZus{}do\PYZus{}something}\PY{p}{(}\PY{n}{Interface}\PY{o}{*} \PY{n}{i}\PY{p}{)}\PY{p}{\PYZob{}}
+  \PY{n}{i}\PY{o}{-}\PY{o}{>}\PY{n}{DoSomething}\PY{p}{(}\PY{p}{)}\PY{p}{;}
+\PY{p}{\PYZcb{}}
+
+\PY{k}{class} \PY{n+nc}{SomethingUseful} \PY{o}{:} \PY{k}{public} \PY{n}{Interface}\PY{p}{\PYZob{}}
+\PY{k}{public}\PY{o}{:}
+  \PY{k}{virtual} \PY{k+kt}{void} \PY{n}{DoSomething}\PY{p}{(}\PY{p}{)} \PY{p}{\PYZob{}} \PY{n}{cout}\PY{o}{<}\PY{o}{<}\PY{l+s}{"}\PY{l+s}{Something Useful....}\PY{l+s}{"}\PY{o}{<}\PY{o}{<}\PY{n}{endl}\PY{p}{;}\PY{p}{\PYZcb{}}
+\PY{p}{\PYZcb{}}
+
+\PY{k}{class} \PY{n+nc}{SomethingElseUseful} \PY{o}{:} \PY{k}{public} \PY{n}{Interface}\PY{p}{\PYZob{}}
+\PY{k}{public}\PY{o}{:}
+  \PY{k}{virtual} \PY{k+kt}{void} \PY{n}{DoSomething}\PY{p}{(}\PY{p}{)} \PY{p}{\PYZob{}} \PY{n}{cout}\PY{o}{<}\PY{o}{<}\PY{l+s}{"}\PY{l+s}{Something Else Useful....}\PY{l+s}{"}\PY{o}{<}\PY{o}{<}\PY{n}{endl}\PY{p}{;}\PY{p}{\PYZcb{}}
+\PY{p}{\PYZcb{}}\PY{p}{;}
+
+\PY{k+kt}{int} \PY{n}{main}\PY{p}{(}\PY{p}{)}\PY{p}{\PYZob{}}
+  \PY{n}{Interface}\PY{o}{*} \PY{n}{i} \PY{o}{=} \PY{k}{new} \PY{n}{SomethingUseful}\PY{p}{(}\PY{p}{)}\PY{p}{;}
+  \PY{n}{Interface}\PY{o}{*} \PY{n}{j} \PY{o}{=} \PY{k}{new} \PY{n}{SomethingElseUseful}\PY{p}{(}\PY{p}{)}\PY{p}{;}
+  
+  \PY{n}{something\PYZus{}to\PYZus{}do\PYZus{}something}\PY{p}{(}\PY{n}{i}\PY{p}{)}\PY{p}{;}
+  \PY{n}{something\PYZus{}to\PYZus{}do\PYZus{}something}\PY{p}{(}\PY{n}{j}\PY{p}{)}\PY{p}{;}
+  
+\PY{p}{\PYZcb{}}
+\end{Verbatim}

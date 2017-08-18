@@ -1,0 +1,9 @@
+
+/*!
+ * @defgroup gr_models Gamma Ray Physical Models
+ * @ingroup services
+ * @brief Collection of models which provide templates for gamma-ray emission,
+ *        contain cosmic ray fluxes (energy spectra), calculate gamma-ray
+ *        attenuation on extragalactic backgrounds, etc.
+ */
+

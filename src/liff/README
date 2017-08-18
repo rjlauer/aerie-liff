@@ -1,0 +1,51 @@
+########################
+# Introduction to LiFF #
+########################
+
+This project is the Likelihood Fitting Framework (LiFF), a software 
+designed to analyze event map data from the HAWC Observatory 
+( http://hawc-observatory.org ) by fitting
+spatial and spectral parameters of sources using a maximum likelihood
+technique.
+
+The software is a collaborative effort of many members of
+the HAWC Collaboration. 
+
+The project is led and maintained by:
++ Robert Lauer <rlauer@phys.unm.edu>
+
+Key developers include:
++ Patrick Younk <pwyounk@gmail.com>
++ Giacomo Vianello <giacomo.slac@gmail.com>
++ Hao Zhou <hzhou1@mtu.edu>
++ J. Patrick Harding <jpharding@lanl.gov>
++ Colas Riviere <riviere@umdgrb.umd.edu>
+
+Installation
+------------
+
+LIFF is distributed as the liff-project within aerie. All LIFF software 
+compiles with aerie. 
+AERIE_-_Analysis_and_Event_Reconstruction_Integrated_Environment
+
+A description of the software has been published in 
+Proceedings of Science and is available on arXiv:
+https://pos.sissa.it/archive/conferences/236/948/ICRC2015_948.pdf
+https://arxiv.org/abs/1508.07479
+
+
+Examples
+--------
+
+There are examples provided in liff. Once aerie has been installed, they can be run anywhere with 
+an aerie environment. All of these executables also are configurable in the 
+command-line (run with -h for help on parameters) to run them on other data or
+with different settings:
+
+liff-HealpixSigFluxMap      
+   - create a map of significnces and fluxes for a region
+
+The source code for all these examples is well commented and can be found under:
+$HAWC_SRC/liff/examples
+
+

@@ -1,0 +1,37 @@
+
+/*!
+
+  \page standards Coding Standards
+
+  \addindex standards
+
+  These standards are informed by our experience with the <a
+  href="https://www.auger.unam.mx/AugerWiki/CppConventions">Auger</a> and <a
+  href="http://software.icecube.wisc.edu/offline-software.trunk/code_standards.html">IceCube</a>
+  software frameworks.  More general references that encourage good practices
+  are:
+
+  <ul>
+    <li><a href="http://www.gotw.ca/publications/c++cs.htm"> C++ Coding Standards</a>, by Herb Sutter and Andrei Alexandrescu</li>
+    <li><a href="http://www.aristeia.com/books.html"> Effective C++</a>, by Scott Meyers</li>
+    <li><a href="http://www.aristeia.com/books.html"> More Effective C++</a>, by Scott Meyers</li>
+    <li><a href="http://google-styleguide.googlecode.com/svn/trunk/cppguide.xml"> Google C++ Style Guide</a></li>
+    <li><a href="http://www.parashift.com/c++-faq-lite/"> C++ FAQ LITE</a>, by Marshall Cline</li>
+  </ul>
+
+  We ask developers to conform to the coding conventions to help maintain the
+  readability and functionality of the code.
+
+  \section contents Contents
+  <ul>
+    <li>\subpage coding_conventions</li>
+    <li>\subpage format_conventions</li>
+  </ul>
+
+
+  \htmlonly
+  <br/>Return to the <a href="index.html">index</a>.
+  \endhtmlonly
+
+*/
+

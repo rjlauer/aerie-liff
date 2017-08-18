@@ -1,0 +1,30 @@
+
+/*!
+
+  \page build_system Build System 
+
+  \addindex build_system
+
+  \image html bricks.jpg
+
+  \tableofcontents
+
+  \section using_makefiles Building with a Makefile
+
+  You can link your own code against AERIE using the hawc-config shell script
+  and simple Makefiles that come with the core projects.  A full description of
+  this building mode is given on the
+  <a href="http://private.hawc-observatory.org/wiki/index.php/Aerie_Tutorial-Simple_HAWCNest_Services">HAWC
+  wiki page</a>.
+
+  \section using_cmake Building with CMake
+
+  It is also relatively straightforward to build your software with the
+  <a href="http://www.cmake.org/">CMake</a>-based build system used in AERIE.
+  To do so, you must structure your project folders as described in the 
+  <a href="http://hawc.umd.edu/wiki/index.php/Making_an_AERIE_Project">HAWC
+  wiki page</a>, since a particular structure is expected by the CMake macros
+  in the build system.
+
+*/
+

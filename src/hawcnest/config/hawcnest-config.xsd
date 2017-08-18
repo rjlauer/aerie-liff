@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+  <xsd:element name="hawcnest_config">
+    <xsd:complexType>
+      <xsd:all>
+        <xsd:element name="librarylist" type="LibraryListType"/>
+        <xsd:element name="servicelist" type="ServiceListType"/>
+      </xsd:all>
+    </xsd:complexType>
+  </xsd:element>
+
+  <xsd:complexType name="LibraryListType">
+    <xsd:sequence>
+      <xsd:element name="library" minOccurs="0" maxOccurs="unbounded" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+
+  <xsd:complexType name="ServiceListType">
+    <xsd:sequence>
+      <xsd:element name="service" type="ServiceType" maxOccurs="unbounded"/>
+    </xsd:sequence>
+  </xsd:complexType>
+
+  <xsd:complexType name="ServiceType">
+    <xsd:sequence>
+      <xsd:element name="type" type="xsd:string"/>
+      <xsd:element name="name" type="xsd:string"/>
+      <xsd:element name="param" type="ParamType" minOccurs="0" maxOccurs="unbounded"/>
+    </xsd:sequence>
+  </xsd:complexType>
+
+  <xsd:complexType name="ParamType">
+    <xsd:sequence>
+      <xsd:element name="type" type="xsd:string"/>
+      <xsd:element name="name" type="xsd:string"/>
+      <xsd:element name="value" type="ValueType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+
+  <xsd:complexType name="ValueType" mixed="true">
+    <xsd:sequence>
+      <xsd:element name="item" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/>
+    </xsd:sequence>
+    <xsd:attribute name="unit" type="xsd:string" use="optional"/>
+  </xsd:complexType>
+
+</xsd:schema>
+

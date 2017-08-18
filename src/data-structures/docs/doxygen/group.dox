@@ -1,0 +1,56 @@
+
+/*!
+ * @defgroup detector_props Detector Properties
+ * @ingroup data_structures
+ * @brief Static detector properties such as Tank and PMT geometries and layout
+ */
+
+/*!
+ * @defgroup event_data Event Data
+ * @ingroup data_structures
+ * @brief Simulated, triggered, and calibrated data storage for reconstruction
+ */
+
+/*!
+ * @defgroup geometry_data Geometry Classes
+ * @ingroup data_structures
+ * @brief Vectors and transformation classes to store positions and directions
+ */
+
+/*!
+ * @defgroup astronomy_data Astronomy Classes
+ * @ingroup data_structures
+ * @brief Astronomical coordinate systems and conventions 
+ */
+
+/*!
+ * @defgroup design_patterns Design Patterns
+ * @ingroup data_structures
+ * @brief Design patterns and abstract algorithms for data management
+ */
+
+/*!
+ * @defgroup math Math Functions
+ * @ingroup data_structures
+ * @brief Data structures and algorithms that encapsulate common mathematical
+ *        functions, such as interpolation 
+ */
+
+/*!
+ * @defgroup physics Physics Functions
+ * @ingroup data_structures
+ * @brief Particle enums and convenient physics functions
+ */
+
+/*!
+ * @defgroup thread Multithreading Classes
+ * @ingroup data_structures
+ * @brief Classes for use in multi-threading memory applications
+ */
+
+/*!
+ * @defgroup time Time Classes
+ * @ingroup data_structures
+ * @brief Time system classes and conversions (GPS, MJD, UTC, etc.)
+ */
+

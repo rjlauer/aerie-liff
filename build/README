@@ -1,0 +1,22 @@
+Typical "cmake" commands, for lazy copy/paster (recommended: option 2):
+
+ (1) cmake -DCMAKE_INSTALL_PREFIX=../install ../src
+ (2) cmake -DCMAKE_INSTALL_PREFIX=../install -DCMAKE_BUILD_TYPE=Release ../src
+ (3) cmake -DCMAKE_INSTALL_PREFIX=../install -DCMAKE_BUILD_TYPE=Release -DENABLE_CXX11=ON ../src
+
+Option 1 configures AERIE in "Debug" mode, which turns on debugging symbols and
+disables compiler optimization.  It will compile quickly but run slowly.  This
+is recommended for developers.
+
+Options 2 and 3 will configure AERIE in "Release" mode, which turns off
+all debugging and enables the highest level of compiler optimization that is
+still compatible with strict C/C++ language standards.  Option 3 will
+additionally compile with support for C++11 language features (WARNING: results
+will vary depending on your compiler).
+
+For MacOS:
+On more recent MacOS versions, produces a lot of warning, which can be suppressed using these flags: -Wno-dev -DCMAKE_EXE_LINKER_FLAGS="-Wl" -DCMAKE_SHARED_LINKER_FLAGS="-Wl"
+
+After all changes type:
+cd $HAWC_BUILD
+make -j 4 install

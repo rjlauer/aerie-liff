@@ -1,0 +1,13 @@
+
+/*!
+ * @defgroup hawcnest_api HAWCNest Interface
+ * @ingroup hawcnest
+ * @brief Interfaces used by all modules and services
+ */
+
+/*!
+ * @defgroup hawcnest_impl HAWCNest Implementation
+ * @ingroup hawcnest
+ * @brief Module and service processing implementation
+ */
+

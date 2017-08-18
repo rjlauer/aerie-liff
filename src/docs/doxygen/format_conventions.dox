@@ -1,0 +1,387 @@
+
+/*!
+
+  \page format_conventions Formatting Conventions
+
+  \addindex format_conventions
+
+    The formatting conventions we use are well described by the <a
+    href="http://google-styleguide.googlecode.com/svn/trunk/cppguide.xml#Formatting">Google
+    Style Guide</a>.  Please <em>DO NOT</em> format your code in the style of
+    <a href="http://www.nrbook.com/a/bookcpdf.php">Numerical Recipes in C</a>,
+    which is extremely ugly and hard to read.  We list a few conventions below
+    for your reference (thanks to the excellent examples written by Lukas
+    Nellen and Darko Veberic for Auger, and Troy Straszheim for IceCube).
+
+
+    <h2>Contents</h2>
+    <ol>
+      <li>\ref block_alignment</li>
+      <li>\ref code_blocks_and_brackets</li>
+      <li>\ref pointers_and_references</li>
+      <li>\ref binary_operators</li>
+      <li>\ref type_conversion</li>
+      <li>\ref line_breaking</li>
+      <li>\ref function_definitions</li>
+      <li>\ref constructor_initialization</li>
+      <li>\ref incrementing_and_decrementing</li>
+    </ol>
+
+
+    \htmlonly <br/> \endhtmlonly
+    \section block_alignment Block Alignment
+
+      <em>Rule</em>: <strong>Code indentation is set to 2 spaces.  Tabs are
+      BANNED.</strong>
+
+      We align code blocks in 2-space increments.  This makes code blocks
+      visible, while also leaving plenty of room for deeply nested loops to fit
+      inside an 80-character terminal window without line breaks.  When you
+      indent your code, you should <a
+      href="http://www.emacswiki.org/cgi-bin/wiki/TabsAreEvil">avoid using
+      tabs</a>, because they can display differently in different editors.  We
+      ask that you please set up your editors to substitute spaces for tabs:
+
+      <ul>
+        <li>In \c emacs, you can set up
+        <a href="http://www.emacswiki.org/cgi-bin/wiki/UntabifyUponSave">tab
+        removal upon save</a> or use the on-line command
+        \code
+M-x untabify
+        \endcode
+        </li>
+        <li>In \c vi, you can automatically remove tabs by putting the
+        following commands into your \c .vimrc file:
+        \code
+set tabstop=8
+set expandtab
+        \endcode
+        To set up \c vi to fully conform to the AERIE coding rules, see the 
+        <a href="http://hawc.umd.edu/wiki/index.php/Example_.vimrc_File">\c
+        .vimrc example</a> in the HAWC wiki.
+        </li>
+      </ul>
+
+
+    \htmlonly <br/> \endhtmlonly
+    \section code_blocks_and_brackets Code Blocks and Brackets
+
+The following rules make it easy to tell apart functions, conditional statements, and control blocks.
+
+      <em>Rule</em>: <strong>Do not put space between function names and functional parameters.</strong>
+ 
+      \code
+// Function declaration
+int foo(const int i, double& d);
+      \endcode
+
+      <em>Rule</em>: <strong>Do not put space between template objects and template parameters.</strong>
+
+      \code
+template<typename T>
+class Foo {
+public:
+  Foo(const std::complex<T>& c);
+private:
+  std::map<int, double> myMap_;
+};
+      \endcode
+
+      <em>Rule</em>: <strong>Leave a space between C++ control and conditional constructs.</strong>
+
+      \code
+// WRONG: hard to read
+if(x>5)
+  return x;
+
+// OK: easy to read
+if (x > 5)
+  return x;
+else
+  return x + 5;
+
+// OK
+while (i < 10) {
+  cout << i << endl;
+  ++i;
+}
+
+// OK
+for (int j = 0; j < 10; ++j)
+  cout << j << endl;
+      \endcode
+
+      <em>Rule</em>: <strong>Curly brackets in function and class declarations should go on a single line.</strong>
+
+\code
+// Class declaration
+class Foo {
+  public:
+    Foo(const int b = 0) : bar_(0) { }
+  private:
+    int bar_;
+};
+\endcode
+
+      <em>Rule</em>: <strong>Curly brackets in function and class definitions should go on separate lines.</strong>
+
+      \code
+// Function definition; note position of return value in first line
+void
+motivate(Student* s)
+{
+  if (!s->IsMotivated()) {
+    delete s;
+    s = new Student();
+  }
+}
+      \endcode
+
+      <em>Rule</em>: <strong>Curly brackets in single-line conditional statements and loops are optional.</strong>
+
+      \code
+// This is OK...
+if (x > 5) {
+  return x;
+}
+else {
+  return x + 5;
+}
+
+// ...and this is also OK
+if (x > 5)
+  return x;
+else
+  return x + 5;
+      \endcode
+
+      <em>Rule</em>: <strong>Conditional statements and control loops may NOT lie on only one line.</strong>
+
+      \code
+// WRONG: This is very hard to read
+if (x > 5) return x;
+
+// Indentation helps indicate the flow of control. This is very hard to read
+for (int j = 0; j < 10; ++j) cout << j << endl;
+      \endcode
+
+
+    \htmlonly <br/> \endhtmlonly
+    \section pointers_and_references Pointers and References 
+
+      <em>Rule</em>: <strong>Do not leave a space between the * and & modifiers
+      and the type:</strong>
+
+      \code
+ClassName* cPtr;         // OK
+const Detector& det;     // OK
+
+ClassName *cPtr;         // WRONG
+const Detector &det;     // WRONG
+const Detector & det;    // WRONG: could be confused with binary & operator
+      \endcode
+
+      <em>Rule</em>: <strong>Do not declare chains of pointers; put the
+      declarations on separate lines.</strong>
+
+      \code
+// WRONG:
+ClassName *p1, *p2, *p3;
+
+// OK:
+ClassName* p1;
+ClassName* p2;
+ClassName* p3;
+      \endcode
+
+      Actually this rule works well for all kinds of declarations:
+
+      \code
+// WRONG: a lazy person thinks this saves time, but it's hard to read
+double x = 0, y = 0, xy = 1e8, x2 = 0, y2 = 0;
+
+// OK
+double x = 0;
+double y = 0;
+double xy = 1e8;
+double x2 = 0;
+double y2 = 0;
+      \endcode
+
+
+    \htmlonly <br/> \endhtmlonly
+    \section binary_operators Binary Operators and Spaces 
+
+      When using binary operators (\c +, \c -, \c *, \c /, \c |, \c &, \c ^, \c
+      &&, \c ||, \c <, \c >, \c ==, \c !=, etc.), it is generally a good idea
+      to leave one space between the operator and its arguments.  Spaces
+      greatly improve the readability of expressions, particularly in boolean
+      expressions, assignments, and function argument lists.  On the other
+      hand, spaces can sometimes ''reduce'' the readability of long arithmetic
+      expressions.  For arithmetic, a good compromise is to use spaces to group
+      terms according to the <a href="http://www.cppreference.com/wiki/operator_precedence">precedence
+      rules of the operators</a>.
+
+      <em>Rule</em>: <strong>Leave spaces around binary operators in assignment
+      and boolean comparisons.</strong>
+
+      \code
+const double pi=3.14159265359;       // WRONG
+
+if (x<5&&y<5)                        // WRONG
+
+double itgrl=integrate(f,x,dx);      // WRONG
+
+double phi = 2.6;                    // OK
+
+bool passesCut = x < 5 && y < 5;     // OK
+
+double itgrl = integrate(f, x, dx);  // OK
+      \endcode
+
+      <em>Rule</em>: <strong>Arithmetic expressions can be easier to interpret
+      when spaces are used to reinforce the operator precedence rules.  Use
+      your common sense.</strong>
+
+      \code
+// WRONG: arithmetic appears "flat" and hard to read
+const double y = a0 + a1 * x + a2 * x * x + a3 * x * x * x;
+
+// WRONG: barely readable
+const double y=a0+a1*x+a2*x*x+a3*x*x*x;
+
+// WRONG: the spaces obscure the precedence rules of the calculation!
+const double y = a0+a1 * x+a2 * x * x+a3 * x * x * x;
+
+// OK: the spaces highlight the order of evaluation
+const double y = a0 + a1*x + a2*x*x + a3*x*x*x;
+
+// OK: use Horner's method in computation to avoid powers,
+// but note in comments that y = a0 + a1*x + a2*x*x + a3*x*x*x;
+const double y = a0 + x*(a1 + x*(a2 + x*a3));
+      \endcode
+
+
+    \htmlonly <br/> \endhtmlonly
+    \section type_conversion Type Conversion 
+
+      <em>Rule</em>: <strong>Avoid the deprecated C-style casts and use the
+      C++ style instead.</strong>
+
+      \code
+const int i = (int)pi;    // WRONG: deprecated C-style cast
+const int j = int(pi);    // OK
+
+// This is long, but necessary for compound types
+const unsigned int k = static_cast<unsigned int>(pi);
+      \endcode
+
+
+    \htmlonly <br/> \endhtmlonly
+    \section line_breaking Line Breaking
+
+      <em>Rule</em>: <strong>Try to keep your lines less than 80 characters
+      wide.</strong>
+
+      Long lines are hard to read, because they will wrap around to fit the
+      width of your terminal window.  Since the C++ compiler ignores extra
+      whitespace, put breaks into your lines if you have to.
+
+      \code
+// GOOD
+typedef boost::iostreams::filtering_stream<boost::iostreams::input>
+  FilterStream;
+
+// GOOD
+const double y = a0 + a1*x + a2*x*x + a3*x*x*x +
+  log(x) - 12*sin(x);
+
+// BETTER
+const double y =
+  a0 + a1*x + a2*x*x + a3*x*x*x + log(x) - 12*sin(x);
+
+// BEST
+const double y = a0 + a1*x + a2*x*x 
+                 + a3*x*x*x + log(x) - 12*sin(x);
+      \endcode
+
+
+    \htmlonly <br/> \endhtmlonly
+    \section function_definitions Function Definitions and Return Types
+
+      <em>Rule</em>: <strong>Put return types and template types above the
+      function name in function definitions, for improved readability.</strong>
+
+      \code
+// Order: first template types, then inline keyword, then return type
+template<class T>
+inline
+double Foo::IncrementCounters(const T& value)
+{
+  ...
+}
+      \endcode
+
+
+    \htmlonly <br/> \endhtmlonly
+    \section constructor_initialization Constructor Initialization
+
+      <em>Rule</em>: <strong>Usually, prefer initialization lists to member
+      initialization within the constructor body, and break lists into multiple
+      lines if needed.</strong>
+
+      \code
+// BAD
+Vector::Vector()
+{
+  x_ = 0.;
+  y_ = 0.;
+  z_ = 0.;
+}
+
+// BETTER
+Vector::Vector() : x_(0), y_(0), z_(0) { }
+
+// BEST
+Vector::Vector() :
+  x_(0),
+  y_(0),
+  z_(0)
+{ }
+      \endcode
+
+      As with most rules, this one does <a
+      href="http://www.vterrain.org/Implementation/effective.html">have its
+      exceptions</a>.
+
+
+    \htmlonly <br/> \endhtmlonly
+    \section incrementing_and_decrementing Incrementing and Decrementing
+
+      <em>Rule</em>: <strong>Prefer the pre-increment and decrement operators
+      to post-increment and decrement.</strong>
+
+      The pre-increment operator \c ++i makes an in-place increment to the
+      value stored by \c i.  The post-increment operator \c i++ creates a
+      temporary value, increments that, and then saves it to \c i.  This extra
+      step can be optimized away by the compiler for built-in types, but
+      post-incrementing is often less efficient for STL and user-defined
+      iterators.  Therefore, get into the habit of pre-incrementing your loop
+      variables:
+
+      \code
+for (int i = 0; i < 10; i++)   // WRONG
+
+for (int i = 0; i < 10; ++i)   // OK
+      \endcode
+
+      Obviously, this is not an iron rule, because post-incrementing could be
+      necessary for particular algorithms.
+
+
+  \htmlonly
+  <br/>Return to the <a href="index.html">index</a>.
+  \endhtmlonly
+
+*/
+

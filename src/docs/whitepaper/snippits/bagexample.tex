@@ -1,0 +1,27 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{c+c1}{// declaring some 'data'}
+\PY{c+c1}{// must inherit from Baggable}
+\PY{k}{class} \PY{n+nc}{TestData} \PY{o}{:} \PY{k}{public} \PY{n}{Baggable}\PY{p}{\PYZob{}}
+\PY{p}{\PYZcb{}}\PY{p}{;}
+
+\PY{c+c1}{// these typedefs are just for convenience sake}
+\PY{k}{typedef} \PY{n}{boost}\PY{o}{:}\PY{o}{:}\PY{n}{shared\PYZus{}ptr}\PY{o}{<}\PY{n}{TestData}\PY{o}{>} \PY{n}{TestDataPtr}\PY{p}{;}
+\PY{k}{typedef} \PY{n}{boost}\PY{o}{:}\PY{o}{:}\PY{n}{shared\PYZus{}ptr}\PY{o}{<}\PY{k}{const} \PY{n}{TestData}\PY{o}{>} \PY{n}{TestDataConstPtr}\PY{p}{;}
+
+\PY{c+c1}{// exhibiting usage}
+\PY{n}{Bag} \PY{n}{bag}\PY{p}{;}
+
+\PY{n}{TestDataPtr} \PY{n}{testdata}\PY{p}{(}\PY{k}{new} \PY{n}{TestData}\PY{p}{(}\PY{p}{)}\PY{p}{)}\PY{p}{;}
+\PY{n}{bag}\PY{p}{.}\PY{n}{Put}\PY{p}{(}\PY{l+s}{"}\PY{l+s}{testdata}\PY{l+s}{"}\PY{p}{,}\PY{n}{testdata}\PY{p}{)}\PY{p}{;}
+
+\PY{c+c1}{// Getting the data out by shared ptr.  Returns an empty pointer if the }
+\PY{c+c1}{//object type mismatches or if the object doesn't exist}
+\PY{n}{TestDataConstPtr} \PY{n}{testdata\PYZus{}out} \PY{o}{=} \PY{n}{bag}\PY{p}{.}\PY{n}{Get}\PY{o}{<}\PY{n}{TestDataConstPtr}\PY{o}{>}\PY{p}{(}\PY{l+s}{"}\PY{l+s}{testdata}\PY{l+s}{"}\PY{p}{)}\PY{p}{;}
+
+\PY{c+c1}{// Getting object by reference.  Throws bag\PYZus{}exception if the object type}
+\PY{c+c1}{// doesn't match or if the object doesn't exist.}
+\PY{k}{const} \PY{n}{TestData}\PY{o}{&} \PY{n}{testdata\PYZus{}out\PYZus{}ref} \PY{o}{=} \PY{n}{bag}\PY{p}{.}\PY{n}{Get}\PY{o}{<}\PY{n}{TestData}\PY{o}{>}\PY{p}{(}\PY{l+s}{"}\PY{l+s}{testdata}\PY{l+s}{"}\PY{p}{)}\PY{p}{;}
+
+\PY{c+c1}{// operator<< is defined for some easy pretty-printing}
+\PY{n}{cout}\PY{o}{<}\PY{o}{<}\PY{n}{bag}\PY{o}{<}\PY{o}{<}\PY{n}{endl}\PY{p}{;}
+\end{Verbatim}

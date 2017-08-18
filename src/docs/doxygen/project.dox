@@ -1,0 +1,360 @@
+
+/*!
+
+  \page project Creating a Project 
+
+  \addindex project 
+
+  \image html baking.jpg
+
+  \tableofcontents
+
+  After using AERIE for a short while, you will likely find yourself in a
+  position to make your own projects and specialized software.  Almost all code
+  written for AERIE can be classified into one of three categories:
+
+  <ol>
+    <li> <strong>Services</strong>: classes which are initialized by the
+         HAWCNest framework, but can be called outside the event loop;</li>
+    <li> <strong>Modules</strong>: classes initialized by HAWCNest which act on
+         events, and are only used within the event loop;</li>
+    <li> <strong>Sources</strong>: specialized modules which create events and
+         push them into the Bag for use by other modules.</li>
+  </ol>
+
+  We summarize how to create the various types of services below.  Please
+  <a href="http://private.hawc-observatory.org/wiki/index.php/Making_an_AERIE_Project">visit
+  the HAWC wiki</a> for a description of how to structure projects and connect
+  them to the AERIE build system.
+
+  \section creating_service Creating a Service
+
+    In AERIE, a service is a class that is registered with the HAWCNest
+    framework and can be initialized by the framework.  A complete service can
+    be created from two parts:
+    <ol>
+      <li> A pure abstract class interface; </li>
+      <li> One or more concrete implementations which are registered with the
+           framework.</li>
+    </ol>
+
+    For example, consider a simple service that generates random numbers.  The
+    first part of the service defines the interface:
+
+    \code
+#ifndef RNGSERVICE_RNGSERVICE_H_INCLUDED
+#define RNGSERVICE_RNGSERVICE_H_INCLUDED
+
+// Abstract base class that defines functions all random number generators
+// should have:
+
+class RNGService {
+
+  public:
+
+    virtual ~RNGService() { }
+
+    virtual double Uniform(const double a=0, const double b=1) const = 0;
+
+    virtual double Gaussian(const double mu=0, const double sigma=1) const = 0;
+
+    ...
+
+};
+
+#endif // RNGSERVICE_RNGSERVICE_H_INCLUDED
+    \endcode
+
+    To complete the service, we create a concrete implementation and register
+    it with the framework.  The implementation inherits from the abstract
+    interface and also defines the class Interface with a typedef.
+
+    \code
+#ifndef RNGSERVICE_STDRNGSERVICE_H_INCLUDED
+#define RNGSERVICE_STDRNGSERVICE_H_INCLUDED
+
+#include <RNGService.h>
+
+#include <hawcnest/Service.h>
+#include <hawcnest/RegisterService.h>
+
+class StdRNGService : public RNGService {
+
+  public:
+
+    // Define the service interface:
+    typedef RNGService Interface;
+
+    // Set up configuration options for the HAWCNest framework:
+    Configuration DefaultConfiguration();
+
+    void Initialize(const Configuration& c);
+
+    void Finish() { }
+
+    // Concrete implementations of random number generator functions:
+    double Uniform(const double a=0, const double b=1) const;
+
+    double Gaussian(const double mu=0, const double sigma=1) const;
+
+    ...
+
+  private:
+
+    int rngSeed_;
+
+};
+
+// Register the service with the framework
+REGISTER_SERVICE(StdRNGService);
+
+#endif // RNGSERVICE_STDRNGSERVICE_H_INCLUDED
+    \endcode
+
+    Once the service has been registered with the framework, it's configuration
+    options can be set up by defining the configuration functions \c
+    DefaultConfiguration() and \c Initialize():
+
+    \code
+#include <StdRNGService.h>
+
+#include <ctime>
+using namespace std;
+
+Configuration
+StdRNGService::DefaultConfiguration()
+{
+  Configuration config;
+  config.Parameter<int>("seed", 0);
+  return config;
+}
+
+void
+StdRNGService::Initialize(const Configuration& config)
+{
+  int seed;
+  config.GetParameter("seed", seed);
+
+  if (seed == 0)
+    seed = time(0);
+  rngSeed_ = seed;
+  ...
+}
+
+...
+    \endcode
+
+    Finally, the services is activated in a driver file by setting up the
+    HAWCNest framework:
+
+    \code
+#include <RNGService.h>
+
+#include <hawcnest/HAWCNest.h>
+...
+
+int main()
+{
+  HAWCNest nest;
+
+  // Configure the RNG service
+  nest.Service("StdRNGService", "rng")
+    ("seed", 12345);
+
+  nest.Configure();
+
+  // Access the service
+  const RNGService& rng = GetService<RNGService>("rng");
+
+  // Generate 1000 random numbers
+  double x;
+  for (int i = 0; i < 1000; ++i) {
+    x = rng.Uniform(0, pi);
+    ...
+  } 
+
+  // Call any and all cleanup functions
+  nest.Finish();
+
+  return 0;
+}
+    \endcode
+
+
+  \htmlonly <br/> \endhtmlonly
+  \section creating_module Creating a Module
+
+    A module is a special kind of service whose purpose is to act on events.
+    Therefore, it can only be called in an event loop.  To create a module, you
+    simply have to define a class that implements the Configuration functions
+    described in the section on \ref creating_service, plus a \c Process()
+    member function that acts on events.  The \c Process() function actually
+    takes a pointer to the \c Bag as an argument, and therefore can access any
+    object stored in the \c Bag.
+
+    For example, here is a module which calculates a Prescale factor for Monte
+    Carlo events in the \c Bag:
+  
+    \code
+// Module classes inherit from the HAWCNest Module parent class
+class Prescaler : public Module {
+  
+  public:
+
+    // The interface is the Module class
+    typedef Module Interface;
+
+    Prescaler() :
+      threshold_(0),
+      prescale_(1)
+    { }
+
+    // Configuration setup
+    Configuration DefaultConfiguration();
+
+    void Initialize(const Configuration& config);
+
+    // Function called on every event
+    Module::Result Process(BagPtr bag);
+
+    void Finish();
+
+  private:
+
+    int threshold_;
+    int prescale_;
+
+};
+
+REGISTER_SERVICE(Prescaler)
+    \endcode
+
+    And here is an example of how the module \c Process() function accesses the
+    data in the \c Bag:
+
+    \code
+...
+Module::Result
+Prescaler::Process(BagPtr bag)
+{
+  // Access the event inside the Bag
+  const evt::Event& event = bag->Get<evt::Event>("myEventName");
+
+  // Calculate the new Prescale value and put it into the Bag
+  PrescalePtr prescaleValue = make_shared<Prescale>();
+  *prescaleValue = prescale_;
+  bag->Put("myPrescaleName", prescaleValue);
+
+  return Continue;
+}
+...
+    \endcode
+
+    The initialization of a \c Module is exactly the same as any other kind of
+    \c Service.  However, in order to be called properly, the \c Module has to
+    be placed into a sequence and passed to the \c HAWCNest object:
+
+    \code
+int main()
+{
+  HAWCNest nest;
+  
+  // Declare and initialize a Prescaler module
+  nest.Service<Prescaler>("myPrescaler")
+    ("prescale", 1)
+    ("threshold", 10.5);
+
+  ...
+
+  // Create a module chain and use it to initialize an event loop
+  vector<string> chain;
+  chain.push_back("myPrescaler");
+  ...
+
+  nest.Service<SequentialMainLoop>("mainloop")
+    ("modulechain", chain)
+    ("source", "dataSource");
+
+  // Configure all modules and services and run the event loop
+  nest.Configure();
+  MainLoop& main = GetService<MainLoop>("mainloop");
+  main.Execute();
+
+  nest.Finish();
+
+  return 0;
+}
+    \endcode
+
+
+  \htmlonly <br/> \endhtmlonly
+  \section creating_source Creating a Data Source
+
+    Like a Module, a data Source is another specialization of a service.
+    However, rather than acting on events in an event loop, its purpose is only
+    to push new data into the \c Bag at the start of each loop iteration.
+    Rather than a \c Process() function, a Source creates a new \c Bag using
+    the \c Next() member function.
+
+    For example, here is a Source that is responsible for reading Baggable
+    ntuple data from an IceCube ROOT file and pushing the data into a \c Bag
+    for use by downstream modules:
+
+    \code
+// A Source class inherits from Source...
+class ICRootReader : public Source {
+
+  public:
+
+    // ...and defines Source as the interface
+    typedef Source Interface;
+
+    virtual ~ICRootReader() { }
+
+    // The usual configuration functions
+    Configuration DefaultConfiguration();
+
+    void Initialize(const Configuration& config);
+
+    // The next function, which is specific to a Source
+    BagPtr Next();
+
+    void Finish();
+
+  private:
+
+    TFile* rootFile_;
+    TTree* rootTree_;
+
+    ICDataPtr icData_;   // Data object, inherits from Baggable
+    ...
+
+};
+
+REGISTER_SERVICE(ICRootReader);
+    \endcode
+
+    Here is part of the implementation of the \c Next() function for this
+    class:
+
+    \code
+BagPtr
+ICRootReader::Next()
+{
+  ...
+  // Get entry i in the ROOT tree
+  // Data are shoved into a Baggable member object called icData_;
+  rootTree_->GetEntry(i++);
+  if (i % 100000)
+    log_info("Read event " << i);
+
+  // Data are put into the Bag
+  BagPtr bag = make_shared<Bag>();
+  bag->Put("dataName", icData_);
+
+  return bag;
+}
+    \endcode
+
+*/
+

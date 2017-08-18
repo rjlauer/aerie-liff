@@ -1,0 +1,14 @@
+List of examples:
+- fitPoint.py:
+    Fit a point source with a simple power law energy spectrum.
+    There is an option to write the model file, which is a a ROOT file
+    containing a maptree containing with the fitted sources (to be used with
+    LiFF to subtract a source).
+- fitMorphology.py:
+    Fit a source with a simple power law energy spectrum, using either a point
+    source, a disk, a Gauss or a diffusion model. The further down this
+    morphology list the slower. Also, free index is slower than fixed. Can run
+    MCMC to find parameter space and plot it.
+- testCrab3ML.py:
+    Fit a log-parabola spectrum, run MCMC to find the parameter space, plot it.
+

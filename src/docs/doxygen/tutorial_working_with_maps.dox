@@ -1,0 +1,116 @@
+/*!
+
+\page tutorial_working_with_maps Working With Maps
+
+\tableofcontents
+
+This tutorial is a guide to working with map files (.FITS). It presumes no 
+knowledge of the map-making procedure (\ref tutorial_map_making). Given a map 
+file, this tutorial will tell you how to analyze and view the contained maps. 
+
+\section download_example Download Example
+
+Start by downloading some map files that are already created.
+Let's look at the HAWC-30 moon map. Note, there are other map files provided
+in my tutorial_maps folder, so take a look at the other ones as well.
+
+\code
+$ scp username@pa-pub.umd.edu:/disk01/home/fiorino/tutorial_maps/hawcmoon-v119-nCh32-scramble-min1hr-roi5-run000227-000408* .
+\endcode
+
+The data in these maps are from HAWC-30 (runs 227 - 408) and put in
+Moon-centered coordinates using cuts of nCh >= 32 and a minimum run duration of 
+one hour as well as 5 degrees of region-of-interest masking around the Moon. 
+
+\section view_keyword_info View Keyword Information
+The first thing to do is to view the keyword information that is stored in one 
+of the map files.
+
+\code
+$ less hawcmoon-v119-nCh32-scramble-min1hr-roi5-run000227-000408_N512.fits
+\endcode
+
+Notice that the keywords tell you the start and end date in Modified Julian Dateand the number of events in the map, as well as other useful information. The
+significance map has some additional keywords. For full information on the
+keywords see http://private.hawc-observatory.org/wiki/index.php/Map_Maker#FITS_H
+eader_Keywords.
+
+\section maps_and_python Working with Maps in Python Command Line
+
+Before starting, you will need healpy, scipy, numpy,and pyfits. These are 
+provided for you at the UMD cluster. For information on how to install these on 
+your own http://private.hawc-observatory.org/wiki/index.php/Installing_SciPy_on_Snow_Leopard.  Healpy is a python-wrapped version of HEALpix that will allow us 
+to easily display and analyze the maps.  
+
+There are many useful commands in healpy for accessing HEALpix maps. 
+'pix2ang' converts a HEALpix pixel to the position in (theta,azimuth) of the pixel. Subtract pi/2. to convert from theta to declination.
+'read_map' will read in a map and convert it to an array.
+'write_map' will write any map to a .fits file.
+To see the available functions, Python allows you to type "healpy." and then 
+tab. To see what a specific function does, enter "healpy.fucntionname?".
+Most useful healpy commands for accessing and manipulating the maps in the FITS 
+files can be found inside of the map-maker scripts.
+
+\subsection moon_shadow_position Finding Moon Shadow Minimum
+This example finds the position and value of the minimum significance in the 
+HAWC-30 Moon significance map. 
+
+\code
+$ipython
+\endcode
+
+\code{.py}
+import healpy
+from math import pi
+degree  = pi/180.
+sig     = healpy.read_map("hawcmoon-v119-nCh32-scramble-min1hr-roi5-run000227-000408_N512_S02p000_sig.fits")
+npix    = len(sig)
+moonPix = 0
+for i in range(0,npix):
+    if sig[i] < sig[moonPix]: 
+        moonPix = i
+theta,ra = healpy.pix2ang(H.npix2nside(npix),moonPix)
+print "Minimum is %.2f sigma at (%.2f, %.2f) in deltaRA + 180, deltaDec" % 
+        (sig[moonPix], ra/degree, (pi/2.-theta)/degree)
+
+dat    = healpy.read_map("hawcmoon-v119-nCh32-scramble-min1hr-roi5-run000227-000408_N512.fits", 0)
+bkg    = healpy.read_map("hawcmoon-v119-nCh32-scramble-min1hr-roi5-run000227-000408_N512.fits", 1)
+nside  = healpy.npix2nside(len(dat))
+on     = numpy.sum(dat[healpy.query_disc(nside, healpy.pix2vec(nside, moonPix), 2.*degree)])
+off    = numpy.sum(bkg[healpy.query_disc(nside, healpy.pix2vec(nside, moonPix), 2.*degree)])
+relEx = (on - off)/off
+print("Relative excess within 2 degrees of Moon Shadow (%.2f,%.2f): %.2f")%( ra/degree, (pi/2.-theta)/degree, relEx)
+\endcode
+
+\section healpy_map_scripts Working with Maps using Python Scripts
+
+AERIE comes with ready-to-use map scripts that will help you view the 
+information in the maps. These scripts are in the source directory 
+<code>/aerie/src/map-maker/scripts</code>.
+If you do not have a version of AERIE, then svn checkout these scripts.
+
+\code
+$ svn co http://private.hawc-observatory.org/svn/hawc/projects/map-maker/trunk/scripts map-maker-scripts
+\endcode
+
+Run the Mollweide (full sky) map viewer on the significance map. Use the help 
+option ("-h") to display all input options for a script. As with all python 
+scripts, the input and options can be entered in any order. You can use either
+the short or long-style option flags (e.g. "-m -5" or "--min=-5").
+
+\code
+$ python plotMollweide.py -h
+$ python plotMollweide.py hawcmoon-v119-nCh32-scramble-min1hr-roi5-run000227-000408_N512_S02p000_sig.fits  -L "significance [$\sigma$]" --min=-16 --max=5 -T "HAWC-30 Moon in 2013"
+\endcode
+
+A more appropriate view of the moon is a zoomed view. For this, use the Mercator
+map viewer. This scripts projects the Healpix map onto a rectangular grid 
+(Mercator projection). Points of the grid that do not match a Healpix bin center
+use the interpolated value at that point. 
+
+\code
+$ python plotMercator.py hawcmoon-v119-nCh32-scramble-min1hr-roi5-run000227-000408_N512_S02p000_sig.fits --xyrange -5 5 -5 5 --moon  -m -16 -M .01  -t -15 -13 -11 -9 -7 -5 -3 0  -T "HAWC-30 Moon" -L "significance [$\sigma]"
+\endcode
+
+
+*/

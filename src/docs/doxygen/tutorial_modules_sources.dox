@@ -1,0 +1,142 @@
+/*!
+
+\page tutorial_modules_sources Modules and Sources
+
+\tableofcontents
+
+This example is a fairly lengthy example of the event processing module in 
+the framework. It is still a toy and there is no real attempt to show the 
+actual code for processing HAWC events. Those examples are coming. This 
+example is just to work through the event processing approach.
+
+Note that since the event processing model is logically distinct from the 
+central framework, the headers for the event processing code are in 
+hawcnest/processing/ rather than in the base hawcnest/ directory.
+
+\section source Source
+
+A Source is a service type which starts of the event processing loop and creates events "from nothing". Here is the base Source class definition:
+\code
+class Source {
+
+  public:
+
+    // should return empty pointer when it's done
+    virtual BagPtr Next() = 0;
+
+};
+\endcode
+
+So subclasses must implement the method Next(). When the event processing is 
+done, the Source is expected to return a null pointer. Note that the BagPtr 
+type is a typedef of boost::shared_ptr<Bag> so the source module should feel 
+free to create new Bag's and not worry about the memory management. 
+A Source would be something that, for instance, parses an event file
+
+\section module Module
+
+A Module is a step in the event processing. It takes the Bag, reads the data inside, and then perhaps adds objects. The Module base class definition:
+
+\code
+class Module {
+
+  public:
+
+    enum Result{
+      Continue = 0,
+      Filter = 1,
+    };
+
+    virtual Result Process(BagPtr b) = 0;
+
+    virtual ~Module(){}
+
+};
+\endcode
+
+The only method that a Module must implement is Process. It takes in a Bag. The return value Result is used by the processing loop to decide whether to continue the processing or stop with this event.
+
+\section main_loop Main Loop
+
+So that's the basic pieces of the event processing. There is an instance of a
+Source subclass which sits at the top of the processing chain and feeds Bags.
+There is a list of Module instances which read the data in the Bag instances
+and append data. One of the Modules near the end should be writing out the data
+in some useful format, a ROOT file, a skymap or some other format.  The last
+service needed to make the actual processing happen is the MainLoop. Here is
+the mainloop declaration:
+
+\code
+class MainLoop {
+
+  public:
+
+  // This is the function that executes the main loop.  Derived
+  // classes must decide exactly what the main execution loop does.
+    virtual void Execute() = 0;
+
+    virtual ~MainLoop(){}
+
+};
+\endcode
+
+Most users will never have to write a MainLoop implementation. The one provided
+by the framework, the SequentialMainLoop, will suffice for most situations. It
+takes two configuration parameters, a 'source' parameter (a string) which
+indicates the name of the Source service to use and a 'modulechain' parameter
+(a vector<string>) which is the list of Module services that form the rest of
+the processing loop. It is perhaps instructive to look at the
+SequentialMainLoop class because it contains the heart of the processing. If
+you have the hawcnest source, give it a look.
+
+\section the_example The Example
+
+The example is a toy event processing chain. The chain is the following:
+ExampleSource -> CalibrationModule -> ReconstructionModule_COM ->
+ReconstructionModule_Gauss -> PrintingModule
+
+The ExampleSource is a subclass of Source and the rest are subclasses of
+Module. In addition to these processing steps, there are two services
+STDRandomNumberService and DBCalibrationService which are present to just show
+off how non-Source non-Module services can be used to provide calculations that
+would make good use of the service mechanism but aren't themselves steps in the
+event processing.
+
+A good place to start is the modules-and-sources.cc and module-and-sources.xml.
+Note the service the SequentialMainLoop where the actual module chain and
+source services are specified. The order of the processing specified in the
+modulechain parameter defines the module processing order. It is not necessary
+to add the modules in the order that you would expect them to be processed.
+
+Take a look at ExampleDataStructures.h. Those are some toy data structures that
+these toy modules will pass around. Note that the ones that will be in the Bag
+inherit from Baggable.
+
+It would also be good to look at ExampleSource.h and ExampleSource.cc. The
+mechanics of interacting with the framework should be familiar by now: the
+class implements DefaultConfiguration(), Initialize() and Finish as well as the
+method Next() which it gets from the Source parent class. The service takes a
+configuration parameter 'maxevents' and will return that many fake events
+before returning a null pointer. It fills the bag with two classes, an
+EventHeader and something called HitData which are just toy placeholders for
+real event data read from file.
+
+After looking at the Source, look at a few of the Module subclasses which are
+used. A good example would be ExampleRecoModules.h and ExampleRecoModules.cc.
+That example adds new data to the bag. These two examples add something called
+a CoreReconstruction. In this toy it's just done with a random number.
+
+\section fiddling_around Fiddling Around
+
+Here are some ideas for changes to make to the example to get you started.
+
+<ul>
+  <li>Put the PrintingModule in more than one place in the processing chain.
+      A separate service instance need not be used, just the processing list
+      need be changed to have the printing step occur twice.</li>
+  <li>Author a Module which will sit at the end of the processing chain and
+      dump the contents of the CoreReconstruction data in the Bag into a ROOT
+      file.</li>
+</ul>
+
+*/

@@ -1,0 +1,35 @@
+/*!
+
+\page tutorial_the_bag The Bag
+
+\section bag_tutorial Bag Tutorial
+
+The first class to understand to understand the event processing model is the 
+Bag. The Bag is a generic data-holding structure, a whiteboard. 
+It is capable of storing anything that inherits from the base class Baggable, 
+but beyond that there are no requirements on stored objects. 
+Objects which are stored in the Bag are given a std::string as a key for 
+later retrieval. We use the Bag as a container for event data. 
+Pretty much everything related to a specific event is stored in the Bag, such 
+as the raw TDC information, the calibrated hit data, both time and charge and 
+the reconstruction results. Everything calculated "per event" is stored in 
+the Bag.
+
+The code for the tutorial is in <b>aerie-tutorial/basics/the-bag</b> 
+and exhibits the usage of the bag, how to put objects in and 
+retrieve them. A bag instance is created and some data objects are put 
+in and retrieved.
+
+The file the-bag.cc is well commented and is self-explanatory.
+
+One point is to notice the use of boost::shared_ptr. These smart pointers 
+allow us create new instance of objects put into the bag. The user has no 
+responsibility to delete these objects. The deleting of the object is handled 
+by the shared_ptr.
+
+One more point is that once objects are placed into the bag, they are 
+ thereafter obtained by const reference or a pointer to a constant object. 
+They cannot be modified. The bag is an 'add only' data structure.
+
+*/
+

@@ -1,0 +1,20 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{c+c1}{// The Logging header}
+\PY{c+cp}{#}\PY{c+cp}{include <hawcnest}\PY{c+cp}{/}\PY{c+cp}{Logging.h>}
+
+\PY{c+c1}{// Exhibiting how to set the logging threshold to TRACE}
+\PY{c+c1}{// This should only be done in end-user code and not in }
+\PY{c+c1}{// Modules or Services}
+\PY{n}{LoggingConfig}\PY{o}{:}\PY{o}{:}\PY{n}{Instance}\PY{p}{(}\PY{p}{)}\PY{p}{.}\PY{n}{SetDefaultLogLevel}\PY{p}{(}\PY{n}{TRACE}\PY{p}{)}\PY{p}{;}
+
+\PY{n}{log\PYZus{}trace}\PY{p}{(}\PY{l+s}{"}\PY{l+s}{An example at TRACE level. Note that there is no trailing newline}\PY{l+s}{"}\PY{p}{)}\PY{p}{;}
+\PY{n}{log\PYZus{}trace}\PY{p}{(}\PY{l+s}{"}\PY{l+s}{Since log\PYZus{}trace statements are compiled out at high optimization }\PY{l+s}{"}
+          \PY{l+s}{"}\PY{l+s}{levels, you can use them as an alternative to comments where it is }\PY{l+s}{"}
+          \PY{l+s}{"}\PY{l+s}{appropriate}\PY{l+s}{"}\PY{p}{)}\PY{p}{;}
+
+\PY{k+kt}{int} \PY{n}{i} \PY{o}{=} \PY{l+m+mi}{5}\PY{p}{;}
+\PY{n}{log\PYZus{}warn}\PY{p}{(}\PY{l+s}{"}\PY{l+s}{An example at WARN level. Note that we can use standard printf }\PY{l+s}{"}
+         \PY{l+s}{"}\PY{l+s}{syntax to print %d}\PY{l+s}{"}\PY{p}{,}\PY{n}{i}\PY{p}{)}\PY{p}{;}
+
+\PY{n}{log\PYZus{}fatal}\PY{p}{(}\PY{l+s}{"}\PY{l+s}{Example FATAL call. NB that the call throws an exception}\PY{l+s}{"}\PY{p}{)}\PY{p}{;}
+\end{Verbatim}

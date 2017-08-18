@@ -1,0 +1,229 @@
+#!/bin/bash
+################################################################################
+# AERIE configuration script
+#
+# This script will set up the user environment when the AERIE software is
+# installed to some central location (e.g., /usr/local/AERIE).
+# $Id: hawc-config.in 30284 2016-03-03 20:12:03Z imc $
+################################################################################
+
+# No argument: print help
+if [ $# -eq 0 ]; then
+  bash $0 --help
+  exit 1
+fi
+
+# Shell splash screen function
+printSplash() {
+cat <<EOF 1>&2
+                   _________________________________________
+                   ___    |__  ____/__  __ \___  _/__  ____/
+                   __  /| |_  __/  __  /_/ /__  / __  __/   
+                   _  ___ |  /___  _  _, _/__/ /  _  /___   
+                   /_/  |_/_____/  /_/ |_| /___/  /_____/
+
+  Loading the Analysis and Event Reconstruction Integrated Environment (AERIE)
+                     Type "exit" to return to a clean shell
+
+EOF
+}
+
+# Set up useful variables
+prefix=@HAWC_INSTALL@
+bindir=@HAWC_BINDIR@
+libdir=@HAWC_LIBDIR@
+incdir=@HAWC_INCDIR@
+srcdir=@HAWC_SRC@
+builddir=@HAWC_BUILD@
+configdir=@HAWC_CONFIG@
+libpath=$libdir:@PHOTOSPLINE_LIB_DIR@:@GSL_LIB_DIR@:@XCDF_LIB_DIR@:@ROOT_LIB_DIR@:@BOOST_LIB_DIR@:@CFITSIO_LIB_DIR@:@HEALPIX_LIB_DIR@:@FFTW3_LIB_DIR@:@XERCESC_LIB_DIR@:@SQLITE3_LIB_DIR@:$@PLATFORM_LD_LIBRARY_PATH@
+pythonpath=$libdir:@ROOT_LIB_DIR@:@XCDF_LIB_DIR@:$PYTHONPATH
+path=$bindir:@PHOTOSPLINE_BIN_DIR@:@GSL_BIN_DIR@:@XCDF_BIN_DIR@:@ROOT_BIN_DIR@:@HEALPIX_BIN_DIR@:@SQLITE3_BIN_DIR@:$PATH
+
+# Parse the argument list
+for opt; do
+  case $opt in
+    # _________________
+    # C++ flags option \________________________________________________________
+    --cppflags)
+      echo "@PHOTOSPLINE_CPPFLAGS@ @GSL_CPPFLAGS@ @XCDF_CPPFLAGS@ @ROOT_CPPFLAGS@ @BOOST_CPPFLAGS@ @CFITSIO_CPPFLAGS@ @HEALPIX_CPPFLAGS@ @FFTW3_CPPFLAGS@ @XERCESC_CPPFLAGS@ @SQLITE3_CPPFLAGS@ @EIGEN_CPPFLAGS@ @HAWC_CPPFLAGS@"
+      ;;
+    # __________________
+    # link flags option \_______________________________________________________
+    --ldflags)
+      echo "@PHOTOSPLINE_LDFLAGS@ @GSL_LDFLAGS@ @XCDF_LDFLAGS@ @ROOT_LDFLAGS@ @BOOST_LDFLAGS@ @CFITSIO_LDFLAGS@ @HEALPIX_LDFLAGS@ @FFTW3_LDFLAGS@ @XERCESC_LDFLAGS@ @SQLITE3_LDFLAGS@ @HAWC_LDFLAGS@"
+      ;;
+    # ____________________
+    # library path option \_____________________________________________________
+    --ld-library-path)
+      echo $libdir
+      ;;
+    # ____________
+    # path option \_____________________________________________________________
+    --path)
+      echo $bindir
+      ;;
+    # ___________________
+    # python path option \______________________________________________________
+    --python-path)
+      echo $libdir
+      ;;
+    # ___________________
+    # config path option \______________________________________________________
+    --config-path)
+      echo $configdir
+      ;;
+    # ___________
+    # run option \______________________________________________________________
+    --run)
+      shift
+      if [ $# -eq 0 ]; then
+        bash $0 --help
+        exit 1
+      fi
+      # Define a transient environment and run the args from the command line
+      # E.g., hawc-config --run ./myUserApp arg1 arg2
+      # 
+      # Some shell-scripting kung fu is required to prevent commands from
+      # choking on arguments (in quotes) that contain whitespace.
+      oldIFS=$IFS
+      IFS=";"                          # Reset field separator to ;
+      cmd=(${*})                       # Command = ;-separated array
+      /usr/bin/env \
+      HAWC_SRC=$srcdir \
+      HAWC_BUILD=$builddir \
+      HAWC_INSTALL=$prefix \
+      PATH=$path \
+      @PLATFORM_LD_LIBRARY_PATH@=$libpath \
+      PYTHONPATH=$pythonpath \
+      ${cmd[*]}                        # Run command in HAWC environment
+      IFS=$oldIFS                      # Restore seperator to factory settings
+      exit 0
+      ;;
+    # ________________
+    # csh vars option \_________________________________________________________
+    --env-csh)
+      echo setenv HAWC_SRC $srcdir\;
+      echo setenv HAWC_BUILD $builddir\;
+      echo setenv HAWC_INSTALL $prefix\;
+      echo setenv HAWC_CONFIG $configdir\;
+      echo setenv PATH $path:\$PATH\;
+      if [ x$@PLATFORM_LD_LIBRARY_PATH@ = x ]; then
+        echo setenv @PLATFORM_LD_LIBRARY_PATH@ $libpath\;
+      else
+        echo setenv @PLATFORM_LD_LIBRARY_PATH@ $libpath:\$@PLATFORM_LD_LIBRARY_PATH@\;
+      fi 
+      if [ x$PYTHONPATH = x ]; then
+        echo setenv PYTHONPATH $pythonpath\;
+      else
+        echo setenv PYTHONPATH $pythonpath:\$PYTHONPATH\;
+      fi
+      ;;
+    # _______________
+    # sh vars option \__________________________________________________________
+    --env-sh)
+      echo export HAWC_SRC=$srcdir\;
+      echo export HAWC_BUILD=$builddir\;
+      echo export HAWC_INSTALL=$prefix\;
+      echo export HAWC_CONFIG=$configdir\;
+      echo export PATH=$path:\$PATH\;
+      if [ x$@PLATFORM_LD_LIBRARY_PATH@ = x ]; then
+        echo export @PLATFORM_LD_LIBRARY_PATH@=$libpath\;
+      else
+        echo export @PLATFORM_LD_LIBRARY_PATH@=$libpath:\$@PLATFORM_LD_LIBRARY_PATH@\;
+      fi 
+      if [ x$PYTHONPATH = x ]; then
+        echo export PYTHONPATH=$pythonpath\;
+      else
+        echo export PYTHONPATH=$pythonpath:\$PYTHONPATH\;
+      fi
+      ;;
+    # _________________
+    # csh spawn option \________________________________________________________
+    --spawn-csh)
+      if [ -n "$HAWC_SHELL" ]; then
+        echo ""
+        echo "The AERIE environment has already been loaded into this shell."
+        echo "Please exit the shell and re-run $0 from a clean shell."
+        echo ""
+        exit 2
+      fi
+      printSplash
+      HAWC_SHELL=/bin/tcsh \
+      HAWC_SRC=$srcdir \
+      HAWC_BUILD=$builddir \
+      HAWC_INSTALL=$prefix \
+      HAWC_CONFIG=$configdir \
+      PATH=$path \
+      @PLATFORM_LD_LIBRARY_PATH@=$libpath \
+      PYTHONPATH=$pythonpath \
+      /bin/tcsh -f
+      ;;
+    # ________________
+    # sh spawn option \_________________________________________________________
+    --spawn-sh)
+      if [ -n "$HAWC_SHELL" ]; then
+        echo ""
+        echo "The AERIE environment has already been loaded into this shell."
+        echo "Please exit the shell and re-run $0 from a clean shell."
+        echo ""
+        exit 2
+      fi
+      printSplash
+      HAWC_SHELL=/bin/bash \
+      HAWC_SRC=$srcdir \
+      HAWC_BUILD=$builddir \
+      HAWC_INSTALL=$prefix \
+      HAWC_CONFIG=$configdir \
+      PATH=$path \
+      @PLATFORM_LD_LIBRARY_PATH@=$libpath \
+      PYTHONPATH=$pythonpath \
+      /bin/bash --norc --noprofile
+      ;;
+    # _______________
+    # version option \__________________________________________________________
+    --version)
+      echo ""
+      echo "  @SOFTWARE_NAME@: version @SOFTWARE_MAJOR_VERSION@.@SOFTWARE_MINOR_VERSION@.@SOFTWARE_PATCH_VERSION@"
+      echo "  Copyright (C) 2012 HAWC Observatory Software Task"
+      echo ""
+      ;;
+    # ____________
+    # help option \_____________________________________________________________
+    --help) cat <<EOF 1>&2
+
+HAWCNEST software configuration tool.
+
+Usage: $0 [options]
+Options:
+    --help              Print this help message
+    --cppflags          Print the flags needed to compile against AERIE
+    --ldflags           Print the flags needed to link to AERIE libraries
+    --ld-library-path   Print the path to the AERIE libraries
+    --path              Print the path to the AERIE executables
+    --python-path       Print the path to the AERIE python libraries
+    --config-path       Print the path to the AERIE configuration files
+    --run [cmd [args]]  Run a program within the AERIE environment
+    --env-csh           Configuration statements for the C-shell family
+    --env-sh            Configuration statements for the Bourne-shell family
+    --spawn-csh         Spawn a C-shell with the AERIE environment loaded
+    --spawn-sh          Spawn a bash shell with the AERIE environment loaded
+    --version           Print the version information for this AERIE release
+
+To set up the user environment without spawning a new shell, run
+  eval \`$0 --env-sh\`
+or 
+  eval \`$0 --env-csh\`
+in the .bashrc or .cshrc
+
+EOF
+;;
+    # _______________
+    # unknown option \__________________________________________________________
+    *)
+      echo "Unknown option $opt " 2>&1
+      bash $0 --help
+      exit 1 ;;
+  esac
+done
+

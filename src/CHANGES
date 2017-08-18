@@ -1,0 +1,2986 @@
++------------------------------------------------------------------------------+
+| This file contains a summary of interface changes or important bug fixes for |
+| the Analysis and Event Reconstruction Integrated Environment (AERIE).        |
++------------------------------------------------------------------------------+
+
+
+Changes for release 2.01.00 "Daffodil Apocalypse" (1 May 2015)
+-------------------------------------------------------
+
+BUILD
+
+ svn
+ - Abandonded svn:externals in favor of a single project repository
+
+ cmake
+ - Added a HAWC_PROJECT macro to enable building of sphinx docs at project level
+ - Enable C++11 support with ENABLE_CXX11 switch
+
+PROJECTS
+
+ ADDED TO AERIE:
+ + gamma-filter ............ for variables related to gamma/hadron separation
+ + online-processing ....... previously a separate installation at site
+ + summarize ............... calculate summary info for reconstructed data
+
+ aerie-apps
+ - hawc-display
+   * Added a timer to scroll through events after a 2 second delay
+ - offline-reconstructor
+   * Added SummaryResult and MCSummaryResult for REC and extended output
+   * Added PINCNess and pair compacntess to summary data
+   * Added options to use SFCF and PDFAngleFit instead of NKG core fit
+ - online-reco
+   * Renamed BAD_HIT to INVALID_TOT and removed obsolete HAWCFEBHitFlags
+ - map-making
+   * Added masking for cosmic-ray Region A; Moon/Sun masks changed to 2.5 deg
+   * Added source simulation to pseudo-map background generator
+   * Enable use of plane fit result in map making
+   * Added app to find a local min/max within a given window from a sigma map
+ - monitoring 
+   * Added an orthographic plotter for local arrival directions in reco-monitor
+ - utilities
+   * Added HAWC site elevation plotter and calculator (Python only)
+   * Added calibration-info utility for plotting cal data across the array for
+     each subrun
+
+ aerie-io
+ - reconstructed/RecDataSelector no longer writes REC output; this is now done
+   in the summarize project
+ - Added interface for bi-directional looping through events for event display
+ - Added serializers for SFCF, PINCNess, and pair compactness
+
+ astro-service
+ - Updated doxygen groups and added a sphinx-based documentation system
+
+ calibration-xcdf
+ - Added program to create ASCII files from XCDF files with calibration params
+ - Added new fields to calibration-xcdf for fiber length corrections
+
+ core-fitter
+ - Moved compactness calculation and other G/H separators (PINCNess, pair
+   compactness) into gamma-filter project
+ - Added geodesic Levenberg-Marquardt minimizer (GLMFit)
+ - Added super-fast core fit (SFCF) with less spikiness than the NKG fit
+ - Moved LDModels LDF headers and sources to data-structures/reconstruction
+
+ data-structures
+ - Moved LDModels LDF headers and sources from core-fitter into reconstruction
+ - Added PINCResult and PairCompactnessResult for new gamma-hadron separators
+ - Added SummaryResult and MCSummaryResult into reconstruction subfolder
+ - Renamed BAD_HIT to INVALID_TOT and removed obsolete HAWCFEBHitFlags
+ - Added code for testing the flare monitor using a Bayesian Blocks calculation
+ - Updates for leap second in 2015
+ - Added result storage for SFCF super fast core fit
+ - Added PINCResult and PairCompactnessResult 
+
+ detector-service
+ - Removed obsolete XML survey files from config area
+ - Added option to ConfigDirDetectorService to allow use of a non-standard PMT
+   map in online-hit-dump
+
+ docs
+ - Added support for sphinx builds. Make doxygen documentation a subset of a
+   larger sphinx-based AERIE manual
+
+ electronics-simulator
+ - Documentation changes related to sphinx user manual
+
+ energy-estimator
+ - Documentation changes related to sphinx user manual
+
+ event-generator
+ - Documentation changes related to sphinx user manual
+
+ gamma-filter
+ - New project containing calculations of PINCness, compactness, and pair
+   compactness. Compactness calculation moved here from core-fitter
+
+ grmodel-services
+ - Documentation changes related to sphinx user manual
+
+ hawc-calibration
+ - Renamed BAD_HIT to INVALID_TOT and removed obsolete HAWCFEBHitFlags
+ - Added site-processing scripts running on online01
+ - Documentation changes related to sphinx user manual
+ - Fixed bug in fetching of pedestal calibration that was not getting the right
+   data from the right time
+
+ hawc-display
+ - Added interface for bi-directional looping through events
+ - Documentation changes related to sphinx user manual
+ - Added a timer to scroll through events after a 2 second delay
+ - Fixed bug where reconstructed data were not being written after the user
+   quit the GUI
+ - Incorporated calls to GetLDF for core fits so the event display doesn't have
+   to know about the details of each individual core fit. Useful for charge
+   residual calculations
+
+ hawc-reco
+ - Renamed BAD_HIT to INVALID_TOT and removed obsolete HAWCFEBHitFlags
+ - Documentation changes related to sphinx user manual
+ - Removed old functions from EdgeRefiner.cc, which is now just an interface to
+   HAWCFEBRefiner and MilagroFEBRefiner.
+
+ hawcnest
+ - Added interface for bi-directional looping through events
+ - Documentation changes related to sphinx user manual
+
+ hawcsim
+ - Documentation changes related to sphinx user manual
+ - Fixed bug in logic of event serialization being called before
+   ProcessParticles
+
+ lc-maker
+ - Added option to put light curve cuts in an XML file
+ - Move false positive rate calculator to lc-maker
+ - Updated AGN catalog to include TeVCat objects between -70 and +30 declination
+ - Added 30 TeV binaries for tracking of flares
+ - Documentation changes related to sphinx user manual
+ - Enable analysis in multiple analysis bins as in standard point source search
+
+ lh-energy-estimator
+ - Documentation changes related to sphinx user manual
+
+ liff
+ - Added support for weighted SWEETS file directory structure
+ - Added scripts and apps to handle maps, PSF fitting, etc.
+ - Added BinExcess program to show summed excess counts per analysis bin
+ - Added example 95% CL calculation to trunk
+ - Documentation changes related to sphinx user manual
+
+ map-maker
+ - General clean up of cruft 
+ - Added support for plotting pseudo-background maps
+ - Added support to plot Fermi maps with HAWC contours in plotMercator.py
+ - Added plotHotSpots.py, which runs getHotSpots.py and plotMercator.py on each
+   hotspot and tries to associate it with an object in TeVCat
+ - Documentation changes related to sphinx user manual
+
+ online-processing
+ - Added project to AERIE, deprecated old Makefile
+ - Documentation changes related to sphinx user manual
+
+ online-reconstruction
+ - Renamed BAD_HIT to INVALID_TOT and removed obsolete HAWCFEBHitFlags
+ - Documentation changes related to sphinx user manual
+ - Sped up EdgeFinder by using int instead of ChannelIdentifier in the std::map
+   channel lookup
+
+ rng-service
+ - Documentation changes related to sphinx user manual
+
+ sim-pmt-modeler
+ - Shifted trigger time to t=0, similar to data
+ - Cleaned up MCSummaryResults and added more feedback to SimulatedPMTModeler
+ - Renamed BAD_HIT to INVALID_TOT and removed obsolete HAWCFEBHitFlags
+ - Fixed bug where noise wasn't being properly added to simulated events
+ - Added scaling of PE to charge.
+ - Documentation changes related to sphinx user manual
+
+ simple-grb
+ - Documentation changes related to sphinx user manual
+
+ summarize
+ - New project to calculate summary data from reconstructed events (real and
+   simulated)
+ - This project is now responsible for the output of REC data
+
+ sweets
+ - Documentation changes related to sphinx user manual
+ - Refactored code to connect calculation to the sources in grmodel-services.
+   Left the original interface intact for comparisons
+
+ track-fitter
+ - Documentation changes related to sphinx user manual
+ - Renamed BAD_HIT to INVALID_TOT and removed obsolete HAWCFEBHitFlags
+ - Enable dminimization in Gnomonic projection of the half sphere. This fixed
+   the zenith spike bug in the LHAngleFit
+
+ zeromq-io
+ - Documentation changes related to sphinx user manual
+
+
+Changes for release 2.00.00 "The One Ring" (12 Nov 2014)
+--------------------------------------------------------
+
+BUILD
+
+ cmake
+ - Build in support for ROOT HistPainter library
+ - Try to use built-in CMake python finder scripts as much as possible
+ - Force updates of SOFTWARE_REPOSITORY_REVISION in CMake cache
+ - Enable heavy optimization (-O3 -ffast-math) for "site" SOFTWARE_TYPENAME
+
+PROJECTS
+
+ REMOVED FROM AERIE:
+ - vamos-reader ............ toolkit for reading/analyzing data from VAMOS
+ - g4sim-reader ............ obsolete reader of GEANT4 ASCII files from g4sim
+ - milagro-util ............ Milagro event I/O
+ - milagro-maps ............ Milagro map-making code (ported from MILINDA)
+ - hmc-analysis ............ obsolete Milagro-style simulation weighting project
+
+ ADDED TO AERIE:
+ + sweets .................. new single-pass simulation weighting project
+ + liff .................... LIklihood Fitting Framework (spatial/spectral fits)
+ + hawcsim ................. GEANT4-based detector simulation
+ + zeromq-io ............... wrapper project for ZeroMQ library (online)
+ + lc-maker ................ online light-curve making
+ + simple-grb .............. GRB analysis project (added in patch release)
+
+ aerie-apps
+ - Merged data and HAWCSim reconstruction into offline-reconstructor; the
+   program automatically determines which kind of data it is reconstructing
+ - Removed obsolete hawcsim-reco
+ - Removed obsolete g4sim-reco
+ - Added a scaler-reconstructor
+ - Added scaler-rate-cmd to aerie-apps/simulation
+ - Added pseudo-map code (Colas); future consolidation expected
+
+ aerie-io
+ - Created RecEvent python bindings
+ - Enabled I/O of core fit status in REC data and incremented to version 5
+ - Removed HMCWeightResult and other obsolete output fields
+
+ astro-service
+ - Cleanup of precession and nutation calculations
+
+ calibration-xcdf
+ - Changes in GP750 switch channel map to work with changes in
+   CalibrationHitDump
+
+ core-fitter
+ - Added new NKG fitter with 1/r factor (optional)
+
+ data-structures
+ - Implemented online flare finder and light curve make with BayesianBuffer
+ - Added support for non-parametric periodic functions in data-structures/math
+ - Removed obsolete HMCWeightResult
+
+ detector-service
+ - Add XML files used by current version of HAWCSim to detector-service/config
+ - Add checks so that bad PMTs are not accidentally marked good by users
+
+ docs
+ - Updated documentation for moon map demo and the map making tutorial
+
+ electronics-simulator
+ - Removed dependence on g4sim-reader
+
+ energy-estimator
+ - Added SVN repository version string to sources and headers
+
+ event-generator
+ - Enable masking in background generator to look at just a small part of sky
+ - Enable output with units in PhonyEventDataSelector
+
+ grmodel-services
+ - Made LightCurve an abstract base class instead of a property of a PointSource
+ - Added PeriodicLightCurve as a subtype of LightCurve
+
+ hawc-calibration
+ - Removed obsolete correctTimeResiduals and detectorService module options
+   from calibration services
+ - Added new MilagroOrLinear charge calibration mode based on lt/ht flag
+
+ hawc-display
+ - Added ROOT-based display of triggered data 
+
+ hawc-reco
+ - Added PEPromotedHitVeto
+ _ Added a new edge refiner for post-digital FEB modifications ("Epoch 3").
+   Hit forming algorithms now in separate classes from the Refiner module
+
+ hawcnest
+ - If module parameter set_value fails the parameter name is now printed
+ - Added a unit test of heap allocation of HAWCNest
+ - Added TwoForkMainLoop that enables forking of module processing, e.g., to
+   computationally cheap and expensive reconstructions
+
+ hawcsim
+ - Added Mie scattering and ghost volume options
+ - Added Brian's genFlux ASCII input generator script to the examples area
+ - Fixed bug in units reported in CORSIKA event header
+
+ lh-energy-estimator
+ - Removed obsolete correctTimeResiduals and detectorService parameters from
+   calibration services
+ - Fixed edge artifacts for bins with logE > 14.35
+ - Updated splint smoothing technique for binned tables
+
+ likelihood-modeler
+ - Added spectral and spatial likelihood fitting code from Younk, Lauer,
+   Harding, et al.
+
+ map-maker
+ - Fixed bug in calculation of BkgWSq
+ - Multiple improvements to plotting scripts
+ - Removed components depending on hmc-analysis
+
+ online-reconstruction
+ - Apply new edge finder to all channels to handle FEB upgrades
+
+ rng-service
+ - Fixed out-of-date reweighting example
+
+ sim-pmt-modeler
+ - Added unit tests
+ - Added KILL_CHANNEL for hits flagged in simulation module
+ - Configure parameters from XML in CONFIG_HAWC, then in a directory given by
+   configDir parameter, or using params mcParameterFile and peCurves
+
+ sweets
+ - Added single-pass weighting code written by John Pretz
+
+ track-fitter
+ - Added multiple-event track fitting code for coincident showers
+
+ zeromq-io
+ - Fixed data senders and receivers for compatibility with ZeroMQ 4.0
+ - Updated RecoOnline to possibly use NKG core fit (default is GaussCoreFit)
+ - Automatically disable build if ZeroMQ is not installed
+
+
+Changes for release 1.26.00 "The Infosphere" (22 May 2014)
+----------------------------------------------------------
+
+BUILD
+
+ cmake
+ - Build in support for ROOT TMVA library
+
+PROJECTS
+
+ aerie-apps
+ - Added option to use NKG core fitter in shower reconstruction programs
+ - Renamed multipole-fit.cc to dq-fit.cc, and created new multipole-fit.cc that
+   can sum over a Ylm expansion
+ - Added trigger window initialization and 6-edge cuts to EdgeRefiner
+ - Changed default core fitter to NKG in offline-reconstructor
+
+ aerie-io
+ - Upgraded Rec data format to version 4, with the following new fields:
+     + nChTot ......... number of good channels in DAQ
+     + nChAvail ....... number of channels after edge-finding/calibration
+     + nHitTot ........ total 2-, 4-edge hits found
+     + nHit ........... hits after std selection (in principle 1 per channel)
+     + nHitSP10 ....... hits within 10 ns of shower front
+     + nHitSp20 ....... hits within 20 ns of shower front
+     + nTankTot ....... number of tanks in DAQ with good channels
+     + nTankAvail ..... number of tanks after std hit selection
+     + nTankHitTot .... total number of tanks with hits
+     + nTankHit ....... total number of tanks with hits after hit selection
+     + CxPE30PMT ...... PMT ID of max hit > 30 m from core
+     + CxPE40PMT ...... PMT ID of max hit > 40 m from core
+     + CxPE50PMT ...... PMT ID of max hit > 40 m from core
+     + CxPE30XnCh ..... number of excluded channels > 30 m from core
+     + CxPE40XnCh ..... number of excluded channels > 40 m from core
+     + CxPE50XnCh ..... number of excluded channels > 50 m from core
+     + CxPE30SPTime ... t residual of max PMT w.r.t. shower front
+     + CxPE40SPTime ... t residual of max PMT w.r.t. shower front
+     + CxPE50SPTime ... t residual of max PMT w.r.t. shower front
+ - REMOVED fields nChannels, nTanks, nHits, nFit, maxChannels, and windowHits
+   from the Rec data format
+ - Added optional (gamma|proton)LogEnergy and (gamma|proton)llh fields to
+   Rec data
+
+ astro-service
+ - Commented out unused local variable in Moon.cc (compiler warning)
+
+ core-fitter
+ - Added support for NKG fit in core fit
+ - Changed name of LMFit.h Levenberg-Marquardt header to GaussLMFit.h
+
+ data-structures
+ - Implemented buffered Bayesian Blocks algorithm for light curves
+ - Added support for NKGCoreFitResult
+ - Added support for calculation of real spherical harmonics in
+   SpecialFunctions.h
+ - Added data structure to store result of MultiPlaneFit
+ - Added KILL_CHANNEL flag to HitFlags.h
+
+ docs
+ - Updated image and project codename
+
+ electronics-simulator
+ - Brought signal.py plotting script up to date with python interface changes
+
+ hawc-calibration
+ - Include edge refiner and LoTOT cut in calibrationProcessing to eliminate
+   1-edge hits
+ - Changed laser hit count in CalibrationHitDump from uint16_t to get >65535
+   counts
+
+ hawc-reco
+ - Set up EdgeRefiner to allow only 1 good hit per channel
+ - Added OneHit and SixEdgeHit cuts to HitSelectionRoutines.h
+ - Added KILL_CHANNEL flagging to EdgeRefiner
+
+ hawcnest
+ - Print SOFTWARE_TYPENAME in user programs with the --version option
+
+ hmc-analysis
+ - Fixed broken FluxWeightService created by deletion of CREAM2Spectrum in
+   v1.25 update
+
+ lh-energy-estimator
+ - New trigger time parameters in EdgeRefiner propagated to reco example
+ - Updated internal functionality of MaxLHFinder and LHEnergyEstimator
+
+ map-maker
+ - Added square-weight tophat function to BeamFunctions.h
+ - Added support for very basic median simulated energy cuts based on simulation
+   to the RecEventSelectionPolicy
+
+ online-reconstruction
+ - Fixed bug with single-edge flags (now assign BAD_HIT, not HiTOT)
+ - Added shift to PEPromotedVeto to play with allowed t01 in HiTOT region
+
+ sim-pmt-modeler
+ - Added probability of PE-promoted hit flagging (J. Wood, priv. comm.)
+
+ track-fitter
+ - Added MultiPlane fit module to fit coincident events in the same time window
+
+
+Changes for release 1.25.00 "Slurm" (26 Apr 2014)
+-------------------------------------------------
+
+BUILD
+
+ cmake
+ - Updated GEANT4 package for version 4.10
+ - Added check for RUNLAST files in projects to order project configuration
+
+ aerie-apps
+ - Added RUNLAST file to make sure this project is built after all others
+
+PROJECTS
+
+ aerie-apps
+ - Added PE promotion code to hawcsim and offline reconstruction programs
+ - Added NKG core fitter to hawcsim and offline reconstruction programs
+ - Added xcdf-time-selection utility to pick XCDF events by GPS timestamp
+ - Removed offline-reconstructor-cd (ConfigDirDetectorService) program
+
+ aerie-io
+ - No longer throw exceptions when encountering a bad event in a CORSIKA file
+ - Fixed bug in CORSIKA dynamic core flag (it is an integer, not a boolean)
+ - Added input selectors and serializers for CORSIKA best-fit Gaisser-Hillas
+   parameters
+ - Added serializers for NKG core fit
+
+ calibration-xcdf
+ - Added replaceChargeCal program to use average charge calibration curves
+
+ core-fitter
+ - Added NKG core fitter
+
+ data-structures
+ - Fixed round-off bug in conversion between MJD and GPS time
+ - Fixed bug in CORSIKA dynamic core flag (it is an integer, not a boolean)
+ - Added access to CORSIKA best-fit Gaisser-Hillas parameters in SimEvent
+ - Added NKG core fit result structure
+
+ docs
+ - Updated doc image
+
+ grmodel-services
+ - EBL: Added support for Gilmore '12 and Franceschini '08 models
+ - Spectra: removed deprecated CREAMSpectrum and ATIC2Spectrum services
+
+ hawc-calibration
+ - Fixed missing runInfo parameter in instantiations of EdgeFinder
+ - Added SummaryData class to read summary data from calibrations
+
+ hawc-reco
+ - Added PE promotion cuts (see http://private.hawc-observatory.org/wiki/images/0/04/20140422_wood-pe-promotion-heavy-events.pdf)
+
+ hmc-analysis
+ - Updated default EBL calculations to use Gilmore '12 model
+ - Deleted dependence on obsolete CREAMSpectrum and ATIC2Spectrum
+
+ lh-energy-estimator
+ - Updated lhee-reco-example for use with real data
+
+ map-maker
+ - Added ability to scale map in plotMercator script
+ - Fixed MapMaker to work with new ConfigDirDetectorService
+
+ online-reconstruction
+ - Added support for PE promotion veto
+
+ sim-pmt-modeler
+ - Added simulation of PE promotion effect
+
+
+Changes for release 1.24.00 "Crushinator" (2 Apr 2014)
+------------------------------------------------------
+
+BUILD
+
+ cmake
+ - Bug fix in hawc-config script: = signs missing for C-shell variables
+ - Allow configuration directories to be used with unit tests
+
+PROJECTS
+
+ aerie-apps
+ - Map-making: added cuts on compactness
+ - Converted non-simulation programs to use ConfigDirDetectorService;
+   StdDetectorService removed from most programs
+ - Converted zenith alignment generator to read REC data
+
+ aerie-io
+ - Updated REC format to V3:
+   + Plane fit output enabled
+   + Core fit chi2 and NDF output enabled
+ - In pybinding docstrings, turn off printout of C++ function signatures
+ - Dox updated: unit tests classified into groups and subgroups
+ - StdDetectorService removed from most programs
+
+ astro-service
+ - In pybinding docstrings, turn off printout of C++ function signatures
+ - Dox updated: unit tests classified into groups and subgroups
+
+ calibration-xcdf
+ - In pybinding docstrings, turn off printout of C++ function signatures
+ - Added fields to distinguish individual calibration curves from average curves
+
+ core-fitter
+ - In pybinding docstrings, turn off printout of C++ function signatures
+ - Enabled access to chi2 and NDF of core fits
+ - Added module with tank-based compactness calculator
+
+ data-structures
+ - In pybinding docstrings, turn off printout of C++ function signatures
+ - Dox updated: unit tests classified into groups and subgroups
+ - Enabled access to chi2 and NDF of core fit results
+ - Added flags to enable passing of L1/FIFO errors by channel group
+
+ detector-service
+ - In pybinding docstrings, turn off printout of C++ function signatures
+ - Dox updated: unit tests classified into groups and subgroups
+ - Added ConfigDir type for LaserSetup (fibers, coincidence windows)
+   calibration processing
+
+ docs
+ - Unit tests classified into groups and subgroups
+
+ electronics-simulator
+ - In pybinding docstrings, turn off printout of C++ function signatures
+ - Removed dependency on unused StdHitIdentifier class
+
+ energy-estimator
+ - In pybinding docstrings, turn off printout of C++ function signatures
+
+ event-generator
+ - In pybinding docstrings, turn off printout of C++ function signatures
+
+ g4sim-reader
+ - In pybinding docstrings, turn off printout of C++ function signatures
+
+ grmodel-services
+ - In pybinding docstrings, turn off printout of C++ function signatures
+ - Unit tests:
+   + EBL models
+   + CRSpectrum XML catalog class
+   + PointSource XML catalog class
+ - Added check for units in TabulatedSpectrum; failure if not found
+
+ hawc-calibration
+ - In pybinding docstrings, turn off printout of C++ function signatures
+ - Dox updated: unit tests classified into groups and subgroups
+ - Changed LaserSetup configuration: fiber connections, coincidence windows
+ - Set up conditional build of components that depend on vamos-reader
+
+ hawc-reco
+ - In pybinding docstrings, turn off printout of C++ function signatures
+ - Added flags to anything with t01>600 TDC counts
+
+ hawcnest
+ - In pybinding docstrings, turn off printout of C++ function signatures
+ - Dox updated: unit tests classified into groups and subgroups
+ - Added unit tests for module sequencing, anonymous functions in bindings
+
+ hmc-analysis
+ - In pybinding docstrings, turn off printout of C++ function signatures
+ - Dox updated: unit tests classified into groups and subgroups
+ - Cleanup of GRB sensitivity code
+
+ lh-energy-estimator
+ - In pybinding docstrings, turn off printout of C++ function signatures
+ - Updated tables with full table and underflow bin in same fits file
+
+ map-maker
+ - In pybinding docstrings, turn off printout of C++ function signatures
+ - Cleaned up command line options in plotMercator plotting script
+ - Added ability to cut events based on compactness
+ - Replaced StdDetectorService with ConfigDirDetectorService everywhere
+
+ online-reconstruction
+ - In pybinding docstrings, turn off printout of C++ function signatures
+ - GTC updates
+ - Added flag for L1/FIFO errors by channel group 
+ - Created new HitIdentifier subclasses to enable time-dependent application of
+   different edge decoding constants when classifying hits
+
+ rng-service
+ - In pybinding docstrings, turn off printout of C++ function signatures
+ - Dox updated: unit tests classified into groups and subgroups
+
+ sim-pmt-modeler
+ - In pybinding docstrings, turn off printout of C++ function signatures
+ - Dox updated: unit tests classified into groups and subgroups
+ - Added QE scale factor that can be used to test reductions of PMT efficiency
+ - Added unit tests for "calibration"
+
+ track-fitter
+ - In pybinding docstrings, turn off printout of C++ function signatures
+ - Added zenith alignment class formerly in aerie-apps
+ - Replaced StdDetectorService with ConfigDirDetectorService
+
+
+Changes for release 1.23.00 "Mars University" (1 Feb 2014)
+----------------------------------------------------------
+
+BUILD
+
+ cmake
+ - Updated HAWC_ADD_TEST macro to enable:
+   + addition of config files to unit tests
+   + addition of python scripts to test python bindings
+ - Use hawc-config to expose python bindings of external libraries to PYTHONPATH
+
+PROJECTS
+
+ aerie-apps
+ - Added utilities to help in mapping only continuous 24-hr periods of data
+ - Add a "star chart" plotter for the sky above HAWC
+ - Added multipole fitter for large- and small- scale anisotropy 
+ - Set up offline-reconstructor to use CONFIG_HAWC folder, if available
+ - Incorporated changes to query_disc needed for HEALPix >= 3.00
+ - Added python viewers for XCDF triggered edges (in reconstruction/reco_ed)
+
+ aerie-io
+ - Upgraded includes to incorporate changes in detector-service
+ - Rec data format upgraded to Version 2:
+   + removed cxpe10, cxpe20, angle fit uncertainty
+   + added chi2 and ndof for angle and core fits
+ - Added python bindings for RecEvent and created unit tests
+
+ astro-service
+ - Added python unit test and upgraded C++ unit test
+ * Bug fix: J2000->current precession matrix caching error
+
+ calibration-xcdf
+ - Minor fix to LaserSetup ASCII->XCDF conversion
+ - Added dummy python bindings to eliminate "load(calibration-xcdf)" in scripts
+
+ core-fitter
+ - Added dummy python bindings to eliminate "load(core-fitter)" in scripts
+
+ data-structures
+ - Converted uint_t pmtType and tankType to PMTType and TankType enums in
+   DetectorComponentEnums.h header
+ - Updated python bindings to detector components
+
+ detector-service
+ - Added CachedInstanceDetectorService to remove dependency on XML configs and
+   ease non-expert updates to good channel list and detector status files.
+   StdDetectorService is still default but should be considered DEPRECATED
+ - Converted service interfaces to pure virtual, and updated python bindings
+ - Propagate PMT/Tank enum changes into detector service classes
+ - Allow XML readers to avoid schema validation (handy for unit testing)
+ - Added unit tests of detector initialization and access
+
+ electronics-simulator
+ - Upgraded includes to incorporate changes in detector-service
+ - Added dummy python bindings to eliminate "load(electronics-simulator)" in
+   scripts
+
+ energy-estimator
+ - Added dummy python bindings to eliminate "load(energy-estimator)" in scripts
+
+ hawc-calibration
+ - Cosmetics: fixed style guide violations, cleaned up string comparisons
+ - Added unit tests and dummy python bindings
+ * Bug fix: maxCharge now being passed by reference in ChargeCalibration
+
+ hawc-display
+ - Propagate PMT/Tank enum changes into hawc-display
+ - Added translator parameter to TextDisplayMainLoop
+
+ hawc-reco
+ - Added dummy python bindings to eliminate "load(hawc-reco)" in scripts
+
+ hawcnest
+ - Updates for compatibility with boost > 1.52, mainly the disappearance of the
+   value_type member from the boost::shared_ptr class.
+ - Converted logger to leaky singleton so that logging continues after
+   exceptions
+ - Fixed exception handling in Configure so that known exceptions are handled
+   and re-thrown
+ - Upgraded HAWCNest python wrapper:
+   + Class objects can now be passed to nest.Service (syntactic sugar)
+   + Named and anonymous functions (lambdas) returning True or False can now be
+     passed to nest.Service (they are instantiated as Modules)
+ - Added unit tests of python interface
+
+ hmc-analysis
+ - Updated sensi-xml.cc to output more information used in gamma/hadron weight
+ - Added dummy python bindings to eliminate "load(hmc-analysis)" in scripts
+
+ lh-energy-estimator
+ - Added dummy python bindings to eliminate "load(lh-energy-estimator)" in
+   scripts
+
+ map-maker
+ - Added utilities to help in mapping only continuous 24-hour periods of data
+ - Incorporated changes to query_disc implemented in HEALPix >= 3.00
+ - Added getLocalHotspots script to find hotspots around a specific point
+ - Added dummy python bindings to eliminate "load(map-maker)" in scripts
+
+ milagro-util
+ - Upgraded includes to incorporate changes in detector-service
+
+ online-reconstruction
+ - Upgraded includes to incorporate changes in detector-service
+ - Added dummy python bindings to eliminate "load(online-reconstruction)" in
+   scripts
+
+ rng-service
+ - Added unit tests to check the first and second moments of several supported
+   distributions
+
+ sim-pmt-modeler
+ - Propagate PMT/Tank enum changes into sim-pmt-modeler
+ - Upgraded includes to incorporate changes in detector-service
+ - Added dummy python bindings to eliminate "load(sim-pmt-modeler)" in scripts
+
+ track-fitter
+ - Added dummy python bindings to eliminate "load(track-fitter)" in scripts
+
+ vamos-reader
+ - Upgraded includes to incorporate changes in detector-service
+
+
+Changes for release 1.22.00 "Brain Slug" (1 Dec 2013)
+------------------------------------------------------
+
+BUILD
+
+ cmake
+ - Suppress compiler warnings about unknown pragmas and unused functions
+
+PROJECTS
+
+ aerie-apps
+ - Split make-doublegauss-smoothed-significance-map into two seperate programs
+ - Enabled double-gaussian smoothing in Legendre space
+ - Added program to pick hot and cold spots from a HEALPix sky map
+ - Added reconstruction monitoring program
+ - Added program to make maps from output of Sensi.C
+ - Added program to fit energy spectra
+ - Turned on slew-like smearing in G4Sim and HAWCSim driver programs
+ - Removed "using namespace xyz" calls from headers
+ - Explicitly use boost::make_shared and not C++11 std::make_shared
+
+ aerie-io
+ - Removed "using namespace xyz" calls from headers
+ - Explicitly use boost::make_shared and not C++11 std::make_shared
+
+ astro-service
+ - Removed "using namespace xyz" calls from headers
+ - Explicitly use boost::make_shared and not C++11 std::make_shared
+
+ calibration-xcdf
+ - Removed "using namespace xyz" calls from headers
+ - Explicitly use boost::make_shared and not C++11 std::make_shared
+
+ core-fitter
+ - Removed "using namespace xyz" calls from headers
+ - Explicitly use boost::make_shared and not C++11 std::make_shared
+
+ data-structures
+ - Removed "using namespace xyz" calls from headers
+ - Explicitly use boost::make_shared and not C++11 std::make_shared
+ - Added flags for 6-edge hits in HitFlags.h
+
+ detector-service
+ - Added TDC/SBC 5 to channel map
+ - Completed TDC map through quadrant 3 for HAWC-250
+ - Updated detector rotation angle to 15.54 degrees E of N
+ - Made HAWCRealSurvey compatible with HAWCSim
+
+ docs
+ - Use MathJax to display formulas rather than LaTeX
+
+ electronics-simulator
+ - Removed "using namespace xyz" calls from headers
+ - Explicitly use boost::make_shared and not C++11 std::make_shared
+
+ energy-estimator
+ - Removed "using namespace xyz" calls from headers
+ - Explicitly use boost::make_shared and not C++11 std::make_shared
+
+ event-generator
+ - Removed "using namespace xyz" calls from headers
+ - Explicitly use boost::make_shared and not C++11 std::make_shared
+
+ g4sim-reader
+ - Removed "using namespace xyz" calls from headers
+ - Explicitly use boost::make_shared and not C++11 std::make_shared
+
+ grmodel-services
+ - Cosmetic fixes to reduce compiler warnings about unused variables
+ - Removed "using namespace xyz" calls from headers
+ - Explicitly use boost::make_shared and not C++11 std::make_shared
+
+ hawc-calibration
+ - Fixed calibration processing to match times between laser pulse set records
+   and TDC calibration triggers
+ - Removed "using namespace xyz" calls from headers
+ - Explicitly use boost::make_shared and not C++11 std::make_shared
+
+ hawc-display
+ - Added constrained time residuals tab
+ - Fixed to work with channel status files valid only for GPS seconds > 0
+
+ hawc-reco
+ - Removed "using namespace xyz" calls from headers
+ - Explicitly use boost::make_shared and not C++11 std::make_shared
+ - In even/odd HitSelectionRoutines alternate between tanks to avoid C-channels
+   always being assigned odd numbers
+ - Added a BadHitCut to the HitSelectionRoutines
+ - Added support for 6-edge events to EdgeRefiner
+
+ hawcnest
+ - Added checks to add services successfully only if the type exists
+ - Removed "using namespace xyz" calls from headers
+ - Explicitly use boost::make_shared and not C++11 std::make_shared
+ - Changed log_fatal_nothrow to call std::exit for cases where fatal errors
+   should exit without raising exceptions
+
+ hmc-analysis
+ - Removed "using namespace xyz" calls from headers
+ - Explicitly use boost::make_shared and not C++11 std::make_shared
+ - Added support for caching expectations in sensitivity calculation
+ - Added sensi-xml program to output Sensi cuts as XML files
+
+ lh-energy-estimator
+ - Updated spline likelihood tables to fix normalization and energy offset bug
+ - Removed "using namespace xyz" calls from headers
+ - Explicitly use boost::make_shared and not C++11 std::make_shared
+
+ map-maker
+ - Added option to apply azimuth rotation
+ - Added option to limit integration times in make-hawc-maps to 24 hours
+ - Added getHotSpots python script to identify excess regions
+ - Removed "using namespace xyz" calls from headers
+ - Explicitly use boost::make_shared and not C++11 std::make_shared
+ - Updated plotting scripts to support TeVCat and 2FGL labels, and to enable
+   plotting of hotspots using the ASCII output of aerie-apps-map-hotspots.
+   Added HESS/VERITAS/Fermi and Milagro color palettes.  Turned off HEALPix
+   bilinear interpolation by default
+ - Use zenith alignment option through RecInputSelector
+
+ milagro-maps
+ - Removed "using namespace xyz" calls from headers
+ - Explicitly use boost::make_shared and not C++11 std::make_shared
+
+ milagro-util
+ - Use zenith alignment option through RecInputSelector
+ - Added file-level doxygen comments to source files
+ - Initialize variables in weight calculator to quiet compiler warnings
+
+ online-reconstruction
+ - Removed "using namespace xyz" calls from headers
+ - Explicitly use boost::make_shared and not C++11 std::make_shared
+ - QBallOneTankTrigger now checks the afterpulse veto
+ - Set pulse size limit of 5000 in StdHitIdentifier
+
+ rng-service
+ - Added generators for Poisson, binomial, and log-normal random variables
+
+ sim-pmt-modeler
+ - Added option to SimulatedPMTModeler to perform slew-like PE smearing
+ - Removed "using namespace xyz" calls from headers
+ - Explicitly use boost::make_shared and not C++11 std::make_shared
+
+ track-fitter
+ - Removed "using namespace xyz" calls from headers
+ - Explicitly use boost::make_shared and not C++11 std::make_shared
+
+ vamos-reader
+ - Removed "using namespace xyz" calls from headers
+ - Explicitly use boost::make_shared and not C++11 std::make_shared
+
+
+Changes for release 1.21.00 "Nibbler" (19 Sep 2013)
+---------------------------------------------------
+
+BUILD SYSTEM
+
+ cmake
+ - Expose HAWC_CONFIG to the user environment when running hawc-config script
+ - Added module to locate SQLite3
+
+PROJECTS
+
+ aerie-apps
+ - Added scripts to read from 1FHL, 2LAC, and NED astronomical catalogs
+ - Changed thresholds and options for time residual generator
+ - Added RecEventSelectionPolicy to map maker for applying analysis cuts
+ - Moved map-maker programs from the map-maker project to the map-making folder
+ - Implemented fast map smoothing in the spherical harmonic transform domain
+
+ aerie-io
+ - Added zenith alignment option into RecInputSelector
+ - Cuts on RecEvents moved to RecDataCuts
+ - Added serialization of RTFilterResult
+ - Created RecEventSelectionPolicy for applying cuts (used in map-maker)
+ - Added support for XCDF append mode
+ - Replaced all shared_ptr calls to new with make_shared function
+ - Moved service registry into CC files to speed up re-compilation
+
+ astro-service
+ - Implemented J2000 conversion in python bindings
+ - Cache the precession/nutation matrix used for J2000 corrections
+ - Moved service registry into CC files to speed up re-compilation
+
+ core-fitter
+ - Implemented tank-wise core fitting with TankGaussCoreFit module
+ - Replaced all shared_ptr calls to new with make_shared function
+ - Moved service registry into CC files to speed up re-compilation
+
+ data-structures
+ - Added RTFilterResult to store filtering results
+ - Added Cut structure for hmc-analysis
+ - Added support for Legendre polynomials in the math classes
+ - Added SIX_EDGE flag to HitFlags
+ - Made LHEnergyResult minimizers const-correct
+ - Replaced all shared_ptr calls to new with make_shared function
+
+ detector-service
+ - Cleaned up real detector survey (HAWCRealSurvey.xml)
+ - Added survey data from rows R,S,T,U
+ - Added orientation correction from measurements by Hermes et al.
+ - Turn off channel map updates if channel map is not present (warning
+   suppression)
+ - Replaced all shared_ptr calls to new with make_shared function
+ - Moved service registry into CC files to speed up re-compilation
+
+ docs
+ - Document change from shared_ptr calls of new to make_shared function
+
+ electronics-simulator
+ - Replaced all shared_ptr calls to new with make_shared function
+ - Moved service registry into CC files to speed up re-compilation
+
+ energy-estimator
+ - Moved service registry into CC files to speed up re-compilation
+
+ event-generator
+ - Replaced FITS effective area tables with compressed tables
+ - Added support for spline-based effective area response functions and
+   commited spline tables to the config folder
+ - Replaced all shared_ptr calls to new with make_shared function
+ - Moved service registry into CC files to speed up re-compilation
+
+ g4sim-reader
+ - Replaced all shared_ptr calls to new with make_shared function
+ - Moved service registry into CC files to speed up re-compilation
+
+ grmodel-services
+ - Added 2FHL catalog file to the config folder
+ - Replaced all shared_ptr calls to new with make_shared function
+ - Moved service registry into CC files to speed up re-compilation
+
+ hawc-calibration
+ - Added python steering script for laser calibration writer
+ - Renamed hawc-calibration-writer
+ - Replaced all shared_ptr calls to new with make_shared function
+ - Moved service registry into CC files to speed up re-compilation
+ 
+ hawc-display
+ - Fixed bug in charge sizing for event display
+ - Added support for time residuals display
+ - Added cut to remove un-calibrated hits
+
+ hawc-reco
+ - Added a new class of 4-edge hits with t01 and t23 allowed to be 0
+ - Added ToT cut to the HitSelectionRoutines
+ - Replaced all shared_ptr calls to new with make_shared function
+ - Moved service registry into CC files to speed up re-compilation
+
+ * Bug fix: implemented 6-edge event finder to fix bugs in 2 and 4-edge finders
+
+ hawcnest
+ - Make parameter setters const-correct
+ - Replaced all shared_ptr calls to new with make_shared function
+ - Moved service registry into CC files to speed up re-compilation
+
+ hmc-analysis
+ - Added XML reader for Cut format
+ - Added sensi program to read cuts from XML, plus script to generate XML
+ - Replaced all shared_ptr calls to new with make_shared function
+ - Moved service registry into CC files to speed up re-compilation
+
+ lh-energy-estimator
+ - Updated shower FITS tables to have no r-weighting, strict 2nd order
+   penalties in the fitting routine, and proper normalization
+ - Replaced all shared_ptr calls to new with make_shared function
+ - Moved service registry into CC files to speed up re-compilation
+
+ map-maker
+ - Added RecEventSelectionPolicy template parameter to facilitate analysis cuts
+ - Implemented compressed FITS output by default
+ - Implemented proper binning corrections rather than uniform offsets
+ - Added beam functions for smoothing in the spherical harmonic transform
+   domain
+ - Replaced all shared_ptr calls to new with make_shared function
+ - Moved service registry into CC files to speed up re-compilation
+
+ milagro-maps
+ - Fixed memory error if idec or ira is out of bounds
+ - Moved service registry into CC files to speed up re-compilation
+
+ milagro-util
+ - Updated map maker to rotate small corrections rather than adding to RA and
+   Dec
+ - Moved service registry into CC files to speed up re-compilation
+
+ online-reconstruction
+ - EdgeProcessor now marks single leading edges as BAD_HIT
+ - Reduced verbosity of GTC extraction code
+ - Replaced all shared_ptr calls to new with make_shared function
+ - Moved service registry into CC files to speed up re-compilation
+
+ rng-service
+ - Moved service registry into CC files to speed up re-compilation
+
+ sim-pmt-modeler
+ - Replaced all shared_ptr calls to new with make_shared function
+ - Moved service registry into CC files to speed up re-compilation
+
+ * Bug fix: minimumHits_ = 0 was not finding the correct trigger time
+ * Bug fix: events shifted by timeWindowBackward_ when detector not triggered
+
+ track-fitter
+ - Added unalign function in zenith alignment code
+ - Replaced all shared_ptr calls to new with make_shared function
+ - Moved service registry into CC files to speed up re-compilation
+
+ vamos-reader
+ - Updated map maker to rotate small corrections rather than adding to RA and
+   Dec
+ - Replaced all shared_ptr calls to new with make_shared function
+ - Moved service registry into CC files to speed up re-compilation
+
+
+Changes for release 1.20.00 "Scooty Puff Sr." (30 Jul 2013)
+-----------------------------------------------------------
+
+PROJECTS
+
+ aerie-apps
+ - Added application to generate time residuals
+ - Added offline-calibrator to apply calibration to triggered data (no reco)
+ - Added even/odd fit to offline-reconstructor
+ - Added python modules to access the 2FHL, 2LAC, and NED catalogs
+ - Added nHit cut to map-maker and use 2D direct integration by default.  Also
+   enable Sun tracking in map-maker
+ - Change event plotting scripts to use XCDF python bindings
+ - Support multiple CxPE values in simulation reconstruction
+
+ aerie-io
+ - Added CORSIKA particle ID to MCAnalysis I/O
+ - Added minimumChannels option to triggered input selector (avoid small events)
+ - Changed name of EventSerializer to HAWCEventSerializer to avoid name clash
+ - Added nHit cut to reconstructed data input selector
+ - Added support fot DelEO even/odd reconstruction in MCAnalysis
+ - Modified MCAnalysis I/O to upport multiple CxPE values
+ - Modified RecInputSelector to show passing efficiency of cuts
+ - Added ScalerFile and ScalerEventSource for reading compressed scaler data
+
+ - Bug fix: CxPE values in MMCEvents trees read by MCAnalysisInputSelector
+   were not being set properly
+ - Bug fix: filtering by DataMapSerializer was not being done in first loop
+
+ astro-service
+ - Use global J2000 definition from data-structures in tests
+ - Implemented Sun tracking for Sun shadow calculation
+
+ calibration-xcdf
+ - Added create_ChargeCalib program to merge charge cal curves into 1 XCDF file
+
+ core-fitter
+ - Set maxChannelID in CompactnessCalculator
+
+ data-structures
+ - Added HitCalData flags to indicate if a hit has been calibrated or not, plus
+   appropriate class methods to check cal status
+ - Created global J2000 defined in terms of UTCDateTime and ModifiedJulianDate
+ - Added HMCWeightResult to data structures
+ - Added grid ID of max channel to the CompactnessResult
+ - Added list of channels fit to the AngleFitResult
+ - Added offline ScalerEvent and ScalerChannel classes, plus python bindings
+
+ - Bug fix: corrected static initialization order problem in LeapSeconds and
+   UTCDate that was causing incorrect (but rare) UTC/GPS conversions
+
+ detector-service
+ - Updated channel status and TDC maps for HAWC-77 and HAWC-111
+ - Adjusted surveys to account for cabling errors and tank rotations
+ - Implemented scaler to physical channel mappings (optional; missing data
+   warnings temporarily disabled in ScalerChannelMap)
+
+ docs
+ - Updated map-maker tutorial for use with HAWC RecEvents
+ - Updated tutorial for working with HEALPix/healpy FITS maps
+
+ event-generator
+ - Eliminate track-fitter dependency from project due to zenith alignment
+ - Make max zenith command line option in all programs in degrees, not radians
+
+ - Bug fix: simulated point source rate calculation was not correctly
+   convolving effective area with source spectra
+
+ grmodel-services
+ - Updated draw-diffuse.py script to work with python 2.7
+
+ hawc-calibration
+ - Set flags in HitCalData during calibration to mark hits as calibrated
+ - Added configurable parameters to CalibrationHitDump to set minimum time gaps
+   between laser pulses or to ignore time gaps given a gap pulse fraction
+ - HiToTCharge in ChargeCalibration now set to 0 if hiToT=0
+
+ - Bug fix: TimingCalibration and Calibration were issuing bogus missing
+   channel warnings
+
+ hawc-display
+ - Display set up to fix channel status map and detector layout with each new
+   event
+ - Added LHEnergyResult functions from new LHEnergyEstimator structure
+ 
+ hawc-reco
+ - Require calibrated hits when calibrated charges or times are used
+ - Added EdgeRefiner to clean up edge finding in raw events
+ - Added RTFiler time/radius filter module
+ - Added hit selectors for even/odd tanks
+
+ hawcnest
+ - Fix compiler warning in EfficientModuleImpl.h
+
+ hmc-analysis
+ - In trigger-rate-cmd: keep events if binsize > 2.5 deg
+ - Added support for "single bin" analysis in sensi executables and made cuts
+   more modular
+ - Fixed bug in rate binning in sensi executables
+ - Updated Sensi.C to handle latest ROOT trees, treat angular resulotion as the
+   sum of 2 Gaussians, and compute CxPE/nHit ratio for gammas and hadrons
+ - Synchronized sensi-cmd scripts with rate bins in Sensi.C
+ - Updated I/O of all classes to use aerie-io output methods
+
+ lh-energy-estimator
+ - Updated likelihood tables based on aerie_svn_14744 Monte Carlo events
+ - Added new methods for MCMC and corresponding headers
+
+ map-maker
+ - In MapMaker module, keep declination range between -90 and 90 degrees
+ - Implemented 2D direct integration (6x speed improvement) in MapMaker and
+   made it the default algorithm.  Removed 1D direct integration option
+ - Fixed bug in high-declination 2D DI and calculation of Li-Ma "alpha" in
+   significance calculations
+ - Randomize data within XCDF bins to avoid binning artifacts in HEALPix
+ - Handle errors in make-significance-map when smoothing radius == 0
+ - Removed dependency on track-fitter (pulled in via zenith alignment code)
+   and shifted zenith alignment to another project
+ - Added J2000 precession correction
+ - Output relative intensity FITS map with make-significance-map
+ - Implemented Sun tracking
+ - Implemented smoothing with two additive Gaussians, following Sensi.C
+ - Enable new keywords in FITS output: MAPTYPE, MINDUR, MAXDUR
+
+ milagro-maps
+ - Set keywords in MDCAnalysis code
+ - Fix axis labels in AstroSky plotter
+
+ online-reconstruction
+ - Updated Q-ball trigger
+
+ - Bug fix: GTCEventProcessor checks for differences with time from NTP server
+
+ sim-pmt-modeler
+ - Set calibrated flags in HitCalData for simulated hits
+
+ track-fitter
+ - Store list of channels used in GaussPlaneFit and LHAngleFit
+
+ vamos-reader
+ - Default to 2D direct integration using new algorithm in MapMaker
+ - Removed track-fitter zenith alignment dependency
+
+
+Changes for release 1.19.00 "Scooty Puff Jr." (1 May 2013)
+----------------------------------------------------------
+
+PROJECTS
+
+ aerie-apps
+ - Programs used for simple online monitoring now included in this project
+ - Added map maker program for HAWC RecEvent format
+ - Altered data challenge default program options to match common running values
+
+ aerie-io
+ - Angle fit status added to MCAnalysis tree
+ - Corrected a mistake in DelAngle calculation
+ - Fix added for HAWCSim files with improperly set tOffset
+ - Added nHit, nFit/nCh, zenith, and angle fit status cuts to RecInputSelector
+
+ calibration-xcdf
+ - New LaserSetup format for time windows and switch channels added
+ - Added XCDF production programs to examples folder
+ - Added script to create ChargeCalib XCDFs from two files (avg. & meas. curves)
+
+ data-structures
+ - Added (x/y)coreDet_ variables to SimEvent to contain core location in
+   detector coordinates
+ - Scope calls to boost::range to prevent gcc from getting confused
+
+ detector-service
+ - Updated real survey data from re-survey performed in April 2013
+ - Updated channel mappings with GTC channels
+ - Allow detector service to use a directory of channel status files
+
+ event-generator
+ - Added the max nHit option to data challenge PhonyEvent map maker
+ - Added option to generate events without response table resampling
+
+ g4sim-reader
+ - Include support for (x/y)coreDet_ variable input
+
+ grmodel-services
+ - Expose flux weight calculation to python
+
+ hawc-calibration
+ - Added laser pulse count to pulse set recognition
+ - Added CSU-based PE charges for hits in CalibrationHitDump
+ - Updated slewing and charge calibration curves
+ - Added parameters for the Timing/ChargeCalibrationService to handle a
+   directory name and load calibration files from that source
+
+ hawc-reco
+ - Add option to select events that are calibration-trigger only
+ - Do not require clean calibration events by default
+
+ hawcnest
+ - Remove extraneous template specialization in EfficientModule
+ - Added time stamping option to the Logger
+
+ hmc-analysis
+ - Cleaned up option lists in project executables
+
+ lh-energy-estimator
+ - Updated new tables with correct evaluation schemes
+ - Removed bin scaling of (old) table input variables
+ - Set up inputs to save only best energy and core position estimates
+
+ map-maker
+ - Added Gaussian smoothing option for significance maps
+ - Added MAPWEIGHT key to allow combination of significance maps
+ - Added zenith re-alignment calculation
+ - Fixed Delta-Dec range bug that was causing HEALPix to crash
+ - Updated plotting scripts for Python 2.7
+
+ milagro-maps
+ - Added MGRO 1908+06 as a monitoring source
+
+ online-reconstruction
+ - Removed Q-ball code from standard EventBuilder
+ - Added extra look-back for calibration events to get light-to-tanks start
+ - Applied several fixes for malformed events
+
+ sim-pmt-modeler
+ - Fixed bug in production of 1 PE amplitudes
+ - Fixed bug where noise was injected well outside the event time window
+ - Introduced fix for HAWCSim fiels with improperly defined tOffset.
+ 
+ track-fitter
+ - Enable zenith alignment code and allow it to use a directory of files
+
+ vamos-reader
+ - Added compactness modules to VAMOSReconstructor and datum fields for
+   CxPE[10|20|...] to VAMOSRecEvent
+ - Removed log_fatal checks for unset charge, slewing, and timing calibrations
+ - Added a cut on nFit/nCh ratio
+ - Added option to use the zenith alignment service
+
+
+Changes for release 1.18.00 "Space Pope" (18 Mar 2013)
+------------------------------------------------------
+
+BUILD SYSTEM
+
+ cmake
+ - Updated FindPython script to work with CMake 2.8.10
+
+PROJECTS
+
+ aerie-apps
+ - Added geomagnetic deflection programs
+ - Fixed non-functional python simulation reconstruction scripts and event
+   display
+ - Enable build of offline-reco programs in online or offline distributions
+ - Added Q-Ball example analysis program
+ - Added zenith alignment calculator
+
+ aerie-io
+ - Added python access to SimEventCounter
+
+ calibration-xcdf
+ - Initialize time residual to zero (fixes compiler warning)
+
+ core-fitter
+ - Added configurable core distance limits to fitter
+
+ data-structures
+ - Added missing headers required to compile modules calling usleep
+ - Expose particle name/type converter to python
+ - Added QBALL_TRIGGER to EventFlags
+ - Added methods to get at hit-triggered data
+
+ detector-service
+ - Updated channel maps to March 8 version of detector
+ - Produced production-ready version of HAWC-77
+
+ docs
+ - Updated map-making tutorial
+
+ electronics-simulator
+ - Altered interface to put simulator inside standard analysis chain
+
+ event-generator
+ - Added geomagnetic deflection access to PhonyEvent structures
+ - Removed classes deprecated in AERIE version 1.16
+ - Add support for extended sources in point source simulator
+
+ grmodel-services
+ - Removed classes deprecated in AERIE version 1.16
+ - Add support for extended sources using simple tophat functions
+ - Added catalog of 2FGL sources with redshifts (where available)
+
+ hawc-calibration
+ - Added CalibrationHitDump module for checking laser events
+
+ hawc-display
+ - Added destructor to StdTranslatorService (fixes compiler warnings)
+
+ hawcnest
+ - Add std::pair config parameter hook to python; pairs are passed as 2-element
+   python tuples
+
+ hmc-analysis
+ - Fixed memory leak in diffuse source sensi calculation
+ - Cleaned up examples using deprecated functions removed from grmodel-services
+
+ lh-energy-estimator
+ - Added prior core ane energy distributions to energy estimator
+ - Removed MINUIT-based minimizer and grid search
+
+ map-maker
+ - Added threshold plot options to map plotting python scripts
+ - Moon calculation now updates moon position every 12 seconds (0.05 deg
+   accuracy)
+
+ milagro-maps
+ - Added 0.1 degree smoothing to maps to avoid rectangular bin "Moire Effect"
+   (beating) in output maps
+
+ online-recontruction
+ - Added support for Q-ball trigger
+ - Added GTC error checker
+ - Removed Module::Filter return calls from online modules
+
+ rng-service
+ - Trivial cleanup to remove compiler warnings
+
+ sim-pmt-modeler
+ - Fixed bug that was pushing incorrect SMT times into the hit queue
+
+ track-fitter
+ - Added a simple zenith alignment service for correcting detector pointing
+
+ vamos-reader
+ - Use stdCuts hit selection in reconstructed data
+
+
+Changes for release 1.17.00 "Hypnotoad" (24 Jan 2013)
+-----------------------------------------------------
+
+BUILD SYSTEM
+ 
+ cmake
+ - Made a script to check for the existence of compilers for a given language
+
+PROJECTS
+
+ aerie-apps
+ - Added program to merge XCD files with PhonyEvents from the data challenge
+ - Enable plotting of HAWC declination sensitivity on TeVCat maps
+ - Added moon elevation plotter
+
+ aerie-io
+ - Fixed bug where pmtTime_ was not being set
+ - Added serialization for laser calibration TDC hits
+ - Added access to blocks in CORSIKA classes
+ - Added option to use hit selection for MC reconstructed nHit and nTanks
+ - Skip corrupt XCDF files (requires XCDF >= 2.00.04)
+
+ astro-service
+ - Implemented IGRF geomagnetic field model based on Geopack-2008 Fortran code
+
+ data-structures
+ - Added NPE computation to SimEvent
+ - Enable storage of laser calibration signals in Event class
+ - Added mass and charge definitions for particle types
+ - Enabled support for channel/tank names in detector structures
+
+ detector-service
+ - Enabled access to number of good channels in ChannelStatusMap
+ - Enabled live updates to ChannelStatus data
+ - Added channel names to survey; use names instead of IDs where possible
+
+ docs
+ - Updated map-maker tutorial
+
+ event-generator
+ - Added MultiSource to merge PhonyEvents from different simulation runs
+ - Added response tables for HAWC-30
+ - Deleted obsolete ps-gen program
+ - Added DiffuseFluxGenerator class (MoonSink, DiffuseGammaGenerator,
+   BkgGenerator deprecated)
+ - Added AnisotropicBkgGenerator class to model the cosmic ray anisotropy
+ - Created python bindings for PhonyEvent data
+ - Renamed HAWC300Response class to HAWCDetectorResponse
+
+ g4sim-reader
+ - Fixed initialization bug for all PE data
+
+ grmodel-services
+ - Added TabulatedSpectrum class to handle experimental flux tables
+ - Added broken and double broken spectra to XML; updated CREAM spectrum 
+ - Deleted obsolete CrabSpectrumICSModel (replaced with TabulatedSpectrum file)
+ - Added a 3D MapTable class that can interpolate between energy and angular
+   bins; deprecated the MapCube class
+ - Created CRCatalog class to create cosmic ray models from an XML catalog;
+   deprecated CRSpectrum
+ - Added CosmicRayAnisotropyTable (FITS table for cosmic ray anisotropy)
+
+ hawc-calibration
+ - Reduced absolute HiToT minimum to 300
+
+ hawc-reco
+ - Created filter to remove or select calibration events
+
+ hawcnest
+ - Created a de-multiplexing service, MultiSource, that can collect data from
+   multiple Sources and output events to a single Bag
+
+ hmc-analysis
+ - Fixed bug in FluxWeightService where gamma-ray spectrum limits were being
+   imposed on CR spectra
+
+ map-maker
+ - Added column option to plotters to choose different maps from within a FITS
+   file
+ - Enable mercator projection interpolation for HEALPix maps
+
+ online-reconstruction
+ - Added AERIE modules for calculating scaler rates from raw data
+ - Added support for laser calibration TDC data
+
+ sim-pmt-modeler
+ - Enabled support for multiple PMT types
+
+ vamos-reader
+ - Made VAMOSMapModule inherit from EfficientModule
+ - Added moon capability to map maker
+ - Added calibration event filter
+
+
+Changes for release 1.16.00 "Soylent Cola" (27 Nov 2012)
+-----------------------------------------------------------
+
+BUILD SYSTEM
+
+ cmake
+ - Fix bug in path definitions
+
+PROJECTS
+
+ aerie-apps
+ - Fixed bug in CMake scripts that was preventing reco projects from building
+ - Added LHEE reconstruction program
+ - Adapted reconstruction scripts to use new calibration interface
+ - Updated TeVCat parser to simplify data output
+ - Added GTC extractor to data processing scripts
+ - Updated point source, background, and map-maker data challenge programs
+ - Removed dependencies on deprecated sim-calibrator
+
+ aerie-io
+ - Support GTC I/O
+ - Updated several readers and writers to use EfficientModule interface
+
+ calibration-xcdf
+ - Added new project based on XCDF storage of daily calibration constants
+
+ core-fitter
+ - Ignore bad/missing channels to decrease reconstruction time
+
+ data-structures
+ - Added hooks to B-spline table wrapper
+ - Added fields to HitCalData to store low/high ToT calibrated values
+ - Added energy reconstruction base class
+ - Updated PowerLaw classes to perform integration and weighting, changed
+   interface to separate normalization point from lower limit of input
+ - Added structures for GTC data
+
+ detector-service
+ - Updates to channel maps for CSU and HAWC-30 surveys
+
+ docs
+ - Added tutorial on map-making
+ - Added description of event weighting
+
+ event-generator
+ - Created classes to store detector response functions and effective area
+   tables
+ - Added new generators for point sources and isotropic background
+ - Updated XCDF serializers, deprecated old I/O classes
+
+ g4sim-reader
+ - Removed dependencies on deprecated sim-calibrator
+
+ grmodel-services
+ - Moved PSCatalog and PointSource classes into spectra
+ - Created CRSpectrum and CosmicRaySource classes for cosmic ray spectra, and
+   updated the ATIC-2 XML file to match the new spectrum interface
+ - Updated spectrum interfaces to perform integration and random sampling
+ - Updated catalog of TeV sources
+
+ hawc-calibration
+ - Added new calibration project as interface to XCDF data
+
+ hawc-display
+ - Fixed compiler warnings and updated code to match new LLH energy calculation
+ - Removed dependencies on deprecated sim-calibrator
+
+ hawc-reco
+ - Improved HitSelection functionality to perform logical combinations
+ - Skip uncalibrated hits
+
+ hawcnest
+ - Updated EfficientModule interface to make it simpler to use and implement
+
+ hmc-analysis
+ - Updated sensitivity calculations to minimize calculation time
+ - Added program to calculate sensitivity to extended sources
+
+ lh-energy-estimator
+ - Cleaned up XML configuration files
+ - Fixed underflow tables for evaluation of MCMC
+ - Removed dependencies on deprecated sim-calibrator
+
+ map-maker
+ - Bind map-maker to python
+ - Allow output of all generated maps (signal and bkg) to a single FITS file
+ - Cache MJD and implement EfficientModule version for 10x speed gains
+
+ milagro-util
+ - Updates to use general Reader class and EfficientModule interface
+
+ online-reconstruction
+ - Added classes for GTC output
+ - Many small fixes to event processing (see repository logs)
+ - Added AERIE modules for calculating scaler rates from raw TDC data
+
+ rng-service
+ - Added CutoffPowerLaw random number generator
+ - Made seeding more robust to avoid repeat seeds when using system clock
+ - Added seeding from /dev/urandom
+
+ sim-calibrator
+ - Project REMOVED in favor of sim-pmt-modeler
+ 
+ sim-pmt-modeler
+ - Changed variable time window: -500 ns to +1000 ns with 150 ns for SMT
+
+ vamos-reader
+ - Removed all calibration code in favor of hawc-calibration project
+ - Added LH energy estimator
+ - Implemented generic data Reader and EfficientModule interface
+
+
+Changes for release 1.15.00 "Thunderschewitz" (28 Sep 2012)
+-----------------------------------------------------------
+
+BUILD SYSTEM
+
+ cmake
+ - Broke cmake directory out of the AERIE workspace and made it an independent
+   project in the repository.  This is to allow multiple workspaces to use the
+   build and documentation systems.
+ - Added a SOFTWARE_NAME field to the build system and updated relevant scripts
+   in the docs directory
+
+ docs
+ - Also broke the docs directory out of the workspace
+ - Added tutorials for AERIE basics, map-making, python, etc.
+
+PROJECTS
+
+ aerie-apps
+ - Added a python version of the reco-pecal event display, with edge plotting
+ - Added an event-writer app for the SBC DAQ format using online-reconstruction
+   project
+ - Changed default calibrators for g4sim-reco and hawcsim-reco to
+   sim-pmt-modeler
+
+ aerie-io
+ - Added good channel flag to serializer
+
+ data-structures
+ - Minor fixes: time-order Hits in Events, fix ChannelIdentifier operator<<
+
+ detector-service
+ - Updates for HAWC-30 and HAWC-100 layouts and channel status
+ - Added new (required) arrayCenter field to older XML surveys
+
+ g4sim-reader
+ - Cosmetic fixes to the python event display example
+
+ hawc-display
+ - Bug fixes in the data translator
+
+ hawcnest
+ - Added a unit test for HAWCUnits
+ - Cosmetic fixes related to variable name changes in the cmake project
+
+ hmc-analysis
+ - Updated programs to handle optimal binning for HAWC-100 layout
+
+ lh-energy-estimator
+ - Added PMT weights to remove channels not in DAQ from the MCMC fitter
+ - Fine adjustments to MCMC core finder and bin stepper
+
+ map-maker
+ - Changed output to a single FITS file (rather than six)
+
+ online-reconstruction
+ - New project to handle streaming HAWC-30 data
+
+ sim-calibrator
+ - Bug fix: only use good channels from the ChannelStatusMap
+
+ sim-pmt-modeler
+ - New project to provide more detailed modeling of the PMT simulation
+
+ vamos-reader
+ - Added HAWC-30 calibration constants
+ - Added 6-parameter function for PMT slewing calibration
+ - Added variable trigger windows to event-writer
+
+
+Changes for release 1.14.00 "Chamber of Understanding" (3 Sep 2012)
+-------------------------------------------------------------------
+
+BUILD SYSTEM
+ - Fixed WienerUSB macro to work with scaler DAQ installation at site
+ - Force hawc-config script to use bash (workaround for old Korn shell at UMD)
+ - Suppress aliasing warnings with -fno-strict-aliasing option
+
+PROJECTS
+
+ aerie-apps
+ - Added check for new types of TNamed in G4Sim fix
+ - Updated reco examples to use new translator service
+ - Switched from SimpleEnergyCalculator to CoreEnergyCalculator in reco apps
+ - Added muon information extractor (muon-run-analyzer) program
+ - Fixed bug in combine-root-plus which caused TTree name to be ignored
+
+ aerie-io
+ - Fixed includes to work with directory structure of scaler-classes
+ - SimEvent XCDF muon output now called "muon" rather than "particle"
+
+ data-structures
+ - Added TDC time conversions
+ - Added array center member to the Detector
+ - Added reconstruction/online classes for version 1 of online reconstruction
+ - Fixed includes to work with directory structure of scaler-classes
+ 
+ detector-service
+ - Added XML support for array center Detector member
+ - Exposed TDC channel mappings to python and added HAWC30 mappings
+ - Added support for GTC channels
+ - Added surveys and maps for current HAWC-30 configuration
+
+ energy-estimator
+ - Added CoreEnergyCalculator based on the amplitude of the core fit
+
+ event-generator
+ - Added new minimum integration duration option to make-phony-maps executable
+
+ grmodel-services
+ - Fixed bug in GilmoreEBLModel when setting high-energy boundaries
+ - Minor updates to point source lists
+
+ hawc-display
+ - Added working displays and plotting options to event viewer
+ - Added DataTranslator service for passing event data to the viewer
+
+ hawcnest
+ - Added the definition HAWCUnits::m for meters to units header
+
+ hmc-analysis
+ - Removed use of gROOT global due to compilation problems with some ROOTs
+ - Added deprecation warning to Sensi.C script
+ - Updated command line interface for eff-area-cmd executable
+
+ map-maker
+ - Added ability to choose minimum integration duration for map making
+
+ milagro-util
+ - Added minimum integration duration option to make-milagro-maps executable
+
+ track-fitter
+ - Make sure maxTolerance is initialized in units of degrees in GaussPlaneFit
+
+ vamos-reader
+ - Patch vamos-reader code with -s option to read data written by the SBC in
+   reverse byte order
+ - Added minimum integration duration option to make-vamos_rec-maps executable
+ - Quieted noisy warnings about missing TDC mappings for simulation
+ - Fixed memory error in VAMOSHitVeto
+
+
+Changes for the 1.13.00 release (22 Jul 2012)
+--------------------------------------------
+
+BUILD SYSTEM
+
+ - Added support for PhotoSpline, a C-library which implements high-dimensional
+   B-spline fits and interpolations
+ - Added support for GSL, required by matrix operations in PhotoSpline
+ - Added support for external XCDF library distributed with ape
+ - Removed support for BZip2
+ - Updated installation permissions so that group members have write access
+   to the install folder (very useful for central installations)
+ - Fixed hawc-config script to manage command-line args with whitespace
+
+PROJECTS
+
+ aerie-apps
+ - Added ROOT file merger program aerie-apps-combine-root-plus
+ - Updated python scripts to use kwargs options for AERIE modules
+ - Added --viewer option to C++ applications to enable the Qt-based viewer
+
+ aerie-io
+ - Made CORSIKAReader usable outside the AERIE framework
+ - Support output of units for dimension-full data types
+ - Added serializer for GaussCoreFit
+ - Expose serializer classes to XML and python
+ - Added support for cJSON, used by scaler classes
+
+ core-fitter
+ - Skip bad channels using ChannelStatusMap
+
+ data-structures
+ - Added support for high-QE PMTs in detector structures
+ - Added SplineTable wrapper for FITS i/o and interpolation using PhotoSpline
+ - Added BaggableByteArray typedefs
+ - Removed dependence on old XCDF project
+
+ detector-service
+ - Added new HAWC-30 configuration files with 4 PMTs/tank
+ - Added interface for checking good/bad channels (XML; to be replaced by
+   sqlite?)
+ 
+ electronics-simulator
+ - Changed module switch parameter type from int to boolean
+ - Updated python scripts to use kwargs parameter setter
+
+ energy-estimator
+ - Inserted explicit cast to kill compiler warnings
+
+ event-generator
+ - Added a link to XML schema in point source catalog
+ - Updated python scripts to use kwargs parameter setter
+ - PhonyEvent energies now written to XCD output
+
+ g4sim-reader
+ - Updated python scripts to use kwargs parameter setter
+
+ grmodel-services
+ - Minor python script fixes for matplotlib 1.1
+ - Added lists of GeV and TeV sources, including redshifts if available
+ - Added alternate Gilmore EBL model based on spline interpolation
+
+ hawc-display
+ - New project using a Qt-based event display.  The GUI can drive the event loop
+
+ hawc-reco
+ - Added some basic support for high-QE PMTs
+ - Remove bad channels (i.e., not in DAQ) during hit selection
+
+ hawcnest
+ - Removed old I3Testing-based unit tests (replaced by boost tests)
+ - Added error checking to unit evaluators
+ - Logger will now periodically periodically print out processing updates.
+   Default is every 10000 events, but this is a tunable parameter
+ - Logger will now print parameter configurations to INFO channel
+ - Added a python-only SetParameter function to unpack python boolean values
+ - Altered python interface to use kwargs initialization of module parameters
+ - Added a BaggableVector class for std::vector
+
+ hmc-analysis
+ - Changed analysis from ATIC2 to CREAM cosmic-ray spectra
+ - Removed dependence on old XCDF project
+
+ lh-energy-estimator
+ - Added MCMC-based extremum finder
+ - Removed dependence on old XCDF project
+
+ milagro-maps
+ - Removed dependence on old XCDF project
+
+ milagro-util
+ - Removed dependence on old XCDF project
+
+ rng-service
+ - Updated python scripts to use kwargs parameter setter
+
+ sim-calibrator
+ - Added functionality to exclude outrigger tanks from the calculation of
+   maxWindowHits
+
+ track-fitter
+ - Fix memory error in PDFTable when processing loop aborts early
+ - Set number of degrees of freedom in angle fit constructor
+
+ vamos-reader
+ - Attach AERIE version and revision numbers to triggered and reconstructed data
+ - Removed dependence on old XCDF project
+
+ xcdf
+ - XCDF has been promoted to a standalone C++ library in anticipation of a
+   public release.  So the xcdf project is now defunct.
+
+
+Changes for the 1.12.00 release (7 Jun 2012)
+--------------------------------------------
+
+BUILD SYSTEM
+ 
+ - Updated doxygen to fully read project subdirectories and parse python scripts
+ - Fixed OpenMP options for OS X Lion
+ - Colorize CMake messages using code from Boost Utilities/IceTray
+
+PROJECTS
+
+ aerie-apps
+ - Created new project to store example applications which install themselves
+   to HAWC_BIN, with configuration/code files installed to HAWC_SHARE.
+   Currently included in this release:
+     1) Python parsers for 2FGL catalog and TeVCat
+     2) Simulation reconstruction programs using g4sim and hawcsim output
+     3) Simulation program for making phony point sources
+     4) Utility programs for astronomical and time system conversions
+
+ aerie-io
+ - Updated LHResultSerializer to write out full reconstruction info
+ - Updated to new scaler data format and added scaler/XCDF converter
+
+ astro-service
+ - Moved utility programs to the new aerie-apps project
+
+ data-structures
+ - Added support for adaptive numerical integration in math headers
+ - Added tank and channel type to the detector classes
+ - Moved utility programs to aerie-apps
+ - Added ParticleType string->enum conversion in physics headers
+ - Added support for log-parabolic power laws in math headers
+
+ detector-service
+ - Added tank and channel type support
+ - Added CSU TDC mapping and detector survey
+ - StaticDetectorService updated to match StdDetectorService configuration
+   interface
+
+ event-generator
+ - Added support for point source catalogs (of gamma-ray sources)
+ - Added light-curve support to point sources
+
+ grmodel-services
+ - Deleted obsolete cosmic-ray and gamma-ray spectrum classes
+ - Added support for log-parabolic gamma-ray spectra
+ - Added cosmic-ray spectra which can be initialized using XML
+
+ hawcnest
+ - Moved utility programs (like service lister) to aerie-apps
+ - Added forwared declaration of serialization operator of ctime tm structure
+
+ hmc-analysis
+ - Added trigger rate and sensi programs to compute rates and sensitivity
+ - Added new binning options to sensi-cmd and updated program to calculate
+   integral and differential sensitivity
+ - Added eff-area-cmd to calculate effective area
+
+ lh-energy-estimator
+ - Added brute-force core finder (scanner)
+ - Moved most functions in energy estimator class to private space
+ - Fixed a memory leak in EETable
+
+ map-maker
+ - Moved data policy classes to their respective projects
+ - Added half-galactic mask to match Milagro analysis
+ - Implemented antisidereal time maps (not fully tested)
+
+ milagro-util
+ - Gained data policy classes from map-maker
+ - Update utilities to use half-galactic mask
+ - Added cut on number of fit channels
+
+ rootwriter
+ - DEPRECATED PROJECT REMOVED FROM THE WORKSPACE
+ - Copied reconstruction examples to aerie-apps
+
+ vamos-reader
+ - Bug fix in charge calibration formula for LoToT/HiToT transition
+
+ xcdf
+ - Allow users to write all 64b of a floating-point field using <=0 in
+   resolution
+
+
+Changes for the 1.11.00 release (15 Apr 2012)
+---------------------------------------------
+
+BUILD SYSTEM
+
+ - In CMake scripts, hide the PARSE_ARGUMENTS macro from the official macro of
+   the same name in CMake versions > 2.8.6.
+
+PROJECTS
+
+ aerie-io
+ - Major update to root I/O:
+     1) Support for 64b float and int I/O 
+     2) More flexibility for MMC/HMC tree I/O
+     3) Support for Baggable object serializer macros
+     4) Transparent switching between XCDF and ROOT I/O
+ - Some minor changes in CORSIKA structure names and python bindings
+
+ core-fitter
+ - Support new hit selection interface from RecoBase
+ - Initialize data structures and avoid NaN in results
+
+ data-structures
+ - Added a few unit tests for the geometry and math classes
+ - Added finite upper limits to power law reweighting
+ - Make sure core/angle fit structures are properly initialized
+ - Moved hawcnest/HAWCConstants.h to PhysicsConstants.h and added some values
+
+ docs
+ - Updated doxygen image
+
+ electronics-simulator
+ - Cosmetic fixes to reduce compiler warnings
+
+ energy-estimator
+ - Support new hit selection interface from RecoBase
+
+ grmodel-services
+ - Added EBL model of Dominguez et al. (only valid up to 30 TeV)
+ - Added ATIC2 spectra to be used with HMC-Analysis
+ - Eliminated memory leak in MapCube class destructor
+
+ hawc-reco
+ - Added model to account for the curvature of the shower front
+ - Added ability to get Bag data in HitSelection instances
+ - Added PropagationPlaneSelection to select only hits in the shower front
+   (for reduction of muon background)
+
+ hawcnest
+ - Added some math constants to unit definitions
+ - Moved HAWCConstants.h to data-structures/physics/PhysicsConstants.h
+ - Corrected mistakes in unit definition of the volt and derived quantities
+
+ hmc-analysis
+ - Major updates related to new aerie-io:
+     1) Changed to use new aerie-io/RootWriter 
+     2) Removed dependence on grmodel-services/*.h obects in favor of
+        grmodel-services/spectra/ objects.
+     3) Renamed HAStdWeight to HARadialWeight
+     4) Removed nHit and nFit cuts in favor of a cut which uses maxWindowHits
+        which is more analogous to our trigger.
+     5) Weighting is calculated using numeric integration (only once per
+        primary) which means any spectrum can be used.
+     6) The particle IDs output have been standardized instead of the simple
+        enumeration used previously.
+     7) A single TTree is output with the same branches at MMCEvents + Wgt,
+        TWgt, PID, and some others.
+ - Added access to gammaCut and hadronCut files via command line
+ - Added sensi-cmd to compute Sensi.C output from trigger-rate executables
+
+ map-maker
+ - Added python scripts for basic map processing
+
+ milagro-maps
+ - Added anti-sidereal mapping options
+
+ milagro-util
+ - Support map creation in anti-sidereal coordinates
+ - Remove dependency on rootwriter project
+ - Propagated changes from hawcnest project unit and constant headers
+
+ rng-service
+ - Added interface to produce simple power law random numbers
+ - Added python script to demonstrate reweighting of power laws
+
+ rootwriter
+ - Folded deprecated services into LegacyRootWriter service
+ - Moved shower front curvature model into hawc-reco project
+
+ track-fitter
+ - Moved shower front curvature model into hawc-reco project
+ - Support new hit selection interface from RecoBase
+
+ vamos-reader
+ - Support map creation in anti-sidereal coordinates
+ - Fixed bug in setting of triggerFlags
+ - Removed dependency on rootwriter project in favor of aerie-io
+
+ xcdf
+ - Added forced header write
+
+
+Changes for the 1.10.00 release (10 Mar 2012)
+---------------------------------------------
+
+BUILD SYSTEM
+
+ - Updated minimum boost version to 1.45
+ - Removed CMakeCompareVersionStrings in favor of CMake default version checks
+
+PROJECTS
+
+ aerie-io
+ - Added support for new XCDF project:
+     1) Moved old XCDF code into aerie-io/legacy;
+     2) Moved old BinaryReader into aerie-io/reader;
+     3) Converted BinaryWriter to work with new XCDF;
+     4) Updated serializers to work with XCDF
+ - Added module for reading XCDF output from HAWCSim
+
+ data-structures
+ - Added PMT, CoaxialCable, and FEBoard electronics property data structures
+ - Added signal trace and logic pulse classes with hooks to SimChannel
+ - Updated SimEventHeader and SimChannel to include more outputs from HAWCSim
+
+ detector-service
+ - Added configuration files for outrigger simulations
+ - Added electronics properties via DetectorModels.xml
+
+ electronics-simulator
+ - Ported ToTSim project written by Bob Ellsworth to AERIE.  Modules include:
+     1) PMTSimulator for conversion of PE hit times to voltage traces
+     2) CableSimulator to model signal dispersion
+     3) FEBSimulator to shape and discriminate signals and produce edges
+
+ event-generator
+ - Added support for new XCDF project and aerie-io interface
+
+ g4sim-reader
+ - Bug fix for electronics-simulator: time-sort PEs when they are read in
+ - Cosmetic updates to the draw-pcl.py plotter program
+
+ hawcnest
+ - Suppress ANSI color codes used in Logger when output is redirected to a file
+ - Added a few useful definitions to the HAWCUnits
+ - Added a lexical analyzer to parse functions of HAWCUnits and algebraic
+   expressions
+
+ hmc-analysis
+ - Fixes to ensure that key variables (runID, Npe) are available to analysis
+
+ map-maker
+ - Added support for new XCDF project and aerie-io interface (generic Reader)
+
+ milagro-maps
+ - Added support for new XCDF project and aerie-io interface (generic Reader)
+
+ milagro-util
+ - Added support for new XCDF project and aerie-io interface (generic Reader)
+
+ rootwriter
+ - Added support for new XCDF output of HAWCSim
+
+ track-fitter
+ - Fix memory leak in PDFTable at program exit
+
+ vamos-reader
+ - Added support for new XCDF project and aerie-io interface (generic Reader)
+ - Added afterpulse flagging during edge identification
+
+ xcdf
+ - Major overhaul of project interface
+
+
+Changes for the 1.09.00 release (29 Jan 2012)
+---------------------------------------------
+
+BUILD SYSTEM
+
+ - Integrated unit tests into CTest with the new HAWC_ADD_TEST macro
+ - Updated the Boost.cmake package to more easily change included boost modules
+
+PROJECTS
+
+ aerie-io
+ - Added a reader for CORSIKA DAT files
+ - Added a reader for ASCII data from the scaler DAQ
+ - Added a reader for ASCII files from the EMS
+ - Added an aerie_io python module
+
+ astro-service
+ - Added a unit test for comparison with the IceTray coordinate-service
+
+ data-structures
+ - Added leap second for July 2012
+ - Updated python bindings for time and particle classes
+ - Renamed SimMuon class to SimParticle class because the hawcsim ground
+   particle list includes everything >100 MeV
+ - Fixed boost/python.hpp include order to clear up compiler errors on OS X
+ - Added data structures for EMS data
+ - Added a few basic unit tests
+
+ detector-service
+ - Added python drawing scripts for detector layouts
+ 
+ docs
+ - Added a test category for documentation of unit test code
+
+ g4sim-reader
+ - Convert CORSIKA particle ID codes to ParticleType enum
+ - Incorporated renaming of SimMuon to SimParticle
+ - Added python script to plot PMT hits and ground-level particles per-event
+
+ grmodel-services
+ - Created python bindings for EBL model and cosmic ray spectrum services
+ - Added python drawing scripts for EBL attenuation, spectra, and diffuse maps
+
+ hawcnest
+ - Added unit tests based on the Boost Test library, with format customizers
+ - Rearranged boost/python.hpp includes to fix compiler errors on OS X
+ - Added a SingleEventMainLoop class that steps forward by one event at a time.
+   Useful for driving the processing loop with GUI handlers
+ - Enabled multi-options in the command line parser, allowing commands such as:
+   ./prog --ems-files e1 e2 e2... --scaler-files s1 s2 s3 ...
+
+ map-maker
+ - New options: use cosmic ray data for Milagro moon maps; nCut for VAMOS
+
+ rootwriter
+ - Cosmetic changes to simulation processing python script
+ - Enabled configurable CxPE radius in output
+ - Incorporated renaming of SimMuon to SimParticle
+
+ vamos-reader
+ - Fixed broken map-maker script
+ - Added ChargeCalibrationService with per-PMT calibration constants
+
+
+Changes for the 1.08.00 release (4 Jan 2012)
+--------------------------------------------
+
+BUILD SYSTEM
+
+ - Fixed Mac OS 10.6.8 bug: version codes interpreted as invalid octal numbers
+ - Fixed bug in GEANT4 GUI configuration
+ - Added support for building python bindings to project macros
+
+PROJECTS
+
+ aerie-io
+ - Added universal reader that treats ROOT/XCDF input equally
+ - Removed DataSelector class
+ - Allow string comments in output and summary data (mainly for MMCAnalysis)
+
+ astro-service
+ - Added astronomical coordinate conversion utility "astro-convert"
+ - Added topocentric moon position utility "moonsight"
+ - Exposed astro-service functions to python
+
+ data-structures
+ - Added binary to convert between GPS and UTC
+ - Removed unused and out-of-sync channel data headers
+ - Added thread-safe queue class based on boost::thread
+ - Added GPS-UTC-MJD conversion utility "time-convert"
+ - Exposed most of the data classes to python
+
+ detector-service
+ - Changed documentation in utility programs
+ - Fixed bug in xml2survey utility that was incorrectly printing the TANKFLAG
+ - Added TDC map to real VAMOS configuration for use in simulations
+ - Exposed detector-service functions to python
+
+ g4sim-reader
+ - Exposed g4sim-reader functions to python
+
+ hawcnest
+ - Made significant changes to python bindings to allow rich access to the
+   framework and selected services from python.  The existing service
+   registration framework was not altered, however.
+
+ map-maker
+ - Class name change: RoiMask -> RoIMask
+ - Added cut on minimum number of tanks
+ - Changed API for RoI masking in significance program 
+ - Added plotting scripts for HEALPix maps
+ - Added cut on maximum zenith
+
+ milagro-maps
+ - Fix smoothing to allow for radii >10 degrees
+ - Added option to use RoI masking, plus some minor bug fixes
+
+ rng-service
+ - Exposed rng-service functions to python
+
+ rootwriter
+ - Added option to include curvature correction in time residuals
+ - Added MJD/SEc and MMCAnalysis summary strings to output
+ - Updated process-simulation python script to reflect changes made to analysis
+   modules and the new python bindings
+
+ vamos-reader
+ - Added cuts for minimum/maximum tanks and channels
+ - Compensate for timing differences between channels before triggering
+ - Added option to map-maker utility to make a map for a specific time period,
+   but still use all data for appropriate background estimation
+ - Modify interface for TimeOffsetService; sort AFTER time correction
+ - Removed dummy assignment of calibration time
+ - Added cut for maximum zenith angle
+
+ xcdf
+ - Comments initialized to null string
+ - Fixed corruption issue for block with a vector that is never filled
+
+
+Changes for the 1.07.01 release (6 Nov 2011)
+---------------------------------------------
+
+ map-maker
+ - Fixed bug that causes last sidereal bin to be skipped, lowering the bkg
+   estimation
+
+
+Changes for the 1.07.00 release (4 Nov 2011)
+---------------------------------------------
+
+PROJECTS
+
+ data structures
+ - Fixed typo affecting PropagationPlane SetReferencePoint()
+
+ aerie-io
+ - Added XCDFDataMap class and extract XCDF from DataMap
+ - Include field name when NaN is attempted to be written
+
+ detector-service
+ - Added configs for BaselineMC, HAWCVAMOSMC, and LANL test benches.
+ - Remove unused channels from TDCChannelMap
+
+ event-generator
+ - Support changes related to aerie-io DataMap update
+
+ vamos-reader
+ - Various memory leak fixes (edge time buffer, open file handles, etc.)
+ - Added CSU PE calibration
+ - Support changes related to aerie-io DataMap update
+ - Various extensions to edge finder to handle weird cases observed in data
+ - Don't pass through NaN in reconstruction
+
+ rootwriter
+ - Fixed reco-example bug in command line arguments
+
+ milagro-util
+ - Support changes related to aerie-io DataMap update
+
+ map-maker
+ - Added support for large regions of interest during masking
+ - Fixed bug in 24-hour integration loops
+
+ hmc-analysis
+ - Added executable that uses XML for steering and accepts command line args
+
+BUILD SYSTEM
+
+ - First search for python in PYTHONHOME, then try /usr/local
+ - Bug fix: install headers from data-structures/reconstruction
+
+
+Changes for the 1.06.01 release (20 Oct 2011)
+---------------------------------------------
+
+PROJECTS
+
+ detector-service
+ - Fixed off-by-one error in TDC to PMT channel mapping
+
+
+Changes for the 1.06.00 release (18 Oct 2011)
+---------------------------------------------
+
+PROJECTS
+
+ hawcnest
+ - Enable color-coded error messages when printing to console.
+
+ data-structures
+ - Added TDC chip errors to EventFlags
+ - Added SimulationParameters structure for tracking simulation info
+ - Added chi-square/NDF to all angle fit result classes; for likelihood fits
+   use chi^2/NDF = -2 log(L)
+
+ aerie-io
+ - Renamed "Raw" classes to "Triggered" and modified Writer interface
+ - Add class to provide SFINAE conditions for static visitor classes 
+
+ xcdf
+ - Support big endian hardware (untested).
+
+ detector-service
+ - Fixed iterators in TDCChannelMap to avoid segfaults after copy construction
+ - Updated config files for post-Sep. 28 VAMOS detector configuration
+
+ event-generator
+ - Updates related to new config files in detector-service
+
+ vamos-reader
+ - Fixed time units to always use TDC units; 1 ns = 1.024 counts
+ - Added new edge finder shown by J. Wood at Madison meeting (Sep. 2011)
+ - Propagate TDC chip error conditions into EventFlags 
+ - Added hit selection routines
+
+ track-fitter
+ - Make chi^2/NDF available to rootwriter.
+
+ sim-calibrator
+ - Added simulation parameters to the bag
+ - Added config parameter to set all hits in simulated data to 1 PE
+
+ energy-estimator
+ - Made energy estimate into linear instead of log space.
+
+ rootwriter
+ - Make track fit chi^2/NDF available to output
+
+ milagro-maps
+ - Use average time to determine Milagro detector epoch
+
+ map-maker
+ - Use new VAMOSRecInputSelector (in vamos-reader) to cut input
+
+
+Changes for the 1.05.00 release (26 Sep 2011)
+---------------------------------------------
+
+PROJECTS
+
+ hawcnest
+ - Added WhileLoop construct for breaking multiple Events out of the Bag
+
+ data-structures
+ - Moved reco result classes from core-fitter, track-fitter, etc. into
+   reconstruction subfolder to eliminate project dependency diamond diagrams
+ - Updated reconstruction event flags to account for features in VAMOS data
+ - Added data structures that wrap calls to the PThread library
+ - Added a TimeRange class to handle detector commissioning periods
+
+ aerie-io
+ - Added room for event trigger flags in XCD output
+
+ xcdf
+ - Enable block writes
+
+ detector-service
+ - Added class to map TDC channels to physical channels
+ - Updated layout data and TDC maps for VAMOS and "ideal" HAWC-300 detector
+ - Added executables to convert flat ASCII survey files to/from XML
+
+ event-generator
+ - Fixed XCD streaming example so that events come out in time order
+ - Update examples to use new StdDetectorService interface
+
+ hawc-reco
+ - Moved reconstruction data classes to data-structures project
+
+ core-fitter
+ - Moved core fit result classes to data-structures/reconstruction
+
+ track-fitter
+ - Moved track fit result classes to data-structures/reconstruction
+ - Moved likelihood-based angle fit to this project from lh-angle-fit
+
+ lh-angle-fit
+ - Deleted project and moved classes into track-fitter project
+
+ sim-calibrator
+ - Fill hit trigger flags during calibration
+
+ rootwriter
+ - Updates related to shift of reco data structures out of fitter projects
+ - Write trigger flags to ROOT output
+
+ milagro-util
+ - Add dependency on new energy-estimator project
+
+ map-maker
+ - Cosmetic bug fixes
+ - Added optional masking and map resolution settings
+
+ hmc-analysis
+ - Removed print statements
+
+ vamos-reader
+ - Added muon trigger class
+ - Enable event trigger flags
+ - Moved TDC mapping to detector-service
+
+ energy-estimator
+ - Added basic energy estimator based on PEs in the event
+
+
+Changes for the 1.04.00 release (6 Sep 2011)
+--------------------------------------------
+
+PROJECTS
+
+ hawcnest
+ - Bug fix in command line parser: no more segfaults when using default string
+   arguments
+ - Enabled boolean types in module parameter lists
+ - Added Terminate option to Module sequence to kill the event loop
+
+ data-structures
+ - Added support for multiple Hits in raw events, with corresponding Hit and
+   Edge iterators
+ - Added Trigger class to represent a TDC trigger, for use by the event builder
+ - Added support for multiple events per data block (EventList)
+ - Detector now has string name and version attributes
+ - Added SelectionIterator for conditional iteration using a Compare functor
+ - Major performance upgrade to flat_iterator
+
+ aerie-io
+ - Updated data selectors to loop over Hits rather than Channels and use real
+   Edge/Hit data
+
+ xcdf
+ - Added functions to stream compressed data over a TCP/IP socket
+
+ detector-service
+ - Channel ID mismatch between "ideal" 300-tank XML survey and hawcsim survey
+   fixed
+ - Added real VAMOS XML survey
+
+ grmodel-services
+ - Copied some GRB/transient simulation code from Fermi ScienceTools (in
+   progress)
+
+ event-generator
+ - Added checks to account for HEALPix API changes in version 2.20
+ - More realistic point-source generation executable
+
+ g4sim-reader
+ - Examples use XML detector survey
+
+ hawc-reco
+ - Added a hierarchy Hit selection functors for conditional iteration over Hits
+   during event building
+
+ core-fitter
+ - Use Hit selection functors and conditional iteration from hawc-reco and
+   data-structures
+
+ track-fitter
+ - Use Hit selection functors and conditional iteration from hawc-reco and
+   data-structures
+
+ lh-angle-fit
+ - Use Hit selection functors and conditional iteration from hawc-reco and
+   data-structures
+
+ sim-calibrator
+ - Module parameters modified to use AERIE units
+ - Calibration routines modified to iterate over Hits rather than Channels
+
+ rootwriter
+ - Prescale class deleted and moved to data-structures
+ - Modules updated to use Hits and not Channels
+ - Cosmetic changes to directory structure
+
+ milagro-util
+ - Updated boolean module parameters for data selector
+
+ milagro-maps
+ - Updated boolean module parameters
+ - Use channels rather than hits in selection algorithms (change of jargon)
+ - Added executable to smooth maps given an angular resolution and FrASOR bin
+ 
+ map-maker
+ - Added map module and executable for VAMOS data
+ - Added region-of-interest (ROI) masking of point sources
+ - Added checks to account for HEALPix API changes in version 2.20
+
+ hmc-analysis
+ - Added run ID to processing data
+ - Cosmetic changes to configuration files and modules
+
+ vamos-reader
+ - Block source can handle multiple input files
+ - Reconstruction information added to internal event structures
+ - Use Hit selection functors and conditional iteration from hawc-reco and
+   data-structures
+ - Module parameters modified to use AERIE units
+
+BUILD SYSTEM
+ 
+ - Will compile against ZeroMQ library if it is installed
+
+
+Changes for the 1.03 branch
+---------------------------
+
+PROJECTS
+
+ hawcnest
+ - Added Xerces-based XML reader written for Auger Offline software
+ - Added unit evaluator which uses X-macros to expose units to XML parser and
+   to declare units as "const double" variables.
+ - Added schema declarations from Auger Offline software to allow for extended
+   XML types
+
+ data-structures
+ - geometry: added UTMPoint class for UTM <-> Lat/Lon/Alt conversion support
+ - detector: added checks on tank and channel IDs
+ - hardware: fleshed out CAEN data classes to handle real output from VAMOS
+ - event: removed TDCData class, added baggable EventList, added event
+          reconstruction flags, updated Channel data to handle real TDC edges
+ - time: fixed init bug in TimeStamp; added struct tm -> UTCDateTime conversion
+
+ aerie-io
+ - Added reader-writer for HAWC raw events, with DAQ version numbering
+ - Turn off strict-aliasing when compiling with -O2 to avoid undefined behavior
+   suggested by compiler warnings for gcc >= 4.4
+
+ data-selector
+ - Removed from distribution; functionality produced elsewhere
+
+ detector-service
+ - Added StdDetectorService to read unmasked PMTs from XML config files
+ - Deprecated StaticDetectorService
+ - Added XML surveys and related schema files for XML parser
+
+ grmodel-services
+ - Trivial cosmetic change in CrabSpectrumICSModel
+
+ core-fitter
+ - Avoid fitting with hits flagged as bad during calibration
+
+ track-fitter
+ - Avoid fitting with hits flagged as bad during calibration
+
+ lh-angle-fit
+ - Avoid fitting with hits flagged as bad during calibration
+
+ sim-calibrator
+ - Added trigger data to be used when edges are properly simulated
+ - NOTE: Project is DEPRECATED: need a new calibrator that combines simulation
+   and data calibration stuff currently in vamos-reader
+
+ rootwriter
+ - Added run and event IDs to MMCEvent simplified ntuple output
+
+ milagro-util
+ - Turn off strict-aliasing when compiling with -O2 to avoid undefined behavior
+   suggested by compiler warnings for gcc >= 4.4
+
+ milagro-maps
+ - Added MapData class to store directions and hit information
+
+ map-maker
+ - Added switch to move between standard map-making and moon shadow analysis
+ - Added map creation metadata to FITS output header
+ - Include gnomonic projection healpy plotting script with package
+
+ vamos-reader
+ - New project to read in and decode VAMOS TDC data, build events, reconstruct
+   tracks, and create maps.  Many example programs provided.
+ - NOTE: vamos-reader will undergo significant changes as calibration and
+   reconstruction components are parceled out to other projects
+
+BUILD SYSTEM
+
+ - Added search for Qt4 to define necessary variables for building projects
+
+
+Changes for the 1.02.00 release (16 Jun 2011)
+---------------------------------------------
+
+PROJECTS
+
+ hawcnest
+ - Cosmetic adjustment to service-lister service declarations
+
+ data-structures
+ - Added stream insertion of ParticleType enums
+ - Added hardware/caen subfolder with TDC data structures 
+
+ astro-service
+ - Added anti-sidereal and solar time conversions (need to be checked)
+ 
+ grmodel-services
+ - Added calculations for diffuse gamma-ray fluxes using GALPROP simulations
+ - Shifted EBL and spectrum classes into ebl/ and spectra/ subfolders
+ - Added Crab spectra from HESS, MAGIC, and Aharonian ICS model (2004)
+ - Added proton, helium, and heavy spectra with hardened indices > 225 GeV/nucl
+ - Added services for generic spectra with breaks and cutoffs
+
+ event-generator
+ - Created new project for simulation of events for data challenge
+
+ map-maker
+ - Created new project for map-making with HEALPix and rectangular sky maps;
+   should handle Milagro and simulated event structures
+
+ rootwriter
+ - Fixed file pointer initialization bug (was not initialized to NULL, causing
+   unpredictable seg faults during memory deallocation)
+
+ milagro-util
+ - Minor adjustment to calculation of A5; turn off calculation of astro coords 
+
+ milagro-maps
+ - Added code to handled weighted sky maps
+ - Added program to merge weighted maps produced using DI
+
+ hmc-analysis
+ - Cosmetic changes to output and trigger-rate program
+
+
+Changes for the 1.01.00 release (18 Mar 2011)
+---------------------------------------------
+
+PROJECTS
+
+ hawcnest
+ - Fixed bug in definition of volume units
+ - Added access to repository revision number
+ - Added capability to halt event loop by catching signal from CTRL-C
+
+ data-structures
+ - In math, added power law classes for eventual use in event weighting
+
+ xcdf 
+ - Fixed formatted printing bug
+ - Forced CMake to build with C++ compiler
+ - Added support for an ASCII comment field in header entries
+ - Prevent reading files with newer major version number than current XCDF ID
+
+ aerie-io
+ - Changes for compatibility with C++ version of XCDF
+
+ detector-service
+ - Added separate 3-PMT and 7-PMT versions of VAMOS survey
+
+ grmodel-services
+ - Fixed bug in EBL optical depth calculation for E < 100 GeV
+ - Fixed bug in energy weight: energy integral for transit weight is now
+   weighted by the EBL extinction
+ - Minor changes in calculation of flux normalization to match old mmc-analysis
+   project
+
+ rng-service
+ - Added exponential distribution
+
+ core-fitter
+ - Added units to module parameters
+
+ track-fitter
+ - Set nFit to zero when the fit fails
+ - Fixed const-ness in CurvatureService
+ - Fixed bug in PropagationPlane::Translate
+
+ lh-angle-fit
+ - Added project with log-likelihood-based track fitter
+
+ rootwriter
+ - ROOT trees now written to disk during loops to save memory
+ - Added LH Fit to standard reconstruction chain
+ - Use LH fit for MMC ROOT tree by default
+
+ milagro-maps
+ - Added units to module parameters
+ - Added old milinda MDCAnalysis class to project
+ - Added milinda code to smooth FrASOR maps
+ - Fixed MJD calculation
+ - Added application to apply energy weighting to a set of maps
+ - Added application to get excess/error bars for a point on the sky from a
+   list of maps
+
+ hmc-analysis
+ - Fixed bug involving weight calculation at redshift > 0
+ - Fixed bug in energy weight: energy integral for transit weight is now
+   weighted by the EBL extinction
+
+
+Changes for the 1.00.00 release (1 Jan 2011)
+--------------------------------------------
+
+PROJECTS
+
+ aerie-io
+ - Minor doxygen-related updates
+
+ astro-service
+ - Minor doxygen-related updates
+
+ core-fitter
+ - Minor doxygen-related updates
+ - Minor tweaks of initial fit parameters
+ - Added compactness calculations from cxpe-calculator project
+
+ cxpe-calculated
+ - Removed project; compactness calculations belong in the core-fitter
+
+ track-fitter
+ - Minor doxygen-related updates
+
+ simulation-calibrator
+ - Minor doxygen-related updates
+
+ hawcnest
+ - Added support for ranges (e.g., [min, max]) in project config parameters
+ - Added support for simple command line option flags
+ - Increased support for XML configuration of HAWCNest (still in testing)
+ - Added service-lister program to print registered modules + configs
+ 
+ data-structures
+ - detector: PMT class renamed to Channel
+ - detector: Added new PMT class to store physical properties of PMTs
+ - detector: Channel storage allows O(1) random access by global channel ID
+ - event: renamed SimPMT -> SimChannel, PMTEvent -> ChannelEvent
+ - math: added a TabulatedFunction class that stores xy data and can evaluate
+         y=f(x) by interpolation
+
+ detector-service
+ - Added channel masking file to provide an approximation of the VAMOS layout
+ - Added program to benchmark access times to detector elements
+ - Updates related to the PMT->Channel rename in data-structures/detector
+
+ g4sim-reader
+ - MC header now stores primary particle ID and zenith angle range
+
+ grmodel-services
+ - New project which stores gamma ray and cosmic ray energy spectra and
+   provides models for EBL attenuation (previously part of mmc-analysis)
+
+ hmc-analysis
+ - New project which replaces mmc-analysis with cleaner AERIE-style code
+
+ mmc-analysis
+ - Removed project, an older Milagro-style analysis package
+
+ milagro-util
+ - Added full data selection example driver program
+ - Added options to cut events during reading so they don't go into the Bag
+
+ rootwriter
+ - Removed BasicRootWriter
+ - Added MMCWriterService for ROOT i/o
+ - Added MC processing XML script
+ - Added full MC reconstruction example driver program
+
+ xcdf
+ - Implemented portable 64b format specifiers
+ - Added a basic usage example
+
+Changes for the 0.11.01 beta (25 Sep 2010)
+------------------------------------------
+
+PROJECTS
+
+ milagro-maps
+ - Cosmetic fixes that were preventing compilation with gcc 4.3
+
+
+Changes for the 0.11.00 beta (24 Sep 2010)
+------------------------------------------
+
+PROJECTS
+
+ milagro-maps
+ - New project based on Milagro direct integration and mapmaking code
+
+ rng-service
+ - New project interface for random number generation (Mersenne Twister engine)
+
+ hawcnest
+ - Added command line tool to provide standard options for all programs:
+   + Help and version info
+   + Control of floating-point exceptions
+   + Control of logging system verbosity
+ - Added XML configuration option for module chains 
+
+ data-structures
+ - Floating point bug fix (invalid arg) for scalar product of two vectors
+
+ g4sim-reader
+ - Full storage of data from g4sim headers
+
+ rootwriter
+ - Added Prescaler module that can be used to improve the MC loop efficiency
+
+ core-fitter
+ - Changed default seeding of GaussCoreFit to match milinda fitting strategy.
+   Added config flags to recover old behavior
+ - Low-PE hits no longer ignored; now they are treated as underfluctuations 
+
+ track-fitter
+ - Tighten time fit chi-square cuts even when the plane fit fails (same
+   behavior as milinda)
+
+ xcdf
+ - Now compiles with C++ compiler
+ - Added file management utility
+
+Changes for the 0.10.01 beta (27 Aug 2010)
+------------------------------------------
+
+PROJECTS
+
+ hawcnest
+ - Cosmetic fixes to satisfy code review:
+   + Lines limited to 80 characters
+   + Expanded comments
+
+ aerie-io
+ - Make DataVector valid for subsequent events
+
+ astro-service
+ - Minor adjustments to galactic-equatorial coordinate conversion
+
+ core-fitter
+ - Added checks on core location
+
+ rootwriter
+ - Minor reduction in ntuple output
+
+ track-fitter
+ - Bug fix: units mistake in Gaussian plane fit
+ - Bug fix in progressive time residual hit cuts for shower plane fit (large
+   improvement in angular resolution)
+
+ xcdf
+ - Static linking during standalone build
+
+BUILD SYSTEM
+
+ - Fixed version numbering and code name calculation during package creation
+
+
+Changes for the 0.10.00 beta (3 Aug 2010)
+-----------------------------------------
+
+PROJECTS
+
+ hawcnest
+ - Changed logging macros to handle user types.  The printf-style format was
+   dropped to accomodate a C++ stream-like syntax and boost::format statements
+ - Added package version structures and macros.  These should make their way
+   into aerie output file headers  
+
+ data-structures
+ - In geometry, added quantities to handle geodetic position with WGS84
+   ellipsoid
+ - In time, updated calculations of Modified Julian Date to provide conversions
+   needed for astronomical calculations (e.g., UT, TT, and TAI conversions)
+
+ detector-service
+ - Altered HAWC survey file to include estimated latitude, longitude, and
+   altitude of the site
+ - Added Milagro detector info for analysis of Milagro data
+
+ xcdf
+ - New project to automatically pack and unpack structures into binary files
+   based on the type and range of the data to be stored
+ - Note: this project may be split from aerie and distributed as an external
+   library
+
+ aerie-io
+ - New project to handle simple data I/O using the xcdf library 
+
+ milagro-util
+ - New project to handle I/O of Milagro data, which was converted to XCD format
+   by J. Braun.  See http://hawc.umd.edu/wiki/index.php/Milagro_Data_in_Aerie
+
+ data-selector
+ - New project that writes range-limited data in the XCD format
+
+ astro-service
+ - New project to handle standard astronomical transformations (local,
+   horizon, equatorial, galactic), tracking of astronomical bodies (moon), and
+   to precess coordinates to a fixed epoch (full precession + nutation)
+
+ viewer
+ - Defunct viewer project removed; new event display is under development
+
+BUILD SYSTEM
+
+ - Added explicit searches for bzip2
+ - Added capability to create project headers using the build system (e.g., the
+   config.h header in hawcnest) with a BUILD_HEADERS option to the
+   ADD_HAWC_LIBRARY macro.  This is meant to be used sparingly!
+
+
+Changes for 0.9.2 beta (21 June 2010)
+--------------------------------------
+
+BUILD SYSTEM
+ 
+  - Fix of pthread and util finding macros to allow building on certain
+    versions of linux
+
+
+Changes for 0.9.1 beta (1 June 2010)
+-------------------------------------
+
+PROJECTS
+
+ hawcnest
+ - Scoped calls to printf in the logging macros for gcc 4.4 compatibility
+
+ rootwriter
+ - Fixed bug in DelAngle calculation
+
+BUILD SYSTEM
+
+ - Fix of Boost finding macros for CMake versions >= 2.6.4
+
+
+20 May 2010 : Release of 0.9.0 beta
+------------------------------------
+

@@ -1,0 +1,64 @@
+
+/*!
+
+  \page run_aerie Running AERIE
+
+  \addindex run_aerie 
+
+  \image html spur-gears.jpg
+
+  This page describes a few of the basics of running AERIE.  Complete details,
+  including walkthroughs and examples, are given on the HAWC wiki in an <a
+  href="http://hawc.umd.edu/wiki/index.php/Aerie_Tutorial">AERIE Tutorial</a>.
+
+  \tableofcontents
+
+  \section basics The Basics
+
+    The primary use of AERIE is event processing, and the event processing
+    model is built as a layer on top of the base HAWCNest service management
+    framework.  
+    A full description of the concepts behind AERIE can be found in the <a
+    href="http://hawc.umd.edu/wiki/images/c/c2/HAWCNest-whitepaper.pdf">HAWCNest
+    whitepaper</a>.  In brief, the software contains:
+    <ul>
+      <li> Modules and Services, which implement the algorithms used to process
+           events; </li>
+      <li> A framework called HAWCNest which acts as a registration index for
+           Modules and Services, and handles event loops. </li>
+    </ul>
+
+    Actual event data are stored in a container called the Bag, a dictionary or
+    "whiteboard" that stores data classes keyed by string names.  A complete
+    description of the Bag can be found on the
+    <a href="http://hawc.umd.edu/wiki/index.php/Aerie_Tutorial-The_Bag">wiki
+    page</a>.
+
+  \section event_processing Event Processing
+
+    Event processing in AERIE is performed with three pieces:
+
+    <ol>
+      <li> A <strong>Source</strong>, a service type which starts the event
+           loop and creates events by putting the first data into the Bag.</li>
+      <li> One or more <strong>Modules</strong>, specialized services which act
+           on data in the Bag and insert physics results (in the form of 
+           Baggable objects).</li>
+      <li> A <strong>MainLoop</strong>, a special service which configures a
+           Source and a chain of Modules and actually manages the event
+           processing.</li>
+    </ol>
+
+    Details of the event processing and some simple examples can be found on
+    the <a href="http://hawc.umd.edu/wiki/index.php/Aerie_Tutorial-Modules_and_Sources">
+    HAWC wiki page</a>.
+
+  \section building_and_running Building and Running
+
+    AERIE provides several modes for building and running the software.  The
+    best place to read about these are on the HAWC wiki
+    <a href="http://hawc.umd.edu/wiki/index.php/Aerie_Tutorial">AERIE
+    Tutorial, where you can find a start-to-finish guide</a>.
+
+*/
+

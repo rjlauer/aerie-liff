@@ -1,0 +1,84 @@
+
+/*!
+ * @defgroup hawcnest HAWCNest Framework
+ * @anchor hawcnest
+ * @brief Core framework that defines the event loop and provides hooks to
+ *        modules and services
+ */
+
+/*!
+ * @defgroup data_structures Data Structures
+ * @anchor data_structures
+ * @brief Core event structures and analysis classes
+ */
+
+/*!
+ * @defgroup services Services
+ * @anchor services
+ * @brief Services that are independent of the event loop
+ */
+
+/*!
+ * @defgroup modules Modules
+ * @anchor modules
+ * @brief Services that act on the event loop
+ */
+
+/*!
+ * @defgroup data_io Data I/O
+ * @ingroup modules
+ * @brief Classes that provide a stream of data to other modules, or that
+ *        write data to disk
+ */
+
+/*!
+ * @defgroup example_apps Example Applications
+ * @anchor example_apps
+ * @brief List of example applications available in the AERIE workspace
+ *
+ * The prototypical AERIE application is the 
+ * <a href="http://hawc.umd.edu/wiki/index.php/Aerie_Tutorial-Reconstructing_Simulation">
+ * reconstruction of simulated events</a>.  A tutorial is provided in the AERIE
+ * example project and described on the HAWC wiki page.
+ *
+ * @defgroup utility_apps Utilities
+ * @ingroup example_apps
+ * @brief Handy utilities (unit conversions, time systems, astronomical
+ *        coordinates, etc.)
+ *
+ * @defgroup reco_apps Reconstruction
+ * @ingroup example_apps
+ * @brief Applications demonstrating the reconstruction of real and simulated
+ *        events.
+ *
+ * @defgroup sim_apps Simulation 
+ * @ingroup example_apps
+ * @brief Applications demonstrating the simulation of HAWC data
+ * 
+ * @defgroup map_apps Map Making 
+ * @ingroup example_apps
+ * @brief Creation and production of sky maps.
+ *
+ * @defgroup test_apps Test Programs
+ * @ingroup example_apps
+ * @brief Test programs available in projects. 
+ */
+
+/*!
+ * @defgroup aerie_test AERIE Testing
+ * @anchor aerie_test
+ * @brief Utilities related to code testing.
+ *
+ * @defgroup unit_test Unit Tests
+ * @ingroup aerie_test
+ * @brief Tests of internal workings of classes and modules.
+ *
+ * @defgroup integration_test Integration Tests
+ * @ingroup aerie_test
+ * @brief Environmental tests of classes and external resources.
+ *
+ * @defgroup regression_test Regression Tests
+ * @ingroup aerie_test
+ * @brief New feature and bug fix checks.
+ */
+

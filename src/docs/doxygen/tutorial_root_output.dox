@@ -1,0 +1,104 @@
+/*!
+
+\page tutorial_root_output ROOT Output 
+
+\tableofcontents
+
+\section output_trees Output Trees
+
+In standard AERIE tasks, such as \ref tutorial_reconstructing_simulation, the
+output of the AERIE module sequence can be written in
+<a href="http://private.hawc-observatory.org/wiki/index.php/XCDF">XCDF</a>
+format or <a href="http://root.cern.ch">ROOT</a> trees.  For legacy reasons
+there are actually two kinds of ROOT trees used by downstream analysis
+projects: a simple \ref mmcevent_tree compatible with the Milagro analysis
+software and the
+<code><a href="http://private.hawc-observatory.org/trac/svn/browser/projects/hmc-analysis">hmc-analysis</a></code>
+project; and a hierarchical \ref event_tree with nearly all the contents of the
+Bag for each event.
+
+\subsection mmcevent_tree MMCEvent Tree
+
+The MMCEvent tree is a flat ntuple meant to be compatible with the obsolete
+<code><a href="http://private.hawc-observatory.org/trac/svn/browser/projects/mmc-analysis">mmc-analysis</a></code>
+project (MMC=Milagro Monte Carlo).  It contains the following fields:
+
+\code{.cpp}
+UInt_t  eventId;          // Event number
+UInt_t  runId;            // Run number
+UInt_t  nPEs;             // Number of PEs in the event
+Short_t nHit;             // Number of hits in the event
+Short_t maxWindowHits;    // Maximum hits in sliding time window (~500 ns)
+Short_t nTank;            // Number of triggered tanks in the event
+Short_t nFit;             // Number of channels in track fit
+Float_t XCore;            // Reconstructed core location: x-position
+Float_t YCore;            // Reconstructed core location: y-position
+Float_t XCoreMC;          // Simulated core location: x-position
+Float_t YCoreMC;          // Simulated core location: y-position
+Float_t RCoreMC;          // Simulated core radius
+Float_t ThetaMC;          // Simulated zenith angle
+Float_t PhiMC;            // Simulated azimuth angle
+Float_t Theta;            // Reconstructed zenith angle
+Float_t Phi;              // Reconstructed azimuth angle
+Float_t DelCore;          // Difference between sim. and reco. cores
+Float_t DelAngle;         // Difference between sim. and reco. tracks
+Float_t CxPE;             // Compactness (usually 40 m radius)
+Float_t EnergyMC;         // Simulated primary energy
+Float_t EnergyMeas;       // Reconstructed primary energy
+Float_t GrndEnergyMC;     // Simulated ground energy
+Float_t GrndEnergyMeas;   // Reconstructed ground energy
+Short_t Prescale;         // Event prescale (1 if triggered event, 50 if not)
+\endcode
+
+This tree provides the input needed by \ref tutorial_sensitivity in the
+<code><a href="http://private.hawc-observatory.org/trac/svn/browser/projects/hmc-analysis">hmc-analysis</a></code>
+project.
+
+\subsection event_tree Event Tree
+
+The <code>event</code> tree is a dump of the complete contents of SimEvent and
+Event data in the Bag to a ROOT tree.  As such, its contents are much larger
+and more complex than the MMCEvent tree, and can change depending on the
+specifics of the module sequence in the reconstruction.  It is appropriate for
+very detailed comparisons between data and simulation.
+
+\section enabling_output Enabling ROOT Output
+
+Writing ROOT trees requires that one initialize a RootWriter and
+DynamicSerializer with the Bag names of the objects that should be written to
+disk.  The <code>aerie-io</code> code will handle the internal details of
+outputting the data.  Examples can be found in the 
+<code><a href="http://private.hawc-observatory.org/trac/svn/browser/projects/aerie-apps/trunk/reconstruction/hawcsim-reco/">aerie-apps</a></code>
+project.
+
+\section reading_trees Obtaining and Reading the Trees
+
+As part of standard simulation production ROOT trees are produced and stored in
+the <code>$HAWCROOT</code> folder on the UMD cluster.  Details can be found on
+the 
+<a href="http://private.hawc-observatory.org/wiki/index.php/Monte_Carlo_Products">Monte Carlo Products</a>
+wiki page.
+
+Reading the trees requires a working version of ROOT and appropriate code to
+access the data from a file.  The ROOT script snippet below shows a simple
+example of how to access both trees in a file.
+
+\code{.cpp}
+{
+  TFile* f = new TFile("proton.root", "READONLY");
+  TTree* events = (TTree*)f->Get("events");
+  TTree* MMCEvents = (TTree*)f->Get("MMCEvents");
+
+  // Make MMCEvents a friend of events; then events has access to the variables
+  // in MMCEvents
+  events->AddFriend("MMCEvents");
+
+  // and here the analysis begins...
+}
+\endcode
+
+More sophisticated examples can be found in the
+<code><a href="http://private.hawc-observatory.org/trac/svn/browser/projects/hmc-analysis">hmc-analysis</a></code>
+project.
+
+*/

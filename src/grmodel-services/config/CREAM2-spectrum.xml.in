@@ -1,0 +1,128 @@
+<?xml version="1.0"?>
+
+<!-- Energy spectra of various primary species: broken and double-broken power
+     law fits using data from H. Ahn et al., ApJ 714 (2010) L89-L93.
+     -->
+
+<cosmicRayModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                xsi:noNamespaceSchemaLocation="@HAWC_CONFIG@/CRSpectrum.xsd">
+
+  <!-- =========================== Proton spectrum ========================= -->
+  <source>
+    <name> CREAMProtonFit </name>
+    <particleType> Proton </particleType>
+    <spectrum type="BrokenPowerLaw">
+      <energyRange unit="GeV"> 1.0 1.0e6 </energyRange>
+      <normF unit="1./(GeV*meter2*s*sr)"> 0.32288 </normF>
+      <normE unit="GeV"> 50. </normE>
+      <index> -2.82 </index>
+      <Ebreak unit="GeV"> 200. </Ebreak>
+      <index1> -2.68 </index1>
+    </spectrum>
+  </source>
+  <!-- ========================== Helium spectrum  ========================= -->
+  <source>
+    <name> CREAMHeliumFit </name>
+    <particleType> He4 </particleType>
+    <spectrum type="BrokenPowerLaw">
+      <energyRange unit="GeV"> 1.0 1.0e6 </energyRange>
+      <normF unit="1e-2/(GeV*meter2*s*sr)"> 2.95135 </normF>
+      <normE unit="GeV"> 100. </normE>
+      <index> -2.69 </index>
+      <Ebreak unit="GeV"> 550. </Ebreak>
+      <index1> -2.52 </index1>
+    </spectrum>
+  </source>
+  <!-- ========================== Carbon spectrum ========================== -->
+  <source>
+    <name> CREAMCarbonFit </name>
+    <particleType> C12 </particleType>
+    <spectrum type="DoubleBrokenPowerLaw">
+      <energyRange unit="GeV"> 1.0 1.0e6 </energyRange>
+      <normF unit="1e-2/(GeV*meter2*s*sr)"> 3.35 </normF>
+      <normE unit="GeV"> 36. </normE>
+      <index> -1.93 </index>
+      <Ebreak1 unit="GeV"> 120. </Ebreak1>
+      <index1> -2.72 </index1>
+      <Ebreak2 unit="TeV"> 2.4 </Ebreak2>
+      <index2> -2.51 </index2>
+    </spectrum>
+  </source>
+  <!-- ================= Oxygen spectrum  ================= -->
+  <source>
+    <name> CREAMOxygenFit </name>
+    <particleType> O16 </particleType>
+    <spectrum type="DoubleBrokenPowerLaw">
+      <energyRange unit="GeV"> 1.0 1.0e6 </energyRange>
+      <normF unit="1e-2/(GeV*meter2*s*sr)"> 2.4 </normF>
+      <normE unit="GeV"> 48. </normE>
+      <index> -1.93 </index>
+      <Ebreak1 unit="GeV"> 160. </Ebreak1>
+      <index1> -2.72 </index1>
+      <Ebreak2 unit="TeV"> 3.2 </Ebreak2>
+      <index2> -2.51 </index2>
+    </spectrum>
+  </source>
+  <!-- ================== Neon spectrum  ================== -->
+  <source>
+    <name> CREAMNeonFit </name>
+    <particleType> Ne20 </particleType>
+    <spectrum type="DoubleBrokenPowerLaw">
+      <energyRange unit="GeV"> 1.0 1.0e6 </energyRange>
+      <normF unit="1e-3/(GeV*meter2*s*sr)"> 2.97 </normF>
+      <normE unit="GeV"> 60. </normE>
+      <index> -1.93 </index>
+      <Ebreak1 unit="GeV"> 200. </Ebreak1>
+      <index1> -2.72 </index1>
+      <Ebreak2 unit="TeV"> 4. </Ebreak2>
+      <index2> -2.51 </index2>
+    </spectrum>
+  </source>
+  <!-- =============== Magnesium spectrum  ================ -->
+  <source>
+    <name> CREAMMagnesiumFit </name>
+    <particleType> Mg24 </particleType>
+    <spectrum type="DoubleBrokenPowerLaw">
+      <energyRange unit="GeV"> 1.0 1.0e6 </energyRange>
+      <normF unit="1e-3/(GeV*meter2*s*sr)"> 3.25 </normF>
+      <normE unit="GeV"> 72. </normE>
+      <index> -1.93 </index>
+      <Ebreak1 unit="GeV"> 240. </Ebreak1>
+      <index1> -2.72 </index1>
+      <Ebreak2 unit="TeV"> 4.8 </Ebreak2>
+      <index2> -2.51 </index2>
+    </spectrum>
+  </source>
+  <!-- ================ Silicon spectrum  ================= -->
+  <source>
+    <name> CREAMSiliconFit </name>
+    <particleType> Si28 </particleType>
+    <spectrum type="DoubleBrokenPowerLaw">
+      <energyRange unit="GeV"> 1.0 1.0e6 </energyRange>
+      <normF unit="1e-3/(GeV*meter2*s*sr)"> 2.45 </normF>
+      <normE unit="GeV"> 84. </normE>
+      <index> -1.93 </index>
+      <Ebreak1 unit="GeV"> 280. </Ebreak1>
+      <index1> -2.72 </index1>
+      <Ebreak2 unit="TeV"> 5.6 </Ebreak2>
+      <index2> -2.51 </index2>
+    </spectrum>
+  </source>
+  <!-- ================== Iron spectrum ================== -->
+  <source>
+    <name> CREAMIronFit </name>
+    <particleType> Fe56 </particleType>
+    <spectrum type="DoubleBrokenPowerLaw">
+      <energyRange unit="GeV"> 1.0 1.0e6 </energyRange>
+      <normF unit="1e-4/(GeV*meter2*s*sr)"> 8.34 </normF>
+      <normE unit="GeV"> 168. </normE>
+      <index> -1.93 </index>
+      <Ebreak1 unit="GeV"> 560. </Ebreak1>
+      <index1> -2.72 </index1>
+      <Ebreak2 unit="TeV"> 11.2 </Ebreak2>
+      <index2> -2.51 </index2>
+    </spectrum>
+  </source>
+
+</cosmicRayModel>
+

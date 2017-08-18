@@ -1,0 +1,94 @@
+This file corresponding to components from the Pierre Auger Observatory Offline
+software framework used in AERIE.  The components can be found in the
+data-structures area and are indicated as such in header files.
+
+--------------------------------------------------------------------------------
+
+Copyright (c) 2010, Copyright holders of the Pierre Auger
+Observatory Offline Software
+
+All rights reserved.
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are
+met:
+
+    * Redistributions of source code must retain the above copyright
+    notice, this list of conditions and the following disclaimer.
+
+    * Redistributions in binary form must reproduce the above
+    copyright notice, this list of conditions and the following
+    disclaimer in the documentation and/or other materials provided
+    with the distribution.
+
+    * Neither the name of the Pierre Auger Observatory nor the names
+    of its members may be used to endorse or promote products derived
+    from this software without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+"AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+(INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+
+Copyright holders of the Pierre Auger Observatory Offline Software
+
+Lukas Nellen            lukas@nucleares.unam.mx
+Thomas Paul             t.paul@neu.edu
+Stefano Argiro          stefano.argiro@to.infn.it
+Troy Porter             tporter@stanford.edu
+Daniele Martello        daniele.martello@le.infn.it
+Javier Gonzalez         javier.gonzalez@ik.fzk.de
+Markus Roth             Markus.Roth@ik.fzk.de
+Ralf Ulrich             ralf.ulrich@ik.fzk.de
+Sergio Barroso          barroso@if.unicamp.br
+Darko Veberic           darko.veberic@ung.si
+Matej Horvat            matej.horvat@ijs.si
+Michael Unger           Michael.Unger@ik.fzk.de
+Gabriella Cataldi       Gabriella.Cataldi@le.infn.it
+Julio Bahilo            julio@ugr.es
+Ioana Maris             Ioana.Maris@ik.fzk.de
+Tom McCauley            thomas.mccauley@cern.ch
+Jeff Allen              jda292@nyu.edu
+Domenico Durso          durso@na.infn.it
+Laura Valore            valore@na.infn.it
+Faustino Guarino        guarino@na.infn.it
+Matt Healy              healymd@physics.ucla.edu
+Miguel Mostafa          mostafa@physics.utah.edu
+Francesco Salamida      Francesco.Salamida@aquila.infn.it
+Segev BenZvi            segev.benzvi@icecube.wisc.edu
+Mulin Ding              md546@nyu.edu
+Pedro Assis             pedjor@lip.pt
+Patricia Goncalves      patricia@lip.pt
+Bernardo Tome           bernardo@lip.pt
+Ines Valino             inesvr@gmail.com
+Hans Dembinski          dembinski@physik.rwth-aachen.de
+Julian Rautenberg       rautenbe@physik.uni-wuppertal.de
+Talianna Schmidt        talianna.schmidt@ik.fzk.de
+Carla Bleve             cb@ast.leeds.ac.uk
+Steffen Mueller         Steffen.Mueller2@ik.fzk.de
+Simone Maldera          maldera@to.infn.it
+Tim Huege               tim.huege@kit.edu
+Thomas Asch             Thomas.Asch@ipe.fzk.de
+Adrian Schmidt          Adrian.Schmidt@ipe.fzk.de
+Frank Schroeder         Frank.Schroeder@ik.fzk.de
+Nunzia Palmieri         nunzia.palmieri@ik.fzk.de
+Maximilien Melissas     maximilien.melissas@ik.fzk.de
+Stefan Fliescher        fliescher@physik.rwth-aachen.de
+Harm Schoorlemmer       h.schoorlemmer@science.ru.nl
+Stefan Grebe            s.grebe@science.ru.nl
+Pietro Oliva            olivap@physik.uni-wuppertal.de
+Daniel Fraenkel         fraenkel@kvi.nl
+Sybren Harmsma          harmsma@kvi.nl
+Vincent Marin           Vincent.Marin@subatech.in2p3.fr
+Krijn de Vries          dvries@kvi.nl
+Tonio Hauschildt        tonio@to.infn.it
+Rodolfo Gamarra         rgamarra@gmail.com
+Anne Stutz              anne.stutz@lpsc.in2p3.fr

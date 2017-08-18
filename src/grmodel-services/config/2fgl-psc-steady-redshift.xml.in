@@ -1,0 +1,1115 @@
+<?xml version="1.0"?>
+
+<!--
+  2FGL point source list created from gll_psc_v07.fit
+  with AERIE script listXML.py
+
+  Cuts:
+   - 2FGL analysis flags == 0
+   - Source declination within +-50 deg of dec=19 deg
+   - Minimum significance = 10 sigma
+   - Power laws softer than E^-2
+   - Steady sources = yes
+   - Light curve: measurements in at least 12/24 bins
+-->
+
+<ps-catalog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:noNamespaceSchemaLocation="@HAWC_CONFIG@/PSCatalog.xsd">
+
+  <!-- ==================== 2FGL J0007.8+4713  =================== -->
+  <source>
+    <name>  2FGL J0007.8+4713 </name>
+    <assoc> MG4 J000800+4712 </assoc>
+    <raJ2000  unit="degree"> 1.974317 </raJ2000>
+    <decJ2000 unit="degree"> 47.229816 </decJ2000>
+    <redshift> 0.28 </redshift>
+    
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 0.1 100 </energyRange>
+      <normF unit="1e-12/cm2/second/MeV"> 1.820378 </normF>
+      <normE unit="GeV"> 1.129108 </normE>
+      <index> -2.098409 </index>
+    </spectrum>
+  </source>
+  <!-- ==================== 2FGL J0030.4+0450  =================== -->
+  <source>
+    <name>  2FGL J0030.4+0450 </name>
+    <assoc> PSR J0030+0451 </assoc>
+    <raJ2000  unit="degree"> 7.601045 </raJ2000>
+    <decJ2000 unit="degree"> 4.838678 </decJ2000>
+    
+    <spectrum type="PLExpCutoff_LAT">
+      <energyRange unit="GeV"> 0.1 100 </energyRange>
+      <normF unit="1e-12/cm2/second/MeV"> 23.808915 </normF>
+      <normE unit="GeV"> 0.699826 </normE>
+      <index> -1.298066 </index>
+      <cutoffE unit="GeV"> 2.011966 </cutoffE>
+    </spectrum>
+  </source>
+  <!-- ==================== 2FGL J0034.4-0534  =================== -->
+  <source>
+    <name>  2FGL J0034.4-0534 </name>
+    <assoc> PSR J0034-0534 </assoc>
+    <raJ2000  unit="degree"> 8.613125 </raJ2000>
+    <decJ2000 unit="degree"> -5.582183 </decJ2000>
+    
+    <spectrum type="PLExpCutoff_LAT">
+      <energyRange unit="GeV"> 0.1 100 </energyRange>
+      <normF unit="1e-12/cm2/second/MeV"> 5.936362 </normF>
+      <normE unit="GeV"> 0.755676 </normE>
+      <index> -1.328991 </index>
+      <cutoffE unit="GeV"> 1.637049 </cutoffE>
+    </spectrum>
+  </source>
+  <!-- ==================== 2FGL J0106.5+4854  =================== -->
+  <source>
+    <name>  2FGL J0106.5+4854 </name>
+    <assoc>  </assoc>
+    <raJ2000  unit="degree"> 16.645967 </raJ2000>
+    <decJ2000 unit="degree"> 48.912655 </decJ2000>
+    
+    <spectrum type="LogParabola">
+      <energyRange unit="GeV"> 0.1 100 </energyRange>
+      <normF unit="1e-12/cm2/second/MeV"> 2.004630 </normF>
+      <normE unit="GeV"> 1.419638 </normE>
+      <alpha> -2.013059 </alpha>
+      <beta>  -0.296428 </beta>
+    </spectrum>
+  </source>
+  <!-- ==================== 2FGL J0205.8+6448  =================== -->
+  <source>
+    <name>  2FGL J0205.8+6448 </name>
+    <assoc> PSR J0205+6449 </assoc>
+    <raJ2000  unit="degree"> 31.453906 </raJ2000>
+    <decJ2000 unit="degree"> 64.809561 </decJ2000>
+    
+    <spectrum type="PLExpCutoff_LAT">
+      <energyRange unit="GeV"> 0.1 100 </energyRange>
+      <normF unit="1e-12/cm2/second/MeV"> 3.535400 </normF>
+      <normE unit="GeV"> 1.478726 </normE>
+      <index> -1.896977 </index>
+      <cutoffE unit="GeV"> 2.558597 </cutoffE>
+    </spectrum>
+  </source>
+  <!-- ==================== 2FGL J0218.1+4233  =================== -->
+  <source>
+    <name>  2FGL J0218.1+4233 </name>
+    <assoc> PSR J0218+4232 </assoc>
+    <raJ2000  unit="degree"> 34.527433 </raJ2000>
+    <decJ2000 unit="degree"> 42.553257 </decJ2000>
+    
+    <spectrum type="PLExpCutoff_LAT">
+      <energyRange unit="GeV"> 0.1 100 </energyRange>
+      <normF unit="1e-12/cm2/second/MeV"> 16.770614 </normF>
+      <normE unit="GeV"> 0.679904 </normE>
+      <index> -2.012097 </index>
+      <cutoffE unit="GeV"> 4.513464 </cutoffE>
+    </spectrum>
+  </source>
+  <!-- ==================== 2FGL J0224.0+6204  =================== -->
+  <source>
+    <name>  2FGL J0224.0+6204 </name>
+    <assoc>  </assoc>
+    <raJ2000  unit="degree"> 36.023258 </raJ2000>
+    <decJ2000 unit="degree"> 62.076570 </decJ2000>
+    
+    <spectrum type="LogParabola">
+      <energyRange unit="GeV"> 0.1 100 </energyRange>
+      <normF unit="1e-12/cm2/second/MeV"> 3.445336 </normF>
+      <normE unit="GeV"> 1.768559 </normE>
+      <alpha> -2.587670 </alpha>
+      <beta>  -0.390992 </beta>
+    </spectrum>
+  </source>
+  <!-- ==================== 2FGL J0248.1+6021  =================== -->
+  <source>
+    <name>  2FGL J0248.1+6021 </name>
+    <assoc> PSR J0248+6021 </assoc>
+    <raJ2000  unit="degree"> 42.041512 </raJ2000>
+    <decJ2000 unit="degree"> 60.356852 </decJ2000>
+    
+    <spectrum type="PLExpCutoff_LAT">
+      <energyRange unit="GeV"> 0.1 100 </energyRange>
+      <normF unit="1e-12/cm2/second/MeV"> 17.062594 </normF>
+      <normE unit="GeV"> 0.749319 </normE>
+      <index> -1.667524 </index>
+      <cutoffE unit="GeV"> 1.510263 </cutoffE>
+    </spectrum>
+  </source>
+  <!-- ==================== 2FGL J0340.4+4131  =================== -->
+  <source>
+    <name>  2FGL J0340.4+4131 </name>
+    <assoc> PSR J0340+4130 </assoc>
+    <raJ2000  unit="degree"> 55.103241 </raJ2000>
+    <decJ2000 unit="degree"> 41.527636 </decJ2000>
+    
+    <spectrum type="PLExpCutoff_LAT">
+      <energyRange unit="GeV"> 0.1 100 </energyRange>
+      <normF unit="1e-12/cm2/second/MeV"> 2.488421 </normF>
+      <normE unit="GeV"> 1.316284 </normE>
+      <index> -0.958373 </index>
+      <cutoffE unit="GeV"> 2.336363 </cutoffE>
+    </spectrum>
+  </source>
+  <!-- ==================== 2FGL J0357.8+3205  =================== -->
+  <source>
+    <name>  2FGL J0357.8+3205 </name>
+    <assoc> LAT PSR J0357+3205 </assoc>
+    <raJ2000  unit="degree"> 59.471946 </raJ2000>
+    <decJ2000 unit="degree"> 32.096838 </decJ2000>
+    
+    <spectrum type="PLExpCutoff_LAT">
+      <energyRange unit="GeV"> 0.1 100 </energyRange>
+      <normF unit="1e-12/cm2/second/MeV"> 51.912162 </normF>
+      <normE unit="GeV"> 0.549160 </normE>
+      <index> -1.006707 </index>
+      <cutoffE unit="GeV"> 0.832742 </cutoffE>
+    </spectrum>
+  </source>
+  <!-- ==================== 2FGL J0426.7+5434  =================== -->
+  <source>
+    <name>  2FGL J0426.7+5434 </name>
+    <assoc>  </assoc>
+    <raJ2000  unit="degree"> 66.687563 </raJ2000>
+    <decJ2000 unit="degree"> 54.581158 </decJ2000>
+    
+    <spectrum type="LogParabola">
+      <energyRange unit="GeV"> 0.1 100 </energyRange>
+      <normF unit="1e-12/cm2/second/MeV"> 13.359604 </normF>
+      <normE unit="GeV"> 0.758251 </normE>
+      <alpha> -2.522763 </alpha>
+      <beta>  -0.450103 </beta>
+    </spectrum>
+  </source>
+  <!-- ==================== 2FGL J0523.3-2530  =================== -->
+  <source>
+    <name>  2FGL J0523.3-2530 </name>
+    <assoc>  </assoc>
+    <raJ2000  unit="degree"> 80.828233 </raJ2000>
+    <decJ2000 unit="degree"> -25.502875 </decJ2000>
+    
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 0.1 100 </energyRange>
+      <normF unit="1e-12/cm2/second/MeV"> 2.128738 </normF>
+      <normE unit="GeV"> 1.016393 </normE>
+      <index> -2.124012 </index>
+    </spectrum>
+  </source>
+  <!-- ==================== 2FGL J0607.4+4739  =================== -->
+  <source>
+    <name>  2FGL J0607.4+4739 </name>
+    <assoc> TXS 0603+476 </assoc>
+    <raJ2000  unit="degree"> 91.869992 </raJ2000>
+    <decJ2000 unit="degree"> 47.658191 </decJ2000>
+    
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 0.1 100 </energyRange>
+      <normF unit="1e-12/cm2/second/MeV"> 1.231651 </normF>
+      <normE unit="GeV"> 1.371849 </normE>
+      <index> -2.050908 </index>
+    </spectrum>
+  </source>
+  <!-- ==================== 2FGL J0613.8-0200  =================== -->
+  <source>
+    <name>  2FGL J0613.8-0200 </name>
+    <assoc> PSR J0613-0200 </assoc>
+    <raJ2000  unit="degree"> 93.456522 </raJ2000>
+    <decJ2000 unit="degree"> -2.013148 </decJ2000>
+    
+    <spectrum type="PLExpCutoff_LAT">
+      <energyRange unit="GeV"> 0.1 100 </energyRange>
+      <normF unit="1e-12/cm2/second/MeV"> 5.073729 </normF>
+      <normE unit="GeV"> 1.078651 </normE>
+      <index> -1.309383 </index>
+      <cutoffE unit="GeV"> 2.617217 </cutoffE>
+    </spectrum>
+  </source>
+  <!-- ==================== 2FGL J0617.2+2234e =================== -->
+  <source>
+    <name>  2FGL J0617.2+2234e </name>
+    <assoc> SNR G189.1-03.0 </assoc>
+    <raJ2000  unit="degree"> 94.309995 </raJ2000>
+    <decJ2000 unit="degree"> 22.579999 </decJ2000>
+    
+    <spectrum type="LogParabola">
+      <energyRange unit="GeV"> 0.1 100 </energyRange>
+      <normF unit="1e-12/cm2/second/MeV"> 165.153016 </normF>
+      <normE unit="GeV"> 0.640492 </normE>
+      <alpha> -1.791202 </alpha>
+      <beta>  -0.130695 </beta>
+    </spectrum>
+  </source>
+  <!-- ==================== 2FGL J0631.5+1035  =================== -->
+  <source>
+    <name>  2FGL J0631.5+1035 </name>
+    <assoc> PSR J0631+1036 </assoc>
+    <raJ2000  unit="degree"> 97.882990 </raJ2000>
+    <decJ2000 unit="degree"> 10.594988 </decJ2000>
+    
+    <spectrum type="PLExpCutoff_LAT">
+      <energyRange unit="GeV"> 0.1 100 </energyRange>
+      <normF unit="1e-12/cm2/second/MeV"> 4.949286 </normF>
+      <normE unit="GeV"> 1.163604 </normE>
+      <index> -1.473089 </index>
+      <cutoffE unit="GeV"> 3.861919 </cutoffE>
+    </spectrum>
+  </source>
+  <!-- ==================== 2FGL J0633.7+0633  =================== -->
+  <source>
+    <name>  2FGL J0633.7+0633 </name>
+    <assoc> LAT PSR J0633+0632 </assoc>
+    <raJ2000  unit="degree"> 98.432062 </raJ2000>
+    <decJ2000 unit="degree"> 6.556399 </decJ2000>
+    
+    <spectrum type="PLExpCutoff_LAT">
+      <energyRange unit="GeV"> 0.1 100 </energyRange>
+      <normF unit="1e-12/cm2/second/MeV"> 6.871842 </normF>
+      <normE unit="GeV"> 1.691232 </normE>
+      <index> -1.255961 </index>
+      <cutoffE unit="GeV"> 2.441196 </cutoffE>
+    </spectrum>
+  </source>
+  <!-- ==================== 2FGL J0734.6-1558  =================== -->
+  <source>
+    <name>  2FGL J0734.6-1558 </name>
+    <assoc> LAT PSR J0734-1559 </assoc>
+    <raJ2000  unit="degree"> 113.669914 </raJ2000>
+    <decJ2000 unit="degree"> -15.972478 </decJ2000>
+    
+    <spectrum type="PLExpCutoff_LAT">
+      <energyRange unit="GeV"> 0.1 100 </energyRange>
+      <normF unit="1e-12/cm2/second/MeV"> 44.850800 </normF>
+      <normE unit="GeV"> 0.482748 </normE>
+      <index> -1.786652 </index>
+      <cutoffE unit="GeV"> 2.106633 </cutoffE>
+    </spectrum>
+  </source>
+  <!-- ==================== 2FGL J0738.0+1742  =================== -->
+  <source>
+    <name>  2FGL J0738.0+1742 </name>
+    <assoc> PKS 0735+17 </assoc>
+    <raJ2000  unit="degree"> 114.523619 </raJ2000>
+    <decJ2000 unit="degree"> 17.702633 </decJ2000>
+    <redshift> 0.5 </redshift>
+    
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 0.1 100 </energyRange>
+      <normF unit="1e-12/cm2/second/MeV"> 5.531446 </normF>
+      <normE unit="GeV"> 0.992096 </normE>
+      <index> -2.046543 </index>
+    </spectrum>
+  </source>
+  <!-- ==================== 2FGL J0751.1+1809  =================== -->
+  <source>
+    <name>  2FGL J0751.1+1809 </name>
+    <assoc> PSR J0751+1807 </assoc>
+    <raJ2000  unit="degree"> 117.779550 </raJ2000>
+    <decJ2000 unit="degree"> 18.151950 </decJ2000>
+    
+    <spectrum type="PLExpCutoff_LAT">
+      <energyRange unit="GeV"> 0.1 100 </energyRange>
+      <normF unit="1e-12/cm2/second/MeV"> 2.229167 </normF>
+      <normE unit="GeV"> 1.150841 </normE>
+      <index> -1.103658 </index>
+      <cutoffE unit="GeV"> 2.286564 </cutoffE>
+    </spectrum>
+  </source>
+  <!-- ==================== 2FGL J0856.6-1105  =================== -->
+  <source>
+    <name>  2FGL J0856.6-1105 </name>
+    <assoc> CRATES J0856-1105 </assoc>
+    <raJ2000  unit="degree"> 134.173302 </raJ2000>
+    <decJ2000 unit="degree"> -11.095735 </decJ2000>
+    
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 0.1 100 </energyRange>
+      <normF unit="1e-12/cm2/second/MeV"> 2.128693 </normF>
+      <normE unit="GeV"> 1.192585 </normE>
+      <index> -2.051063 </index>
+    </spectrum>
+  </source>
+  <!-- ==================== 2FGL J0957.7+5522  =================== -->
+  <source>
+    <name>  2FGL J0957.7+5522 </name>
+    <assoc> 4C +55.17 </assoc>
+    <raJ2000  unit="degree"> 149.432982 </raJ2000>
+    <decJ2000 unit="degree"> 55.381721 </decJ2000>
+    <redshift> 0.8993 </redshift>
+    
+    <spectrum type="LogParabola">
+      <energyRange unit="GeV"> 0.1 100 </energyRange>
+      <normF unit="1e-12/cm2/second/MeV"> 25.905890 </normF>
+      <normE unit="GeV"> 0.641469 </normE>
+      <alpha> -1.830557 </alpha>
+      <beta>  -0.067012 </beta>
+    </spectrum>
+  </source>
+  <!-- ==================== 2FGL J1120.0-2204  =================== -->
+  <source>
+    <name>  2FGL J1120.0-2204 </name>
+    <assoc>  </assoc>
+    <raJ2000  unit="degree"> 170.002439 </raJ2000>
+    <decJ2000 unit="degree"> -22.080615 </decJ2000>
+    
+    <spectrum type="LogParabola">
+      <energyRange unit="GeV"> 0.1 100 </energyRange>
+      <normF unit="1e-12/cm2/second/MeV"> 7.203774 </normF>
+      <normE unit="GeV"> 0.734479 </normE>
+      <alpha> -1.923727 </alpha>
+      <beta>  -0.351414 </beta>
+    </spectrum>
+  </source>
+  <!-- ==================== 2FGL J1132.9+0033  =================== -->
+  <source>
+    <name>  2FGL J1132.9+0033 </name>
+    <assoc> PKS B1130+008 </assoc>
+    <raJ2000  unit="degree"> 173.226342 </raJ2000>
+    <decJ2000 unit="degree"> 0.558743 </decJ2000>
+    
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 0.1 100 </energyRange>
+      <normF unit="1e-12/cm2/second/MeV"> 2.238268 </normF>
+      <normE unit="GeV"> 0.984169 </normE>
+      <index> -2.178211 </index>
+    </spectrum>
+  </source>
+  <!-- ==================== 2FGL J1230.8+1224  =================== -->
+  <source>
+    <name>  2FGL J1230.8+1224 </name>
+    <assoc> M 87 </assoc>
+    <raJ2000  unit="degree"> 187.700647 </raJ2000>
+    <decJ2000 unit="degree"> 12.405960 </decJ2000>
+    <redshift> 0.0036 </redshift>
+    
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 0.1 100 </energyRange>
+      <normF unit="1e-12/cm2/second/MeV"> 1.925002 </normF>
+      <normE unit="GeV"> 1.025295 </normE>
+      <index> -2.173844 </index>
+    </spectrum>
+  </source>
+  <!-- ==================== 2FGL J1231.2-1411  =================== -->
+  <source>
+    <name>  2FGL J1231.2-1411 </name>
+    <assoc> PSR J1231-1411 </assoc>
+    <raJ2000  unit="degree"> 187.815367 </raJ2000>
+    <decJ2000 unit="degree"> -14.186835 </decJ2000>
+    
+    <spectrum type="PLExpCutoff_LAT">
+      <energyRange unit="GeV"> 0.1 100 </energyRange>
+      <normF unit="1e-12/cm2/second/MeV"> 24.370155 </normF>
+      <normE unit="GeV"> 0.864080 </normE>
+      <index> -1.268919 </index>
+      <cutoffE unit="GeV"> 2.766047 </cutoffE>
+    </spectrum>
+  </source>
+  <!-- ==================== 2FGL J1312.7+0051  =================== -->
+  <source>
+    <name>  2FGL J1312.7+0051 </name>
+    <assoc> PSR J1312+00 </assoc>
+    <raJ2000  unit="degree"> 198.183376 </raJ2000>
+    <decJ2000 unit="degree"> 0.854416 </decJ2000>
+    
+    <spectrum type="LogParabola">
+      <energyRange unit="GeV"> 0.1 100 </energyRange>
+      <normF unit="1e-12/cm2/second/MeV"> 1.980560 </normF>
+      <normE unit="GeV"> 1.244961 </normE>
+      <alpha> -1.788641 </alpha>
+      <beta>  -0.434313 </beta>
+    </spectrum>
+  </source>
+  <!-- ==================== 2FGL J1454.4+5123  =================== -->
+  <source>
+    <name>  2FGL J1454.4+5123 </name>
+    <assoc> TXS 1452+516 </assoc>
+    <raJ2000  unit="degree"> 223.622019 </raJ2000>
+    <decJ2000 unit="degree"> 51.399581 </decJ2000>
+    
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 0.1 100 </energyRange>
+      <normF unit="1e-12/cm2/second/MeV"> 0.864656 </normF>
+      <normE unit="GeV"> 1.549528 </normE>
+      <index> -2.042872 </index>
+    </spectrum>
+  </source>
+  <!-- ==================== 2FGL J1517.7-2421  =================== -->
+  <source>
+    <name>  2FGL J1517.7-2421 </name>
+    <assoc> AP Librae </assoc>
+    <raJ2000  unit="degree"> 229.434988 </raJ2000>
+    <decJ2000 unit="degree"> -24.360027 </decJ2000>
+    <redshift> 0.049 </redshift>
+    
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 0.1 100 </energyRange>
+      <normF unit="1e-12/cm2/second/MeV"> 3.777786 </normF>
+      <normE unit="GeV"> 1.198281 </normE>
+      <index> -2.054573 </index>
+    </spectrum>
+  </source>
+  <!-- ==================== 2FGL J1607.0+1552  =================== -->
+  <source>
+    <name>  2FGL J1607.0+1552 </name>
+    <assoc> 4C +15.54 </assoc>
+    <raJ2000  unit="degree"> 241.770146 </raJ2000>
+    <decJ2000 unit="degree"> 15.875755 </decJ2000>
+    <redshift> 0.4965 </redshift>
+    
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 0.1 100 </energyRange>
+      <normF unit="1e-12/cm2/second/MeV"> 3.594692 </normF>
+      <normE unit="GeV"> 0.876526 </normE>
+      <index> -2.228491 </index>
+    </spectrum>
+  </source>
+  <!-- ==================== 2FGL J1614.5-2230  =================== -->
+  <source>
+    <name>  2FGL J1614.5-2230 </name>
+    <assoc> PSR J1614-2230 </assoc>
+    <raJ2000  unit="degree"> 243.645852 </raJ2000>
+    <decJ2000 unit="degree"> -22.513145 </decJ2000>
+    
+    <spectrum type="PLExpCutoff_LAT">
+      <energyRange unit="GeV"> 0.1 100 </energyRange>
+      <normF unit="1e-12/cm2/second/MeV"> 3.030493 </normF>
+      <normE unit="GeV"> 1.371578 </normE>
+      <index> -0.695763 </index>
+      <cutoffE unit="GeV"> 1.535119 </cutoffE>
+    </spectrum>
+  </source>
+  <!-- ==================== 2FGL J1653.6-0159  =================== -->
+  <source>
+    <name>  2FGL J1653.6-0159 </name>
+    <assoc>  </assoc>
+    <raJ2000  unit="degree"> 253.402286 </raJ2000>
+    <decJ2000 unit="degree"> -1.996187 </decJ2000>
+    
+    <spectrum type="LogParabola">
+      <energyRange unit="GeV"> 0.1 100 </energyRange>
+      <normF unit="1e-12/cm2/second/MeV"> 12.482213 </normF>
+      <normE unit="GeV"> 0.727350 </normE>
+      <alpha> -2.076007 </alpha>
+      <beta>  -0.245203 </beta>
+    </spectrum>
+  </source>
+  <!-- ==================== 2FGL J1744.6-1135  =================== -->
+  <source>
+    <name>  2FGL J1744.6-1135 </name>
+    <assoc> PSR J1744-1134 </assoc>
+    <raJ2000  unit="degree"> 266.152856 </raJ2000>
+    <decJ2000 unit="degree"> -11.586555 </decJ2000>
+    
+    <spectrum type="PLExpCutoff_LAT">
+      <energyRange unit="GeV"> 0.1 100 </energyRange>
+      <normF unit="1e-12/cm2/second/MeV"> 7.630485 </normF>
+      <normE unit="GeV"> 1.052330 </normE>
+      <index> -1.157113 </index>
+      <cutoffE unit="GeV"> 1.000220 </cutoffE>
+    </spectrum>
+  </source>
+  <!-- ==================== 2FGL J1805.6-2136e =================== -->
+  <source>
+    <name>  2FGL J1805.6-2136e </name>
+    <assoc> SNR G008.7-00.1 </assoc>
+    <raJ2000  unit="degree"> 271.407976 </raJ2000>
+    <decJ2000 unit="degree"> -21.611700 </decJ2000>
+    
+    <spectrum type="LogParabola">
+      <energyRange unit="GeV"> 0.1 100 </energyRange>
+      <normF unit="1e-12/cm2/second/MeV"> 7.146620 </normF>
+      <normE unit="GeV"> 2.137431 </normE>
+      <alpha> -2.422462 </alpha>
+      <beta>  -0.269364 </beta>
+    </spectrum>
+  </source>
+  <!-- ==================== 2FGL J1809.8-2332  =================== -->
+  <source>
+    <name>  2FGL J1809.8-2332 </name>
+    <assoc> LAT PSR J1809-2332 </assoc>
+    <raJ2000  unit="degree"> 272.468158 </raJ2000>
+    <decJ2000 unit="degree"> -23.546169 </decJ2000>
+    
+    <spectrum type="PLExpCutoff_LAT">
+      <energyRange unit="GeV"> 0.1 100 </energyRange>
+      <normF unit="1e-12/cm2/second/MeV"> 112.103597 </normF>
+      <normE unit="GeV"> 0.876596 </normE>
+      <index> -1.621230 </index>
+      <cutoffE unit="GeV"> 3.354492 </cutoffE>
+    </spectrum>
+  </source>
+  <!-- ==================== 2FGL J1810.7+1742  =================== -->
+  <source>
+    <name>  2FGL J1810.7+1742 </name>
+    <assoc> PSR J1810+17 </assoc>
+    <raJ2000  unit="degree"> 272.690549 </raJ2000>
+    <decJ2000 unit="degree"> 17.702945 </decJ2000>
+    
+    <spectrum type="LogParabola">
+      <energyRange unit="GeV"> 0.1 100 </energyRange>
+      <normF unit="1e-12/cm2/second/MeV"> 19.152709 </normF>
+      <normE unit="GeV"> 0.529049 </normE>
+      <alpha> -2.164840 </alpha>
+      <beta>  -0.262575 </beta>
+    </spectrum>
+  </source>
+  <!-- ==================== 2FGL J1813.4-1246  =================== -->
+  <source>
+    <name>  2FGL J1813.4-1246 </name>
+    <assoc> LAT PSR J1813-1246 </assoc>
+    <raJ2000  unit="degree"> 273.358131 </raJ2000>
+    <decJ2000 unit="degree"> -12.771266 </decJ2000>
+    
+    <spectrum type="PLExpCutoff_LAT">
+      <energyRange unit="GeV"> 0.1 100 </energyRange>
+      <normF unit="1e-12/cm2/second/MeV"> 135.825851 </normF>
+      <normE unit="GeV"> 0.582689 </normE>
+      <index> -1.824230 </index>
+      <cutoffE unit="GeV"> 2.412718 </cutoffE>
+    </spectrum>
+  </source>
+  <!-- ==================== 2FGL J1819.3-1523  =================== -->
+  <source>
+    <name>  2FGL J1819.3-1523 </name>
+    <assoc>  </assoc>
+    <raJ2000  unit="degree"> 274.835775 </raJ2000>
+    <decJ2000 unit="degree"> -15.391562 </decJ2000>
+    
+    <spectrum type="LogParabola">
+      <energyRange unit="GeV"> 0.1 100 </energyRange>
+      <normF unit="1e-12/cm2/second/MeV"> 42.533560 </normF>
+      <normE unit="GeV"> 0.797734 </normE>
+      <alpha> -2.693423 </alpha>
+      <beta>  -0.642018 </beta>
+    </spectrum>
+  </source>
+  <!-- ==================== 2FGL J1826.1-1256  =================== -->
+  <source>
+    <name>  2FGL J1826.1-1256 </name>
+    <assoc> LAT PSR J1826-1256 </assoc>
+    <raJ2000  unit="degree"> 276.535126 </raJ2000>
+    <decJ2000 unit="degree"> -12.947751 </decJ2000>
+    
+    <spectrum type="PLExpCutoff_LAT">
+      <energyRange unit="GeV"> 0.1 100 </energyRange>
+      <normF unit="1e-12/cm2/second/MeV"> 73.729120 </normF>
+      <normE unit="GeV"> 1.008505 </normE>
+      <index> -1.392610 </index>
+      <cutoffE unit="GeV"> 1.896984 </cutoffE>
+    </spectrum>
+  </source>
+  <!-- ==================== 2FGL J1826.3-1450  =================== -->
+  <source>
+    <name>  2FGL J1826.3-1450 </name>
+    <assoc> LS 5039 </assoc>
+    <raJ2000  unit="degree"> 276.589221 </raJ2000>
+    <decJ2000 unit="degree"> -14.836996 </decJ2000>
+    
+    <spectrum type="LogParabola">
+      <energyRange unit="GeV"> 0.1 100 </energyRange>
+      <normF unit="1e-12/cm2/second/MeV"> 48.751135 </normF>
+      <normE unit="GeV"> 0.913347 </normE>
+      <alpha> -2.509798 </alpha>
+      <beta>  -0.282560 </beta>
+    </spectrum>
+  </source>
+  <!-- ==================== 2FGL J1836.2+5926  =================== -->
+  <source>
+    <name>  2FGL J1836.2+5926 </name>
+    <assoc> LAT PSR J1836+5925 </assoc>
+    <raJ2000  unit="degree"> 279.065328 </raJ2000>
+    <decJ2000 unit="degree"> 59.433875 </decJ2000>
+    
+    <spectrum type="PLExpCutoff_LAT">
+      <energyRange unit="GeV"> 0.1 100 </energyRange>
+      <normF unit="1e-12/cm2/second/MeV"> 325.693972 </normF>
+      <normE unit="GeV"> 0.550467 </normE>
+      <index> -1.231362 </index>
+      <cutoffE unit="GeV"> 1.996937 </cutoffE>
+    </spectrum>
+  </source>
+  <!-- ==================== 2FGL J1839.0-0539  =================== -->
+  <source>
+    <name>  2FGL J1839.0-0539 </name>
+    <assoc>  </assoc>
+    <raJ2000  unit="degree"> 279.766160 </raJ2000>
+    <decJ2000 unit="degree"> -5.655836 </decJ2000>
+    
+    <spectrum type="LogParabola">
+      <energyRange unit="GeV"> 0.1 100 </energyRange>
+      <normF unit="1e-12/cm2/second/MeV"> 6.508273 </normF>
+      <normE unit="GeV"> 2.220907 </normE>
+      <alpha> -2.521239 </alpha>
+      <beta>  -0.224329 </beta>
+    </spectrum>
+  </source>
+  <!-- ==================== 2FGL J1846.4+0920  =================== -->
+  <source>
+    <name>  2FGL J1846.4+0920 </name>
+    <assoc> LAT PSR J1846+0919 </assoc>
+    <raJ2000  unit="degree"> 281.609765 </raJ2000>
+    <decJ2000 unit="degree"> 9.338790 </decJ2000>
+    
+    <spectrum type="PLExpCutoff_LAT">
+      <energyRange unit="GeV"> 0.1 100 </energyRange>
+      <normF unit="1e-12/cm2/second/MeV"> 3.299956 </normF>
+      <normE unit="GeV"> 1.316336 </normE>
+      <index> -1.311694 </index>
+      <cutoffE unit="GeV"> 3.065891 </cutoffE>
+    </spectrum>
+  </source>
+  <!-- ==================== 2FGL J1855.9+0121e =================== -->
+  <source>
+    <name>  2FGL J1855.9+0121e </name>
+    <assoc> SNR G034.7-00.4 </assoc>
+    <raJ2000  unit="degree"> 283.989977 </raJ2000>
+    <decJ2000 unit="degree"> 1.355000 </decJ2000>
+    
+    <spectrum type="LogParabola">
+      <energyRange unit="GeV"> 0.1 100 </energyRange>
+      <normF unit="1e-12/cm2/second/MeV"> 46.525561 </normF>
+      <normE unit="GeV"> 1.497917 </normE>
+      <alpha> -2.279260 </alpha>
+      <beta>  -0.305655 </beta>
+    </spectrum>
+  </source>
+  <!-- ==================== 2FGL J1906.5+0720  =================== -->
+  <source>
+    <name>  2FGL J1906.5+0720 </name>
+    <assoc>  </assoc>
+    <raJ2000  unit="degree"> 286.646975 </raJ2000>
+    <decJ2000 unit="degree"> 7.342557 </decJ2000>
+    
+    <spectrum type="LogParabola">
+      <energyRange unit="GeV"> 0.1 100 </energyRange>
+      <normF unit="1e-12/cm2/second/MeV"> 25.216298 </normF>
+      <normE unit="GeV"> 1.045868 </normE>
+      <alpha> -2.609394 </alpha>
+      <beta>  -0.488517 </beta>
+    </spectrum>
+  </source>
+  <!-- ==================== 2FGL J1923.2+1408e =================== -->
+  <source>
+    <name>  2FGL J1923.2+1408e </name>
+    <assoc> W51C </assoc>
+    <raJ2000  unit="degree"> 290.817980 </raJ2000>
+    <decJ2000 unit="degree"> 14.145001 </decJ2000>
+    
+    <spectrum type="LogParabola">
+      <energyRange unit="GeV"> 0.1 100 </energyRange>
+      <normF unit="1e-12/cm2/second/MeV"> 15.536388 </normF>
+      <normE unit="GeV"> 1.700425 </normE>
+      <alpha> -2.123493 </alpha>
+      <beta>  -0.130355 </beta>
+    </spectrum>
+  </source>
+  <!-- ==================== 2FGL J1953.0+3253  =================== -->
+  <source>
+    <name>  2FGL J1953.0+3253 </name>
+    <assoc> PSR J1952+3252 </assoc>
+    <raJ2000  unit="degree"> 298.253761 </raJ2000>
+    <decJ2000 unit="degree"> 32.886545 </decJ2000>
+    
+    <spectrum type="PLExpCutoff_LAT">
+      <energyRange unit="GeV"> 0.1 100 </energyRange>
+      <normF unit="1e-12/cm2/second/MeV"> 49.975205 </normF>
+      <normE unit="GeV"> 0.724355 </normE>
+      <index> -1.451385 </index>
+      <cutoffE unit="GeV"> 2.334092 </cutoffE>
+    </spectrum>
+  </source>
+  <!-- ==================== 2FGL J1954.3+2836  =================== -->
+  <source>
+    <name>  2FGL J1954.3+2836 </name>
+    <assoc> LAT PSR J1954+2836 </assoc>
+    <raJ2000  unit="degree"> 298.579807 </raJ2000>
+    <decJ2000 unit="degree"> 28.609154 </decJ2000>
+    
+    <spectrum type="PLExpCutoff_LAT">
+      <energyRange unit="GeV"> 0.1 100 </energyRange>
+      <normF unit="1e-12/cm2/second/MeV"> 20.159751 </normF>
+      <normE unit="GeV"> 1.034518 </normE>
+      <index> -1.435239 </index>
+      <cutoffE unit="GeV"> 2.431133 </cutoffE>
+    </spectrum>
+  </source>
+  <!-- ==================== 2FGL J1957.9+5033  =================== -->
+  <source>
+    <name>  2FGL J1957.9+5033 </name>
+    <assoc> LAT PSR J1957+5033 </assoc>
+    <raJ2000  unit="degree"> 299.480736 </raJ2000>
+    <decJ2000 unit="degree"> 50.554861 </decJ2000>
+    
+    <spectrum type="PLExpCutoff_LAT">
+      <energyRange unit="GeV"> 0.1 100 </energyRange>
+      <normF unit="1e-12/cm2/second/MeV"> 20.179455 </normF>
+      <normE unit="GeV"> 0.581169 </normE>
+      <index> -1.169349 </index>
+      <cutoffE unit="GeV"> 0.875691 </cutoffE>
+    </spectrum>
+  </source>
+  <!-- ==================== 2FGL J1958.6+2845  =================== -->
+  <source>
+    <name>  2FGL J1958.6+2845 </name>
+    <assoc> LAT PSR J1958+2846 </assoc>
+    <raJ2000  unit="degree"> 299.664496 </raJ2000>
+    <decJ2000 unit="degree"> 28.762313 </decJ2000>
+    
+    <spectrum type="PLExpCutoff_LAT">
+      <energyRange unit="GeV"> 0.1 100 </energyRange>
+      <normF unit="1e-12/cm2/second/MeV"> 3.755616 </normF>
+      <normE unit="GeV"> 2.198441 </normE>
+      <index> -1.348653 </index>
+      <cutoffE unit="GeV"> 2.048062 </cutoffE>
+    </spectrum>
+  </source>
+  <!-- ==================== 2FGL J2016.3-0904  =================== -->
+  <source>
+    <name>  2FGL J2016.3-0904 </name>
+    <assoc> PMN J2016-0903 </assoc>
+    <raJ2000  unit="degree"> 304.078000 </raJ2000>
+    <decJ2000 unit="degree"> -9.070252 </decJ2000>
+    
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 0.1 100 </energyRange>
+      <normF unit="1e-12/cm2/second/MeV"> 0.825102 </normF>
+      <normE unit="GeV"> 1.546986 </normE>
+      <index> -2.047702 </index>
+    </spectrum>
+  </source>
+  <!-- ==================== 2FGL J2017.3+0603  =================== -->
+  <source>
+    <name>  2FGL J2017.3+0603 </name>
+    <assoc> PSR J2017+0603 </assoc>
+    <raJ2000  unit="degree"> 304.349814 </raJ2000>
+    <decJ2000 unit="degree"> 6.053957 </decJ2000>
+    
+    <spectrum type="PLExpCutoff_LAT">
+      <energyRange unit="GeV"> 0.1 100 </energyRange>
+      <normF unit="1e-12/cm2/second/MeV"> 2.656591 </normF>
+      <normE unit="GeV"> 1.608336 </normE>
+      <index> -1.045921 </index>
+      <cutoffE unit="GeV"> 3.743963 </cutoffE>
+    </spectrum>
+  </source>
+  <!-- ==================== 2FGL J2018.0+3626  =================== -->
+  <source>
+    <name>  2FGL J2018.0+3626 </name>
+    <assoc>  </assoc>
+    <raJ2000  unit="degree"> 304.510979 </raJ2000>
+    <decJ2000 unit="degree"> 36.448341 </decJ2000>
+    
+    <spectrum type="LogParabola">
+      <energyRange unit="GeV"> 0.1 100 </energyRange>
+      <normF unit="1e-12/cm2/second/MeV"> 7.706364 </normF>
+      <normE unit="GeV"> 1.443701 </normE>
+      <alpha> -2.537928 </alpha>
+      <beta>  -0.481229 </beta>
+    </spectrum>
+  </source>
+  <!-- ==================== 2FGL J2021.0+3651  =================== -->
+  <source>
+    <name>  2FGL J2021.0+3651 </name>
+    <assoc> PSR J2021+3651 </assoc>
+    <raJ2000  unit="degree"> 305.270223 </raJ2000>
+    <decJ2000 unit="degree"> 36.863426 </decJ2000>
+    
+    <spectrum type="PLExpCutoff_LAT">
+      <energyRange unit="GeV"> 0.1 100 </energyRange>
+      <normF unit="1e-12/cm2/second/MeV"> 121.126192 </normF>
+      <normE unit="GeV"> 0.857687 </normE>
+      <index> -1.602293 </index>
+      <cutoffE unit="GeV"> 2.822331 </cutoffE>
+    </spectrum>
+  </source>
+  <!-- ==================== 2FGL J2021.5+4026  =================== -->
+  <source>
+    <name>  2FGL J2021.5+4026 </name>
+    <assoc> LAT PSR J2021+4026 </assoc>
+    <raJ2000  unit="degree"> 305.391527 </raJ2000>
+    <decJ2000 unit="degree"> 40.440662 </decJ2000>
+    
+    <spectrum type="PLExpCutoff_LAT">
+      <energyRange unit="GeV"> 0.1 100 </energyRange>
+      <normF unit="1e-12/cm2/second/MeV"> 418.543172 </normF>
+      <normE unit="GeV"> 0.638693 </normE>
+      <index> -1.624594 </index>
+      <cutoffE unit="GeV"> 2.459380 </cutoffE>
+    </spectrum>
+  </source>
+  <!-- ==================== 2FGL J2028.3+3332  =================== -->
+  <source>
+    <name>  2FGL J2028.3+3332 </name>
+    <assoc>  </assoc>
+    <raJ2000  unit="degree"> 307.098200 </raJ2000>
+    <decJ2000 unit="degree"> 33.541553 </decJ2000>
+    
+    <spectrum type="LogParabola">
+      <energyRange unit="GeV"> 0.1 100 </energyRange>
+      <normF unit="1e-12/cm2/second/MeV"> 9.238381 </normF>
+      <normE unit="GeV"> 1.245673 </normE>
+      <alpha> -2.094394 </alpha>
+      <beta>  -0.442509 </beta>
+    </spectrum>
+  </source>
+  <!-- ==================== 2FGL J2030.0+3640  =================== -->
+  <source>
+    <name>  2FGL J2030.0+3640 </name>
+    <assoc> PSR J2030+3641 </assoc>
+    <raJ2000  unit="degree"> 307.512329 </raJ2000>
+    <decJ2000 unit="degree"> 36.679663 </decJ2000>
+    
+    <spectrum type="PLExpCutoff_LAT">
+      <energyRange unit="GeV"> 0.1 100 </energyRange>
+      <normF unit="1e-12/cm2/second/MeV"> 2.996685 </normF>
+      <normE unit="GeV"> 1.841618 </normE>
+      <index> -0.678560 </index>
+      <cutoffE unit="GeV"> 1.464707 </cutoffE>
+    </spectrum>
+  </source>
+  <!-- ==================== 2FGL J2030.7+4417  =================== -->
+  <source>
+    <name>  2FGL J2030.7+4417 </name>
+    <assoc>  </assoc>
+    <raJ2000  unit="degree"> 307.675188 </raJ2000>
+    <decJ2000 unit="degree"> 44.283658 </decJ2000>
+    
+    <spectrum type="LogParabola">
+      <energyRange unit="GeV"> 0.1 100 </energyRange>
+      <normF unit="1e-12/cm2/second/MeV"> 15.237041 </normF>
+      <normE unit="GeV"> 0.905821 </normE>
+      <alpha> -2.323358 </alpha>
+      <beta>  -0.409066 </beta>
+    </spectrum>
+  </source>
+  <!-- ==================== 2FGL J2032.2+4126  =================== -->
+  <!--
+  <source>
+    <name>  2FGL J2032.2+4126 </name>
+    <assoc> LAT PSR J2032+4127 </assoc>
+    <raJ2000  unit="degree"> 308.062213 </raJ2000>
+    <decJ2000 unit="degree"> 41.436879 </decJ2000>
+    
+    <spectrum type="PLExpCutoff_LAT">
+      <energyRange unit="GeV"> 0.1 100 </energyRange>
+      <normF unit="1e-12/cm2/second/MeV"> 7.581558 </normF>
+      <normE unit="GeV"> 1.811535 </normE>
+      <index> -1.448208 </index>
+      <cutoffE unit="GeV"> 5.365514 </cutoffE>
+    </spectrum>
+  </source>
+  -->
+  <!-- ==================== 2FGL J2043.2+1711  =================== -->
+  <source>
+    <name>  2FGL J2043.2+1711 </name>
+    <assoc> PSR J2043+1710 </assoc>
+    <raJ2000  unit="degree"> 310.809042 </raJ2000>
+    <decJ2000 unit="degree"> 17.183725 </decJ2000>
+    
+    <spectrum type="PLExpCutoff_LAT">
+      <energyRange unit="GeV"> 0.1 100 </energyRange>
+      <normF unit="1e-12/cm2/second/MeV"> 5.591532 </normF>
+      <normE unit="GeV"> 0.958337 </normE>
+      <index> -1.409832 </index>
+      <cutoffE unit="GeV"> 3.232517 </cutoffE>
+    </spectrum>
+  </source>
+  <!-- ==================== 2FGL J2051.0+3040e =================== -->
+  <source>
+    <name>  2FGL J2051.0+3040e </name>
+    <assoc> SNR G074.0-08.5 </assoc>
+    <raJ2000  unit="degree"> 312.749991 </raJ2000>
+    <decJ2000 unit="degree"> 30.670001 </decJ2000>
+    
+    <spectrum type="PLExpCutoff_LAT">
+      <energyRange unit="GeV"> 0.1 100 </energyRange>
+      <normF unit="1e-12/cm2/second/MeV"> 36.224437 </normF>
+      <normE unit="GeV"> 0.602784 </normE>
+      <index> -1.495459 </index>
+      <cutoffE unit="GeV"> 2.649854 </cutoffE>
+    </spectrum>
+  </source>
+  <!-- ==================== 2FGL J2055.8+2539  =================== -->
+  <source>
+    <name>  2FGL J2055.8+2539 </name>
+    <assoc> LAT PSR J2055+2539 </assoc>
+    <raJ2000  unit="degree"> 313.960164 </raJ2000>
+    <decJ2000 unit="degree"> 25.663901 </decJ2000>
+    
+    <spectrum type="PLExpCutoff_LAT">
+      <energyRange unit="GeV"> 0.1 100 </energyRange>
+      <normF unit="1e-12/cm2/second/MeV"> 26.916865 </normF>
+      <normE unit="GeV"> 0.684036 </normE>
+      <index> -0.963177 </index>
+      <cutoffE unit="GeV"> 1.112215 </cutoffE>
+    </spectrum>
+  </source>
+  <!-- ==================== 2FGL J2111.3+4605  =================== -->
+  <source>
+    <name>  2FGL J2111.3+4605 </name>
+    <assoc>  </assoc>
+    <raJ2000  unit="degree"> 317.833810 </raJ2000>
+    <decJ2000 unit="degree"> 46.094119 </decJ2000>
+    
+    <spectrum type="LogParabola">
+      <energyRange unit="GeV"> 0.1 100 </energyRange>
+      <normF unit="1e-12/cm2/second/MeV"> 4.238109 </normF>
+      <normE unit="GeV"> 1.356313 </normE>
+      <alpha> -1.910691 </alpha>
+      <beta>  -0.320387 </beta>
+    </spectrum>
+  </source>
+  <!-- ==================== 2FGL J2112.5-3042  =================== -->
+  <source>
+    <name>  2FGL J2112.5-3042 </name>
+    <assoc>  </assoc>
+    <raJ2000  unit="degree"> 318.148682 </raJ2000>
+    <decJ2000 unit="degree"> -30.710573 </decJ2000>
+    
+    <spectrum type="LogParabola">
+      <energyRange unit="GeV"> 0.1 100 </energyRange>
+      <normF unit="1e-12/cm2/second/MeV"> 2.839600 </normF>
+      <normE unit="GeV"> 1.152886 </normE>
+      <alpha> -1.599538 </alpha>
+      <beta>  -0.391539 </beta>
+    </spectrum>
+  </source>
+  <!-- ==================== 2FGL J2121.0+1901  =================== -->
+  <source>
+    <name>  2FGL J2121.0+1901 </name>
+    <assoc> OX 131 </assoc>
+    <raJ2000  unit="degree"> 320.263254 </raJ2000>
+    <decJ2000 unit="degree"> 19.031936 </decJ2000>
+    <redshift> 2.18 </redshift>
+    
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 0.1 100 </energyRange>
+      <normF unit="1e-12/cm2/second/MeV"> 3.665753 </normF>
+      <normE unit="GeV"> 0.889067 </normE>
+      <index> -2.201252 </index>
+    </spectrum>
+  </source>
+  <!-- ==================== 2FGL J2214.7+3000  =================== -->
+  <source>
+    <name>  2FGL J2214.7+3000 </name>
+    <assoc> PSR J2214+3000 </assoc>
+    <raJ2000  unit="degree"> 333.690804 </raJ2000>
+    <decJ2000 unit="degree"> 30.012524 </decJ2000>
+    
+    <spectrum type="PLExpCutoff_LAT">
+      <energyRange unit="GeV"> 0.1 100 </energyRange>
+      <normF unit="1e-12/cm2/second/MeV"> 7.563808 </normF>
+      <normE unit="GeV"> 0.914921 </normE>
+      <index> -1.143994 </index>
+      <cutoffE unit="GeV"> 2.173075 </cutoffE>
+    </spectrum>
+  </source>
+  <!-- ==================== 2FGL J2225.6-0454  =================== -->
+  <source>
+    <name>  2FGL J2225.6-0454 </name>
+    <assoc> 3C 446 </assoc>
+    <raJ2000  unit="degree"> 336.424000 </raJ2000>
+    <decJ2000 unit="degree"> -4.901130 </decJ2000>
+    <redshift> 1.404 </redshift>
+    
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 0.1 100 </energyRange>
+      <normF unit="1e-12/cm2/second/MeV"> 15.662990 </normF>
+      <normE unit="GeV"> 0.520931 </normE>
+      <index> -2.435735 </index>
+    </spectrum>
+  </source>
+  <!-- ==================== 2FGL J2229.0+6114  =================== -->
+  <!--
+  <source>
+    <name>  2FGL J2229.0+6114 </name>
+    <assoc> PSR J2229+6114 </assoc>
+    <raJ2000  unit="degree"> 337.266791 </raJ2000>
+    <decJ2000 unit="degree"> 61.246067 </decJ2000>
+    
+    <spectrum type="PLExpCutoff_LAT">
+      <energyRange unit="GeV"> 0.1 100 </energyRange>
+      <normF unit="1e-12/cm2/second/MeV"> 146.162277 </normF>
+      <normE unit="GeV"> 0.534669 </normE>
+      <index> -1.795062 </index>
+      <cutoffE unit="GeV"> 3.892456 </cutoffE>
+    </spectrum>
+  </source>
+  -->
+  <!-- ==================== 2FGL J2238.4+5902  =================== -->
+  <source>
+    <name>  2FGL J2238.4+5902 </name>
+    <assoc> LAT PSR J2238+5903 </assoc>
+    <raJ2000  unit="degree"> 339.607879 </raJ2000>
+    <decJ2000 unit="degree"> 59.048720 </decJ2000>
+    
+    <spectrum type="PLExpCutoff_LAT">
+      <energyRange unit="GeV"> 0.1 100 </energyRange>
+      <normF unit="1e-12/cm2/second/MeV"> 23.472729 </normF>
+      <normE unit="GeV"> 0.739907 </normE>
+      <index> -1.432462 </index>
+      <cutoffE unit="GeV"> 1.718061 </cutoffE>
+    </spectrum>
+  </source>
+  <!-- ==================== 2FGL J2243.2-2540  =================== -->
+  <source>
+    <name>  2FGL J2243.2-2540 </name>
+    <assoc> PKS 2240-260 </assoc>
+    <raJ2000  unit="degree"> 340.814036 </raJ2000>
+    <decJ2000 unit="degree"> -25.683104 </decJ2000>
+    <redshift> 0.774 </redshift>
+    
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 0.1 100 </energyRange>
+      <normF unit="1e-12/cm2/second/MeV"> 4.668733 </normF>
+      <normE unit="GeV"> 0.708841 </normE>
+      <index> -2.300408 </index>
+    </spectrum>
+  </source>
+  <!-- ==================== 2FGL J2302.7+4443  =================== -->
+  <source>
+    <name>  2FGL J2302.7+4443 </name>
+    <assoc> PSR J2302+4442 </assoc>
+    <raJ2000  unit="degree"> 345.697812 </raJ2000>
+    <decJ2000 unit="degree"> 44.720237 </decJ2000>
+    
+    <spectrum type="PLExpCutoff_LAT">
+      <energyRange unit="GeV"> 0.1 100 </energyRange>
+      <normF unit="1e-12/cm2/second/MeV"> 5.656445 </normF>
+      <normE unit="GeV"> 1.156859 </normE>
+      <index> -1.026708 </index>
+      <cutoffE unit="GeV"> 2.527802 </cutoffE>
+    </spectrum>
+  </source>
+  <!-- ==================== 2FGL J2323.4+5849  =================== -->
+  <!--
+  <source>
+    <name>  2FGL J2323.4+5849 </name>
+    <assoc> SNR G111.7-02.1 </assoc>
+    <raJ2000  unit="degree"> 350.856081 </raJ2000>
+    <decJ2000 unit="degree"> 58.829587 </decJ2000>
+    
+    <spectrum type="LogParabola">
+      <energyRange unit="GeV"> 0.1 100 </energyRange>
+      <normF unit="1e-12/cm2/second/MeV"> 0.992018 </normF>
+      <normE unit="GeV"> 2.640328 </normE>
+      <alpha> -1.691256 </alpha>
+      <beta>  -0.240384 </beta>
+    </spectrum>
+  </source>
+	-->
+  <!-- ==================== 2FGL J2339.6-0532  =================== -->
+  <source>
+    <name>  2FGL J2339.6-0532 </name>
+    <assoc>  </assoc>
+    <raJ2000  unit="degree"> 354.909088 </raJ2000>
+    <decJ2000 unit="degree"> -5.542036 </decJ2000>
+    
+    <spectrum type="LogParabola">
+      <energyRange unit="GeV"> 0.1 100 </energyRange>
+      <normF unit="1e-12/cm2/second/MeV"> 5.355737 </normF>
+      <normE unit="GeV"> 0.973939 </normE>
+      <alpha> -1.668754 </alpha>
+      <beta>  -0.265558 </beta>
+    </spectrum>
+  </source>
+</ps-catalog>

@@ -1,0 +1,8 @@
+
+/*!
+ * @defgroup rndm_gen Random Number Generator
+ * @ingroup services
+ * @brief Random number generator interface, with common probability density
+ *        functions provided
+ */
+

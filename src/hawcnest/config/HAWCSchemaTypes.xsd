@@ -1,0 +1,200 @@
+<xsd:schema xmlns:xsd='http://www.w3.org/2001/XMLSchema'
+            targetNamespace="http://www.hawc-observatory.org/schema/types"
+            xmlns:hawc="http://www.hawc-observatory.org/schema/types">
+
+<!-- ======================================================================= -->
+<!-- Schema definitions for handy data restrictions to be used in XML files.
+     From the AugerSchemaTypes.xsd definitions by Tom Paul.                  -->
+<!-- ======================================================================= -->
+
+  <!-- Double-precision value >= 0 -->
+  <xsd:simpleType name="nonNegativeDouble">
+    <xsd:restriction base="xsd:double">
+      <xsd:minInclusive value="0.0"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+
+  <!-- Double-precision value > 0 -->
+  <xsd:simpleType name="positiveDouble">
+    <xsd:restriction base="xsd:double">
+      <xsd:minExclusive value="0.0"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+
+  <!-- Double-precision value with a unit attribute (units = HAWCUnits.h) -->
+  <xsd:complexType name="doubleWithUnit">
+    <xsd:simpleContent>
+      <xsd:extension base="xsd:double">
+        <xsd:attribute name="unit" type="xsd:string" use="required"/>
+      </xsd:extension>
+    </xsd:simpleContent>
+  </xsd:complexType>
+
+  <xsd:complexType name="nonNegativeDoubleWithUnit">
+    <xsd:simpleContent>
+      <xsd:extension base="hawc:nonNegativeDouble">
+        <xsd:attribute name="unit" type="xsd:string" use="required"/>
+      </xsd:extension>
+    </xsd:simpleContent>
+  </xsd:complexType>
+
+  <xsd:complexType name="positiveDoubleWithUnit">
+    <xsd:simpleContent>
+      <xsd:extension base="hawc:positiveDouble">
+        <xsd:attribute name="unit" type="xsd:string" use="required"/>
+      </xsd:extension>
+    </xsd:simpleContent>
+  </xsd:complexType>
+
+  <!-- Lists of doubles, ints, and strings, with or without unit attributes -->
+  <xsd:simpleType name="listOfDoubles">
+    <xsd:restriction base="vListOfDoubles">
+      <xsd:minLength value="0"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+
+  <xsd:simpleType name="listOfStrings">
+    <xsd:restriction base="vListOfStrings">
+      <xsd:minLength value="0"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+
+  <xsd:simpleType name="listOfInts">
+    <xsd:restriction base="vListOfInts">
+      <xsd:minLength value="0"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+
+  <xsd:simpleType name="listOfPositiveInts">
+    <xsd:restriction base="vListOfPositiveInts">
+      <xsd:minLength value="0"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+
+  <xsd:simpleType name="listOfNonNegativeInts">
+    <xsd:restriction base="vListOfNonNegativeInts">
+      <xsd:minLength value="0"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+
+  <xsd:complexType name="listOfDoublesWithUnits">
+    <xsd:simpleContent>
+      <xsd:extension base="hawc:listOfDoubles">
+        <xsd:attribute name="unit" type="xsd:string" use="required" />
+      </xsd:extension>
+    </xsd:simpleContent>
+  </xsd:complexType>
+
+  <xsd:complexType name="listOfDoublesOptionalUnits">
+    <xsd:simpleContent>
+      <xsd:extension base="hawc:listOfDoubles">
+        <xsd:attribute name="unit" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:simpleContent>
+  </xsd:complexType>
+
+  <!-- Commonly used mathematical quantities: vectors -->
+  <xsd:simpleType name="ThreeVector">
+    <xsd:restriction base="listOfDoubles">
+      <xsd:maxLength value="3"/>
+      <xsd:minLength value="3"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+
+  <xsd:complexType name="ThreeVectorWithUnits">
+    <xsd:simpleContent>
+      <xsd:extension base="hawc:ThreeVector">
+        <xsd:attribute name="unit" type="xsd:string" use="required"/>
+      </xsd:extension>
+    </xsd:simpleContent>
+  </xsd:complexType>
+
+  <!-- Common quantities: tables of x-y data -->
+  <xsd:complexType name="tabulatedFunctionOptionalYUnits">
+    <xsd:sequence>
+     <xsd:element name="x" type="hawc:listOfDoublesOptionalUnits"/>
+     <xsd:element name="y"  type="hawc:listOfDoubles"/>
+     <xsd:element name="scaleY" type="xsd:double" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+
+  <xsd:complexType name="tabulatedFunctionUnitlessY">
+    <xsd:sequence>
+     <xsd:element name="x" type="hawc:listOfDoublesWithUnits"/>
+     <xsd:element name="y"  type="hawc:listOfDoubles"/>
+     <xsd:element name="scaleY" type="xsd:double" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+
+  <xsd:complexType name="tabulatedFunctionUnitYAxis">
+    <xsd:sequence>
+     <xsd:element name="x" type="hawc:listOfDoublesWithUnits"/>
+     <xsd:element name="y" type="hawc:listOfDoublesWithUnits"/>
+     <xsd:element name="scaleY" type="xsd:double" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+
+  <xsd:complexType name="tabulatedFunctionUnitYScale">
+    <xsd:sequence>
+     <xsd:element name="x" type="hawc:listOfDoublesWithUnits"/>
+     <xsd:element name="y" type="hawc:listOfDoubles"/>
+     <xsd:element name="scaleY" type="hawc:doubleWithUnit" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+
+  <xsd:complexType name="tabulatedFunctionComplexLgAmpPhase">
+    <xsd:sequence>
+     <xsd:element name="x" type="hawc:listOfDoublesWithUnits"/>
+     <xsd:choice>
+       <xsd:element name="LgAmp" type="hawc:listOfDoubles"/>
+       <xsd:element name="LgPow" type="hawc:listOfDoubles"/>
+       <xsd:element name="dB" type="hawc:listOfDoubles"/>
+     </xsd:choice>
+     <xsd:element name="Phase" type="hawc:listOfDoublesWithUnits"/>
+    </xsd:sequence>
+  </xsd:complexType>
+
+  <!-- Switch values for initialization -->
+  <xsd:simpleType name="YesNo">
+    <xsd:restriction base="xsd:token">
+      <xsd:enumeration value="yes"/>
+      <xsd:enumeration value="no"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+
+  <xsd:simpleType name="OnOff">
+    <xsd:restriction base="xsd:token">
+      <xsd:enumeration value="on"/>
+      <xsd:enumeration value="off"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+
+  <xsd:simpleType name="bool">
+    <xsd:restriction base="xsd:int">
+      <xsd:minInclusive value="0"/>
+      <xsd:maxInclusive value="1"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+
+  <!-- Zero-length base definitions for lists -->
+  <xsd:simpleType name="vListOfInts">
+    <xsd:list itemType="xsd:int"/>
+  </xsd:simpleType>
+
+  <xsd:simpleType name="vListOfDoubles">
+    <xsd:list itemType="xsd:double"/>
+  </xsd:simpleType>
+
+  <xsd:simpleType name="vListOfStrings">
+    <xsd:list itemType="xsd:string"/>
+  </xsd:simpleType>
+
+  <xsd:simpleType name="vListOfPositiveInts">
+    <xsd:list itemType="xsd:positiveInteger"/>
+  </xsd:simpleType>
+
+  <xsd:simpleType name="vListOfNonNegativeInts">
+    <xsd:list itemType="xsd:nonNegativeInteger"/>
+  </xsd:simpleType>
+
+</xsd:schema>

@@ -1,0 +1,191 @@
+/*!
+
+\page tutorial_user_written_modules User-Written Modules
+
+\tableofcontents
+
+\section interface Module Interface
+
+To write your own Module that can plug into the AERIE processing chain, you
+need to define a class that inherits from the Module virtual base class in the
+<code>hawcnest</code> project.  This class has a very simple interface with one
+function:
+
+<code> Module::Result Process(BagPtr b); </code>
+
+The <code>Process</code> function provide a hook that the framework uses to
+run the algorithms in the Module on each event.  Access to Event data is
+provided via a pointer to the Bag.
+
+Below we illustrate how to inherit from the Module class using C++ or the
+\ref tutorial_python.
+
+\section cpp_module_interface C++ Interface
+
+The
+<code><a href="http://private.hawc-observatory.org/trac/svn/browser/projects/aerie-tutorial/">aerie-tutorial</a></code>
+project contains several examples of how to
+<code><a href="http://private.hawc-observatory.org/trac/svn/browser/projects/aerie-tutorial/trunk/basics/modules-and-sources">create your own module</a></code>.
+Here we reproduce the declaration of a simple module to print data from the
+Bag.
+
+\code{.cpp}
+class PrintingModule : public Module {
+  
+  public:
+
+    typedef Module Interface;
+
+    Result Process(BagPtr b);
+
+};
+
+REGISTER_SERVICE(PrintingModule);
+\endcode
+
+This is a complete, working Module.  All that is necessary is a typedef
+defining Module as the interface for this class and a declaration of the
+<code>Process</code> function.  The definition of the class is equally simple:
+
+\code{.cpp}
+Module::Result
+PrintModule::Process(BagPtr b)
+{
+  std::cout << "Bag contents:\n" << *b << std::endl;
+  return Module::Continue;
+}
+\endcode
+
+\section cpp_interface_params C++ Interface with Module Parameters
+
+Suppose that we want to enhance the example above so that the print module can
+print either to <code>stdout</code> or to a file, depending on how the module
+is configured.  In this case the interface gains two additional functions to
+set parameters.  We also add a private <code>ostream</code> pointer to handle
+the different kinds of output, as well as a destructor to remove this pointer
+when the program ends.
+
+\code{.cpp}
+#include <iostream>
+
+class PrintingModule : public Module {
+  
+  public:
+
+    typedef Module Interface;
+
+    virtual ~PrintingModule();
+
+    // Define module parameters and their default values
+    Configuration DefaultConfiguration();
+
+    // Set module parameters
+    void Initialize(const Configuration& config);
+
+    Result Process(BagPtr b);
+
+  private:
+
+    std::ostream* fp_;          // pointer to an output stream
+
+};
+
+REGISTER_SERVICE(PrintingModule);
+\endcode
+
+In the implementation we set the output name string in the
+<code>DefaultConfiguration</code> function and the output stream pointer in the
+<code>Initialize</code> function:
+
+\code{.cpp}
+#include <iostream>
+
+PrintModule::~PrintModule()
+{
+  if (fp_ && fp_ != &std::cout)
+    delete fp_;
+}
+
+Configuration
+PrintModule::DefaultConfiguration()
+{
+  Configuration config;
+
+  // Create 'outputName' parameter to determine where to send output
+  config.Parameter<std::string>("outputName", "std::cout");
+
+  return config;
+}
+
+void
+PrintModule::Initialize(const Configuration& config)
+{
+  std::string output;
+  config.GetParameter("outputName", output);
+
+  fp_ = NULL;
+
+  // Default: STDOUT
+  if (output == "std::cout")
+    fp_ = &std::cout;
+  // User-specified output ASCII file
+  else
+    fp_ = new std::ofstream(output.c_str());
+}
+
+Module::Result
+PrintModule::Process(BagPtr b)
+{
+  // Print using the ostream pointer
+  *fp_ << "Bag contents:\n" << *b << std::endl;
+  return Module::Continue;
+}
+\endcode
+
+Now the user can configure the module to print the Bag to a log file by
+specifying the name of the output file.  If no file is specified,
+<code>std::cout</code> is used by default.
+
+\section python_module_interface Python Interface
+
+The python equivalent of the \ref cpp_module_interface described above is shown
+below:
+
+\code{.py}
+from hawc import hawcnest
+from hawc import data_structures
+from hawc.data_structures import *
+
+from HAWCNest import HAWCNest
+
+class PrintModule(hawcnest.Module):
+    """A simple AERIE module that prints the contents of the Bag.
+    """
+
+    def __init__(self):
+        hawcnest.Module.__init__(self)
+
+    def Process(self, bag):
+        if bag:
+            print bag
+        return hawcnest.Module.CONTINUE
+\endcode
+
+To make any python class act like an AERIE module, follow these steps:
+<ol>
+<li>Make the class inherit from the <code>hawcnest.Module</code>;</li>
+<li>Write a constructor (the <code>__init__</code> function) that internally
+implements the Module constructor;</li>
+<li>Implement the <code>Process</code> function.</li>
+</ol>
+
+Then you are ready to plug this class into the module sequence as described in
+the tutorial on \ref tutorial_python.
+
+\section examples Working Examples
+
+Working examples of user-defined Modules and Sources can be found in the 
+<a href="http://private.hawc-observatory.org/trac/svn/browser/projects/aerie-tutorial/trunk/basics/modules-and-sources">AERIE
+Tutorials (Basics Section)</a>.
+
+*/

@@ -1,0 +1,667 @@
+
+/*!
+
+  \page coding_conventions Coding Conventions
+
+  \addindex coding_conventions
+
+    <h2>Contents</h2>
+
+    <ol>
+      <li>\ref include_file_guards</li>
+      <li>\ref func_declarations</li>
+      <li>\ref inlining_functions</li>
+      <li>\ref inline_headers</li>
+      <li>\ref fwd_declarations</li>
+      <li>\ref namespace_declarations</li>
+      <li>\ref using_namespace</li>
+      <li>\ref class_names</li>
+      <li>\ref function_names</li>
+      <li>\ref variable_names</li>
+      <li>\ref class_variable_names</li>
+      <li>\ref enum_variable_names</li>
+      <li>\ref classes_vs_structs</li>
+      <li>\ref avoid_new_and_delete</li>
+      <li>\ref use_const</li>
+      <li>\ref use_operator</li>
+      <li>\ref accepted_abbreviations</li>
+      <li>\ref logging_avoid_cout</li>
+      <li>\ref code_documentation</li>
+    </ol>
+
+    \htmlonly <br/> \endhtmlonly
+    \section include_file_guards Include File Guards
+
+      <em>Rule</em>: <strong>Header files must surround their declarations with
+      define guards.</strong>
+
+      Header files should always have preprocessor ifdef guards to avoid
+      including the files multiple times. Failure to do so can dramatically
+      increase compilation time for even small projects. If the project is
+      called project-name, then the guards should look like this: 
+
+      \code
+#ifndef PROJECT_NAME_CLASSNAME_H_INCLUDED
+#define PROJECT_NAME_CLASSNAME_H_INCLUDED
+
+class ClassName {
+};
+
+#endif // PROJECT_NAME_CLASSNAME_H_INCLUDED
+      \endcode
+
+      The inclusion of the project name in the guard will prevent name clashes
+      in those rare cases when two projects share a header name.  The
+      \c _H_INCLUDED string ensures that the header define string won't be
+      confused with other types of preprocessor definitions.
+
+    \htmlonly <br/> \endhtmlonly
+    \section func_declarations Locating Function Declarations and Definitions
+
+      Header files (.h) are for function declarations, and source files (.cc)
+      are for function definitions.  This means that the functions you declare
+      in your header files should generally have the function bodies defined in
+      the source files.  This is done for several reasons:
+
+      <ol>
+        <li>Headers with clean interfaces and declarations are easy to read</li>
+        <li>Putting complex function bodies into headers can increase the
+            running time of your code</li>
+        <li>Putting function bodies into headers increases re-compilation time; 
+            small changes in one algorithm require all modules which depend on a
+            header to recompile</li>
+      </ol>
+
+      The exceptions to these rules are for inline and template function
+      definitions.
+
+    \htmlonly <br/> \endhtmlonly
+    \section inlining_functions Inlining Functions
+
+      Functions can be defined "inline" by including function bodies in your
+      headers.  If the functions are small, this can improve the speed of code.
+      By small, we mean:
+
+      <ul>
+        <li>Less than 10 lines of code</li>
+        <li>The function bodies have no loops or switch statements</li>
+      </ul>
+
+      A good example of functions that should be inlined are simple getters and
+      setters:
+
+      \code
+class Time {
+
+  public:
+
+    Time(int hr, int mn) : hour_(hr), minute_(mn) { }
+
+    int GetHour() const { return hour_; }
+    void SetHour(int hr) { hour_ = hr; }
+
+    int GetMinute() const { return minute_; }
+    void SetMinute(int mn) { minute_ = mn; }
+
+    int GetMinutesSinceMidnight() { return minute_ + hour_*60; }
+
+  private:
+
+    int hour_;
+    int minute_;
+
+};
+      \endcode
+
+      Note that it is not always clear when inlining can improve performance or
+      reduce it.  Too many inline functions can lead to cache thrashing.
+      Therefore, some care is needed.  Further details can be found at <a
+      href="http://www.parashift.com/c++-faq-lite/inline-functions.html">C++
+      FAQ Lite</a>.
+
+    \htmlonly <br/> \endhtmlonly
+    \section inline_headers Inline Headers
+
+      Sometimes you have no choice but to inline functions: for example, when
+      using <a href="http://www.parashift.com/c++-faq-lite/templates.html">
+      templates</a>.  This can make header files with templates quite hard to
+      read.  To keep the header readable, you can separate the function
+      declarations and definitions into \c .h and \c -inl.h files.  Here is a
+      templated class declaration in \c FIFO.h:
+
+      \code
+#ifndef FIFO_H_INCLUDED
+#define FIFO_H_INCLUDED
+
+template <class T>
+class FIFO {
+  public:
+    void Push(const T& data);
+    T Pop();
+    ...
+};
+
+// Include inline definitions here:
+#include <FIFO-inl.h>
+
+#endif // FIFO_H_INCLUDED
+      \endcode
+
+      and here are the definitions from \c FIFO-inl.h:
+
+      \code
+#ifndef FIFO_INL_H_INCLUDED
+#define FIFO_INL_H_INCLUDED
+
+// Push a value into the FIFO
+template <class T>
+void
+FIFO<T>::Push(const T& data)
+{
+...
+}
+
+// Pop a value from the back of the FIFO
+template <class T>
+T
+FIFO<T>::Pop()
+{
+...
+}
+
+#endif // FIFO_INL_H_INCLUDED
+      \endcode
+
+    \htmlonly <br/> \endhtmlonly
+    \section fwd_declarations Forward Declarations
+
+      <em>Rule</em>: <strong>Use forward declarations in header files as much as
+      possible.</strong>
+
+      Rather than including class headers, it is often possible to make forward
+      declarations of classes when your header file only contains class
+      pointers and references.  For example,
+
+      \code
+// NOT NECESSARY; header only has a CalData pointer
+#include <data-structures/event/CalData.h>
+
+// BETTER: only a forward declaration is needed to declare pointers and references
+class CalData;
+
+class EventData {
+  private:
+    CalData* calData_;
+};
+      \endcode
+
+      This design minimizes dependencies between headers, and can improve the
+      speed of recompilation when you make small changes in individual headers.
+      This can save a great deal of time for large projects.  Note that not all
+      classes can be forward-declared; you can't forward-declare pointers and
+      references to the <a href="http://www.cplusplus.com/reference/stl/"> STL
+      containers and classes</a>.
+
+    \htmlonly <br/> \endhtmlonly
+    \section namespace_declarations Namespace Declarations 
+
+      In general, we are not forcing the use of namespaces in the code, except
+      in cases where header files expose constants to the user.  For example,
+      there are many libraries which define the constant \c pi, so where this
+      is defined it is enclosed in a namespace:
+
+      \code
+namespace HAWCUnits {
+
+  const double pi = 3.14159265359;
+
+}
+      \endcode
+
+      Namespaces declarations are recommended in such cases, since the
+      likelihood of clashes with other libraries is high.
+
+
+    \htmlonly <br/> \endhtmlonly
+    \section using_namespace Using Namespace
+
+      <em>Rule</em>: <strong>You may put "using namespace xyz;" statements into
+      source files, but NEVER into header files.</strong>
+
+      The \c using \c namespace construct is a useful way to avoid
+      long chains of binary resolution scoping when the context of a call is
+      clear.  For example, in a source file (a .cc) with function definitions,
+      a \c using \c namespace call promotes clean syntax:
+
+      \code
+#include <iostream>
+using namespace std;
+
+int main()
+{
+  // "using namespace std" means we don't have to type
+  // std::cout << "Hello!" << std::endl;
+
+  cout << "Hello!" << endl;
+  return 0;
+}
+      \endcode
+
+      This is perfectly fine in to do in a source file, since the std namespace
+      only lives at file scope.  However, "using namespace" calls should
+      <strong>never</strong> be used in headers, because headers can be included in
+      multiple files.  If one header is "using namespace std;", then every
+      header which includes it is also using the standard namespace.  Such
+      sloppy use promotes name clashes, and defeats the whole purpose of
+      namespaces.
+
+      For similar reasons, "using namespace XYZ" statements in source files
+      should be listed ''after'' all header included statements, because any
+      headers included after the using namespace statement are exposed to the
+      bare members of the namespace.  Here is an example of what ''not'' to do:
+
+      \code
+#include <hawcnest/HAWCUnits.h>
+using namespace HAWCUnits;        // WRONG: should go after all #includes
+
+// This header is now exposed to the bare constants in HAWCUnits,
+// creating the possibility of nasty name clashes
+#include <healpix_map.h>
+
+...
+      \endcode
+
+
+    \htmlonly <br/> \endhtmlonly
+    \section class_names Class Names 
+
+      <em>Rule</em>: <strong>Start class names with a capital letter, and use
+      CamelCase for names with multiple words.</strong>
+
+      Class names should start with a capital letter and clearly define what
+      the class does.  If the class name contains several words, it should be
+      written in <a href="http://en.wikipedia.org/wiki/CamelCase"> CamelCase
+      </a>, rather than with underscores.  Here are some examples of what
+      should and should not be a class name:
+
+      \code
+class C;          // WRONG: not descriptive, unclear what class does
+class Cal_Event;  // WRONG: prefer CamelCase to underscores 
+class CalEvent;   // OK 
+
+class PmtData;    // WRONG: acronyms should be respected
+class PMTData;    // OK
+      \endcode
+
+
+    \htmlonly <br/> \endhtmlonly
+    \section function_names Function Names 
+
+      <em>Rule</em>: <strong>Start function names with a capital letter, and
+      use CamelCase for names with multiple words.</strong>
+
+      Function names should begin with a capital letter, and the name should be
+      a verb to describe what the function does.  This rule is the same both
+      inside and outside of classes.  Here are some examples:
+
+      \code
+double calculate_x();    // WRONG: lower case, uses underscores
+double X();              // WRONG: too terse; name should be a verb
+double CalculateX();     // OK
+
+bool is_ptve(int x);     // WRONG: lower case, uses underscores, not descriptive
+bool IsPositive(int x);  // OK
+
+class Module {
+  public:
+    void ProcessEvent(); // OK
+};
+      \endcode
+
+
+    \htmlonly <br/> \endhtmlonly
+    \section variable_names Variable Names 
+
+      <em>Rule</em>: <strong>Begin variable names with a lower-case letter, and
+      use camelCase for multiple words.</strong>
+
+      Variable names should be nouns or adjectives that describe the content of
+      the variable.  The first letter should be lower-case, to distinguish the
+      variable from a class name.  All words after that should be written in
+      camel case, not underscores.  For example,
+
+      \code
+int n_hits = 5;     // WRONG: underscore
+int n = 5;          // Borderline wrong: not descriptive, may be OK as a loop variable
+int numHits = 5;    // OK
+
+bool x;             // WRONG: no way to know that x represents a boolean state
+bool hasData;       // OK - it is clear that hasData represents state
+bool isCalibrated;  // OK - this is also clearly a state
+      \endcode
+
+
+    \htmlonly <br/> \endhtmlonly
+    \section class_variable_names Class Variable Names 
+
+      <em>Rule</em>: <strong>Begin with a lower case letter and end with an
+      underscore.  Use camelCase_ for names with multiple words.</strong>
+
+      Public and private members of a class should follow the convention for
+      naming all variables, except that an underscore should be appeneded to
+      the end.  For example:
+
+      \code
+class MyClass {
+  public:
+    double GetX() const;
+    double GetY() const;
+  private:
+    double x_;    // OK
+    double y;     // WRONG: missing final underscore
+};
+      \endcode
+
+
+    \htmlonly <br/> \endhtmlonly
+    \section enum_variable_names Enum Variable Names 
+
+      <em>Rule</em>: <strong>Enumeration type names should be nouns that start
+      with a capital letter; and the values should be in all caps.</strong>
+
+      For example,
+
+      \code
+enum RecoStatus {
+
+  RECO_SUCCESS,
+  RECO_FAIL,
+  RECO_UNKNOWN,
+  RECO_NO_CONVERGENCE
+
+};
+      \endcode
+
+
+    \htmlonly <br/> \endhtmlonly
+    \section classes_vs_structs Classes vs. Structs 
+
+      <em>Rule</em>: <strong>Try to design proper classes with private data.
+      Expose your class members if and only if you find that the sole purpose
+      of your class is to store data without performing any other
+      functions.</strong>
+
+      If you have a data structure that is solely being used to store data,
+      then its member data can be made public.  For example:
+
+      \code
+class CorsikaHeader {
+  int runId_;
+  double energyMin_;
+  double energyMax_;
+  double spectralIndex_;
+};
+      \endcode
+
+      In this case, making the \c N class members private would clog the
+      interface with \c 2N Get and Set functions.  If your class interface is
+      only getters and setters, it may be simplified into a struct-like class
+      with public data.
+
+      However, any time you expect to have class member functions which operate
+      on the data, the member data should be hidden from the public interface.
+      This avoids unnecessary coupling of the class interface to the details of
+      your data.  For example, consider a Circle class which stores a radius,
+      but also performs other calculations on the data:
+
+      \code
+class Circle {
+
+  public:
+
+    Circle() : radius_(1.) { }
+    Circle(const double r) : radius_(r) { }
+
+    double GetArea() const { return pi * radius_ * radius_; }
+    double GetCircumference() const { return 2 * pi * radius_; }
+    double GetRadius() const { return radius_; }
+
+  private:
+
+    double radius_;
+
+};
+      \endcode
+
+      The private data happens to be a radius, but it doesn't have to be.
+      Suppose we decide to store the circumference of the circle rather than
+      the radius.  In this case, we can change the private member and the class
+      algorithms, but not affect the class interface.  Stable interfaces
+      prevent trivial implementation details from affecting user code; this is
+      the purpose of classes and good object-oriented design.
+
+
+    \htmlonly <br/> \endhtmlonly
+    \section avoid_new_and_delete Avoid Operators new and delete
+
+      <em>Rule</em>: <strong>Avoid bare calls to new and delete.  Wrap all
+      calls to new inside a boost::shared_ptr.</strong>
+
+      Dynamic memory allocation in C++ is handled with the new and delete
+      operators.  These two operators must always be matched, or else you risk
+      creating memory leaks.  Ensuring that new calls are matched by delete
+      calls is notoriously difficult, even for experts.  You have to handle all
+      kinds of weird cases, like what happens when program flow is interrupted
+      by an exception.
+
+      To avoid memory management headaches, use <a href="http://www.boost.org">
+      Boost</a> shared pointers to store all dynamically allocated objects.
+      The boost::shared_ptr class holds an object and counts the number of
+      references to it.  If the number of references drops to zero (i.e., all
+      pointers to the object go out of scope), then the object is automatically
+      deleted.
+
+      In the HAWCNest core of AERIE, we supply a preprocessor macro that you
+      can use to automatically declare shared pointers to your classes.  To
+      allocate objects dynamically, you wrap calls to new inside a shared_ptr,
+      as shown below:
+
+      \code
+class Circle {
+  public:
+    Circle() : r_(0) { }
+    Circle(double r) : r_(r) { }
+    double GetCircumference() const { return 2*pi*x_; }
+    double GetArea() const { return pi*r_*r_; }
+  private:
+    double r_;
+};
+
+// Create two kinds of shared pointers:
+// (1) CirclePtr = boost::shared_ptr<Circle>
+// (2) CircleConstPtr = boost::shared_ptr<const Circle>
+SHARED_POINTER_TYPEDEFS(Circle);
+
+// Create and initialize a Circle pointer
+{
+  CirclePtr cp = make_shared<Circle>(5.0);
+  cout << cp->GetArea() << endl;
+}
+
+// cp went out of scope, and the Circle was automatically deleted!
+      \endcode
+
+      This is identical to the syntax used in <a
+      href="http://software.icecube.wisc.edu/offline-software.trunk/code_standards.html">icetray</a>.
+
+
+    \htmlonly <br/> \endhtmlonly
+    \section use_const Use const Correctness
+
+      <em>Rule</em>: <strong>Declare variables \c const where it makes sense to
+      do so.</strong>
+
+      Const-correctness is a programming idiom that means you keep variables
+      read-only at every opportunity.  This practice greatly reduces bugs by
+      minimizing the number of accidental modifications that can be made to
+      data.  Cases where you should use \c const are:
+
+      <ul>
+        <li>With numerical constants (duh);</li>
+        <li>With member functions that do not need to change class data;</li>
+        <li>With function arguments (especially when passing arguments by
+            reference)</li>
+      </ul>
+
+      You should avoid the use of \c const_cast in your code to convert \c const
+      objects to writable l-values.  If you find that you need to \c const_cast
+      data frequently, or that you are declaring your class members \c mutable,
+      this may be a sign that your class is not well designed.
+
+
+    \htmlonly <br/> \endhtmlonly
+    \section use_operator Use Operator Overloading with Caution
+
+      <em>Rule</em>: <strong>Maintain the meaning of C++ operators if you
+      overload them in your classes.</strong>
+
+      Overloading of operators like *, +, /, etc. is an extremely powerful tool
+      in C++, but with great power comes great responsibility.  If you do
+      overload the arithmetic operators (+, -, *, /) or the streaming operators
+      (>>, <<) or the binary comparison operators (<, >, <=, >=, ==, !=), do so
+      carefully and make sure you maintain the standard meaning of the
+      operators.  In other words, don't do strange things like this:
+
+      \code
+class Data;
+
+Data
+operator*(const Data& a, const Data& b) {
+  return Data(a.value + b.value);           // WRONG: * should not act like +
+}
+      \endcode
+
+      This completely breaks the user's expectation of how the * operator
+      should behave.  Such coding will quickly earn you a bad reputation.
+
+
+    \htmlonly <br/> \endhtmlonly
+    \section accepted_abbreviations Accepted Abbreviations 
+
+      <em>Rule</em>: <strong>Please use the following accepted abbreviations
+      rather than your own inventions.</strong>
+
+      While it is preferred that you use complete words when making class and
+      function names, some common words and abbreviations are used to simplify
+      long CamelCase names.  These are:
+
+      <ul>
+        <li><strong>\c Rec</strong>:  for Reconstruction, Reconstructed, or Reconstructed</li>
+        <li><strong>\c Cal</strong>:  for Calibration, Calibrator, or Calibrated</li>
+        <li><strong>\c Sim</strong>:  for Simulation, Simulator, or Simulated  (prefer this over "MC," for Monte Carlo)</li>
+        <li><strong>\c Trig</strong>: for Trigger or Triggered</li>
+        <li><strong>\c PE</strong>:   for Photo electron</li>
+        <li><strong>\c TDC</strong>:  for time to digital converter</li>
+        <li><strong>\c PMT</strong>:  for photomultiplier (prefer this over "Pmt")</li>
+        <li><strong>\c WCD</strong>: for water cherenkov detector</li>
+      <ul>
+
+
+    \htmlonly <br/> \endhtmlonly
+    \section logging_avoid_cout Logging: Avoid cout and cerr
+
+      <em>Rule</em>: <strong>Calls to cout, cerr, and printf are BANNED.  Use
+      the logging utilities instead.</strong>
+
+      A set of logging functions is provided with HAWCNest, the core project of
+      AERIE.  These are identical to the logging functions used in <a
+      href="http://software.icecube.wisc.edu/offline-software.trunk/code_standards.html">icetray</a>.
+      Please use them instead of \c cout and \c printf.  This allows users to
+      control the verbosity of their output in a simple way.
+
+      \code
+// Available logging functions
+
+log_fatal  // Only called for fatal errors, will throw an exception
+
+log_error  // Non-fatal (recoverable) exception. No exception thrown
+
+log_warn   // Possible error conditions approaching...
+
+log_info   // Information to tell operator what's going on
+
+log_debug  // Information for system expert
+
+log_trace  // For step by step debugging
+      \endcode
+
+      The logging functions are variadic and use a C++ stream-style format
+      argument to create an output string.  For C-style formatting, the
+      \c boost::format library can be used.  For example:
+
+      \code
+// Printing syntax looks just like C++ calls to cout
+log_fatal("Cannot run reconstruction: input file " << filename << " is empty");
+
+// Boost formatting can be used if you prefer the printf style (note the % operator)
+log_info(boost::format("WCD %d is at position (%.1f, %.1f)") % wcd.GetId() % x % y);
+      \endcode
+
+      The logging macros can handle user-defined types, as long as the stream
+      insertion operator is overloaded for this type.
+
+
+    \htmlonly <br/> \endhtmlonly
+    \section code_documentation Documenting Code
+
+      <em>Rule</em>: <strong>Document your files, classes, and functions
+      according to the doxygen standards.  Do not over-document the
+      code.</strong>
+
+      Please document your code according to the <a
+      href="http://www.doxygen.org">doxygen</a> standards.  This means
+      following the examples in well-established projects.  Classes should get
+      documented like this:
+
+      \code
+/*!
+ * @class ClassName
+ * @author Your Name
+ * @date dd mm yyyy
+ * @ingroup [modules|services|data_structures|...]
+ * @brief Write a brief (1-sentence) description of the class
+ *
+ * Write a longer description (as long as you like) here.
+ */
+class ClassName {
+  public:
+
+     /// Using three slashes makes doxygen display this comment
+     void MakeToast();
+
+     void ButterIt(); ///< add a < when the comment is after the code.
+
+  ...
+};
+      \endcode
+
+      Please do not over-comment or add trivial comments to your code:
+
+      \code
+  /// the color - a useless and redundant comment
+  int color_;
+      \endcode
+
+      If you give your variables and functions clear and obvious names, you
+      should not need to comment every last one; the code will be
+      self-documenting.  Making trivial comments can actually harm the code,
+      because too much documentation will be hard to maintain and the comments
+      will inevitably fall out of sync with the code itself.
+
+
+  \htmlonly
+  <br/>Return to the <a href="index.html">index</a>.
+  \endhtmlonly
+
+*/
+

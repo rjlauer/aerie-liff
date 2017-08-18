@@ -1,0 +1,39 @@
+# Crab Nebula TeV energy spectrum predicted by a model of inverse Comption
+# emission, based on HEGRA measurements of the Crab Nebula:
+#
+# F. Aharonian et al., ApJ 614:897-913 (2004), Table 5 and Fig. 10
+#
+# The spectrum contains several types of seed photons for inverse Compton
+# scattering, including synchrotron, mm radiation, far infrared, and microwave
+# background.  Starlight is claimed to be negligible.
+#
+Energy [TeV]   Flux [1./(cm2*second*TeV)]
+  0.00413523   2.70271e-06
+  0.00607016   1.41482e-06
+  0.00891046   7.31476e-07
+   0.0130768   3.72135e-07
+   0.0191955   1.85994e-07
+   0.0281773   9.09494e-08
+   0.0413523    4.3471e-08
+   0.0607016   2.02675e-08
+   0.0891046    9.1791e-09
+    0.130768   4.01236e-09
+    0.191955   1.58708e-09
+    0.281773   6.57809e-10
+    0.413523   2.58285e-10
+    0.607016   9.75439e-11
+    0.891046   3.65258e-11
+     1.30768   1.35706e-11
+     1.91955   5.00035e-12
+     2.81773   1.82894e-12
+     4.13523   6.62979e-13
+     6.07016   2.37958e-13
+     8.91046   8.45279e-14
+     13.0768   2.96688e-14
+     19.1955   1.02683e-14
+     28.1773    3.4906e-15
+     41.3523   1.15718e-15
+     60.7016   3.69913e-16
+     89.1046   1.12798e-16
+     130.768   3.29079e-17
+     191.955   9.43192e-18

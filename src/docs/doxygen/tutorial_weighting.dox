@@ -1,0 +1,118 @@
+/*!
+
+\page tutorial_weighting Event Weights and Prescales
+
+\tableofcontents
+
+\section prescaling Prescaling Events
+
+Many events simulated in <a href="http://www-ik.fzk.de/corsika/">CORSIKA</a> 
+fail to trigger the detector when the tank response is simulated in
+<a href="http://private.hawc-observatory.org/wiki/index.php/Hawcsim_Documentation">HAWCSim</a>.
+In fact, the overwhelming majority of simulated events do not trigger the
+detector.
+
+Rather than store all these events in \ref tutorial_root_output, which would
+waste a huge amount of space, the events are prescaled.  That is, only a small
+fraction of the events are kept.  In the HAWC simulation the prescale for
+events which do not trigger the detector is usually 50; i.e., only 1 in 50 such
+events are written to disk.
+
+The prescale becomes important for calculations like the
+\ref tutorial_effective_area, where the total number of events generated in
+simulation need to be known.
+
+\section weighting Event Weights
+
+Event weighting is used to convert a set of Monte Carlo events into something
+that models a physical observation.
+
+\subsection spectral_weight Spectral Weighting
+
+Spectral weighting is used to convert a sample of simulated showers generated
+with some energy spectrum into another physical spectrum.
+
+Typically events are simulated according to a power law with a spectral index
+of -2.  This is harder than most physical sources and so when attempting to
+model a real flux (say E<sup>-3</sup>) the high-energy events will receive a
+lower weight than the low-energy events.  This effectively converts the
+spectral index from -2 to -3.  The actual calculation required to reweight a
+spectrum with index &alpha; to a spectrum with index &beta; is
+\f[
+  \frac{\beta+1}{\alpha+1}\left(\frac{E}{E_0}\right)^{\beta-\alpha},
+\f]
+where E<sub>0</sub> is the lowest energy used in the simulation.
+
+Note that the PowerLaw and BrokenPowerLaw classes will automatically reweight
+one kind of spectrum into another.
+
+\subsection radial_weight Radial Weighting
+
+Radial weighting is used to remove the effect of non-uniform event sampling in
+the simulation.  Currently the CORSIKA simulations used by HAWC are set up to
+generate core positions that are uniform in radial distance from the center of
+the array.  However, because
+\f[
+  dA = dx\cdot dy = r\ dr\cdot d\theta
+\f]
+a uniform distribution in radius creates a nonuniform distribution over the
+full throwing area, with most of the events concentrated at the center of the
+array.
+
+This choice ensures that valuable computer resources aren't spent simulating
+showers which will probably not trigger the detector.  However, the effect of
+the non-uniform radial distribution must be removed when running the
+\ref tutorial_effective_area or the \ref tutorial_sensitivity.
+
+In ROOT trees you can plot a spectrum accounting for radial weights as
+follows:
+
+\code
+{
+  // ...
+  double rThrow = 1000.;    // Events thrown in 1000-meter radius
+  
+  MMCEvents->SetAlias("rMC", "TMath::Sqrt(XCoreMC*XCoreMC + YCoreMC*YCoreMC)");
+  MMCEvents->SetAlias("rWgt", "rMC/(0.5*rThrow)");
+  MMCEvents->Draw("EnergyMC", "rWgt");
+}
+\endcode
+I.e., all events receive an extra weight proportional to the thrown distance
+from the core of the array.
+
+\subsection transit_weight Transit Weighting
+
+Transit weighting is performed to adjust the predicted flux of a point source
+to the actual amount of time the source spends in the field of view of the
+detector.  Typically a given source is only visible to HAWC for several hours
+each day.  The transit weight accounts for the fact that a source at some
+declination moves across the detector and hence is observed at many different
+zenith angles over the course of each day.  To calculate the transit weight,
+the detector response as a function of zenith is convolved with the elevation
+of the source over one day.
+
+The transit weight is a dimensionless quantity given by
+\f[
+  w(\theta) = F(>E_0)\cdot T_\text{exp}(\theta)\cdot A_\text{eff}(\theta)
+\f]
+where F(>E<sub>0</sub>) is the integral flux of the source above some minimum
+energy E<sub>0</sub>, T<sub>exp</sub>(&theta;) is the total time spent by the
+source in one day at zenith &theta;, and A<sub>eff</sub>(&theta;) is the
+effective area of the detector as a function of zenith.
+
+The transit weight calculation is performed automatically in the 
+<code><a href="http://private.hawc-observatory.org/trac/svn/browser/projects/hmc-analysis">hmc-analysis</a></code>
+project.
+
+\section future_work Future Event Weighting Schemes
+
+Currently all event weighting is performed in the AERIE analysis software in
+the 
+<code><a href="http://private.hawc-observatory.org/trac/svn/browser/projects/hmc-analysis">hmc-analysis</a></code>
+project.  In the future part of the spectral and radial weighting will occur 
+in the 
+<a href="http://private.hawc-observatory.org/wiki/index.php/Hawcsim_Documentation">HAWCSim</a>
+stage of simulation.  This will decouple the AERIE software somewhat from the
+details of the simulation (i.e., which spectral index was used in CORSIKA).
+
+*/

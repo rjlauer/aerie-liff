@@ -1,0 +1,164 @@
+/*!
+
+\page tutorial_reconstructing_simulation Reconstructing Simulated Data
+
+\tableofcontents
+
+\section introduction Introduction
+
+Reconstructing simulated events is relatively straightforward in the AERIE
+framework.  In this tutorial we describe where to obtain simulated data and how
+to set up a module sequence to reconstruct the data and output the results to a
+file.
+
+\section simulated_data Location of Simulated Events
+
+Monte Carlo events for AERIE are produced in two stages:
+
+<ol>
+  <li> Libraries of air showers (gamma, proton, helium, ..., iron) are created
+  using the <a href="http://www-ik.fzk.de/corsika/">CORSIKA</a> program, which
+  provides a list of shower particles at 4100 m altitude.
+  </li>
+  <li> The response of the detector to air shower particles is simulated using
+  <a href="http://private.hawc-observatory.org/wiki/index.php/Hawcsim_Documentation">HAWCSim</a>.
+  </li>
+</ol>
+
+The output of HAWCSim is written in the eXplicitly Compacted Data Format, or
+<a href="http://private.hawc-observatory.org/wiki/index.php/XCDF">XCDF</a>,
+which can be read using utilities provided with the XCDF library (see \ref
+tutorial_working_with_xcdf).  AERIE also contains a module to read these files.
+
+CORSIKA and HAWCSim files (as well as Monte Carlo events reconstructed with
+AERIE) can be downloaded from the UMD cluster.  A download index can be found
+on the HAWC wiki page
+<a href="http://private.hawc-observatory.org/wiki/index.php/Monte_Carlo_Products">Monte Carlo Products</a>.
+
+\section module_sequence Reconstruction Sequence
+
+Reconstructing Monte Carlo data with AERIE proceeds in the following order:
+
+<ol>
+  <li>\ref simcal</li>
+  <li>\ref corefit</li>
+  <li>\ref trackfit</li>
+  <li>\ref composition</li>
+  <li>\ref energy</li>
+</ol>
+
+The details of these steps can change from version to version, so we will
+describe them in general and link to current implementations in the AERIE
+project folders.
+
+\subsection simcal Simulation Calibration
+
+The output of HAWCSim is a list of photoelectrons (PEs) at each channel in a
+simulated event.  These "hits" correspond to Cherenkov photons raytraced to the
+PMTs with GEANT4.  In the real detector, PEs would be converted into rising and
+falling edge pairs by the front-end electronics, and an edge-finder would be
+employed to identify the pairs and estimate the time-over-threshold (ToT) of
+triggered PMTs.
+
+While there is an 
+<code><a href="http://private.hawc-observatory.org/trac/svn/browser/projects/electronics-simulator">electronics-simulator</a></code>
+module which models the response of the front-end boards, we usually skip these
+steps in the simulation.  Instead a simulation calibrator module is used to
+smear the signals from HAWCSim by:
+<ol>
+  <li>Adding timing noise to each PMT hit (typical: < 1 ns);</li>
+  <li>Adding a timing jitter to each PMT (typical: 1-2 ns);</li>
+  <li>Adding a charge error to each PE;</li>
+  <li>Adding single-channel noise hits to each PMT (typical: 5-10 kHz).</li>
+</ol>
+Once the signal is smeared by detector noise and singles hits are added, the
+total charge in each channel is calculated and the "calibrated" hits are copied
+into the Event structure for reconstruction by the analysis modules. 
+In AERIE, the simulation calibration code can be found in the 
+<code><a href="http://private.hawc-observatory.org/trac/svn/browser/projects/simulation-calibrator">simulation-calibrator</a></code>
+module (for AERIE releases before version 1.15) and the
+<code><a href="http://private.hawc-observatory.org/trac/svn/browser/projects/sim-pmt-modeler">sim-pmt-modeler</a></code>
+module (for releases after version 1.15).
+
+\subsection corefit Core Fitting
+
+Core fitting is performed to improve the accuracy of the track fit and to help
+identify the primary particle type.
+
+The core fit proceeds in two stages.  First, a weighted center-of-mass (COM)
+estimate of the core location is made using the "calibrated" charges in each
+PMT.  By definition, the COM core fit reconstructs the core position inside the
+array, even if the true core is not contained within the boundary of the
+detector. Second, the COM estimate is used to seed a second iterative core
+fitter which allows the core position to jump outside the boundaries of the
+array.
+
+The
+<code><a href="http://private.hawc-observatory.org/trac/svn/browser/projects/core-fitter">core-fitter</a></code>
+project contains the modules needed to estimate the core position.
+
+\subsection trackfit Track Fitting
+
+Track fitting is used to estimate the arrival direction of the primary cosmic
+ray, and is obviously central to most analyses performed with HAWC simulations
+and real data.
+
+Like core fitting, track fitting proceeds in two stages.  First the arrival
+direction is calculated assuming a planar shower front.  This assumption
+reduces the systematic uncertainties in the arrival direction which can arise
+from errors in the estimate of the core position.  Second, the planar fit is
+used to seed an iterative reconstruction which realistically handles the
+curvature of the shower front.  The second track reconstruction is a
+likelihood-based method which uses a lookup table to estimate the arrival
+direction of a shower given the relative timing and charges of hits in the
+detector.  Note that the tables were generated with simulations of gamma-ray
+showers, so the gamma-ray hypothesis is always assumed when reconstructing
+arrival directions.
+
+The
+<code><a href="http://private.hawc-observatory.org/trac/svn/browser/projects/track-fitter">track-fitter</a></code>
+project contains the modules needed to estimate the arrival direction.
+
+\subsection composition Shower Classification
+
+To reduce the 1000:1 cosmic-ray background which swamps the gamma rays observed
+with HAWC, a simple topological analysis is made of the "footprint" of the
+shower at ground level.  A circle is drawn around the reconstructed core
+position and PMTs outside the circle are ranked by their total charge.  Very
+large hits outside the circle are characteristic of cosmic-ray (hadronic) air
+showers.  The number of hits divided by the maximum charge, a variable known as
+"compactness," provides a convenient variable for gamma-hadron cuts.
+
+The
+<code><a href="http://private.hawc-observatory.org/trac/svn/browser/projects/core-fitter">core-fitter</a></code>
+project contains the modules needed to calculate compactness.
+
+\subsection energy Energy Estimation
+
+The
+<code><a href="http://private.hawc-observatory.org/trac/svn/browser/projects/energy-estimator">energy-estimator</a></code>
+project contains estimators of the primary energy which depend on the number of
+PEs in the shower or the amplitude of the core fit.  In both cases primary
+energy is modeled as a simple power law in the number of PEs or the core
+amplitude.  These estimators are very fast and simple to calculate, but they do
+not fully account for the correlation between the size of the ground signal and
+the zenith angle of the shower.  In addition, their energy resolution is
+relatively poor.
+
+The 
+<code><a href="http://private.hawc-observatory.org/trac/svn/browser/projects/lh-energy-estimator">lh-energy-estimator</a></code>
+project contains a likelihood-based approach to estimate the most probable
+shower energy given the zenith angle of the shower and the number, timing, and
+physical distribution of hits in the detector.  This reconstruction is superior
+to the simpler estimates but it is more compute-intensive.
+
+\section examples Working Examples
+
+Working examples of simulation reconstruction can be found in the 
+<code><a href="http://private.hawc-observatory.org/trac/svn/browser/projects/aerie-apps">aerie-apps</a></code>
+project.  In particular, users should look at the C++ and python examples in
+the folder
+
+<code>aerie-apps/reconstruction/hawcsim-reco</code>
+
+*/

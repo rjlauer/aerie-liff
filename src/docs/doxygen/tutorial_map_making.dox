@@ -1,0 +1,148 @@
+/*!
+
+\page tutorial_map_making Map Making
+
+\tableofcontents
+
+This tutorial is a guide to producing event maps. Given reconstructed event 
+files (in XCD format), this tutorial will show how to obtain event maps 
+(data map, background map, significance map). Before starting, you will need 
+AERIE and all the external packages that AERIE uses (use APE to install 
+externals). For information on how to do this visit \ref install. 
+
+The map-maker project contains the underlying code to create event maps.
+The example executables that turn reconstructed events into event maps are 
+located in aerie-apps. For HAWC events, the example executable is
+ 
+<code> /aerie/src/aerie-apps/analysis/map-making/make-hawc-maps.cc </code>.
+
+HAWC-95/111 reconstructed data (in RecEvent format) are located on UMD at
+ 
+<code>$HAWCROOT/data/hawc/reconstructed/hawcprod/v1.26.00/reco_xcdf/</code>.
+
+\section example_hawc_june_2014_map Example: HAWC 2014 June Moon Map
+
+The data is at located at 
+<code>$HAWCROOT/data/hawc/reconstructed/hawcprod/v1.26.00/config-rev21595/reco_xcdf/2014/06/</code>
+
+Setup your APE and AERIE installations.
+
+Run the executable without input arguments to see the input variables and
+their defaults (if they have one).
+
+\code
+$ /aerie/install/bin/aerie-apps-make-hawc-maps
+
+FATAL ERROR [CommandLineConfigurator-inl.h, GetArgument:100]: Configuration:
+  -c [ --config-dir ] arg               Detector config directory (CONFIG_HAWC)
+  -p [ --path ] arg                     Output path
+  -n [ --name ] arg                     Prefix for output map name
+  -z [ --zenith-alignment-file ] arg    zenith aligment XML
+  -a [ --azimuth-correction-value ] arg (=0)
+                                        azimuth correction value in degree
+  --itype arg (=standard)               Define input type:
+                                          standard or crawl
+  --ipattern arg (=*_rec.xcdf)          Pattern used to add files to be 
+                                        processed in crawl input type
+  --input arg                           HAWC rec XCDF file(s)
+  --nChMax arg (=2147483647)            max PMTs hit in event
+  --nChMin arg (=0)                     min PMTs hit in event
+  --nHitMax arg (=2147483647)           max hits in event
+  --nHitMin arg (=0)                    min hits in event
+  --nTanksMax arg (=2147483647)         max tanks hit in event
+  --nTanksMin arg (=0)                  min tanks hit in event
+  --nFitnChMax arg (=100)               max PMT hits fit/PMT channels hit
+  --nFitnChMin arg (=0)                 min PMT hits fit/PMT channels hit
+  --fracHitMax arg (=100)               min fraction of PMTs hit in event
+  --fracHitMin arg (=0)                 max fraction of PMTs hit in event
+  --zenithMax arg (=nan)                max zenith angle [deg]
+  --zenithMin arg (=nan)                min zenith angle [deg]
+  --CxPERadius arg (=0)                 CxPE Radius [meter]
+  --CxPEMax arg (=nan)                  max CxPE
+  --CxPEMin arg (=nan)                  min CxPE
+  --compactnessMin arg (=nan)           min compactness=nCh/CxPE
+  --medSimEnergyMax arg (=nan)          max median sim. energy
+  --medSimEnergyMin arg (=nan)          min median sim. energy
+  --angleFitChi2NdofMax arg (=nan)      max angle fit Chi2 over dof
+  --coreFitChi2NdofMax arg (=nan)       max core fit Chi2 over dof
+  --coreFitChi2NHitMax arg (=nan)       max core fit Chi2 over nHit
+  --coredistMax arg (=nan)              max core dist. to center of array
+  --coreCenterX arg (=nan)              array center X ( 55 for HAWC-111)
+  --coreCenterY arg (=nan)              array center Y (275 for HAWC-111)
+  --evtFlagCut                          Apply eventFlags data quality cut.
+  --dtMax_hr arg (=2)                   Max Integration Duration [Hrs]
+  --dtMin_hr arg (=0)                   Min Integration Duration [Hrs]
+  --nSide arg (=512)                    NSide of Map [N512~.1deg]
+  --nDurations arg (=-1)                limit # of int.durs. [-1=off]
+  --noLastDur                           do not use last integration duration
+  --moon                                make a moon shadow map
+  --roi                                 use ROI masking
+  --sun                                 make a sun shadow map
+  --antisid                             make a antisidereal sky map
+  --aligner                             make maps used to generate zenith 
+                                        alignment
+  --useJ2000                            use J2000 coordinates for maps
+  --noRndSmear                          Do not apply random smearing to skymap.
+  --useWgts                             use event weights
+  --xml arg                             XML Cut file
+  --xmlbin arg (=-1)                    Bin of XML file to use.
+  --sensi-file arg                      Sensi output file.
+  --sensi-bin arg (=-1)                 Bin to use from sensi-file. Values < -1
+                                        will output all bins.
+  --useFrac                             Use fractional bins calculated from 
+                                        sensi-file input
+  --noGHCut                             Do not apply gamma/hadron cut
+  --useCxPE                             Use CxPE cut instead of compactness cut
+
+Argument input not found
+
+\endcode
+
+Run the MapMaker module executable over the data. Start with a single "run."
+Run 001522 is the first run in June 2014. This should take ~1 hour per 24 hours of data, but is 
+CPU dependent. Note, with the "--moon" flag you are creating moon maps (default
+is sky maps). Also you can implement any cuts that you like. nHit (number of PMTs that saw the air-shower event)
+greater than or equal to 30 ("--nHitMin=30") is a good cut.
+
+\code
+$ /aerie/install/bin/aerie-apps-make-hawc-maps 
+$HAWCROOT/data/hawc/reconstructed/hawcprod/v1.26.00/config-rev21595/reco_xcdf/2014/06/run001522/*xcdf
+-c $HAWC_CONFIG 
+-p /maps/ -n hawcmoon-run001522 --moon --nHitMin=30
+\endcode
+
+This will output <code>hawcmoon-run001522_N512.fits.gz</code>, where the 
+<code>N512</code> refers to the resolution of map in Healpix language. N512 
+corresponds to a pixel width of about 0.1 degrees.
+
+Repeat this for all runs. Batch processing is crucial to running over large 
+datasets in this way. Portable Batch Processing (PBS) is available on the UMD 
+cluster (http://private.hawc-observatory.org/wiki/index.php/HAWC_Computing#Batch_System).
+
+Runs (or any subset of the data) can be mapped and then combined with other 
+mapped runs. Combine all of the map files into a single map file using 
+map-maker-combine-maps.
+
+\code
+$ /aerie/install/bin/aerie-apps-combine-maps /maps/*fits.gz -o hawcmoon-june2014_N512.fits.gz
+\endcode
+
+Compute the significance map of the map file. A significance map can be made 
+from any map file, but individual significance maps cannot be combined. The min and max declination ranges ("-m" and "-M" respectively) should be set to save
+runtime. For the moon a min and max of -50 and 50 degrees is plenty. For the 
+sky, a min and max of -30 and 70 degrees is appropriate.
+
+\code
+$ /aerie/install/bin/aerie-apps-smooth-tophat-make-significance-map hawcmoon-june2014_N512.fits -n hawcmoon-june2014 -s 1. -M 50. -m -50 --relint
+\endcode
+
+This should output <code>hawcmoon-june2014_N512_S01p000_sig.fits.gz</code>
+and <code>hawcmoon-june2014_N512_S01p000_relint.fit.gz</code>, 
+where the <code>S01p000</code> denotes the amount of map smoothing that was 
+applied the maps before calculating the statistical significance.
+
+For information on working with either of the two types of map files (regular
+and significance), see \ref tutorial_working_with_maps. Refer any typos to 
+fiorino@wipac.wisc.edu.
+
+*/

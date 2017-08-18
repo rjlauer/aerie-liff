@@ -1,0 +1,53 @@
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            xmlns:hawc="http://www.hawc-observatory.org/schema/types">
+
+  <xsd:import namespace="http://www.hawc-observatory.org/schema/types"
+              schemaLocation="@HAWC_CONFIG@/HAWCSchemaTypes.xsd"/>
+
+  <xsd:element name="cosmicRayModel">
+    <xsd:complexType>
+      <xsd:sequence minOccurs="1" maxOccurs="unbounded">
+        <xsd:element name="source" type="SourceType"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+
+  <xsd:complexType name="SourceType">
+    <xsd:all>
+      <xsd:element name="name" type="xsd:string"/>
+      <xsd:element name="particleType" type="xsd:string"/>
+      <xsd:element name="spectrum" type="SpectrumType"/>
+    </xsd:all>
+  </xsd:complexType>
+
+  <xsd:complexType name="SpectrumType">
+    <xsd:all>
+      <xsd:element name="energyRange" type="hawc:listOfDoublesWithUnits"/>
+      <xsd:element name="normF" type="hawc:doubleWithUnit"/>
+      <xsd:element name="normE" type="hawc:doubleWithUnit"/>
+      <xsd:element name="index" type="xsd:double" minOccurs="0"/>
+      <xsd:element name="alpha" type="xsd:double" minOccurs="0"/>
+      <xsd:element name="beta" type="xsd:double" minOccurs="0"/>
+      <xsd:element name="index1" type="xsd:double" minOccurs="0"/>
+      <xsd:element name="Ebreak" type="hawc:doubleWithUnit" minOccurs="0"/>
+      <xsd:element name="index2" type="xsd:double" minOccurs="0"/>
+      <xsd:element name="Ebreak1" type="hawc:doubleWithUnit" minOccurs="0"/>
+      <xsd:element name="Ebreak2" type="hawc:doubleWithUnit" minOccurs="0"/>
+      <xsd:element name="cutoffE" type="hawc:doubleWithUnit" minOccurs="0"/>
+    </xsd:all>
+    <xsd:attribute name="type" type="ModelType" use="required"/>
+  </xsd:complexType>
+
+  <xsd:simpleType name="ModelType">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="PowerLaw"/>
+      <xsd:enumeration value="LogParabola"/>
+      <xsd:enumeration value="PLExpCutoff"/>
+      <xsd:enumeration value="PLExpCutoff_LAT"/>
+      <xsd:enumeration value="BrokenPowerLaw"/>
+      <xsd:enumeration value="DoubleBrokenPowerLaw"/>
+      <xsd:enumeration value="TabulatedSpectrum"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+
+</xsd:schema>

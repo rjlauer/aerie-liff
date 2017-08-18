@@ -1,0 +1,33 @@
+/*!
+
+\page tutorial_triggering_reconstructing_data Triggering and Reconstructing Data
+
+\tableofcontents
+
+\section introduction Introduction
+
+The handling of the HAWC data is in flux. Currently, we write the 
+HAWC-30 data into the same format as was used for VAMOS in order to re-use
+the tools developed for VAMOS. 
+
+\section example_processing Example Processing
+
+The <strong>experimental-data/triggering-and-reconstructing</strong> tutorial
+gives a very quick introduction in how to work with the current HAWC-30 data.
+There is one small data file. The script <code>trigger-and-reconstruct</code>
+contains some of the more useful things that can be done with that file.
+
+The excecutables have a number of configurable parameters. Run them with the -h
+option to see the options. 
+
+Explaining all the details of the reconstruction process is beyond the scope of
+this little tutorial. Run the executables and view the output.  You can look at
+the ROOT files with ROOT very easily. 
+
+At this moment the data from HAWC 30 are stored at UMD at 
+<code>$HAWCROOT/stage-in/hawc30-data/RUN000034</code>. Go to town.
+
+Subsequent tutorials will show in more detail how to interact with the data in
+a more meaningful way.
+
+*/

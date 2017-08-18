@@ -1,0 +1,1615 @@
+<?xml version="1.0"?>
+
+<!--
+  TeVCat point source list created with AERIE script listXML.py
+  2012-10-24 16:29:50.112519
+
+  Spectral fits then filled in by going through the literature.
+
+  Catalogs:
+  - Default catalog
+  - Newly announced
+
+  Cuts:
+  - Source declination within +-50 deg of dec=19 deg
+
+  Notes:
+  - Steady/time-averaged fluxes used whenever possible
+  - Only observed fluxes used; no de-absorption applied
+  - If only integral flux available, used HESS Crab spectrum with reduced
+    normalization.  This was done for the following sources:
+
+    + TeV J0632+173 (Geminga)
+    + TeV J2228+611 (Boomerang)
+    + TeV J1428+426 (H 1426+428)
+    + TeV J2001+438 (MAGIC J2001+435)
+    + TeV J1849-000 (IGR J18490-0000)
+    + TeV J2019+407 (VER J2019+407)
+    + TeV J0013-189 (SHBL J001355.9-185406)
+    + TeV J1743+196 (1ES 1741+196)
+    + TeV J1832-093 (HESS J1832-093)
+    + TeV J1728+502 (1ES 1727+502)
+    + TeV J0650+250 (1ES 0647+250)
+-->
+
+<ps-catalog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:noNamespaceSchemaLocation="@HAWC_CONFIG@/PSCatalog.xsd">
+
+  <!-- ==================== TeV J0013-189 =================== -->
+  <!-- M. Cerruti et al., ICRC 2011, arXiv:1110.2119
+       TeV flux is 1% Crab but no further information given, so
+       assuming Crab spectral fit (PL) with 1% normalization. -->
+  <source>
+    <name> TeV J0013-189 </name>
+    <assoc> SHBL J001355.9-185406 </assoc>
+    <raJ2000 unit="deg"> 3.483333 </raJ2000>
+    <decJ2000 unit="deg"> -18.901944 </decJ2000>
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 300 10000 </energyRange>
+      <normF unit="1e-13/cm2/second/TeV"> 3.45 </normF>
+      <normE unit="TeV"> 1.0 </normE>
+      <index> -2.63 </index>
+    </spectrum>
+  </source>
+
+  <!-- ==================== TeV J0025+641 =================== -->
+  <!-- V.A. Acciari et al., ApJ 730:L20-L25 (2011) -->
+  <source>
+    <name> TeV J0025+641 </name>
+    <assoc> Tycho </assoc>
+    <raJ2000 unit="deg"> 6.362500 </raJ2000>
+    <decJ2000 unit="deg"> 64.180556 </decJ2000>
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 1000 10000 </energyRange>
+      <normF unit="1e-14/cm2/second/TeV"> 1.55 </normF>
+      <normE unit="TeV"> 3.42 </normE>
+      <index> -1.95 </index>
+    </spectrum>
+  </source>
+
+  <!-- ==================== TeV J0033-193 =================== -->
+  <!-- HESS source of the month, August 2012.  There is a spectral break near
+       80 GeV (Fermi-LAT: -1.8, HESS: -4) which is consistent with EBL
+       attenuation (source is at z = 0.61) -->
+  <source>
+    <name> TeV J0033-193 </name>
+    <assoc> KUV 00311-1938 </assoc>
+    <raJ2000 unit="deg"> 8.392500 </raJ2000>
+    <decJ2000 unit="deg"> -19.359167 </decJ2000>
+    <spectrum type="BrokenPowerLaw">
+      <energyRange unit="GeV"> 10.0 2e3 </energyRange>
+      <normF unit="1e-8/cm2/second/TeV"> 4.37 </normF>
+      <normE unit="GeV"> 10. </normE>
+      <index> -1.8 </index>
+      <Ebreak unit="GeV"> 80. </Ebreak>
+      <index1> -3.8 </index1>
+    </spectrum>
+  </source>
+
+  <!-- ==================== TeV J0035+598 =================== -->
+  <!-- ATel #3719: 1.5% Crab > 150 GeV, rapidly decreasing with E -->
+  <!--
+  <source>
+    <name> TeV J0035+598 </name>
+    <assoc> 1ES 0033+595 </assoc>
+    <raJ2000 unit="deg"> 8.969292 </raJ2000>
+    <decJ2000 unit="deg"> 59.834600 </decJ2000>
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 150 </energyRange>
+      <normF unit="1./cm2/second/TeV"> </normF>
+      <normE unit="TeV"> </normE>
+      <index> -0.015 </index>
+    </spectrum>
+  </source>
+  -->
+
+  <!-- ==================== TeV J0047-253 =================== -->
+  <!-- F. Acero et al., Science 326:1080-1082 (2009).
+  
+       Note that a spectrum was not measured from this source
+       (a starburst Galaxy); only a single flux measurement at
+       220 GeV is provided.
+       
+       To get a spectrum we took the lower boundary of a calculation
+       by Domingo and Torres, A&A 444:403 (2005) which is reproduced
+       in the Science paper.  -->
+  <source>
+    <name> TeV J0047-253 </name>
+    <assoc> NGC 253 </assoc>
+    <raJ2000 unit="deg"> 11.890000 </raJ2000>
+    <decJ2000 unit="deg"> -25.302222 </decJ2000>
+    <spectrum type="PLExpCutoff">
+      <energyRange unit="GeV"> 100 10000 </energyRange>
+      <normF unit="1e-13/cm2/second/TeV"> 2.7 </normF>
+      <normE unit="TeV"> 1.0 </normE>
+      <index> -2.4 </index>
+      <cutoffE unit="TeV"> 3.0 </cutoffE>
+    </spectrum>
+  </source>
+
+  <!-- ==================== TeV J0136+391 =================== -->
+  <!-- Detected by MAGIC (Gamma 2012). No spectrum available. -->
+  <!--
+  <source>
+    <name> TeV J0136+391 </name>
+    <assoc> RGB J0136+391 </assoc>
+    <raJ2000 unit="deg"> 24.135417 </raJ2000>
+    <decJ2000 unit="deg"> 39.1 </decJ2000>
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 300 5000 </energyRange>
+      <normF unit="1e-13/cm2/second/TeV"> 5.7 </normF>
+      <normE unit="TeV"> 1.0 </normE>
+      <index> -2.95 </index>
+    </spectrum>
+  </source>
+  -->
+
+  <!-- ==================== TeV J0152+017 =================== -->
+  <!-- F. Aharonian et al., A&A 481:L103-L107 (2008) -->
+  <source>
+    <name> TeV J0152+017 </name>
+    <assoc> RGB J0152+017 </assoc>
+    <raJ2000 unit="deg"> 28.139583 </raJ2000>
+    <decJ2000 unit="deg"> 1.777861 </decJ2000>
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 300 5000 </energyRange>
+      <normF unit="1e-13/cm2/second/TeV"> 5.7 </normF>
+      <normE unit="TeV"> 1.0 </normE>
+      <index> -2.95 </index>
+    </spectrum>
+  </source>
+
+  <!-- ==================== TeV J0222+430 =================== -->
+  <!-- J. Aleksic et al., ApJ 726:58-63 (2011) -->
+  <source>
+    <name> TeV J0222+430 </name>
+    <assoc> 3C66A </assoc>
+    <raJ2000 unit="deg"> 35.673333 </raJ2000>
+    <decJ2000 unit="deg"> 43.043194 </decJ2000>
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 200 10000 </energyRange>
+      <normF unit="1e-11/cm2/second/TeV"> 9.6 </normF>
+      <normE unit="TeV"> 0.2 </normE>
+      <index> -3.64 </index>
+    </spectrum>
+  </source>
+
+  <!-- ==================== TeV J0223+430 =================== -->
+  <!-- E. Aliu et al,. ApJ 692:L29-L33 (2009) -->
+  <source>
+    <name> TeV J0223+430 </name>
+    <assoc> MAGIC J0223+403 </assoc>
+    <raJ2000 unit="deg"> 35.800000 </raJ2000>
+    <decJ2000 unit="deg"> 43.011667 </decJ2000>
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 150 3000 </energyRange>
+      <normF unit="1e-11/cm2/second/TeV"> 1.7 </normF>
+      <normE unit="TeV"> 0.3 </normE>
+      <index> -3.1 </index>
+    </spectrum>
+  </source>
+
+  <!-- ==================== TeV J0232+202 =================== -->
+  <!-- F. Aharonian et al., A&A 475:L9-L13 (2007) -->
+  <source>
+    <name> TeV J0232+202 </name>
+    <assoc> 1ES 0229+200 </assoc>
+    <raJ2000 unit="deg"> 38.221667 </raJ2000>
+    <decJ2000 unit="deg"> 20.272500 </decJ2000>
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 580 20000 </energyRange>
+      <normF unit="1e-13/cm2/second/TeV"> 7.0 </normF>
+      <normE unit="TeV"> 1.0 </normE>
+      <index> -2.50 </index>
+    </spectrum>
+  </source>
+
+  <!-- ==================== TeV J0240+612 =================== -->
+  <!-- V.A. Acciari et al., ApJ 679:1427-1432 (2008) -->
+  <source>
+    <name> TeV J0240+612 </name>
+    <assoc> LSI +61 303 </assoc>
+    <raJ2000 unit="deg"> 40.141667 </raJ2000>
+    <decJ2000 unit="deg"> 61.256944 </decJ2000>
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 400 10000 </energyRange>
+      <normF unit="1e-12/cm2/second/TeV"> 2.89 </normF>
+      <normE unit="TeV"> 1.0 </normE>
+      <index> -2.40 </index>
+    </spectrum>
+  </source>
+
+  <!-- ==================== TeV 0303-241 =================== -->
+  <!-- Announced at Gamma 2012 (poster); no spectrum available. -->
+  <!--
+  <source>
+    <name> TeV 0303-241 </name>
+    <assoc> PKS 0301-243 </assoc>
+    <raJ2000 unit="deg"> 40.141667 </raJ2000>
+    <decJ2000 unit="deg"> 61.256944 </decJ2000>
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 400 10000 </energyRange>
+      <normF unit="1e-12/cm2/second/TeV"> 2.89 </normF>
+      <normE unit="TeV"> 1.0 </normE>
+      <index> -2.40 </index>
+    </spectrum>
+  </source>
+  -->
+
+  <!-- ==================== TeV J0316+413 =================== -->
+  <!-- D. Hildebrand, ICRC 2009, arXiv:1110.5358
+       Combined fit of MAGIC and Fermi-LAT data. -->
+  <source>
+    <name> TeV J0316+413 </name>
+    <assoc> IC 310 </assoc>
+    <raJ2000 unit="deg"> 49.179167 </raJ2000>
+    <decJ2000 unit="deg"> 41.324722 </decJ2000>
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 2 7000 </energyRange>
+      <normF unit="1e-12/cm2/second/TeV"> 1.1 </normF>
+      <normE unit="TeV"> 1.0 </normE>
+      <index> -2.00 </index>
+    </spectrum>
+  </source>
+
+  <!-- ==================== TeV J0319+187 =================== -->
+  <!-- E. Aliu et al., ApJ 750:94-99 (2012) -->
+  <source>
+    <name> TeV J0319+187 </name>
+    <assoc> RBS 0413 </assoc>
+    <raJ2000 unit="deg"> 49.945833 </raJ2000>
+    <decJ2000 unit="deg"> 18.761667 </decJ2000>
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 250 1000 </energyRange>
+      <normF unit="1e-11/cm2/second/TeV"> 1.38 </normF>
+      <normE unit="TeV"> 0.3 </normE>
+      <index> -3.18 </index>
+    </spectrum>
+  </source>
+
+  <!-- ==================== TeV J0319+415 =================== -->
+  <!-- D. Hildebrand, ICRC 2009, arXiv:1110.5358 -->
+  <source>
+    <name> TeV J0319+415 </name>
+    <assoc> NGC 1275 </assoc>
+    <raJ2000 unit="deg"> 49.950417 </raJ2000>
+    <decJ2000 unit="deg"> 41.511667 </decJ2000>
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 90 400 </energyRange>
+      <normF unit="1e-10/cm2/second/TeV"> 3.01 </normF>
+      <normE unit="TeV"> 0.1 </normE>
+      <index> -3.96 </index>
+    </spectrum>
+  </source>
+
+  <!-- ==================== TeV J0349-119 =================== -->
+  <!-- F. Aharonian et al., A&A 473:L25-L28 (2007) -->
+  <source>
+    <name> TeV J0349-119 </name>
+    <assoc> 1ES 0347-121 </assoc>
+    <raJ2000 unit="deg"> 57.345833 </raJ2000>
+    <decJ2000 unit="deg"> -11.977222 </decJ2000>
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 250 4000 </energyRange>
+      <normF unit="1e-13/cm2/second/TeV"> 4.52 </normF>
+      <normE unit="TeV"> 1.0 </normE>
+      <index> -3.10 </index>
+    </spectrum>
+  </source>
+
+  <!-- ==================== TeV J0416+010 =================== -->
+  <!-- A. Abramowski et al., A&A (in press, 2012), arXiv:1201.2044 -->
+  <source>
+    <name> TeV J0416+010 </name>
+    <assoc> 1ES 0414+009 </assoc>
+    <raJ2000 unit="deg"> 64.220667 </raJ2000>
+    <decJ2000 unit="deg"> 1.089000 </decJ2000>
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 200 2000 </energyRange>
+      <normF unit="1e-12/cm2/second/TeV"> 5.70 </normF>
+      <normE unit="TeV"> 0.305 </normE>
+      <index> -3.45 </index>
+    </spectrum>
+  </source>
+
+  <!-- ==================== TeV J0507+676 =================== -->
+  <!-- W. Benbow, ICRC 2011, arXiv:1110.0040 [astro-ph].
+       Measured spectrum with 6% Crab flux above 300 GeV.  Converted
+       to a differential power law spectrum. -->
+  <source>
+    <name> TeV J0507+676 </name>
+    <assoc> 1ES 0502+675 </assoc>
+    <raJ2000 unit="deg"> 76.984167 </raJ2000>
+    <decJ2000 unit="deg"> 67.623333 </decJ2000>
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 350 5000 </energyRange>
+      <normF unit="1e-11/cm2/second/TeV"> 4.91 </normF>
+      <normE unit="TeV"> 0.3 </normE>
+      <index> -3.92 </index>
+    </spectrum>
+  </source>
+
+  <!-- ==================== TeV J0521+211 =================== -->
+  <!-- M. Errando, 2011 Fermi Symposium, Rome, arXiv:1111.1209 -->
+  <source>
+    <name> TeV J0521+211 </name>
+    <assoc> VER J0521+211 </assoc>
+    <raJ2000 unit="deg"> 80.479167 </raJ2000>
+    <decJ2000 unit="deg"> 21.190000 </decJ2000>
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 200 1000 </energyRange>
+      <normF unit="1e-11/cm2/second/TeV"> 1.99 </normF>
+      <normE unit="TeV"> 0.4 </normE>
+      <index> -3.44 </index>
+    </spectrum>
+  </source>
+
+  <!-- ==================== TeV J0534+220 =================== -->
+  <!-- F. Aharonian et al., A&A 457:899-915 (2006)
+       Observations of the Crab nebula with HESS, using the
+       exponential cutoff fit.-->
+  <source>
+    <name> TeV J0534+220 </name>
+    <assoc> Crab </assoc>
+    <raJ2000 unit="deg"> 83.629583 </raJ2000>
+    <decJ2000 unit="deg"> 22.014444 </decJ2000>
+    <spectrum type="PLExpCutoff">
+      <energyRange unit="GeV"> 700 30000 </energyRange>
+      <normF unit="1e-11/cm2/second/TeV"> 3.76 </normF>
+      <normE unit="TeV"> 1.0 </normE>
+      <index> -2.39 </index>
+      <cutoffE unit="TeV"> 14.3 </cutoffE>
+    </spectrum>
+  </source>
+
+  <!-- ==================== TeV J0616+225 =================== -->
+  <!-- V.A. Acciari et al., ApJ 698:L133-L137 (2009) -->
+  <source>
+    <name> TeV J0616+225 </name>
+    <assoc> IC443 </assoc>
+    <raJ2000 unit="deg"> 94.212500 </raJ2000>
+    <decJ2000 unit="deg"> 22.503056 </decJ2000>
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 300 2000 </energyRange>
+      <normF unit="1e-13/cm2/second/TeV"> 8.38 </normF>
+      <normE unit="TeV"> 1.0 </normE>
+      <index> -2.99 </index>
+    </spectrum>
+    <extent type="ellipse">
+      <raAxis unit="deg"> 0.16 </raAxis>
+      <decAxis unit="deg"> 0.16 </decAxis>
+      <angle unit="deg"> 0 </angle>
+    </extent>
+  </source>
+
+  <!-- ==================== TeV J0632+173 =================== -->
+  <!-- A.A. Abdo et al., ApJ 700:L127-L131 (2009)
+       This is the MGRO C3 region associated with Geminga and the 
+       object 0FGL J06340.0+1745 in the Fermi Bright Source List.
+       
+       No spectrum was published, but the flux at 35 TeV is about
+       37.7+-10.7e-17 /TeV/cm2/s.  To model the spectrum we take the
+       HESS Crab flux (power law fit) and reduce its normalization
+       by 4x. -->
+  <source>
+    <name> TeV J0632+173 </name>
+    <assoc> Geminga </assoc>
+    <raJ2000 unit="deg"> 98.116667 </raJ2000>
+    <decJ2000 unit="deg"> 17.366667 </decJ2000>
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 400 40000 </energyRange>
+      <normF unit="1e-11/cm2/second/TeV"> 0.86 </normF>
+      <normE unit="TeV"> 1.0 </normE>
+      <index> -2.63 </index>
+    </spectrum>
+    <extent type="ellipse">
+      <raAxis unit="deg"> 2.6 </raAxis>
+      <decAxis unit="deg"> 2.6 </decAxis>
+      <angle unit="deg"> 0 </angle>
+    </extent>
+  </source>
+
+  <!-- ==================== TeV J0632+058 =================== -->
+  <!-- J. Aleksic et al., ApJ 754:L10-L15 (2012) -->
+  <source>
+    <name> TeV J0632+058 </name>
+    <assoc> HESS J0632+057 </assoc>
+    <raJ2000 unit="deg"> 98.242917 </raJ2000>
+    <decJ2000 unit="deg"> 5.805556 </decJ2000>
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 400 4000 </energyRange>
+      <normF unit="1e-12/cm2/second/TeV"> 1.2 </normF>
+      <normE unit="TeV"> 1.0 </normE>
+      <index> -2.60 </index>
+    </spectrum>
+  </source>
+
+  <!-- ==================== TeV J0648+152 =================== -->
+  <!-- E. Aliu et al., ApJ 742:127-133 (2011) -->
+  <source>
+    <name> TeV J0648+152 </name>
+    <assoc> RX J0648.7+1516 </assoc>
+    <raJ2000 unit="deg"> 102.190000 </raJ2000>
+    <decJ2000 unit="deg"> 15.270000 </decJ2000>
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 200 650 </energyRange>
+      <normF unit="1e-11/cm2/second/TeV"> 2.3 </normF>
+      <normE unit="TeV"> 0.3 </normE>
+      <index> -4.4 </index>
+    </spectrum>
+  </source>
+
+  <!-- ==================== TeV J0650+250 =================== -->
+  <!-- MAGIC: 3% Crab > 100 GeV.  Using Crab spectral shape. -->
+  <source>
+    <name> TeV J0650+250 </name>
+    <assoc> 1ES 0647+250 </assoc>
+    <raJ2000 unit="deg"> 102.693750 </raJ2000>
+    <decJ2000 unit="deg"> 25.050000 </decJ2000>
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 300 10000 </energyRange>
+      <normF unit="1e-12/cm2/second/TeV"> 1.04 </normF>
+      <normE unit="TeV"> 1.0 </normE>
+      <index> -2.63 </index>
+    </spectrum>
+  </source>
+
+  <!-- ==================== TeV J0710+591 =================== -->
+  <!-- V.A. Acciari et al., ApJ 715:L49-L55 (2010) -->
+  <source>
+    <name> TeV J0710+591 </name>
+    <assoc> RGB J0710+591 </assoc>
+    <raJ2000 unit="deg"> 107.610000 </raJ2000>
+    <decJ2000 unit="deg"> 59.150000 </decJ2000>
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 300 8000 </energyRange>
+      <normF unit="1e-13/cm2/second/TeV"> 7.3 </normF>
+      <normE unit="TeV"> 1.0 </normE>
+      <index> -2.69 </index>
+    </spectrum>
+  </source>
+
+  <!-- ==================== TeV J0809+523 =================== -->
+  <!-- V. Acciari et al., ApJ 690:L126-L129 (2009) -->
+  <source>
+    <name> TeV J0809+523 </name>
+    <assoc> 1ES 0806+524 </assoc>
+    <raJ2000 unit="deg"> 122.495833 </raJ2000>
+    <decJ2000 unit="deg"> 52.316667 </decJ2000>
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 300 1000 </energyRange>
+      <normF unit="1e-12/cm2/second/TeV"> 6.8 </normF>
+      <normE unit="TeV"> 0.4 </normE>
+      <index> -3.6 </index>
+    </spectrum>
+  </source>
+
+  <!-- ==================== TeV J1015+494 =================== -->
+  <!-- J. Albert et al., ApJ 667:L21-L24 (2007) -->
+  <source>
+    <name> TeV J1015+494 </name>
+    <assoc> 1ES 1011+496 </assoc>
+    <raJ2000 unit="deg"> 153.767083 </raJ2000>
+    <decJ2000 unit="deg"> 49.433611 </decJ2000>
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 200 800 </energyRange>
+      <normF unit="1e-10/cm2/second/TeV"> 2.0 </normF>
+      <normE unit="TeV"> 0.2 </normE>
+      <index> -4.0 </index>
+    </spectrum>
+  </source>
+
+  <!-- ==================== TeV J1103-234 =================== -->
+  <!-- F. Aharonian et al., A&A 470:475-489 (2007) -->
+  <source>
+    <name> TeV J1103-234 </name>
+    <assoc> 1ES 1101-232 </assoc>
+    <raJ2000 unit="deg"> 165.902083 </raJ2000>
+    <decJ2000 unit="deg"> -23.495833 </decJ2000>
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 100 10000 </energyRange>
+      <normF unit="1e-13/cm2/second/TeV"> 5.63 </normF>
+      <normE unit="TeV"> 1.0 </normE>
+      <index> -2.94 </index>
+    </spectrum>
+  </source>
+
+  <!-- ==================== TeV J1104+382 =================== -->
+  <!-- J. Albert et al., ApJ 663:125-138 (2007)
+       Power law with changing photon index (low state flux). -->
+  <source>
+    <name> TeV J1104+382 </name>
+    <assoc> Markarian 421 </assoc>
+    <raJ2000 unit="deg"> 166.079167 </raJ2000>
+    <decJ2000 unit="deg"> 38.194722 </decJ2000>
+    <spectrum type="LogParabola">
+      <energyRange unit="GeV"> 500 5000 </energyRange>
+      <normF unit="1e-10/cm2/second/TeV"> 7.77 </normF>
+      <normE unit="TeV"> 0.25 </normE>
+      <alpha> -2.35 </alpha>
+      <beta> -0.09 </beta>
+    </spectrum>
+  </source>
+
+  <!-- ==================== TeV J1217+301 =================== -->
+  <!-- J. Aleksic et al., A&A accepted (2012) -->
+  <source>
+    <name> TeV J1217+301 </name>
+    <assoc> 1ES 1215+303 </assoc>
+    <raJ2000 unit="deg"> 184.467083 </raJ2000>
+    <decJ2000 unit="deg"> 30.116944 </decJ2000>
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 250 2000 </energyRange>
+      <normF unit="1e-11/cm2/second/TeV"> 2.27 </normF>
+      <normE unit="TeV"> 0.3 </normE>
+      <index> -2.96 </index>
+    </spectrum>
+  </source>
+
+  <!-- ==================== TeV J1221+301 =================== -->
+  <!-- V.A. Acciari et al., ApJ 695:1370-1375 (2009) -->
+  <source>
+    <name> TeV J1221+301 </name>
+    <assoc> 1ES 1218+304 </assoc>
+    <raJ2000 unit="deg"> 185.359583 </raJ2000>
+    <decJ2000 unit="deg"> 30.191389 </decJ2000>
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 120 2000 </energyRange>
+      <normF unit="1e-12/cm2/second/TeV"> 7.5 </normF>
+      <normE unit="TeV"> 0.5 </normE>
+      <index> -3.08 </index>
+    </spectrum>
+  </source>
+
+  <!-- ==================== TeV J1221+282 =================== -->
+  <!-- V.A. Acciari et al., ApJ 707:621-620 (2009) contains observations of a
+       TeV flare from this object.  An earlier observation with a softer
+       spectral index of -3.81 can be found in ApJ 684:L73-L77 (2008). -->
+  <source>
+    <name> TeV J1221+282 </name>
+    <assoc> W Comae </assoc>
+    <raJ2000 unit="deg"> 185.382083 </raJ2000>
+    <decJ2000 unit="deg"> 28.233056 </decJ2000>
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 200 2000 </energyRange>
+      <normF unit="1e-11/cm2/second/TeV"> 6.5 </normF>
+      <normE unit="TeV"> 0.4 </normE>
+      <index> -3.68 </index>
+    </spectrum>
+  </source>
+
+  <!-- ==================== TeV J1224+213 =================== -->
+  <!-- J. Aleksic et al., ApJ 730:L8-L15 (2011) -->
+  <source>
+    <name> TeV J1224+213 </name>
+    <assoc> 4C +21.35 </assoc>
+    <raJ2000 unit="deg"> 186.226667 </raJ2000>
+    <decJ2000 unit="deg"> 21.379444 </decJ2000>
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 70 400 </energyRange>
+      <normF unit="1e-10/cm2/second/TeV"> 7.8 </normF>
+      <normE unit="TeV"> 0.2 </normE>
+      <index> -3.75 </index>
+    </spectrum>
+  </source>
+
+  <!-- ==================== TeV J1230+123 =================== -->
+  <!-- V.A. Acciari et al., ApJ 679:397-403 (2008) -->
+  <source>
+    <name> TeV J1230+123 </name>
+    <assoc> M87 </assoc>
+    <raJ2000 unit="deg"> 187.696667 </raJ2000>
+    <decJ2000 unit="deg"> 12.397500 </decJ2000>
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 250 4000 </energyRange>
+      <normF unit="1e-13/cm2/second/TeV"> 7.4 </normF>
+      <normE unit="TeV"> 1.0 </normE>
+      <index> -2.31 </index>
+    </spectrum>
+  </source>
+
+  <!-- ==================== TeV J1256-057 =================== -->
+  <!-- J. Albert et al., Science 320:1752-1754 (2008) -->
+  <source>
+    <name> TeV J1256-057 </name>
+    <assoc> 3C279 </assoc>
+    <raJ2000 unit="deg"> 194.046250 </raJ2000>
+    <decJ2000 unit="deg"> -5.789444 </decJ2000>
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 80 500 </energyRange>
+      <normF unit="1e-10/cm2/second/TeV"> 5.2 </normF>
+      <normE unit="TeV"> 0.2 </normE>
+      <index> -4.11 </index>
+    </spectrum>
+  </source>
+
+  <!-- ==================== TeV J1427+238 =================== -->
+  <!-- V.A. Acciari, ApJ 708:L100-L106 (2010) -->
+  <source>
+    <name> TeV J1427+238 </name>
+    <assoc> PKS 1424+240 </assoc>
+    <raJ2000 unit="deg"> 216.750000 </raJ2000>
+    <decJ2000 unit="deg"> 23.794444 </decJ2000>
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 140 800 </energyRange>
+      <normF unit="1e-11/cm2/second/TeV"> 5.1 </normF>
+      <normE unit="TeV"> 0.2 </normE>
+      <index> -3.8 </index>
+    </spectrum>
+  </source>
+
+  <!-- ==================== TeV J1428+426 =================== -->
+  <!-- W. Benbow, ICRC 2011, arXiv:1110.0039 [astro-ph].
+       VERITAS claim was a weak excess (5.2 sigma) <2% of the 
+       Crab flux.  Using a reduced HESS Crab spectrum. -->
+  <source>
+    <name> TeV J1428+426 </name>
+    <assoc> H 1426+428 </assoc>
+    <raJ2000 unit="deg"> 217.135833 </raJ2000>
+    <decJ2000 unit="deg"> 42.672500 </decJ2000>
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 400 40000 </energyRange>
+      <normF unit="1e-12/cm2/second/TeV"> 3.45 </normF>
+      <normE unit="TeV"> 1.0 </normE>
+      <index> -2.63 </index>
+    </spectrum>
+  </source>
+
+  <!-- ==================== TeV J1443+120 =================== -->
+  <!-- W. Benbow, ICRC 2011, arXiv:1110.0040 [astro-ph].
+       1% Crab above 200 GeV.  Converted to differential spectrum. -->
+  <source>
+    <name> TeV J1443+120 </name>
+    <assoc> 1ES 1440+122 </assoc>
+    <raJ2000 unit="deg"> 220.701250 </raJ2000>
+    <decJ2000 unit="deg"> 12.011111 </decJ2000>
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 200 5000 </energyRange>
+      <normF unit="1e-11/cm2/second/TeV"> 3.5 </normF>
+      <normE unit="TeV"> 0.2 </normE>
+      <index> -3.4 </index>
+    </spectrum>
+  </source>
+
+  <!-- ==================== TeV J1512-091 =================== -->
+  <!-- Detected by HESS and MAGIC, no spectrum or integral flux available -->
+  <!--
+  <source>
+    <name> TeV J1512-091 </name>
+    <assoc> PKS 1510-089 </assoc>
+    <raJ2000 unit="deg"> 228.210417 </raJ2000>
+    <decJ2000 unit="deg"> -9.100000 </decJ2000>
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 0 </energyRange>
+      <normF unit="1./cm2/second/TeV"> </normF>
+      <normE unit="TeV"> </normE>
+      <index> -0 </index>
+    </spectrum>
+  </source>
+  -->
+
+  <!-- ==================== TeV J1517-243 =================== -->
+  <!-- M. Cerruti, ICRC 2011, arXiv:1110.2119 [astro-ph].
+       Measured spectrum with 2% Crab flux above 300 GeV.  Converted
+       to a differential power law spectrum. -->
+  <source>
+    <name> TeV J1517-243 </name>
+    <assoc> AP Lib </assoc>
+    <raJ2000 unit="deg"> 229.424167 </raJ2000>
+    <decJ2000 unit="deg"> -24.371944 </decJ2000>
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 300 5000 </energyRange>
+      <normF unit="1e-11/cm2/second/TeV"> 4.52 </normF>
+      <normE unit="TeV"> 0.3 </normE>
+      <index> -2.5 </index>
+    </spectrum>
+  </source>
+
+  <!-- ==================== TeV J1555+111 =================== -->
+  <!-- F. Aharonian et al., A&A 477:481-489 (2008) -->
+  <source>
+    <name> TeV J1555+111 </name>
+    <assoc> PG 1553+113 </assoc>
+    <raJ2000 unit="deg"> 238.936250 </raJ2000>
+    <decJ2000 unit="deg"> 11.194722 </decJ2000>
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 300 3000 </energyRange>
+      <normF unit="1e-11/cm2/second/TeV"> 4.68 </normF>
+      <normE unit="TeV"> 0.3 </normE>
+      <index> -4.46 </index>
+    </spectrum>
+  </source>
+
+  <!-- ==================== TeV J1653+397 =================== -->
+  <!-- V.A. Acciari et al., ApJ 792:2-10 (2011) -->
+  <source>
+    <name> TeV J1653+397 </name>
+    <assoc> Markarian 501 </assoc>
+    <raJ2000 unit="deg"> 253.467500 </raJ2000>
+    <decJ2000 unit="deg"> 39.760278 </decJ2000>
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 300 3000 </energyRange>
+      <normF unit="1e-12/cm2/second/TeV"> 5.78 </normF>
+      <normE unit="TeV"> 1.0 </normE>
+      <index> -2.72 </index>
+    </spectrum>
+  </source>
+
+  <!-- ==================== TeV J1728+502 =================== -->
+  <!-- ATel #3774, 1.7% Crab above 150 GeV.  Using Crab spectral shape. -->
+  <source>
+    <name> TeV J1728+502 </name>
+    <assoc> 1ES 1727+502 </assoc>
+    <raJ2000 unit="deg"> 262.077500 </raJ2000>
+    <decJ2000 unit="deg"> 50.219444 </decJ2000>
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 300 10000 </energyRange>
+      <normF unit="1e-13/cm2/second/TeV"> 5.865 </normF>
+      <normE unit="TeV"> 1.0 </normE>
+      <index> -2.63 </index>
+    </spectrum>
+  </source>
+
+  <!-- ==================== TeV J1741-301 =================== -->
+  <!-- O. Tibolla et al., Proc. 4th Int. Meet. High-Energy
+       Gamma-Ray Astron., 249-252 (2009)-->
+  <source>
+    <name> TeV J1741-301 </name>
+    <assoc> HESS J1741-302 </assoc>
+    <raJ2000 unit="deg"> 265.250000 </raJ2000>
+    <decJ2000 unit="deg"> -30.200000 </decJ2000>
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 1000 10000 </energyRange>
+      <normF unit="1e-12/cm2/second/TeV"> 1.12 </normF>
+      <normE unit="TeV"> 1.0 </normE>
+      <index> -2.78 </index>
+    </spectrum>
+  </source>
+
+  <!-- ==================== TeV J1743+196 =================== -->
+  <!-- K. Berger et al., ICRC 2011, arXiv:1109.5860.
+       Newly announced, 0.8% Crab, just using Crab PL spectrum. -->
+  <source>
+    <name> TeV J1743+196 </name>
+    <assoc> 1ES 1741+196 </assoc>
+    <raJ2000 unit="deg"> 265.990833 </raJ2000>
+    <decJ2000 unit="deg"> 19.585833 </decJ2000>
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 300 10000 </energyRange>
+      <normF unit="1e-13/cm2/second/TeV"> 2.76 </normF>
+      <normE unit="TeV"> 1.0 </normE>
+      <index> -2.63 </index>
+    </spectrum>
+  </source>
+
+  <!-- ==================== TeV J1745-303 =================== -->
+  <!-- F. Aharonian et al., ApJ 636:777-797 (2006). -->
+  <source>
+    <name> TeV J1745-303 </name>
+    <assoc> HESS J1745-303 </assoc>
+    <raJ2000 unit="deg"> 266.26 </raJ2000>
+    <decJ2000 unit="deg"> -30.37 </decJ2000>
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 200 1000 </energyRange>
+      <normF unit="1e-11/cm2/second/TeV"> 2.5 </normF>
+      <normE unit="TeV"> 0.2 </normE>
+      <index> -1.82 </index>
+    </spectrum>
+    <extent type="ellipse">
+      <raAxis unit="deg"> 0.21 </raAxis>
+      <decAxis unit="deg"> 0.09 </decAxis>
+      <angle unit="deg"> 0 </angle>
+    </extent>
+  </source>
+
+  <!-- ==================== TeV J1745-290a =================== -->
+  <!-- F. Aharonian et al., Nature 439:695-698 (2006)
+       In the paper the flux normalization is given as 1.73e-8/(TeV cm s sr).
+       We convert to PS-equivalent flux by multiplying by 2 x 0.2 deg^2.
+       -->
+  <source>
+    <name> TeV J1745-290 </name>
+    <assoc> GalCentreRidge </assoc>
+    <raJ2000 unit="deg"> 266.415 </raJ2000>
+    <decJ2000 unit="deg"> -29.006 </decJ2000>
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 200 20000 </energyRange>
+      <normF unit="1e-12/cm2/second/TeV"> 2.11 </normF>
+      <normE unit="TeV"> 1.0 </normE>
+      <index> -2.29 </index>
+    </spectrum>
+    <extent type="box">
+      <raAxis unit="deg"> 2.0 </raAxis>
+      <decAxis unit="deg"> 0.2 </decAxis>
+      <angle unit="deg"> 60 </angle>
+    </extent>
+  </source>
+
+  <!-- ==================== TeV J1745-290 =================== -->
+  <!-- F. Aharonian et al., A&A 503:817-825 (2009) -->
+  <source>
+    <name> TeV J1745-290 </name>
+    <assoc> Galactic Centre </assoc>
+    <raJ2000 unit="deg"> 266.415000 </raJ2000>
+    <decJ2000 unit="deg"> -29.006111 </decJ2000>
+    <spectrum type="PLExpCutoff">
+      <energyRange unit="GeV"> 160 70000 </energyRange>
+      <normF unit="1e-12/cm2/second/TeV"> 2.55 </normF>
+      <normE unit="TeV"> 1.0 </normE>
+      <index> -2.10 </index>
+      <cutoffE unit="TeV"> 14.70 </cutoffE>
+    </spectrum>
+  </source>
+
+  <!-- ==================== TeV J1747-281 =================== -->
+  <!-- F. Aharonian et al., A&A 432:L25-L29 (2005) -->
+  <source>
+    <name> TeV J1747-281 </name>
+    <assoc> G0.9+0.1 </assoc>
+    <raJ2000 unit="deg"> 266.846667 </raJ2000>
+    <decJ2000 unit="deg"> -28.151667 </decJ2000>
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 200 5000 </energyRange>
+      <normF unit="1e-13/cm2/second/TeV"> 7.0 </normF>
+      <normE unit="TeV"> 1.0 </normE>
+      <index> -2.40 </index>
+    </spectrum>
+  </source>
+
+  <!-- ==================== TeV J1747-248 =================== -->
+  <!-- A. Abramowski et al., A&A 531:L18-L22 (2011) -->
+  <source>
+    <name> TeV J1747-248 </name>
+    <assoc> Terzan 5 </assoc>
+    <raJ2000 unit="deg"> 266.954167 </raJ2000>
+    <decJ2000 unit="deg"> -24.808333 </decJ2000>
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 440 20000 </energyRange>
+      <normF unit="1e-13/cm2/second/TeV"> 5.2 </normF>
+      <normE unit="TeV"> 1.0 </normE>
+      <index> -2.5 </index>
+    </spectrum>
+    <extent type="ellipse">
+      <raAxis unit="deg"> 0.16 </raAxis>
+      <decAxis unit="deg"> 0.03 </decAxis>
+      <angle unit="deg"> 182 </angle>
+    </extent>
+  </source>
+
+  <!-- ==================== TeV J1800-240 =================== -->
+  <!-- F. Aharonian et al., A&A 481:401-410 (2008) -->
+  <source>
+    <name> TeV J1800-240 </name>
+    <assoc> HESS J1800-240B </assoc>
+    <raJ2000 unit="deg"> 270.110000 </raJ2000>
+    <decJ2000 unit="deg"> -24.039000 </decJ2000>
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 100 4000 </energyRange>
+      <normF unit="1e-13/cm2/second/TeV"> 7.58 </normF>
+      <normE unit="TeV"> 1.0 </normE>
+      <index> -2.50 </index>
+    </spectrum>
+    <extent type="ellipse">
+      <raAxis unit="deg"> 0.15 </raAxis>
+      <decAxis unit="deg"> 0.15 </decAxis>
+      <angle unit="deg"> 0 </angle>
+    </extent>
+  </source>
+
+  <!-- ==================== TeV J1801-233 =================== -->
+  <!-- F. Aharonian et al., A&A 481:401-410 (2008) -->
+  <source>
+    <name> TeV J1801-233 </name>
+    <assoc> W28 </assoc>
+    <raJ2000 unit="deg"> 270.425833 </raJ2000>
+    <decJ2000 unit="deg"> -23.335000 </decJ2000>
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 100 4000 </energyRange>
+      <normF unit="1e-13/cm2/second/TeV"> 7.50 </normF>
+      <normE unit="TeV"> 1.0 </normE>
+      <index> -2.66 </index>
+    </spectrum>
+    <extent type="ellipse">
+      <raAxis unit="deg"> 0.17 </raAxis>
+      <decAxis unit="deg"> 0.17 </decAxis>
+      <angle unit="deg"> 0 </angle>
+    </extent>
+  </source>
+
+  <!-- ==================== TeV J1801-239 =================== -->
+  <!-- F. Aharonian et al., A&A 481:401-410 (2008) -->
+  <source>
+    <name> TeV J1801-239 </name>
+    <assoc> HESS J1800-240A </assoc>
+    <raJ2000 unit="deg"> 270.490833 </raJ2000>
+    <decJ2000 unit="deg"> -23.962000 </decJ2000>
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 100 4000 </energyRange>
+      <normF unit="1e-13/cm2/second/TeV"> 7.65 </normF>
+      <normE unit="TeV"> 1.0 </normE>
+      <index> -2.55 </index>
+    </spectrum>
+    <extent type="ellipse">
+      <raAxis unit="deg"> 0.15 </raAxis>
+      <decAxis unit="deg"> 0.15 </decAxis>
+      <angle unit="deg"> 0 </angle>
+    </extent>
+  </source>
+
+  <!-- ==================== TeV J1804-217 =================== -->
+  <!-- F. Aharonian et al., ApJ 636:777-797 (2006) -->
+  <source>
+    <name> TeV J1804-217 </name>
+    <assoc> HESS J1804-216 </assoc>
+    <raJ2000 unit="deg"> 271.130000 </raJ2000>
+    <decJ2000 unit="deg"> -21.700000 </decJ2000>
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 200 10000 </energyRange>
+      <normF unit="1e-12/cm2/second/TeV"> 6.0 </normF>
+      <normE unit="TeV"> 1.0 </normE>
+      <index> -2.72 </index>
+    </spectrum>
+    <extent type="ellipse">
+      <raAxis unit="deg"> 0.16 </raAxis>
+      <decAxis unit="deg"> 0.274 </decAxis>
+      <angle unit="deg"> 0 </angle>
+    </extent>
+  </source>
+
+  <!-- ==================== TeV J1808-204 =================== -->
+  <!-- Announced at Gamma 2012; no spectrum available -->
+  <!-- 
+  <source>
+    <name> TeV J1808-204 </name>
+    <assoc> HESS J1808-204 </assoc>
+    <raJ2000 unit="deg"> 272.0 </raJ2000>
+    <decJ2000 unit="deg"> -20.4 </decJ2000>
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 250 40000 </energyRange>
+      <normF unit="1e-12/cm2/second/TeV"> 4.6 </normF>
+      <normE unit="TeV"> 1.0 </normE>
+      <index> -2.2 </index>
+    </spectrum>
+  </source>
+  -->
+
+  <!-- ==================== TeV J1810-193 =================== -->
+  <!-- F. Aharonian et al., A&A 472:489-495 (2007) -->
+  <source>
+    <name> TeV J1810-193 </name>
+    <assoc> HESS J1809-193 </assoc>
+    <raJ2000 unit="deg"> 272.629167 </raJ2000>
+    <decJ2000 unit="deg"> -19.300000 </decJ2000>
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 250 40000 </energyRange>
+      <normF unit="1e-12/cm2/second/TeV"> 4.6 </normF>
+      <normE unit="TeV"> 1.0 </normE>
+      <index> -2.2 </index>
+    </spectrum>
+    <extent type="ellipse">
+      <raAxis unit="deg"> 0.53 </raAxis>
+      <decAxis unit="deg"> 0.25 </decAxis>
+      <angle unit="deg"> 130 </angle>
+    </extent>
+  </source>
+
+  <!-- ==================== TeV J1813-178 =================== -->
+  <!-- F. Aharonian et al., ApJ 636:777-797 (2006) -->
+  <source>
+    <name> TeV J1813-178 </name>
+    <assoc> HESS J1813-178 </assoc>
+    <raJ2000 unit="deg"> 273.400000 </raJ2000>
+    <decJ2000 unit="deg"> -17.840000 </decJ2000>
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 200 30000 </energyRange>
+      <normF unit="1e-12/cm2/second/TeV"> 3.0 </normF>
+      <normE unit="TeV"> 1.0 </normE>
+      <index> -2.09 </index>
+    </spectrum>
+  </source>
+
+  <!-- ==================== TeV J1818-154 =================== -->
+  <!-- P. Hofverberg et al., ICRC 2011, arXiv:1112.2901 -->
+  <source>
+    <name> TeV J1818-154 </name>
+    <assoc> SNR G 15.4+0.1 </assoc>
+    <raJ2000 unit="deg"> 274.514167 </raJ2000>
+    <decJ2000 unit="deg"> -15.465000 </decJ2000>
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 800 10000 </energyRange>
+      <normF unit="1e-13/cm2/second/TeV"> 4.5 </normF>
+      <normE unit="TeV"> 1.0 </normE>
+      <index> -2.1 </index>
+    </spectrum>
+    <extent type="ellipse">
+      <raAxis unit="deg"> 0.14 </raAxis>
+      <decAxis unit="deg"> 0.14 </decAxis>
+      <angle unit="deg"> 0 </angle>
+    </extent>
+  </source>
+
+  <!-- ==================== TeV J1826-137 =================== -->
+  <!-- F. Aharonian et al., ApJ 636:777-797 (2006) -->
+  <source>
+    <name> TeV J1826-137 </name>
+    <assoc> HESS J1825-137 </assoc>
+    <raJ2000 unit="deg"> 276.420833 </raJ2000>
+    <decJ2000 unit="deg"> -13.838889 </decJ2000>
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 200 40000 </energyRange>
+      <normF unit="1e-12/cm2/second/TeV"> 7.0 </normF>
+      <normE unit="TeV"> 1.0 </normE>
+      <index> -2.46 </index>
+    </spectrum>
+  </source>
+
+  <!-- ==================== TeV J1826-148 =================== -->
+  <!-- F. Aharonian et al., A&A 460:743-749 (2006)
+       This is an X-ray binary.  The phase-averaged spectrum is used. -->
+  <source>
+    <name> TeV J1826-148 </name>
+    <assoc> LS 5039 </assoc>
+    <raJ2000 unit="deg"> 276.562500 </raJ2000>
+    <decJ2000 unit="deg"> -14.825000 </decJ2000>
+    <spectrum type="PLExpCutoff">
+      <energyRange unit="GeV"> 220 30000 </energyRange>
+      <normF unit="1e-12/cm2/second/TeV"> 1.85 </normF>
+      <normE unit="TeV"> 1.0 </normE>
+      <index> -2.06 </index>
+      <cutoffE unit="TeV"> 13.0 </cutoffE>
+    </spectrum>
+  </source>
+
+  <!-- ==================== TeV J1831-099 =================== -->
+  <!-- F. Sheidaei et al., 2011 Fermi Symposium, arXiv:1110.6837 -->
+  <source>
+    <name> TeV J1831-099 </name>
+    <assoc> HESS J1831-098 </assoc>
+    <raJ2000 unit="deg"> 277.854167 </raJ2000>
+    <decJ2000 unit="deg"> -9.900000 </decJ2000>
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 300 30000 </energyRange>
+      <normF unit="1e-12/cm2/second/TeV"> 1.1 </normF>
+      <normE unit="TeV"> 1.0 </normE>
+      <index> -2.1 </index>
+    </spectrum>
+    <extent type="ellipse">
+      <raAxis unit="deg"> 0.15 </raAxis>
+      <decAxis unit="deg"> 0.15 </decAxis>
+      <angle unit="deg"> 0 </angle>
+    </extent>
+  </source>
+
+  <!-- ==================== TeV J1832-093 =================== -->
+  <!-- H. Laffon et al., 2011 Fermi Symposium, Rome.
+       Flux is 0.7% Crab > 1 TeV, no spectral index given. -->
+  <source>
+    <name> TeV J1832-093 </name>
+    <assoc> HESS J1832-093 </assoc>
+    <raJ2000 unit="deg"> 278.195125 </raJ2000>
+    <decJ2000 unit="deg"> -9.365139 </decJ2000>
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 300 10000 </energyRange>
+      <normF unit="1e-13/cm2/second/TeV"> 2.42 </normF>
+      <normE unit="TeV"> 1.0 </normE>
+      <index> -2.63 </index>
+    </spectrum>
+  </source>
+
+  <!-- ==================== TeV J1834-087 =================== -->
+  <!-- F. Aharonian et al., ApJ 636:777-797 (2006) -->
+  <source>
+    <name> TeV J1834-087 </name>
+    <assoc> HESS J1834-087 </assoc>
+    <raJ2000 unit="deg"> 278.690000 </raJ2000>
+    <decJ2000 unit="deg"> -8.760000 </decJ2000>
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 200 30000 </energyRange>
+      <normF unit="1e-12/cm2/second/TeV"> 2.5 </normF>
+      <normE unit="TeV"> 1.0 </normE>
+      <index> -2.45 </index>
+    </spectrum>
+  </source>
+
+  <!-- ==================== TeV J1837-069 =================== -->
+  <!-- F. Aharonian et al., ApJ 636:777-797 (2006) -->
+  <source>
+    <name> TeV J1837-069 </name>
+    <assoc> HESS J1837-069 </assoc>
+    <raJ2000 unit="deg"> 279.410000 </raJ2000>
+    <decJ2000 unit="deg"> -6.950000 </decJ2000>
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 200 30000 </energyRange>
+      <normF unit="1e-12/cm2/second/TeV"> 5.0 </normF>
+      <normE unit="TeV"> 1.0 </normE>
+      <index> -2.27 </index>
+    </spectrum>
+  </source>
+
+  <!-- ==================== TeV J1840-055 =================== -->
+  <!-- F. Aharonian et al., A&A 477:353-363 (2008) -->
+  <source>
+    <name> TeV J1840-055 </name>
+    <assoc> HESS J1841-055 </assoc>
+    <raJ2000 unit="deg"> 280.229167 </raJ2000>
+    <decJ2000 unit="deg"> -5.550000 </decJ2000>
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 540 80000 </energyRange>
+      <normF unit="1e-12/cm2/second/TeV"> 12.8 </normF>
+      <normE unit="TeV"> 1.0 </normE>
+      <index> -2.41 </index>
+    </spectrum>
+    <extent type="ellipse">
+      <raAxis unit="deg"> 0.41 </raAxis>
+      <decAxis unit="deg"> 0.25 </decAxis>
+      <angle unit="deg"> 39 </angle>
+    </extent>
+  </source>
+
+  <!-- ==================== TeV J1843-030 =================== -->
+  <!-- This is a complex region that is actually probably 3 sources.
+       See R. Terrier, TeV PA 2011. -->
+  <!--
+  <source>
+    <name> TeV J1843-030 </name>
+    <assoc> HESS J1843-033 </assoc>
+    <raJ2000 unit="deg"> 280.750000 </raJ2000>
+    <decJ2000 unit="deg"> -3.000000 </decJ2000>
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 0 </energyRange>
+      <normF unit="1./cm2/second/TeV"> </normF>
+      <normE unit="TeV"> </normE>
+      <index> -0 </index>
+    </spectrum>
+  </source>
+  -->
+
+  <!-- ==================== TeV J1846-029 =================== -->
+  <!-- A. Djannati-Atai et al., ICRC 2007 -->
+  <source>
+    <name> TeV J1846-029 </name>
+    <assoc> HESS J1846-029 </assoc>
+    <raJ2000 unit="deg"> 281.600417 </raJ2000>
+    <decJ2000 unit="deg"> -2.981389 </decJ2000>
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 300 5000 </energyRange>
+      <normF unit="1e-13/cm2/second/TeV"> 6.20 </normF>
+      <normE unit="TeV"> 1.0 </normE>
+      <index> -2.26 </index>
+    </spectrum>
+  </source>
+
+  <!-- ==================== TeV J1848-017 =================== -->
+  <!-- R.C.G. Chaves et al., Proc. 4th Int. Meet. High-Energy
+       Gamma-Ray Astron., 372-375 (2009)-->
+  <source>
+    <name> TeV J1848-017 </name>
+    <assoc> HESS J1848-018 </assoc>
+    <raJ2000 unit="deg"> 282.120833 </raJ2000>
+    <decJ2000 unit="deg"> -1.792306 </decJ2000>
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 600 10000 </energyRange>
+      <normF unit="1e-12/cm2/second/TeV"> 3.7 </normF>
+      <normE unit="TeV"> 1.0 </normE>
+      <index> -2.8 </index>
+    </spectrum>
+    <extent type="ellipse">
+      <raAxis unit="deg"> 0.32 </raAxis>
+      <decAxis unit="deg"> 0.32 </decAxis>
+      <angle unit="deg"> 0 </angle>
+    </extent>
+  </source>
+
+  <!-- ==================== TeV J1849-000 =================== -->
+  <!-- Guessed flux above 350 GeV given as 0.015*Crab,
+       but no spectrum is given.  Using HESS Crab spectrum
+       with reduced normalization. -->
+  <source>
+    <name> TeV J1849-000 </name>
+    <assoc> IGR J18490-0000 </assoc>
+    <raJ2000 unit="deg"> 282.256792 </raJ2000>
+    <decJ2000 unit="deg"> 0.021444 </decJ2000>
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 350 10000 </energyRange>
+      <normF unit="1e-13/cm2/second/TeV"> 5.18 </normF>
+      <normE unit="TeV"> 1.0 </normE>
+      <index> -2.63 </index>
+    </spectrum>
+  </source>
+
+  <!-- ==================== TeV J1857+026 =================== -->
+  <!-- F. Aharonian et al., A&A 477:353-363 (2008) -->
+  <source>
+    <name> TeV J1857+026 </name>
+    <assoc> HESS J1857+026 </assoc>
+    <raJ2000 unit="deg"> 284.295833 </raJ2000>
+    <decJ2000 unit="deg"> 2.666667 </decJ2000>
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 600 80000 </energyRange>
+      <normF unit="1e-12/cm2/second/TeV"> 6.1 </normF>
+      <normE unit="TeV"> 1.0 </normE>
+      <index> -2.39 </index>
+    </spectrum>
+  </source>
+
+  <!-- ==================== TeV J1858+020 =================== -->
+  <!-- F. Aharonian et al., A&A 477:353-363 (2008) -->
+  <source>
+    <name> TeV J1858+020 </name>
+    <assoc> HESS J1858+020 </assoc>
+    <raJ2000 unit="deg"> 284.583333 </raJ2000>
+    <decJ2000 unit="deg"> 2.090000 </decJ2000>
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 500 80000 </energyRange>
+      <normF unit="1e-12/cm2/second/TeV"> 0.6 </normF>
+      <normE unit="TeV"> 1.0 </normE>
+      <index> -2.17 </index>
+    </spectrum>
+  </source>
+
+  <!-- ==================== TeV J1907+062 =================== -->
+  <!-- F. Aharonian et al., A&A 499:723-728 (2009) -->
+  <source>
+    <name> TeV J1907+062 </name>
+    <assoc> MGRO J1908+06 </assoc>
+    <raJ2000 unit="deg"> 286.975000 </raJ2000>
+    <decJ2000 unit="deg"> 6.268611 </decJ2000>
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 1000 30000 </energyRange>
+      <normF unit="1e-12/cm2/second/TeV"> 4.14 </normF>
+      <normE unit="TeV"> 1.0 </normE>
+      <index> -2.10 </index>
+    </spectrum>
+    <extent type="ellipse">
+      <raAxis unit="deg"> 0.34 </raAxis>
+      <decAxis unit="deg"> 0.34 </decAxis>
+      <angle unit="deg"> 0 </angle>
+    </extent>
+  </source>
+
+  <!-- ==================== TeV J1911+090 =================== -->
+  <!-- F. Brun et al., Proc. 25th Texas Symposium (2010) -->
+  <source>
+    <name> TeV J1911+090 </name>
+    <assoc> W49B </assoc>
+    <raJ2000 unit="deg"> 287.777625 </raJ2000>
+    <decJ2000 unit="deg"> 9.092778 </decJ2000>
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 260 10000 </energyRange>
+      <normF unit="1e-13/cm2/second/TeV"> 2.3 </normF>
+      <normE unit="TeV"> 1.0 </normE>
+      <index> -3.1 </index>
+    </spectrum>
+  </source>
+
+  <!-- ==================== TeV J1912+101 =================== -->
+  <!-- F. Aharonian et al., A&A 484:435-440 (2008) -->
+  <source>
+    <name> TeV J1912+101 </name>
+    <assoc> HESS J1912+101 </assoc>
+    <raJ2000 unit="deg"> 288.204167 </raJ2000>
+    <decJ2000 unit="deg"> 10.151667 </decJ2000>
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 1000 20000 </energyRange>
+      <normF unit="1e-12/cm2/second/TeV"> 3.5 </normF>
+      <normE unit="TeV"> 1.0 </normE>
+      <index> -2.7 </index>
+    </spectrum>
+    <extent type="ellipse">
+      <raAxis unit="deg"> 0.26 </raAxis>
+      <decAxis unit="deg"> 0.26 </decAxis>
+      <angle unit="deg"> 0 </angle>
+    </extent>
+  </source>
+
+  <!-- ==================== TeV J1923+141 =================== -->
+  <!-- J. Aleksic et al., A&A 541:A13-A24 (2012) -->
+  <source>
+    <name> TeV J1923+141 </name>
+    <assoc> W51 </assoc>
+    <raJ2000 unit="deg"> 290.730000 </raJ2000>
+    <decJ2000 unit="deg"> 14.191000 </decJ2000>
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 100 40000 </energyRange>
+      <normF unit="1e-13/cm2/second/TeV"> 9.7 </normF>
+      <normE unit="TeV"> 1.0 </normE>
+      <index> -2.58 </index>
+    </spectrum>
+  </source>
+
+  <!-- ==================== TeV J1930+188 =================== -->
+  <!-- V.A. Acciari et al., ApJ 719:L69-L73 (2010) -->
+  <source>
+    <name> TeV J1930+188 </name>
+    <assoc> G54.1+0.3 </assoc>
+    <raJ2000 unit="deg"> 292.633333 </raJ2000>
+    <decJ2000 unit="deg"> 18.870000 </decJ2000>
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 300 5000 </energyRange>
+      <normF unit="1e-13/cm2/second/TeV"> 7.5 </normF>
+      <normE unit="TeV"> 1.0 </normE>
+      <index> -2.39 </index>
+    </spectrum>
+  </source>
+
+  <!-- ==================== TeV J1943+213 =================== -->
+  <!-- A. Abramowski et al., A&A 529:A49-A58 (2011) -->
+  <source>
+    <name> TeV J1943+213 </name>
+    <assoc> HESS J1943+213 </assoc>
+    <raJ2000 unit="deg"> 295.979167 </raJ2000>
+    <decJ2000 unit="deg"> 21.302222 </decJ2000>
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 470 20000 </energyRange>
+      <normF unit="1e-13/cm2/second/TeV"> 5.6 </normF>
+      <normE unit="TeV"> 1.0 </normE>
+      <index> -3.1 </index>
+    </spectrum>
+  </source>
+
+  <!-- ==================== TeV J1959+651 =================== -->
+  <!-- J. Albert et al., ApJ 639:761-765 (2006) -->
+  <source>
+    <name> TeV J1959+651 </name>
+    <assoc> 1ES 1959+650 </assoc>
+    <raJ2000 unit="deg"> 299.999167 </raJ2000>
+    <decJ2000 unit="deg"> 65.148611 </decJ2000>
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 200 2000 </energyRange>
+      <normF unit="1e-11/cm2/second/TeV"> 0.43 </normF>
+      <normE unit="TeV"> 1.0 </normE>
+      <index> -2.72 </index>
+    </spectrum>
+  </source>
+
+  <!-- ==================== TeV J2001+438 =================== -->
+  <!-- Integral flux above 90 GeV is given because MAGIC saw a flare
+       on 16 Jul 2009 (see ATel #2753).
+       
+       No spectrum is given but the integral flux for the flare is
+       20% of the Crab.  According to the ATel the steady flux
+       is substantially lower.  Therefore, using the HESS Crab spectrum
+       with 2% normalization. -->
+  <source>
+    <name> TeV J2001+438 </name>
+    <assoc> MAGIC J2001+435 </assoc>
+    <raJ2000 unit="deg"> 300.306250 </raJ2000>
+    <decJ2000 unit="deg"> 43.884111 </decJ2000>
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 90 10000 </energyRange>
+      <normF unit="1e-13/cm2/second/TeV"> 6.9 </normF>
+      <normE unit="TeV"> 1.0 </normE>
+      <index> -2.63 </index>
+    </spectrum>
+  </source>
+
+  <!-- ==================== TeV J2016+372 =================== -->
+  <!-- E. Aliu et al., ICRC 2011, arXiv:1110.4656.
+       Newly announced, spectral index, 1% Crab flux > 1 TeV -->
+  <source>
+    <name> TeV J2016+372 </name>
+    <assoc> VER J2016+372 </assoc>
+    <raJ2000 unit="deg"> 304.000000 </raJ2000>
+    <decJ2000 unit="deg"> 37.200000 </decJ2000>
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 1000 10000 </energyRange>
+      <normF unit="1e-13/cm2/second/TeV"> 2.33 </normF>
+      <normE unit="TeV"> 1.0 </normE>
+      <index> -2.1 </index>
+    </spectrum>
+  </source>
+
+  <!-- ==================== TeV J2019+368 =================== -->
+  <!-- A.A. Abdo et al., ApJ 753:159-166 (2012) -->
+  <source>
+    <name> TeV J2019+368 </name>
+    <assoc> MGRO J2019+37 </assoc>
+    <raJ2000 unit="deg"> 304.645958 </raJ2000>
+    <decJ2000 unit="deg"> 36.833333 </decJ2000>
+    <spectrum type="PLExpCutoff">
+      <energyRange unit="GeV"> 3500 100000 </energyRange>
+      <normF unit="1e-14/cm2/second/TeV"> 7.0 </normF>
+      <normE unit="TeV"> 10.0 </normE>
+      <index> -2.0 </index>
+      <cutoffE unit="TeV"> 29.0 </cutoffE>
+    </spectrum>
+    <extent type="ellipse">
+      <raAxis unit="deg"> 0.75 </raAxis>
+      <decAxis unit="deg"> 0.75 </decAxis>
+      <angle unit="deg"> 0 </angle>
+    </extent>
+  </source>
+
+  <!-- ==================== TeV J2019+407 =================== -->
+  <!-- Part of the VERITAS survey of Cygnus.  See A. Weinstein,
+       2009 Fermi Symposium, Washington, D.C.
+
+       No spectrum is given; flux is 5% of Crab.  Using HESS
+       Crab spectrum with reduced normalization. -->
+  <source>
+    <name> TeV J2019+407 </name>
+    <assoc> VER J2019+407 </assoc>
+    <raJ2000 unit="deg"> 304.970000 </raJ2000>
+    <decJ2000 unit="deg"> 40.790000 </decJ2000>
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 100 10000 </energyRange>
+      <normF unit="1e-12/cm2/second/TeV"> 1.73 </normF>
+      <normE unit="TeV"> 1.0 </normE>
+      <index> -2.63 </index>
+    </spectrum>
+    <extent type="ellipse">
+      <raAxis unit="deg"> 0.16 </raAxis>
+      <decAxis unit="deg"> 0.16 </decAxis>
+      <angle unit="deg"> 0 </angle>
+    </extent>
+  </source>
+
+  <!-- ==================== TeV J2031+406 =================== -->
+  <!-- A.A. Abdo et al., ApJ 753:159-166 (2012) -->
+  <source>
+    <name> TeV J2031+406 </name>
+    <assoc> MGRO J2031+41 </assoc>
+    <raJ2000 unit="deg"> 307.410000 </raJ2000>
+    <decJ2000 unit="deg"> 41.190000 </decJ2000>
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 3500 100000 </energyRange>
+      <normF unit="1e-14/cm2/second/TeV"> 2.1 </normF>
+      <normE unit="TeV"> 10.0 </normE>
+      <index> -3.22 </index>
+    </spectrum>
+    <extent type="ellipse">
+      <raAxis unit="deg"> 1.1 </raAxis>
+      <decAxis unit="deg"> 1.1 </decAxis>
+      <angle unit="deg"> 0 </angle>
+    </extent>
+  </source>
+
+  <!-- ==================== TeV J2032+415 =================== -->
+  <!-- J. Albert et al., ApJ 675:L25-L28 (2008) -->
+  <source>
+    <name> TeV J2032+415 </name>
+    <assoc> TeV J2032+4130 </assoc>
+    <raJ2000 unit="deg"> 308.029167 </raJ2000>
+    <decJ2000 unit="deg"> 41.508333 </decJ2000>
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 400 7000 </energyRange>
+      <normF unit="1e-13/cm2/second/TeV"> 4.5 </normF>
+      <normE unit="TeV"> 1.0 </normE>
+      <index> -2.0 </index>
+    </spectrum>
+  </source>
+
+  <!-- ==================== TeV J2158-302 =================== -->
+  <!-- A. Abramowski et al., A&A 520:A83-A98 (2010) -->
+  <source>
+    <name> TeV J2158-302 </name>
+    <assoc> PKS 2155-304 </assoc>
+    <raJ2000 unit="deg"> 329.719583 </raJ2000>
+    <decJ2000 unit="deg"> -30.221667 </decJ2000>
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 300 4000 </energyRange>
+      <normF unit="1e-12/cm2/second/TeV"> 1.81 </normF>
+      <normE unit="TeV"> 1.0 </normE>
+      <index> -3.53 </index>
+    </spectrum>
+  </source>
+
+  <!-- ==================== TeV J2202+422 =================== -->
+  <!-- J. Albert et al., ApJ 666:L17-L20 (2007) -->
+  <source>
+    <name> TeV J2202+422 </name>
+    <assoc> BL Lacertae </assoc>
+    <raJ2000 unit="deg"> 330.680417 </raJ2000>
+    <decJ2000 unit="deg"> 42.277778 </decJ2000>
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 200 10000 </energyRange>
+      <normF unit="1e-11/cm2/second/TeV"> 1.9 </normF>
+      <normE unit="TeV"> 0.3 </normE>
+      <index> -3.6 </index>
+    </spectrum>
+  </source>
+
+  <!-- ==================== TeV J2227+608 =================== -->
+  <!-- V.A. Acciari et al., ApJ 703:L6-L9 (2009) -->
+  <source>
+    <name> TeV J2227+608 </name>
+    <assoc> G106.3+2.7 </assoc>
+    <raJ2000 unit="deg"> 336.995833 </raJ2000>
+    <decJ2000 unit="deg"> 60.876944 </decJ2000>
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 1000 10000 </energyRange>
+      <normF unit="1e-13/cm2/second/TeV"> 1.15 </normF>
+      <normE unit="TeV"> 3.0 </normE>
+      <index> -2.29 </index>
+    </spectrum>
+    <extent type="ellipse">
+      <raAxis unit="deg"> 0.27 </raAxis>
+      <decAxis unit="deg"> 0.18 </decAxis>
+      <angle unit="deg"> 68 </angle>
+    </extent>
+  </source>
+
+  <!-- ==================== TeV J2228+611 =================== -->
+  <!-- A.A. Abdo et al., ApJ 700:L127-L131 (2009)
+       This is the MGRO C4 region associated with 0FGL J2229.0+6114
+       in the Fermi Bright Source List.
+       
+       No spectrum was published, but the flux at 35 TeV is about
+       70.9+-10.8e-17 /TeV/cm2/s, about 0.44*Crab at this energy.
+       To model the spectrum we take the HESS Crab flux and reduce
+       the normalization. -->
+  <source>
+    <name> TeV J2228+611 </name>
+    <assoc> Boomerang </assoc>
+    <raJ2000 unit="deg"> 337.183333 </raJ2000>
+    <decJ2000 unit="deg"> 61.166667 </decJ2000>
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 400 40000 </energyRange>
+      <normF unit="1e-11/cm2/second/TeV"> 1.52 </normF>
+      <normE unit="TeV"> 1.0 </normE>
+      <index> -2.63 </index>
+    </spectrum>
+  </source>
+
+  <!-- ==================== TeV J2250+384 =================== -->
+  <!-- J. Aleksic et al., A&A 539:A118-A123 (2012) -->
+  <source>
+    <name> TeV J2250+384 </name>
+    <assoc> B3 2247+381 </assoc>
+    <raJ2000 unit="deg"> 342.527500 </raJ2000>
+    <decJ2000 unit="deg"> 38.432778 </decJ2000>
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 150 1000 </energyRange>
+      <normF unit="1e-11/cm2/second/TeV"> 1.4 </normF>
+      <normE unit="TeV"> 0.3 </normE>
+      <index> -3.2 </index>
+    </spectrum>
+  </source>
+
+  <!-- ==================== TeV J2323+588 =================== -->
+  <!-- V.A. Acciari et al., ApJ 714:163-169 (2010) -->
+  <source>
+    <name> TeV J2323+588 </name>
+    <assoc> Cassiopeia A </assoc>
+    <raJ2000 unit="deg"> 350.807500 </raJ2000>
+    <decJ2000 unit="deg"> 58.807222 </decJ2000>
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 250 5000 </energyRange>
+      <normF unit="1e-12/cm2/second/TeV"> 1.26 </normF>
+      <normE unit="TeV"> 1.0 </normE>
+      <index> -2.61 </index>
+    </spectrum>
+  </source>
+
+  <!-- ==================== TeV J2347+517 =================== -->
+  <!-- V.A. Acciari et al., ApJ 738:169-176 (2011)
+       Time-averaged spectrum. -->
+  <source>
+    <name> TeV J2347+517 </name>
+    <assoc> 1ES 2344+514 </assoc>
+    <raJ2000 unit="deg"> 356.770417 </raJ2000>
+    <decJ2000 unit="deg"> 51.704722 </decJ2000>
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 350 3000 </energyRange>
+      <normF unit="1e-12/cm2/second/TeV"> 3.38 </normF>
+      <normE unit="TeV"> 1.0 </normE>
+      <index> -2.78 </index>
+    </spectrum>
+  </source>
+
+  <!-- ==================== TeV J2359-306 =================== -->
+  <!-- F. Aharonian et al., A&A 455:461-466 (2006) -->
+  <source>
+    <name> TeV J2359-306 </name>
+    <assoc> H 2356-309 </assoc>
+    <raJ2000 unit="deg"> 359.789250 </raJ2000>
+    <decJ2000 unit="deg"> -30.622972 </decJ2000>
+    <spectrum type="PowerLaw">
+      <energyRange unit="GeV"> 100 2000 </energyRange>
+      <normF unit="1e-13/cm2/second/TeV"> 3.00 </normF>
+      <normE unit="TeV"> 1.0 </normE>
+      <index> -3.09 </index>
+    </spectrum>
+  </source>
+
+</ps-catalog>
